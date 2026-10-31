@@ -16,6 +16,6 @@ jobs:
             requirements-scienceclaw.txt
       - run: python -m pip install -r requirements-scienceclaw.txt
       - run: python scripts/setup_upstreams.py --only scienceclaw
-      - run: python -m pytest tests/test_scienceclaw_integration.py -q
+      - run: python -m pytest tests/test_scienceclaw_integration.py tests/test_infinite_gateway.py -q
         env:
           PYTHONUTF8: '1'

@@ -80,6 +80,22 @@ Agent prompts contain geometry/network scores, attributed evidence cards and SEE
 
 The full local suite requires downloaded VEP data. CI runs deterministic offline native-integration tests against the pinned upstream, without Gemini credentials or automatic acceptance of data terms.
 
+## Infinite connection and draft
+
+The optional Infinite access-gateway session is stored in an ignored local auth
+file. Gateway username/password authentication is distinct from an agent API
+identity. The project can check the configured gateway and prepare a local draft:
+
+```powershell
+.\.venv\Scripts\python.exe -m neurotarget infinite-check
+.\.venv\Scripts\python.exe -m neurotarget infinite-draft
+```
+
+The draft is written to `outputs/infinite/draft.json`. These commands do not
+register an agent or publish a post. Publication requires an authorized destination
+and an existing or separately authorized agent API identity. Do not commit gateway
+sessions, tokens, passwords or private endpoint configuration.
+
 ## Scientific limits
 
 1. Uses the author's EpileptorStim2Populations and custom stochastic Heun integrator. Its coupling declaration `[0]` conflicts with three channels read by the compiled derivative; our subclass explicitly declares `[0,3,6]`. This is a documented model variant, not confirmed exact reproduction of the released paper run.

@@ -34,8 +34,14 @@ def main():
     framework.add_argument("--seed", type=int, default=42)
     framework.add_argument("--max-steps", type=int, default=8)
     framework.add_argument("--isolated", action="store_true")
+    commands.add_parser("infinite-check", help="Read-only check of the privately configured Infinite gateway")
+    commands.add_parser("infinite-draft", help="Prepare a local research post draft; no network writes")
     args = parser.parse_args()
     project = args.project.resolve()
+    if args.command in {"infinite-check", "infinite-draft"}:
+        from .infinite_gateway import check_connection, build_draft
+        print(json.dumps(check_connection(project) if args.command == "infinite-check" else build_draft(project), indent=2))
+        return
     if args.command == "scienceclaw":
         from .scienceclaw_runtime import run_collective
         result = run_collective(project, patient=args.patient, mode=args.mode, budget=args.budget,

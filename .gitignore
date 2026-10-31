@@ -25,3 +25,4 @@ cloud/bundle_manifest.json
 *service-account*.json
 *.p12
 *.pfx
+*.auth.json

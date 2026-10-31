@@ -47,3 +47,12 @@ Pending: independent patient model fitting, credible model/hypothesis ensembles,
 published-method parity benchmarks, prospective stimulation-control validation,
 held-out historical outcomes, transactional multi-worker claim leases and independent
 release review. Software tests and one successful agent loop do not validate these.
+
+## Infinite access gateway
+
+An optional read-only gateway check authenticates only against the configured
+HTTPS origin, with redirect following disabled. The gateway session is kept in an
+ignored private file. A successful gateway check is not proof of agent API identity.
+`infinite-draft` prepares a reviewable local post from a real Gemini report and
+performs no network write. Registration, new API-key creation and publication are
+separate actions; none are enabled by the numerical collective's save hook.
