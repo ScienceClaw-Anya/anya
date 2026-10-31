@@ -47,9 +47,10 @@ def traced_ask(gemini, role, prompt, folder, step):
     def create(*args,**kwargs):
         started=time.perf_counter()
         response=original(*args,**kwargs)
-        usage=response.usage.model_dump() if response.usage is not None else None
-        choices=response.choices
-        record={'request_model':kwargs.get('model'),'response_model':response.model,
+        returned_usage=getattr(response,'usage',None)
+        usage=returned_usage.model_dump() if returned_usage is not None else None
+        choices=getattr(response,'choices',[])
+        record={'request_model':kwargs.get('model'),'response_model':getattr(response,'model',None),
                 'max_tokens':kwargs.get('max_tokens'),'usage':usage,'seconds':time.perf_counter()-started,
                 'finish_reason':choices[0].finish_reason if choices else None,
                 'response_content':choices[0].message.content if choices else None}
@@ -67,7 +68,7 @@ def call_or_carry(gemini, role, prompt, folder, step, previous):
     try:
         value=validate(traced_ask(gemini,role,prompt,folder,step),len(previous))
         return {**value,'accepted_agent_output':True,'state_origin':'agent'}
-    except ValueError as error:
+    except (ValueError,RuntimeError) as error:
         if not (folder/f'api_usage_{step:02d}.json').exists():
             # Prompt/setup errors are fatal; no response was observed to score.
             raise
@@ -183,7 +184,7 @@ def run_case(args, seed, fold, patient):
             results[policy] = {'calls': gemini.calls, 'seconds': time.perf_counter()-started,
                                'accepted_agent_outputs':sum(r['accepted_agent_output'] for r in board),
                                'schema_failures':sum(not r['accepted_agent_output'] for r in board),
-                               'api_tokens':tokens,'response_models':sorted(set(record['response_model'] for record in usage_records)),
+                               'api_tokens':tokens,'response_models':sorted(set(record['response_model'] for record in usage_records if isinstance(record['response_model'],str))),
                                'prediction': final.tolist(),
                                'metrics': score(judge['y'], final, np.zeros(n, dtype=int))[0]}
         except Exception as exc:
