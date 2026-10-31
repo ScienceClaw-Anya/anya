@@ -69,7 +69,7 @@ class ScoringTests(unittest.TestCase):
         def original(**kwargs):calls.append(kwargs);return response
         resource=SimpleNamespace(create=original)
         client=SimpleNamespace(gemini_client=SimpleNamespace(chat=SimpleNamespace(completions=resource)))
-        fake=SimpleNamespace(client=lambda role:client,ask=lambda role,prompt:resource.create(model='test-model',max_tokens=2800))
+        fake=SimpleNamespace(max_tokens=2800,client=lambda role:client,ask=lambda role,prompt:resource.create(model='test-model',max_tokens=2800))
         with tempfile.TemporaryDirectory() as directory:
             result=traced_ask(fake,'signal',{},Path(directory),0)
             saved=json.loads((Path(directory)/'api_usage_00.json').read_text())
@@ -100,7 +100,7 @@ class ScoringTests(unittest.TestCase):
         response=SimpleNamespace(usage=usage,model='test-model',choices=[SimpleNamespace(finish_reason='stop',message=SimpleNamespace(content='malformed'))])
         resource=SimpleNamespace(create=lambda **kwargs:response)
         client=SimpleNamespace(gemini_client=SimpleNamespace(chat=SimpleNamespace(completions=resource)))
-        fake=SimpleNamespace(calls=0,client=lambda role:client)
+        fake=SimpleNamespace(calls=0,max_tokens=2800,client=lambda role:client)
         def ask(role,prompt):
             fake.calls+=1;resource.create(model='test-model',max_tokens=2800);raise ValueError('Invalid returned JSON')
         fake.ask=ask

@@ -1,14 +1,22 @@
 {
   "title": "Norris et al. 2024 replication and matched-task agent comparison",
-  "status": "Public-code reconstruction authorized after disclosure of cohort mismatch; no exact paper reproduction claimed",
+  "status": "Numerical reconstruction complete; formal agent rerun after disclosed token-cap calibration.",
   "paper": "https://proceedings.mlr.press/v252/norris24a.html",
   "upstream_repository": "https://github.com/norrisjamie23/Localising_SOZ_from_SPES",
   "upstream_commit": "90062e8c5fe5593713125eaf5f573faedb739f65",
   "dataset": "https://openneuro.org/datasets/ds004080/versions/1.2.4",
   "metadata_commit": "c4fd7418883e33b024292468eb14da1649f51aae",
-  "paper_expected_cohort": {"patients": 35, "electrodes": 2066, "SOZ_electrodes": 298},
+  "paper_expected_cohort": {
+    "patients": 35,
+    "electrodes": 2066,
+    "SOZ_electrodes": 298
+  },
   "primary_reproduction": {
-    "models": ["CNN (divergent)", "CNN (convergent)", "Transformer (base)"],
+    "models": [
+      "CNN (divergent)",
+      "CNN (convergent)",
+      "Transformer (base)"
+    ],
     "repeats": 5,
     "patient_folds": 5,
     "split": "3 training folds, 1 validation fold, 1 test fold; no shared patients",
@@ -17,7 +25,12 @@
     "training_limit_caveat": "Ten epochs in Appendix D describe tuning; the example notebook says its 10-epoch final training differs from the paper's early stopping. The 1000-epoch ceiling follows released train_model default and is an explicit reconstruction assumption.",
     "hyperparameters": "Use exact full-precision values in the released notebook; do not tune to match test results.",
     "primary_metric": "AUROC per patient, averaged within fold, then across the 25 held-out folds",
-    "secondary_metrics": ["sensitivity", "specificity", "Youden", "AUPRC"],
+    "secondary_metrics": [
+      "sensitivity",
+      "specificity",
+      "Youden",
+      "AUPRC"
+    ],
     "thresholds": "Report Appendix C median/MAD and released-code pooled Youden separately.",
     "pass_criteria": "All 75 runs complete, counts reconciled, no leakage, preprocessing/model checks pass. Report numerical differences; closeness alone is not proof of exact reproduction."
   },
@@ -31,14 +44,24 @@
     "task": "Rank the same held-out patient's eligible electrodes by SOZ likelihood, given measured SPES responses and frozen numerical tools.",
     "order": "Start only after all 75 public-code reconstruction runs complete; compare on that identical frozen cohort, explicitly distinguishing it from the paper cohort.",
     "tools": "All strategies share the same out-of-fold trained models, waveform features, distances and calibration learned from validation patients.",
-    "strategies": ["frozen CNN Transformer", "fixed three-model mean ensemble", "single generalist", "four specialists with shared board, two rounds"],
+    "strategies": [
+      "frozen CNN Transformer",
+      "fixed three-model mean ensemble",
+      "single generalist",
+      "four specialists with shared board, two rounds"
+    ],
     "LLM_budget": "8 requests per held-out patient per agent strategy, same model, output cap and observations; failed calls count; no unrecorded retries.",
     "invalid_response_policy": "A completed API response with invalid JSON or schema consumes its request and carries forward the previous score state, initially the shared frozen Transformer. Such states are labelled unaccepted; no extra request or fabricated agent explanation is used. Transport/quota/authentication errors halt the run.",
     "board_bounds": "All prior states remain visible; displayed scores are rounded to four decimals and each displayed reason/reflection is bounded to 100 words or 400 characters. Full responses remain in the audit trail. Same bounds for both policies.",
     "evaluation": "Patient-level paired AUROC differences; cluster uncertainty by patient across repeats; record API usage and wall time.",
     "labels": "SOZ, resection and outcome annotations, patient identity, test accuracy and reference prevalence must never appear in agent payloads.",
     "reflection": "Critique only model disagreement, observed response features and earlier proposals; no test-label feedback.",
-    "separate_extension": "Budgeted next-stimulation selection is a later extension, not an exact replication of the paper's classification task."
+    "separate_extension": "Budgeted next-stimulation selection is a later extension, not an exact replication of the paper's classification task.",
+    "formal_combined_token_ceiling": 8192,
+    "reasoning_effort": "low",
+    "workers": 8,
+    "shared_requests_per_minute": 60,
+    "token_calibration": "47 attempts / 45 captured responses / 6 truncated / 2 unresolved in-flight attempts, archived and excluded from score comparisons. Cap selected from truncation without viewing accuracy."
   },
   "known_reproduction_gaps": [
     "Original public preprocessing yields 35 patients, 2145 electrodes and 304 SOZ positives, versus published 35/2066/298. Do not delete contacts to force agreement.",

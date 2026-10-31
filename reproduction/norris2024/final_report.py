@@ -84,6 +84,8 @@ def build(project):
              'primary_models':metrics,'paper_table1_reported_metrics':PAPER_TABLE,'channel_sensitivity':sensitivity['summary'],'agents':agent,
              'verification':{k:v for k,v in verification.items() if k!='checkpoint_sha256'},
              'remaining_paper_gaps':['different cohort counts','unreleased original RNG and split manifests','unverified Engel outcomes and modified outcome-model details','original spatial example patient not specified']}
+    calibration_path=output/'token_calibration_accounting.json'
+    if calibration_path.exists():summary['separate_token_calibration']=json.loads(calibration_path.read_text())
     extras='<article><h2>Published and reconstructed model metrics</h2><p>Published values are from Table 1. Standard deviations describe the 25 fold/repeat summaries, not confidence intervals. Cohort and implementation differences remain disclosed above.</p><table><tr><th>Model</th><th>Metric</th><th>Published mean ± SD</th><th>Rerun: Appendix C threshold</th><th>Rerun: released-code threshold</th></tr>'
     for name,result in metrics.items():
         for metric in ['AUROC','Specificity','Sensitivity','Youden','AUPRC']:
@@ -106,6 +108,9 @@ def build(project):
     for policy,cost in agent['usage'].items():
         extras+=f'<tr><td>{policy}</td><td>{cost["requests"]}</td><td>{cost["api_tokens"]["prompt_tokens"]}</td><td>{cost["api_tokens"]["completion_tokens"]}</td><td>{html.escape(", ".join(cost["response_models"]))}</td></tr>'
     extras+='</table><p>'+html.escape(agent['budget_note'])+' Provider SDK response metadata is saved for every successful request. Malformed returned score vectors consume a request; the policy retains its previous scores (initially the shared Transformer). Such states are explicitly labelled, with no extra request or invented agent explanation.</p><p>'+'; '.join(f'{policy}: {value["accepted_agent_outputs"]} accepted outputs, {value["schema_failures"]} malformed outputs' for policy,value in agent['usage'].items())+'.</p></article>'
+    if 'separate_token_calibration' in summary:
+        calibration=summary['separate_token_calibration']
+        extras+=f'<article><h2>Separate API token calibration</h2><p>The initial 3,824-token combined ceiling truncated {calibration["truncated_captured_responses"]} of {calibration["captured_api_responses"]} captured responses. The stopped trial contains {calibration["attempted_requests"]} attempted requests and {calibration["unresolved_inflight_attempts"]} unresolved in-flight attempts. These records are preserved separately and excluded from performance comparisons; settings were changed based on truncation, without selecting by localization accuracy.</p><p>The fresh formal comparison uses an identical 8,192-token combined ceiling and low reasoning effort for both strategies. Captured calibration token usage is a lower bound because in-flight responses were not captured. Formal and calibration request/token consumption are reported separately.</p></article>'
     extras+='<article><h2>Channel sensitivity</h2><table><tr><th>Requested channels</th><th>Mean patient AUROC</th><th>95% patient bootstrap CI</th></tr>'
     for row in sensitivity['summary']:
         lo,hi=row['patient_cluster_bootstrap_95CI'];extras+=f'<tr><td>{row["channels"]}</td><td>{row["mean_patient_AUROC"]:.4f}</td><td>[{lo:.4f}, {hi:.4f}]</td></tr>'

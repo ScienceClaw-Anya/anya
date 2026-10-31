@@ -83,6 +83,10 @@ def verify(project, allow_incomplete=False):
             if result['calls']!=8 or len(list(folder.glob('request_*.json')))!=8 or len(list(folder.glob('response_*.json')))!=8:
                 raise ValueError('Agent request/response budget mismatch')
             if len(list(folder.glob('api_usage_*.json')))!=8:raise ValueError('Provider usage records missing')
+            for usage_file in folder.glob('api_usage_*.json'):
+                usage=json.loads(usage_file.read_text())
+                if usage['max_tokens']!=8192 or usage['reasoning_effort']!='low' or usage['request_model']!='gemini-3.6-flash':
+                    raise ValueError('Formal API model/token/reasoning settings differ')
             for step in range(8):
                 request=json.loads((folder/f'request_{step:02d}.json').read_text())
                 expected_role='single' if policy=='single' else ['signal','network','uncertainty','critic'][step%4]

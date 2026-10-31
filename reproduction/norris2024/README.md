@@ -87,3 +87,8 @@ Run the agent stage with `.venv-repro`, which also contains the project's pinned
 The paper's Engel outcome analysis requires independently verified outcome labels and the exact modified model specification. Neither has been verified in the public model/data release, including the public derivative's available field names. SOZ or resection annotations must not stand in for Engel outcomes. The original spatial example's patient identity is also not stated. These stages cannot be claimed fully reproduced without the missing information.
 
 The English HTML report keeps incomplete stages visibly pending and shows published and executed values in separate columns. Matching a rounded AUROC alone would not resolve cohort or protocol differences.
+
+
+### Token calibration and fresh formal run
+
+The first API trial used the inherited combined ceiling of 3,824 tokens. Six of 45 captured responses were truncated; 47 attempts (including two unresolved in-flight attempts) were stopped and archived under `token_calibration_agents_3824`. No localization scores were used to select the new ceiling. The fresh formal comparison pins a combined ceiling of **8,192 tokens**, low reasoning effort, eight requests per policy per case, eight workers and a shared maximum rate of 60 requests/minute. Calibration requests and captured tokens are reported separately from the 2,800 formal requests. The model metadata endpoint verified a 65,536-token model output limit.

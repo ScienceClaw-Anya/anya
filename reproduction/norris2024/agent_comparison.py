@@ -6,6 +6,7 @@ import concurrent.futures
 import hashlib
 import json
 import os
+import multiprocessing
 from pathlib import Path
 import sys
 import time
@@ -22,6 +23,23 @@ EXPERTISE = {
     'critic': 'Challenge unsupported revisions; use only observed features and recorded model outputs.',
     'single': 'Assess signal, network patterns, uncertainty and previous reasoning as a generalist.',
 }
+
+_RATE_GATE=None
+
+
+def initialize_worker(lock, clock, interval):
+    global _RATE_GATE
+    _RATE_GATE=(lock,clock,interval)
+
+
+def await_request_slot():
+    if _RATE_GATE is None:return
+    lock,clock,interval=_RATE_GATE
+    with lock:
+        now=time.monotonic()
+        scheduled=max(now,clock.next_slot)
+        clock.next_slot=scheduled+interval
+    if scheduled>now:time.sleep(scheduled-now)
 
 
 def validate(answer, n):
@@ -42,6 +60,10 @@ def validate(answer, n):
 def traced_ask(gemini, role, prompt, folder, step):
     """Observe the original SDK response without changing the native request or retry policy."""
     client=gemini.client(role)
+    # The pilot showed thinking exhausting the original 3,824-token combined cap.
+    # Pin the actual combined request ceiling identically, independent of .env defaults.
+    client.gemini_reasoning_effort='low'
+    client.gemini_thinking_headroom=8192-gemini.max_tokens
     resource=client.gemini_client.chat.completions
     original=resource.create
     def create(*args,**kwargs):
@@ -51,6 +73,7 @@ def traced_ask(gemini, role, prompt, folder, step):
         usage=returned_usage.model_dump() if returned_usage is not None else None
         choices=getattr(response,'choices',[])
         record={'request_model':kwargs.get('model'),'response_model':getattr(response,'model',None),
+                'reasoning_effort':kwargs.get('reasoning_effort'),
                 'max_tokens':kwargs.get('max_tokens'),'usage':usage,'seconds':time.perf_counter()-started,
                 'finish_reason':choices[0].finish_reason if choices else None,
                 'response_content':choices[0].message.content if choices else None}
@@ -58,6 +81,7 @@ def traced_ask(gemini, role, prompt, folder, step):
         return response
     resource.create=create
     try:
+        await_request_slot()
         return gemini.ask(role,prompt)
     finally:
         resource.create=original
@@ -207,6 +231,7 @@ def main():
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--upstream', type=Path, required=True)
     p.add_argument('--workers', type=int, default=2)
+    p.add_argument('--requests-per-minute',type=int,default=60)
     p.add_argument('--max-cases', type=int, default=175)
     p.add_argument('--allow-count-mismatch', action='store_true', help='Explicit public-code cohort comparison; never relabel as exact paper reproduction')
     args = p.parse_args()
@@ -225,7 +250,11 @@ def main():
             cases.extend((seed, fold, int(patient)) for patient in np.unique(data['patient']))
     cases = cases[:args.max_cases]
     # Separate processes also isolate the native client's stdout/error suppression.
-    pool = concurrent.futures.ProcessPoolExecutor(max_workers=args.workers)
+    if not 1<=args.requests_per_minute<=60:raise ValueError('This protocol caps the shared rate at 60 requests/minute')
+    manager=multiprocessing.Manager()
+    lock=manager.Lock();clock=manager.Namespace();clock.next_slot=0.
+    pool = concurrent.futures.ProcessPoolExecutor(max_workers=args.workers,initializer=initialize_worker,
+                                                  initargs=(lock,clock,60/args.requests_per_minute*1.05))
     futures = [pool.submit(run_case, args, *case) for case in cases]
     result = []
     try:
@@ -238,6 +267,8 @@ def main():
         raise
     else:
         pool.shutdown(wait=True)
+    finally:
+        manager.shutdown()
     (args.output/'agent_results.json').write_text(json.dumps(result, indent=2))
 
 
