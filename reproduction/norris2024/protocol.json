@@ -1,0 +1,49 @@
+{
+  "title": "Norris et al. 2024 replication and matched-task agent comparison",
+  "status": "Public-code reconstruction authorized after disclosure of cohort mismatch; no exact paper reproduction claimed",
+  "paper": "https://proceedings.mlr.press/v252/norris24a.html",
+  "upstream_repository": "https://github.com/norrisjamie23/Localising_SOZ_from_SPES",
+  "upstream_commit": "90062e8c5fe5593713125eaf5f573faedb739f65",
+  "dataset": "https://openneuro.org/datasets/ds004080/versions/1.2.4",
+  "metadata_commit": "c4fd7418883e33b024292468eb14da1649f51aae",
+  "paper_expected_cohort": {"patients": 35, "electrodes": 2066, "SOZ_electrodes": 298},
+  "primary_reproduction": {
+    "models": ["CNN (divergent)", "CNN (convergent)", "Transformer (base)"],
+    "repeats": 5,
+    "patient_folds": 5,
+    "split": "3 training folds, 1 validation fold, 1 test fold; no shared patients",
+    "max_epochs": 1000,
+    "early_stopping_patience": 10,
+    "training_limit_caveat": "Ten epochs in Appendix D describe tuning; the example notebook says its 10-epoch final training differs from the paper's early stopping. The 1000-epoch ceiling follows released train_model default and is an explicit reconstruction assumption.",
+    "hyperparameters": "Use exact full-precision values in the released notebook; do not tune to match test results.",
+    "primary_metric": "AUROC per patient, averaged within fold, then across the 25 held-out folds",
+    "secondary_metrics": ["sensitivity", "specificity", "Youden", "AUPRC"],
+    "thresholds": "Report Appendix C median/MAD and released-code pooled Youden separately.",
+    "pass_criteria": "All 75 runs complete, counts reconciled, no leakage, preprocessing/model checks pass. Report numerical differences; closeness alone is not proof of exact reproduction."
+  },
+  "additional_paper_results": {
+    "channel_sensitivity": "Reuse held-out Transformer checkpoints at 1,2,4,9,18,37,74 channels. Bootstrap patients, not individual electrodes or repeated folds as independent cases.",
+    "spatial_example": "Predetermine lowest-ID eligible test patient in seed 1; no selection by model success.",
+    "outcome_analysis": "Requires independently verified Engel labels and the exact modified model specification. Do not manufacture outcomes from SOZ or resection labels.",
+    "hyperparameter_search": "The paper reports a separate 10-trial search per primary model. A run with published selected hyperparameters is a fixed-configuration replication, not a rerun of the search."
+  },
+  "agent_comparison": {
+    "task": "Rank the same held-out patient's eligible electrodes by SOZ likelihood, given measured SPES responses and frozen numerical tools.",
+    "order": "Start only after all 75 public-code reconstruction runs complete; compare on that identical frozen cohort, explicitly distinguishing it from the paper cohort.",
+    "tools": "All strategies share the same out-of-fold trained models, waveform features, distances and calibration learned from validation patients.",
+    "strategies": ["frozen CNN Transformer", "fixed three-model mean ensemble", "single generalist", "four specialists with shared board, two rounds"],
+    "LLM_budget": "8 requests per held-out patient per agent strategy, same model, output cap and observations; failed calls count; no unrecorded retries.",
+    "evaluation": "Patient-level paired AUROC differences; cluster uncertainty by patient across repeats; record API usage and wall time.",
+    "labels": "SOZ, resection and outcome annotations, patient identity, test accuracy and reference prevalence must never appear in agent payloads.",
+    "reflection": "Critique only model disagreement, observed response features and earlier proposals; no test-label feedback.",
+    "separate_extension": "Budgeted next-stimulation selection is a later extension, not an exact replication of the paper's classification task."
+  },
+  "known_reproduction_gaps": [
+    "Original public preprocessing yields 35 patients, 2145 electrodes and 304 SOZ positives, versus published 35/2066/298. Do not delete contacts to force agreement.",
+    "Original notebook does not publish training RNG states, file/set ordering, exact fold manifests or trained checkpoints.",
+    "torch==2.1.0.dev20230724 is replaced by released torch==2.1.0+cu121; record the compatibility difference.",
+    "Original threshold evaluation disagrees with Appendix C; preserve and report both instead of hiding the difference.",
+    "Outcome-specific labels and modified-model details must be verified before claiming every paper figure reproduced."
+  ],
+  "language": "English reports, README, protocol and code comments"
+}

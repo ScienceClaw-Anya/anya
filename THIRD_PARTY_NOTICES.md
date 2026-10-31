@@ -29,5 +29,8 @@
   networks*. Raw recordings remain outside Git; this repository contains only a
   small derived extraction check and its public-source provenance.
 
-Generated results are research simulations. No clinical efficacy or independently
+- **Norris et al. SPES SOZ models**, https://github.com/norrisjamie23/Localising_SOZ_from_SPES, MIT. Pinned commit 90062e8c5fe5593713125eaf5f573faedb739f65 is imported from an independent ignored checkout. Cite Norris et al., *Localising the Seizure Onset Zone from Single-Pulse Electrical Stimulation Responses with a CNN Transformer*, MLHC / PMLR 252 (2024), https://proceedings.mlr.press/v252/norris24a.html. The reconstruction records differences between the paper and public code/data; it does not substitute paper values for executed results.
+- **CCEP ECoG dataset across age 4-51**, OpenNeuro ds004080 v1.2.4, CC0. Cite van Blooijs et al., *Developmental trajectory of transmission speed in the human brain*, Nature Neuroscience (2023), DOI 10.1038/s41593-023-01272-0. Raw recordings, clinical electrode tables and derived tensors/checkpoints remain outside Git; complete public recording hashes are checked before processing.
+
+Research outputs include simulations and retrospective public-recording analyses. No clinical efficacy or independently
 validated seizure-localization performance is claimed.

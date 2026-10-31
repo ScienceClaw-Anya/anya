@@ -6,6 +6,14 @@ The project integrates public VEP data, Epileptor simulations and native Science
 
 **Research prototype: the diagnostic benchmark scores a generator-defined susceptibility reference, using a fixed SEEG-only response-ranking heuristic. Clinical localization accuracy and treatment benefit have not been established.**
 
+## Paper reconstruction and same-task agents
+
+The new track reconstructs Norris et al. (MLHC 2024) on public SPES recordings before comparing agents on the same SOZ electrode-classification task. All 48 recordings have been downloaded and checksum-verified. Public preprocessing yields 35 patients / 2,145 electrodes / 304 SOZ positives; the paper reports 35 / 2,066 / 298. The complete public-code rerun was authorized with this discrepancy disclosed. It must not be described as an exact reproduction of the paper cohort.
+
+The primary schedule contains 75 early-stopped GPU training runs (three models, five patient folds, five repeats), followed by channel sensitivity and an equal-call-budget ScienceClaw/Gemini single-versus-multi-agent comparison. Training and comparison results are work in progress until their evidence files exist. The original VEP results below are a separate task.
+
+See [the reconstruction README](reproduction/norris2024/README.md) and [frozen protocol](reproduction/norris2024/protocol.json). The English progress report is generated at `outputs/reports/paper_reproduction.html`. Computation uses the local RTX 4090 and CPU; these scripts create no Nebius jobs.
+
 ## Diagnostic selection benchmark
 
 Complete installation and the VEP download below before running these commands.

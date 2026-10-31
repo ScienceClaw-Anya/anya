@@ -1,0 +1,17 @@
+{
+  "recorded_before_agent_calls": true,
+  "reconstruction_scripts_sha256": {
+    "agent_comparison.py": "8abf6951242e1f7728c3aaf38c8533080118f78d418f22adfcef1132368ce86c",
+    "audit_data.py": "4417d51b67fab0d41a7c7eb9df6d7eecb870598917ac8862a75d6d9c7b315c4e",
+    "channel_sensitivity.py": "edc34753ec151c932dbb19b7ec0a65ffec811eb0f06ba23ad8eeac370fe4a1ec",
+    "download_data.py": "b9141b276611f3057f1f9dbccdd74e2013b68f1b2649e2ce7d845e3e1a751b75",
+    "pipeline.py": "d1cf1ae6cce41edabd600349dfb00e3eeefeceae2c8033399847cade7c2a7fe3",
+    "prepare_sources.py": "c1a19422b62deb9c99a17d4a68b5d687e67ded65d49e94d31943493c85609ad3",
+    "preprocess.py": "cdd65d0ea17864cb36a8fd091402a1d025973ceb117feabd7fcdc78fe0d383b5",
+    "report.py": "f643fc1f4a617929893f73659b6df65b70a4950393462dee5e3efee1a67c48d9",
+    "runtime.py": "41e0b504c12360b29f134aaf8e2647cc928b5e9eec9c99d2ae59c57b8b7cc100",
+    "test_reproduction.py": "5b4c62c0fa42ff8a348314959c46b54a79d65229f609a6e51cef08c1f777fd89",
+    "train_reproduction.py": "eddf3e128128a755653356fc06e93515b192ece5d02792d0ce27717f9157a4d8"
+  },
+  "note": "Documentation and progress reports may update; numerical reconstruction and agent source changes require a new lock and explicit disclosure."
+}

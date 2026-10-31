@@ -28,3 +28,7 @@ cloud/bundle_manifest.json
 *.p12
 *.pfx
 *.auth.json
+
+.venv-repro/
+
+data/ds004080/
