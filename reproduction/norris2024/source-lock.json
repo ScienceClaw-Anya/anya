@@ -1,22 +1,23 @@
 {
   "recorded_before_agent_calls": true,
   "reconstruction_scripts_sha256": {
-    "agent_comparison.py": "bc45c77c7f901d2b28e3ad2e697501cbcc83e7403eca4c97d2a8d43fad3d0ae9",
+    "agent_comparison.py": "85d97767c73a464b67fa04be7c5eae93f38fca17b530b85cc43d204ccb2552bd",
     "audit_data.py": "4417d51b67fab0d41a7c7eb9df6d7eecb870598917ac8862a75d6d9c7b315c4e",
     "channel_sensitivity.py": "edc34753ec151c932dbb19b7ec0a65ffec811eb0f06ba23ad8eeac370fe4a1ec",
     "download_data.py": "b9141b276611f3057f1f9dbccdd74e2013b68f1b2649e2ce7d845e3e1a751b75",
-    "final_report.py": "19542aabd0ecbe796464c9546de9dc2adfcd57a209413a6149b31dd59891ac5a",
+    "final_report.py": "3aeed238cb2ec3209e05a66368144d6859ed6a44cdd1e33d4dde7e4c74f45804",
     "pipeline.py": "d1cf1ae6cce41edabd600349dfb00e3eeefeceae2c8033399847cade7c2a7fe3",
     "prepare_sources.py": "c1a19422b62deb9c99a17d4a68b5d687e67ded65d49e94d31943493c85609ad3",
     "preprocess.py": "cdd65d0ea17864cb36a8fd091402a1d025973ceb117feabd7fcdc78fe0d383b5",
     "report.py": "f643fc1f4a617929893f73659b6df65b70a4950393462dee5e3efee1a67c48d9",
     "runtime.py": "41e0b504c12360b29f134aaf8e2647cc928b5e9eec9c99d2ae59c57b8b7cc100",
-    "test_reproduction.py": "b582850b0aac6b2fb7aa3967091443d7b0cdb7b92728df8429e7bacd30707659",
+    "test_reproduction.py": "76d6d3441b48f85df0bfc9247339844ae7ebc9c8730f4d4e7489792a8d736158",
     "train_reproduction.py": "eddf3e128128a755653356fc06e93515b192ece5d02792d0ce27717f9157a4d8",
-    "verify_results.py": "d96db17a3949ad14d8debc36aff56ceae57c13652ccb789bd2a6dcd9bc66564a"
+    "verify_results.py": "b2d31530c92ab85d63577fe6e69d536571859244a6b25ffd504ad74a2dd2ca0b"
   },
   "note": "Documentation and progress reports may update; numerical reconstruction and agent source changes require a new lock and explicit disclosure.",
   "pre_agent_amendment": "Metadata-only SDK response/token logging added before the first formal agent request; scoring and policy rules unchanged.",
   "verification_addition": "Independent artifact replay added before agent calls; no training, policy or scoring change.",
-  "report_addition": "Final report and patient-cluster resampling checks added before agent calls; numerical models, policy and scoring remain frozen."
+  "report_addition": "Final report and patient-cluster resampling checks added before agent calls; numerical models, policy and scoring remain frozen.",
+  "pre_agent_reliability_amendment": "Malformed returned outputs consume their request and carry prior score state; all states are labelled. Board representation is bounded identically for both policies. Frozen before any formal agent call."
 }

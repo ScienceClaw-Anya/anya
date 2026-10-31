@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 
 from train_reproduction import score, paper_threshold
-from agent_comparison import public_case, validate, traced_ask
+from agent_comparison import public_case, validate, traced_ask, call_or_carry
 from final_report import summarize_agents
 
 
@@ -93,6 +93,23 @@ class ScoringTests(unittest.TestCase):
         self.assertEqual(result['usage']['single']['requests'],48)
         interval=result['paired_comparisons']['multi minus single']['patient_bootstrap_95CI']
         self.assertTrue(np.allclose(interval,[.05,.05]))
+
+    def test_malformed_output_consumes_budget_without_retry_or_fake_agent_answer(self):
+        from types import SimpleNamespace
+        usage=SimpleNamespace(model_dump=lambda:{'prompt_tokens':10,'completion_tokens':5,'total_tokens':15})
+        response=SimpleNamespace(usage=usage,model='test-model',choices=[SimpleNamespace(finish_reason='stop',message=SimpleNamespace(content='malformed'))])
+        resource=SimpleNamespace(create=lambda **kwargs:response)
+        client=SimpleNamespace(gemini_client=SimpleNamespace(chat=SimpleNamespace(completions=resource)))
+        fake=SimpleNamespace(calls=0,client=lambda role:client)
+        def ask(role,prompt):
+            fake.calls+=1;resource.create(model='test-model',max_tokens=2800);raise ValueError('Invalid returned JSON')
+        fake.ask=ask
+        with tempfile.TemporaryDirectory() as directory:
+            result=call_or_carry(fake,'signal',{},Path(directory),0,[.2,.8])
+            self.assertEqual(fake.calls,1)
+            self.assertEqual(result['scores'],[.2,.8])
+            self.assertFalse(result['accepted_agent_output'])
+            self.assertEqual(result['state_origin'],'carried_previous_scores')
 
 
 if __name__ == '__main__':

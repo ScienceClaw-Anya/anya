@@ -33,6 +33,8 @@
     "tools": "All strategies share the same out-of-fold trained models, waveform features, distances and calibration learned from validation patients.",
     "strategies": ["frozen CNN Transformer", "fixed three-model mean ensemble", "single generalist", "four specialists with shared board, two rounds"],
     "LLM_budget": "8 requests per held-out patient per agent strategy, same model, output cap and observations; failed calls count; no unrecorded retries.",
+    "invalid_response_policy": "A completed API response with invalid JSON or schema consumes its request and carries forward the previous score state, initially the shared frozen Transformer. Such states are labelled unaccepted; no extra request or fabricated agent explanation is used. Transport/quota/authentication errors halt the run.",
+    "board_bounds": "All prior states remain visible; displayed scores are rounded to four decimals and each displayed reason/reflection is bounded to 100 words or 400 characters. Full responses remain in the audit trail. Same bounds for both policies.",
     "evaluation": "Patient-level paired AUROC differences; cluster uncertainty by patient across repeats; record API usage and wall time.",
     "labels": "SOZ, resection and outcome annotations, patient identity, test accuracy and reference prevalence must never appear in agent payloads.",
     "reflection": "Critique only model disagreement, observed response features and earlier proposals; no test-label feedback.",

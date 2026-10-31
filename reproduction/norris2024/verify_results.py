@@ -88,6 +88,9 @@ def verify(project, allow_incomplete=False):
                 expected_role='single' if policy=='single' else ['signal','network','uncertainty','critic'][step%4]
                 if request['role']!=expected_role:raise ValueError('Role schedule mismatch')
             proposals=[json.loads((folder/f'response_{step:02d}.json').read_text())['scores'] for step in range(8)]
+            states=[json.loads((folder/f'response_{step:02d}.json').read_text()) for step in range(8)]
+            if sum(row['accepted_agent_output'] for row in states)!=result['accepted_agent_outputs'] or sum(not row['accepted_agent_output'] for row in states)!=result['schema_failures']:
+                raise ValueError('Accepted/invalid output accounting mismatch')
             prediction=np.mean(proposals[-4:],axis=0)
             if not np.allclose(prediction,result['prediction'],rtol=0,atol=1e-12):raise ValueError('Agent score aggregation mismatch')
             check_rows([result['metrics']],score(truth,prediction,np.zeros(len(truth),dtype=int)))

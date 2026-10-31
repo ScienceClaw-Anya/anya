@@ -45,6 +45,8 @@ def summarize_agents(records):
             counts=[r.get('api_tokens',{}).get(key) for r in selected]
             tokens[key]=sum(counts) if all(v is not None for v in counts) else None
         costs[policy]={'requests':sum(r['calls'] for r in selected),'api_tokens':tokens,
+                       'accepted_agent_outputs':sum(r.get('accepted_agent_outputs',8) for r in selected),
+                       'schema_failures':sum(r.get('schema_failures',0) for r in selected),
                        'cumulative_case_seconds':sum(r['seconds'] for r in selected),
                        'response_models':sorted({name for r in selected for name in r['response_models']})}
     return {'distinct_patients':len(subjects),'held_out_cases':len(records),
@@ -103,7 +105,7 @@ def build(project):
     extras+='</table><p>The primary collaboration comparison is multi-agent versus single agent. Comparisons with numerical baselines are additional controls. Intervals resample patients after averaging repeated evaluations; they do not treat 175 evaluations as 175 independent patients.</p><table><tr><th>Policy</th><th>Requests</th><th>Input tokens</th><th>Output tokens</th><th>Provider model</th></tr>'
     for policy,cost in agent['usage'].items():
         extras+=f'<tr><td>{policy}</td><td>{cost["requests"]}</td><td>{cost["api_tokens"]["prompt_tokens"]}</td><td>{cost["api_tokens"]["completion_tokens"]}</td><td>{html.escape(", ".join(cost["response_models"]))}</td></tr>'
-    extras+='</table><p>'+html.escape(agent['budget_note'])+' Provider SDK response metadata is saved for every successful request.</p></article>'
+    extras+='</table><p>'+html.escape(agent['budget_note'])+' Provider SDK response metadata is saved for every successful request. Malformed returned score vectors consume a request; the policy retains its previous scores (initially the shared Transformer). Such states are explicitly labelled, with no extra request or invented agent explanation.</p><p>'+'; '.join(f'{policy}: {value["accepted_agent_outputs"]} accepted outputs, {value["schema_failures"]} malformed outputs' for policy,value in agent['usage'].items())+'.</p></article>'
     extras+='<article><h2>Channel sensitivity</h2><table><tr><th>Requested channels</th><th>Mean patient AUROC</th><th>95% patient bootstrap CI</th></tr>'
     for row in sensitivity['summary']:
         lo,hi=row['patient_cluster_bootstrap_95CI'];extras+=f'<tr><td>{row["channels"]}</td><td>{row["mean_patient_AUROC"]:.4f}</td><td>[{lo:.4f}, {hi:.4f}]</td></tr>'
@@ -114,7 +116,8 @@ def build(project):
     roles=['signal','network','uncertainty','critic']
     for step in range(8):
         response=json.loads((output/'agents'/case_id/'multi'/f'response_{step:02d}.json').read_text())
-        extras+=f'<tr><td>{step//4+1}</td><td>{roles[step%4]}</td><td>{html.escape(response["reason"])}</td><td>{html.escape(response["reflection"])}</td></tr>'
+        label=roles[step%4]+(' (policy carry; unaccepted output)' if not response['accepted_agent_output'] else '')
+        extras+=f'<tr><td>{step//4+1}</td><td>{label}</td><td>{html.escape(response["reason"])}</td><td>{html.escape(response["reflection"])}</td></tr>'
     extras+='</table></article><article><h2>Independent verification</h2><p>All 75 primary numerical runs and all 175 held-out agent cases were replayed from saved artifacts. Checks cover source hashes, disjoint patient splits, label order, numerical and agent scoring, request budgets, role schedule, provider usage records and native ScienceClaw artifact hashes/lineage. Raw recordings and clinical annotation tables are kept outside Git.</p><p>These are public-code reconstruction results on a disclosed different cohort. They do not establish exact reproduction of every paper result or therapeutic benefit.</p></article>'
     body=document(output).replace('</html>',extras+'</html>')
     (output/'final_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')

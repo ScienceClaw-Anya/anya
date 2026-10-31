@@ -62,6 +62,27 @@ def traced_ask(gemini, role, prompt, folder, step):
         resource.create=original
 
 
+def call_or_carry(gemini, role, prompt, folder, step, previous):
+    """A malformed returned prediction consumes its request; retain the prior policy state."""
+    try:
+        value=validate(traced_ask(gemini,role,prompt,folder,step),len(previous))
+        return {**value,'accepted_agent_output':True,'state_origin':'agent'}
+    except ValueError as error:
+        if not (folder/f'api_usage_{step:02d}.json').exists():
+            # Prompt/setup errors are fatal; no response was observed to score.
+            raise
+        return {'scores':np.asarray(previous,dtype=float).tolist(),
+                'reason':'No valid agent score vector was returned. The policy retained its previous scores and made no extra request.',
+                'reflection':'The returned output failed validation. This stored explanation describes the policy state update.',
+                'accepted_agent_output':False,'state_origin':'carried_previous_scores','failure_type':type(error).__name__}
+
+
+def bounded_board(board):
+    return [{**item,'scores':np.round(item['scores'],4).tolist(),
+             'reason':' '.join(item['reason'].split()[:100])[:400],
+             'reflection':' '.join(item['reflection'].split()[:100])[:400]} for item in board]
+
+
 def response_features(array):
     # Raw saved mean arrays end in distance. All signal features are within-case ranks.
     values = array[:, :, :-1]
@@ -142,12 +163,13 @@ def run_case(args, seed, fold, patient):
             for step in range(8):
                 role = 'single' if policy == 'single' else ROLES[step % 4]
                 prompt = {**payload, 'role': role, 'expertise': EXPERTISE[role], 'round': step//4+1,
-                          'shared_board': board,
+                          'shared_board': bounded_board(board),
                           'instruction': 'Review the same observations and earlier proposals, revise scores only with an evidence-based explanation, and return only the required JSON.'}
                 (policy_dir/f'request_{step:02d}.json').write_text(json.dumps(prompt, indent=2))
-                result = validate(traced_ask(gemini,'paper-'+role,prompt,policy_dir,step), n)
+                previous=board[-1]['scores'] if board else [contact['model_scores'][2] for contact in payload['contacts']]
+                result = call_or_carry(gemini,'paper-'+role,prompt,policy_dir,step,previous)
                 artifact = framework.artifact('paper-'+role, 'spes-soz-classification', result,
-                                              'soz_prediction', parents)
+                                              'soz_policy_state', parents)
                 parents = [observation.artifact_id, artifact.artifact_id]
                 board.append({'step': step+1, 'role': role, **result})
                 (policy_dir/f'response_{step:02d}.json').write_text(json.dumps(result, indent=2))
@@ -159,6 +181,8 @@ def run_case(args, seed, fold, patient):
                 counts=[record.get('usage',{}).get(key) if record.get('usage') is not None else None for record in usage_records]
                 tokens[key]=sum(counts) if len(counts)==8 and all(v is not None for v in counts) else None
             results[policy] = {'calls': gemini.calls, 'seconds': time.perf_counter()-started,
+                               'accepted_agent_outputs':sum(r['accepted_agent_output'] for r in board),
+                               'schema_failures':sum(not r['accepted_agent_output'] for r in board),
                                'api_tokens':tokens,'response_models':sorted(set(record['response_model'] for record in usage_records)),
                                'prediction': final.tolist(),
                                'metrics': score(judge['y'], final, np.zeros(n, dtype=int))[0]}
