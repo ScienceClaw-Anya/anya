@@ -5,20 +5,22 @@
     "audit_data.py": "4417d51b67fab0d41a7c7eb9df6d7eecb870598917ac8862a75d6d9c7b315c4e",
     "channel_sensitivity.py": "edc34753ec151c932dbb19b7ec0a65ffec811eb0f06ba23ad8eeac370fe4a1ec",
     "download_data.py": "b9141b276611f3057f1f9dbccdd74e2013b68f1b2649e2ce7d845e3e1a751b75",
-    "final_report.py": "26dfb11047cf2038b4b9e86f463b690d9ba66ec6f93781e62faa56e9e701de78",
+    "final_report.py": "b12f1c48059f39e77994ea52ad126de8d7b619dbd61c397deafa25dac6dcad8f",
     "pipeline.py": "d1cf1ae6cce41edabd600349dfb00e3eeefeceae2c8033399847cade7c2a7fe3",
     "prepare_sources.py": "c1a19422b62deb9c99a17d4a68b5d687e67ded65d49e94d31943493c85609ad3",
     "preprocess.py": "cdd65d0ea17864cb36a8fd091402a1d025973ceb117feabd7fcdc78fe0d383b5",
     "report.py": "f643fc1f4a617929893f73659b6df65b70a4950393462dee5e3efee1a67c48d9",
+    "resume_case.py": "c0823fe1d935ed85e2bd416317848d78cc91ab2f3a877015d1eea8fac457f4cb",
     "runtime.py": "41e0b504c12360b29f134aaf8e2647cc928b5e9eec9c99d2ae59c57b8b7cc100",
     "test_reproduction.py": "d38c10a84492eef4f2f97b482c52e641adf20417187c4de203a9123436d1ebfe",
     "train_reproduction.py": "eddf3e128128a755653356fc06e93515b192ece5d02792d0ce27717f9157a4d8",
-    "verify_results.py": "b5d81d9cd5aa5d5044f80a73f6e7f9550c81b43b14c23e19dfbe999ba987ec6b"
+    "verify_results.py": "acf37c0990344e98ddf62984beef7126230ea449acb1cc6627e9e02828d40e72"
   },
   "note": "Documentation and progress reports may update; numerical reconstruction and agent source changes require a new lock and explicit disclosure.",
   "pre_agent_amendment": "Metadata-only SDK response/token logging added before the first formal agent request; scoring and policy rules unchanged.",
   "verification_addition": "Independent artifact replay added before agent calls; no training, policy or scoring change.",
   "report_addition": "Final report and patient-cluster resampling checks added before agent calls; numerical models, policy and scoring remain frozen.",
   "pre_agent_reliability_amendment": "Malformed returned outputs consume their request and carry prior score state; all states are labelled. Board representation is bounded identically for both policies. Frozen before any formal agent call.",
-  "formal_agent_amendment": "Fresh agent run after truncation-only calibration: exact combined cap8192, low reasoning,8workers, shared60RPM cap; all pilot records archived, no accuracy-based setting selection."
+  "formal_agent_amendment": "Fresh agent run after truncation-only calibration: exact combined cap8192, low reasoning,8workers, shared60RPM cap; all pilot records archived, no accuracy-based setting selection.",
+  "continuation_amendment": "One uncaptured failed attempt halted the run. A separate recovery tool uses only unspent attempts, reuses existing artifacts and marks the spent attempt as an uncaptured carry state. Predictive source files remain byte-identical to formal-agent-source-lock.json."
 }

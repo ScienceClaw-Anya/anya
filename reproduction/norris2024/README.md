@@ -92,3 +92,8 @@ The English HTML report keeps incomplete stages visibly pending and shows publis
 ### Token calibration and fresh formal run
 
 The first API trial used the inherited combined ceiling of 3,824 tokens. Six of 45 captured responses were truncated; 47 attempts (including two unresolved in-flight attempts) were stopped and archived under `token_calibration_agents_3824`. No localization scores were used to select the new ceiling. The fresh formal comparison pins a combined ceiling of **8,192 tokens**, low reasoning effort, eight requests per policy per case, eight workers and a shared maximum rate of 60 requests/minute. Calibration requests and captured tokens are reported separately from the 2,800 formal requests. The model metadata endpoint verified a 65,536-token model output limit.
+
+
+### Budget-preserving continuation
+
+A transport/API failure halts the batch. `resume_case.py --project . --case-id CASE --dry-run` checks recorded counters and frozen observations before any continuation. Recovery reuses original native artifacts and completed responses, counts the failed attempt, and runs only the unspent requests. Uncaptured output/token consumption is explicitly unknown; no provider response is invented. `formal-agent-source-lock.json` preserves the predictive source hashes from before formal inference.

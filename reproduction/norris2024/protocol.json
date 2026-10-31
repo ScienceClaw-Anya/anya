@@ -61,7 +61,8 @@
     "reasoning_effort": "low",
     "workers": 8,
     "shared_requests_per_minute": 60,
-    "token_calibration": "47 attempts / 45 captured responses / 6 truncated / 2 unresolved in-flight attempts, archived and excluded from score comparisons. Cap selected from truncation without viewing accuracy."
+    "token_calibration": "47 attempts / 45 captured responses / 6 truncated / 2 unresolved in-flight attempts, archived and excluded from score comparisons. Cap selected from truncation without viewing accuracy.",
+    "continuation_amendment": "A halted episode can continue only its unspent attempts after counters, observations and native lineage are audited. An already-counted failure without captured output is explicitly marked as a carry state with unknown token consumption; it is never retried. Predictive source remains frozen."
   },
   "known_reproduction_gaps": [
     "Original public preprocessing yields 35 patients, 2145 electrodes and 304 SOZ positives, versus published 35/2066/298. Do not delete contacts to force agreement.",

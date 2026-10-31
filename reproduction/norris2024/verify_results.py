@@ -27,6 +27,12 @@ def verify(project, allow_incomplete=False):
     for name,expected in lock['reconstruction_scripts_sha256'].items():
         if hashlib.sha256((track/name).read_bytes()).hexdigest()!=expected:
             raise ValueError('Reconstruction source hash changed: '+name)
+    frozen_path=track/'formal-agent-source-lock.json'
+    if frozen_path.exists():
+        frozen=json.loads(frozen_path.read_text())['reconstruction_scripts_sha256']
+        for name in ['agent_comparison.py','train_reproduction.py','preprocess.py','runtime.py','audit_data.py','download_data.py','channel_sensitivity.py']:
+            if hashlib.sha256((track/name).read_bytes()).hexdigest()!=frozen[name]:
+                raise ValueError('Frozen predictive source changed after formal inference began: '+name)
     protocol=json.loads((output/'training/protocol.json').read_text())
     for name,expected in protocol['source_sha256'].items():
         if hashlib.sha256((upstream/'src'/name).read_bytes()).hexdigest()!=expected:
@@ -85,15 +91,25 @@ def verify(project, allow_incomplete=False):
             if len(list(folder.glob('api_usage_*.json')))!=8:raise ValueError('Provider usage records missing')
             for usage_file in folder.glob('api_usage_*.json'):
                 usage=json.loads(usage_file.read_text())
-                if usage['max_tokens']!=8192 or usage['reasoning_effort']!='low' or usage['request_model']!='gemini-3.6-flash':
-                    raise ValueError('Formal API model/token/reasoning settings differ')
+                if usage.get('captured_response',True):
+                    if usage['max_tokens']!=8192 or usage['reasoning_effort']!='low' or usage['request_model']!='gemini-3.6-flash':
+                        raise ValueError('Formal API model/token/reasoning settings differ')
+                else:
+                    step=int(usage_file.stem[-2:])
+                    if usage['usage'] is not None or not usage['attempt_counted'] or usage['failure_evidence']['calls']<=step:
+                        raise ValueError('Missing evidence for counted uncaptured attempt')
+                    if usage['configured_max_tokens']!=8192 or usage['configured_reasoning_effort']!='low' or usage['configured_model']!='gemini-3.6-flash':
+                        raise ValueError('Uncaptured attempt configuration differs')
+                    state=json.loads((folder/f'response_{step:02d}.json').read_text())
+                    if state.get('failure_kind')!='transport' or state['accepted_agent_output']:
+                        raise ValueError('Uncaptured attempt presented as a model response')
             for step in range(8):
                 request=json.loads((folder/f'request_{step:02d}.json').read_text())
                 expected_role='single' if policy=='single' else ['signal','network','uncertainty','critic'][step%4]
                 if request['role']!=expected_role:raise ValueError('Role schedule mismatch')
             proposals=[json.loads((folder/f'response_{step:02d}.json').read_text())['scores'] for step in range(8)]
             states=[json.loads((folder/f'response_{step:02d}.json').read_text()) for step in range(8)]
-            if sum(row['accepted_agent_output'] for row in states)!=result['accepted_agent_outputs'] or sum(not row['accepted_agent_output'] for row in states)!=result['schema_failures']:
+            if sum(row['accepted_agent_output'] for row in states)!=result['accepted_agent_outputs'] or sum(not row['accepted_agent_output'] and row.get('failure_kind')!='transport' for row in states)!=result['schema_failures'] or sum(row.get('failure_kind')=='transport' for row in states)!=result.get('transport_failures',0):
                 raise ValueError('Accepted/invalid output accounting mismatch')
             prediction=np.mean(proposals[-4:],axis=0)
             if not np.allclose(prediction,result['prediction'],rtol=0,atol=1e-12):raise ValueError('Agent score aggregation mismatch')
