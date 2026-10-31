@@ -1,0 +1,12 @@
+{
+  "note": "Human-readable template, not a Nebius API schema. Replace placeholders locally; never add API keys.",
+  "name": "anya-vep-scienceclaw",
+  "image": "python:3.10-slim",
+  "entrypoint": "python3 /mnt/files/nebius_bootstrap.py",
+  "cpu_count": 2,
+  "memory_gib": 8,
+  "timeout_hours": 1,
+  "injected_file": "cloud/nebius_bootstrap.py:/mnt/files/nebius_bootstrap.py",
+  "volume": {"source": "YOUR_EXISTING_PRIVATE_BUCKET", "container_path": "/artifacts", "mode": "read_write"},
+  "environment": {"NEUROTARGET_CLOUD_AGENT_MODE": "demo", "NEUROTARGET_ALLOW_EPHEMERAL": "0", "NEUROTARGET_RUN_TAG": "CHOOSE_A_UNIQUE_RUN_TAG"}
+}

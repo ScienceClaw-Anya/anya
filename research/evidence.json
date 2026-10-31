@@ -1,0 +1,49 @@
+{
+  "source_repository": "https://github.com/ScienceClaw-Anya/epilepsy-virtual-brain",
+  "scope": "Team review summaries used as attributed research context, not independent validation of every reviewed claim.",
+  "items": [
+    {
+      "id": "vec-sandbox",
+      "statement": "VEC provides simulated source and SEEG activity, connectomes and generator-defined EZ hypotheses. It is a development sandbox; fitting and testing against the same generator can be circular.",
+      "source_path": "literature-review/round3/data/vec.json",
+      "doi": "10.1371/journal.pcbi.1012911",
+      "allowed_use": "Select the public VEP sandbox and describe its synthetic nature.",
+      "source_sha256": "2a4b27a84ad2b245ff9429ace5724301bb744b080de4fc4747654eb336a0df9a",
+      "source_url": "https://github.com/ScienceClaw-Anya/epilepsy-virtual-brain/blob/7aab83204864d3ca2c4fde51f9dfb33b31839896/literature-review/round3/data/vec.json"
+    },
+    {
+      "id": "diagnostic-stimulation",
+      "statement": "The reviewed Epileptor-stimulation studies model accumulation of a slow state until seizures are triggered. A stronger response is not evidence of seizure suppression or a better therapeutic target.",
+      "source_path": "literature-review/round2/fulltext_review.html",
+      "doi": "10.1038/s43588-025-00841-6",
+      "allowed_use": "Interpret the current simulator as diagnostic stimulation response exploration.",
+      "source_sha256": "80899119a60ee1e27cd2c332683cae2055c6961eda4d33208318773ff2fcc76a",
+      "source_url": "https://github.com/ScienceClaw-Anya/epilepsy-virtual-brain/blob/7aab83204864d3ca2c4fde51f9dfb33b31839896/literature-review/round2/fulltext_review.html"
+    },
+    {
+      "id": "sensor-observation",
+      "statement": "The team review recommends preserving the dataset gain matrix and separating generator assumptions from inference assumptions. Current agents receive SEEG summaries, not latent x0/EZ values or model accumulation thresholds.",
+      "source_path": "literature-review/round2/fulltext_review.html",
+      "allowed_use": "Restrict observations and document residual model mismatch; this alone does not establish a blinded localization benchmark.",
+      "source_sha256": "80899119a60ee1e27cd2c332683cae2055c6961eda4d33208318773ff2fcc76a",
+      "source_url": "https://github.com/ScienceClaw-Anya/epilepsy-virtual-brain/blob/7aab83204864d3ca2c4fde51f9dfb33b31839896/literature-review/round2/fulltext_review.html"
+    },
+    {
+      "id": "held-out-evaluation",
+      "statement": "The team review calls for separate development, validation and held-out evaluation patients, and checks for electrode-coverage bias. A one-patient demonstration cannot establish localization accuracy or multi-agent superiority.",
+      "source_path": "literature-review/round2/fulltext_review.html",
+      "allowed_use": "Plan later matched-budget, held-out evaluations.",
+      "source_sha256": "80899119a60ee1e27cd2c332683cae2055c6961eda4d33208318773ff2fcc76a",
+      "source_url": "https://github.com/ScienceClaw-Anya/epilepsy-virtual-brain/blob/7aab83204864d3ca2c4fde51f9dfb33b31839896/literature-review/round2/fulltext_review.html"
+    },
+    {
+      "id": "therapy-future",
+      "statement": "The review identifies closed-loop feedback with explicit detection/control latency as a separate therapeutic-stimulation research route. The current open-loop diagnostic model does not implement this feedback controller.",
+      "source_path": "literature-review/round2/fulltext_review.html",
+      "allowed_use": "Mark a future research direction; do not claim current therapeutic efficacy.",
+      "source_sha256": "80899119a60ee1e27cd2c332683cae2055c6961eda4d33208318773ff2fcc76a",
+      "source_url": "https://github.com/ScienceClaw-Anya/epilepsy-virtual-brain/blob/7aab83204864d3ca2c4fde51f9dfb33b31839896/literature-review/round2/fulltext_review.html"
+    }
+  ],
+  "source_commit": "7aab83204864d3ca2c4fde51f9dfb33b31839896"
+}

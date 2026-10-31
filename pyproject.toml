@@ -1,0 +1,13 @@
+[project]
+name = "neurotarget-swarm"
+version = "0.2.0"
+description = "ScienceClaw and Gemini agents for VEP diagnostic stimulation-response experiments"
+requires-python = ">=3.10,<3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+  "ignore:Geodesic distance module is unavailable:UserWarning",
+  "ignore::DeprecationWarning:tvb.*",
+  "ignore::DeprecationWarning:matplotlib.*"
+]

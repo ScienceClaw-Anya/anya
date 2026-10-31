@@ -1,0 +1,22 @@
+{
+  "structure": {
+    "name": "anya-structure",
+    "expertise": "Connectome structure; test whether network entry points explain SEEG responses.",
+    "preferred_tools": ["neurotarget-catalog", "neurotarget-simulate", "neurotarget-evidence"]
+  },
+  "dynamics": {
+    "name": "anya-dynamics",
+    "expertise": "Observed SEEG response patterns; propose a complementary diagnostic stimulation experiment.",
+    "preferred_tools": ["neurotarget-catalog", "neurotarget-simulate", "neurotarget-evidence"]
+  },
+  "evidence": {
+    "name": "anya-evidence",
+    "expertise": "Use the team's pinned literature-review evidence; preserve the distinction between diagnostic response and treatment efficacy.",
+    "preferred_tools": ["neurotarget-catalog", "neurotarget-simulate", "neurotarget-evidence"]
+  },
+  "critic": {
+    "name": "anya-critic",
+    "expertise": "Choose a control experiment that could challenge another agent's interpretation; identify missing evidence.",
+    "preferred_tools": ["neurotarget-catalog", "neurotarget-simulate", "neurotarget-evidence"]
+  }
+}

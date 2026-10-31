@@ -1,0 +1,19 @@
+{
+  "scienceclaw": {
+    "url": "https://github.com/lamm-mit/scienceclaw.git",
+    "commit": "894598cd3a90891a077c254566276bd379038bad",
+    "directory": "vendor/scienceclaw",
+    "source_sha256": {
+      "core/skill_registry.py": "7a2bb24f34d3875b1803af24b5f3731959fa8476d4537fb52fa9c5e917aa24b6",
+      "core/skill_executor.py": "3fa484b79b5d81e732afd43200813d663ca4ebb9782d68e8cb34afd743b64208",
+      "core/llm_client.py": "5730130a23f32d7324996ff58cea365c61630a75765fed6a4362c56aa758e03b",
+      "artifacts/artifact.py": "9ee6a638b500391653f03482db4bf6dbee8cb67d8c3631c3f73de9a536f87712"
+    },
+    "archive_sha256": "0cd02378bdbb62af359f937b51bcf8f696957c57711461132d95912452863263"
+  },
+  "vep": {
+    "url": "https://github.com/BalanceKey/virtual_epilepsy_patient_cohort.git",
+    "commit": "a99c88354015f4c961d49a92c076ed0b675c740b",
+    "directory": "vendor/virtual_epilepsy_patient_cohort"
+  }
+}

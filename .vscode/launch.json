@@ -1,0 +1,9 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {"name": "VEP: one patient, two sites", "type": "debugpy", "request": "launch", "module": "neurotarget", "args": ["minimum"], "cwd": "${workspaceFolder}", "console": "integratedTerminal", "justMyCode": true},
+    {"name": "Multi-agent demo", "type": "debugpy", "request": "launch", "module": "neurotarget", "args": ["agents", "--mode", "demo", "--budget", "8", "--seconds", "12"], "cwd": "${workspaceFolder}", "console": "integratedTerminal", "justMyCode": true},
+    {"name": "ScienceClaw: native demo", "type": "debugpy", "request": "launch", "module": "neurotarget", "args": ["scienceclaw", "--mode", "demo", "--budget", "4", "--candidate-count", "16", "--seconds", "12", "--max-steps", "4"], "cwd": "${workspaceFolder}", "console": "integratedTerminal", "justMyCode": true},
+    {"name": "ScienceClaw: live Gemini", "type": "debugpy", "request": "launch", "module": "neurotarget", "args": ["scienceclaw", "--mode", "gemini", "--budget", "4", "--candidate-count", "16", "--seconds", "12", "--max-steps", "4"], "cwd": "${workspaceFolder}", "envFile": "${workspaceFolder}/.env", "console": "integratedTerminal", "justMyCode": true}
+  ]
+}

@@ -1,0 +1,6 @@
+-r requirements.txt
+# Minimal dependencies for the pinned ScienceClaw components used by this adapter.
+# The complete upstream autonomous application has additional dependencies.
+openai==2.54.0
+beautifulsoup4==4.15.0
+pyyaml==6.0.3

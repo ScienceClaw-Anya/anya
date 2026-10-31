@@ -1,0 +1,314 @@
+{
+  "scope": "Real API integration demonstration, not a localization/therapy benchmark. Artifact graph is metadata only; full native payloads remain local.",
+  "engine": "scienceclaw",
+  "mode": "gemini",
+  "model": "gemini-3.6-flash",
+  "candidate_count": 16,
+  "experiments_completed": 4,
+  "llm_calls": 4,
+  "simulation_seconds_each": 12,
+  "artifact_integrity_checked": 10,
+  "observation_policy": "SEEG summaries only in agent prompts",
+  "clinical_validation": false,
+  "results": [
+    {
+      "target_id": "GC8-9",
+      "agent": "structure",
+      "post_sensor_variance": 14.265391833952087
+    },
+    {
+      "target_id": "I8-9",
+      "agent": "dynamics",
+      "post_sensor_variance": 13.50154006701693
+    },
+    {
+      "target_id": "PA5-6",
+      "agent": "evidence",
+      "post_sensor_variance": 13.923625745478313
+    },
+    {
+      "target_id": "FCA2-3",
+      "agent": "critic",
+      "post_sensor_variance": 14.879255847143813
+    }
+  ],
+  "proposals": [
+    {
+      "agent": "structure",
+      "target_id": "GC8-9",
+      "reason": "GC8-9 exhibits the highest connectome network score (3.14) and a compact spatial spread (5.76 mm) located in the Right-Angular-gyrus. Selecting this target tests whether network entry points with maximum connectome hubness generate distinct SEEG response amplitudes under diagnostic stimulation, establishing a baseline for entry-point network reactivity without claiming therapeutic suppression or localization accuracy.",
+      "evidence_ids": [
+        "vec-sandbox",
+        "diagnostic-stimulation",
+        "sensor-observation"
+      ],
+      "artifact_id": "1bfde465-3d15-477b-85ef-2e5670de8285",
+      "parent_artifact_ids": [
+        "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+        "97aee51a-548f-451f-99f3-d330bd7a2bd6"
+      ]
+    },
+    {
+      "agent": "dynamics",
+      "target_id": "I8-9",
+      "reason": "Stimulation of GC8-9 elicited strong after-discharge response power in the right insula/frontal channel I9-10 (204.23 uV^2), along with occipitotemporal (OT12-13: 300.08 uV^2) and premotor (PM1-2: 234.34 uV^2) contacts. Target I8-9 (Right-F2-caudal, network_score: 1.97, spatial_spread: 11.31 mm) directly tests the propagation pathway and dynamic excitability of the frontal-insular network observed following posterior cingulate (GC) stimulation.",
+      "evidence_ids": [
+        "diagnostic-stimulation",
+        "sensor-observation"
+      ],
+      "artifact_id": "b952d16a-2146-4922-863e-7613b8d077e5",
+      "parent_artifact_ids": [
+        "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+        "97aee51a-548f-451f-99f3-d330bd7a2bd6",
+        "1ee45f2d-d09d-4a90-81cd-9a817ff052c9"
+      ]
+    },
+    {
+      "agent": "evidence",
+      "target_id": "PA5-6",
+      "reason": "Target PA5-6 in the Right-Intraparietal-sulcus exhibits the highest network score (2.317) with a focal spatial spread of 8.34 mm among available candidates. Testing this target evaluates diagnostic network reactivity and propagation in parietal sensors following the observed high-power post-stimulation responses in OT12-13 (300.08) and PM1-2 (234.42) from previous stimulations, while strictly preserving the distinction between diagnostic state exploration and therapeutic efficacy.",
+      "evidence_ids": [
+        "diagnostic-stimulation",
+        "sensor-observation",
+        "vec-sandbox"
+      ],
+      "artifact_id": "c5da6231-fb8e-4eda-9795-efa66df25ddc",
+      "parent_artifact_ids": [
+        "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+        "97aee51a-548f-451f-99f3-d330bd7a2bd6",
+        "1ee45f2d-d09d-4a90-81cd-9a817ff052c9",
+        "11c303aa-0fc6-4c8a-bce2-fb77ed25589d"
+      ]
+    },
+    {
+      "agent": "critic",
+      "target_id": "FCA2-3",
+      "reason": "The previous stimulation experiments (GC8-9, I8-9, PA5-6) all elicited high sensor power concentrated in OT12-13 (~289-300) and PM1-2 (~234), but showed modest involvement in distant visual/calcarine regions (FCA13-14 power ~66-71). Stimulating target FCA2-3 (Right-Calcarine-sulcus), which has the highest network score among candidates (2.1835) and a compact spatial spread (8.58 mm), serves as a crucial control experiment. It tests whether stimulation of a structurally distant occipital region induces distinct SEEG power propagation patterns or merely reflects the same global sensor network response seen across prior stimulation sites.",
+      "evidence_ids": [
+        "diagnostic-stimulation",
+        "sensor-observation"
+      ],
+      "artifact_id": "171e620c-4512-430e-a133-1839d0130170",
+      "parent_artifact_ids": [
+        "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+        "97aee51a-548f-451f-99f3-d330bd7a2bd6",
+        "1ee45f2d-d09d-4a90-81cd-9a817ff052c9",
+        "11c303aa-0fc6-4c8a-bce2-fb77ed25589d",
+        "fa843c2c-a78f-4bf4-a813-48ebc0e4b569"
+      ]
+    }
+  ],
+  "artifact_graph": [
+    {
+      "artifact_id": "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+      "artifact_type": "neurotarget_catalog",
+      "producer_agent": "anya-data",
+      "skill_used": "neurotarget-catalog",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:39:18.236902+00:00",
+      "content_hash": "5eb5ab2d72876a0156976dc67b94bfe44bb13d4826a99fb648e17d2a4eb58238",
+      "parent_artifact_ids": [],
+      "needs": [],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "97aee51a-548f-451f-99f3-d330bd7a2bd6",
+      "artifact_type": "research_evidence",
+      "producer_agent": "anya-evidence",
+      "skill_used": "neurotarget-evidence",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:39:18.241401+00:00",
+      "content_hash": "f779e6a3295cfaaa36daa1b82637bd4e31909d95c1949f7aabc8bd64f100e01d",
+      "parent_artifact_ids": [],
+      "needs": [],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "1bfde465-3d15-477b-85ef-2e5670de8285",
+      "artifact_type": "experiment_proposal",
+      "producer_agent": "anya-structure",
+      "skill_used": "neurotarget-proposal",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:39:20.661398+00:00",
+      "content_hash": "f7e787dcddfed5f9658f04c8c7b49c674d02ae274022ba62a64072eb70a9f0cf",
+      "parent_artifact_ids": [
+        "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+        "97aee51a-548f-451f-99f3-d330bd7a2bd6"
+      ],
+      "needs": [
+        {
+          "artifact_type": "simulation_data",
+          "query": "GC8-9"
+        }
+      ],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "1ee45f2d-d09d-4a90-81cd-9a817ff052c9",
+      "artifact_type": "simulation_data",
+      "producer_agent": "anya-structure",
+      "skill_used": "neurotarget-simulate",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:40:04.151718+00:00",
+      "content_hash": "35d45e2e1b57a4f17e47165ecedcd971e6d239c78180dd702fec2da66f6ec2a8",
+      "parent_artifact_ids": [
+        "1bfde465-3d15-477b-85ef-2e5670de8285"
+      ],
+      "needs": [],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "b952d16a-2146-4922-863e-7613b8d077e5",
+      "artifact_type": "experiment_proposal",
+      "producer_agent": "anya-dynamics",
+      "skill_used": "neurotarget-proposal",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:40:06.179242+00:00",
+      "content_hash": "96d4f586430af7fa59e5f98500da2019eb7a3db00598a04c8bcaa80cca26c096",
+      "parent_artifact_ids": [
+        "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+        "97aee51a-548f-451f-99f3-d330bd7a2bd6",
+        "1ee45f2d-d09d-4a90-81cd-9a817ff052c9"
+      ],
+      "needs": [
+        {
+          "artifact_type": "simulation_data",
+          "query": "I8-9"
+        }
+      ],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "11c303aa-0fc6-4c8a-bce2-fb77ed25589d",
+      "artifact_type": "simulation_data",
+      "producer_agent": "anya-dynamics",
+      "skill_used": "neurotarget-simulate",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:40:49.438720+00:00",
+      "content_hash": "5092c62d5d1ffef34f720b0cb92a4d9fc999faad9252f51e6c53e420e12f9d48",
+      "parent_artifact_ids": [
+        "b952d16a-2146-4922-863e-7613b8d077e5"
+      ],
+      "needs": [],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "c5da6231-fb8e-4eda-9795-efa66df25ddc",
+      "artifact_type": "experiment_proposal",
+      "producer_agent": "anya-evidence",
+      "skill_used": "neurotarget-proposal",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:40:53.957654+00:00",
+      "content_hash": "1abcd4418f18cca29c906c17327f94484104c8dd825eb248a8f7a3adfcc7565e",
+      "parent_artifact_ids": [
+        "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+        "97aee51a-548f-451f-99f3-d330bd7a2bd6",
+        "1ee45f2d-d09d-4a90-81cd-9a817ff052c9",
+        "11c303aa-0fc6-4c8a-bce2-fb77ed25589d"
+      ],
+      "needs": [
+        {
+          "artifact_type": "simulation_data",
+          "query": "PA5-6"
+        }
+      ],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "fa843c2c-a78f-4bf4-a813-48ebc0e4b569",
+      "artifact_type": "simulation_data",
+      "producer_agent": "anya-evidence",
+      "skill_used": "neurotarget-simulate",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:41:36.584204+00:00",
+      "content_hash": "3452bd5688258490480d36b0e9363b1d86f5e46382ddd4f98ad0f527eeb8c01f",
+      "parent_artifact_ids": [
+        "c5da6231-fb8e-4eda-9795-efa66df25ddc"
+      ],
+      "needs": [],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "171e620c-4512-430e-a133-1839d0130170",
+      "artifact_type": "experiment_proposal",
+      "producer_agent": "anya-critic",
+      "skill_used": "neurotarget-proposal",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:41:38.759139+00:00",
+      "content_hash": "000ed9bd897b83f15a9b2d7dd587a6825c3aca7035a55a2a0eb59422f3f73eb0",
+      "parent_artifact_ids": [
+        "7a3e40d7-d216-48d8-a7b9-d589d24bc63c",
+        "97aee51a-548f-451f-99f3-d330bd7a2bd6",
+        "1ee45f2d-d09d-4a90-81cd-9a817ff052c9",
+        "11c303aa-0fc6-4c8a-bce2-fb77ed25589d",
+        "fa843c2c-a78f-4bf4-a813-48ebc0e4b569"
+      ],
+      "needs": [
+        {
+          "artifact_type": "simulation_data",
+          "query": "FCA2-3"
+        }
+      ],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    },
+    {
+      "artifact_id": "79f7ce91-66a3-4009-a2dd-a80b972924ef",
+      "artifact_type": "simulation_data",
+      "producer_agent": "anya-critic",
+      "skill_used": "neurotarget-simulate",
+      "investigation_id": "828f2a38a0b8",
+      "timestamp": "2026-10-31T19:42:23.921901+00:00",
+      "content_hash": "aceaa80dea743739ef675157e7f39069e95e1eb4e207f4cb140ccb87da271718",
+      "parent_artifact_ids": [
+        "171e620c-4512-430e-a133-1839d0130170"
+      ],
+      "needs": [],
+      "fulfilled_need_parent_id": "",
+      "fulfilled_need_index": null,
+      "fulfilled_need_type": "",
+      "fulfilled_need_query": "",
+      "fulfillment_variant": {}
+    }
+  ],
+  "implementation_sha256": {
+    "neurotarget/scienceclaw_runtime.py": "d2fbad3b1076a0757c0e4f7eeff5f1cbc6b40f68fb378e2928531bfe337f0e10",
+    "neurotarget/scienceclaw_tools.py": "9b97321f9b077fe357355fd6ae0dfa03d68ad448c8723ae00127af428f32047b",
+    "neurotarget/report.py": "e9eab73b857b221f24277d973ca2b128d290f4e6595a73b720d719081568404b"
+  }
+}
