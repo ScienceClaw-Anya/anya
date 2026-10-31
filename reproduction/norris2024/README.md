@@ -68,7 +68,7 @@ The user authorized the complete public-code reconstruction after reviewing the 
 - All five CV repeats retain the paper's held-out patient assignments. Repeated evaluations of the same patient are not independent subjects.
 - Contact names are replaced with opaque IDs. SOZ/resection/outcome annotations, patient identity, prevalence and test accuracy are absent from agent payloads. A test confirms that changing hidden labels cannot change the payload.
 - Reflection critiques supplied observations and earlier proposals. It receives no test-label feedback. This is a fixed-data classification comparison, not a new active stimulation-selection experiment.
-- Requests, validated score vectors and native ScienceClaw artifact lineage are saved. Failed requests count, with no hidden retries or demonstration fallback.
+- Requests, validated score vectors, provider token usage and native ScienceClaw artifact lineage are saved. Call limits and output caps are matched; actual token counts may differ and are reported rather than assumed equal. Failed requests count, with no hidden retries or demonstration fallback.
 
 Run the agent stage with `.venv-repro`, which also contains the project's pinned OpenAI client, python-dotenv and PyYAML dependencies. Keep the API key in the ignored `.env`. `pipeline.py --project .` waits for all primary training evidence, runs the channel ablation and then starts the agent comparison, refreshing the English report throughout.
 

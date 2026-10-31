@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 
 from train_reproduction import score, paper_threshold
-from agent_comparison import public_case, validate
+from agent_comparison import public_case, validate, traced_ask
 
 
 class ScoringTests(unittest.TestCase):
@@ -58,6 +58,24 @@ class ScoringTests(unittest.TestCase):
         for values in [[float('nan'), .1], [.5], [1.1,.3]]:
             with self.assertRaises(ValueError):
                 validate({'scores': values, 'reason': 'test', 'reflection': 'test'}, 2)
+
+    def test_usage_trace_keeps_native_request_and_restores_client(self):
+        from types import SimpleNamespace
+        import json
+        calls=[]
+        usage=SimpleNamespace(model_dump=lambda:{'prompt_tokens':10,'completion_tokens':5,'total_tokens':15})
+        response=SimpleNamespace(usage=usage,model='test-model',choices=[SimpleNamespace(finish_reason='stop',message=SimpleNamespace(content='{}'))])
+        def original(**kwargs):calls.append(kwargs);return response
+        resource=SimpleNamespace(create=original)
+        client=SimpleNamespace(gemini_client=SimpleNamespace(chat=SimpleNamespace(completions=resource)))
+        fake=SimpleNamespace(client=lambda role:client,ask=lambda role,prompt:resource.create(model='test-model',max_tokens=2800))
+        with tempfile.TemporaryDirectory() as directory:
+            result=traced_ask(fake,'signal',{},Path(directory),0)
+            saved=json.loads((Path(directory)/'api_usage_00.json').read_text())
+            self.assertIs(result,response)
+            self.assertEqual(calls,[{'model':'test-model','max_tokens':2800}])
+            self.assertEqual(saved['usage']['total_tokens'],15)
+            self.assertIs(resource.create,original)
 
 
 if __name__ == '__main__':

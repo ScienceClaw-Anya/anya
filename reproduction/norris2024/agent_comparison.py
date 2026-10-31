@@ -39,6 +39,29 @@ def validate(answer, n):
     return {'scores': a.tolist(), 'reason': answer['reason'], 'reflection': answer['reflection']}
 
 
+def traced_ask(gemini, role, prompt, folder, step):
+    """Observe the original SDK response without changing the native request or retry policy."""
+    client=gemini.client(role)
+    resource=client.gemini_client.chat.completions
+    original=resource.create
+    def create(*args,**kwargs):
+        started=time.perf_counter()
+        response=original(*args,**kwargs)
+        usage=response.usage.model_dump() if response.usage is not None else None
+        choices=response.choices
+        record={'request_model':kwargs.get('model'),'response_model':response.model,
+                'max_tokens':kwargs.get('max_tokens'),'usage':usage,'seconds':time.perf_counter()-started,
+                'finish_reason':choices[0].finish_reason if choices else None,
+                'response_content':choices[0].message.content if choices else None}
+        (folder/f'api_usage_{step:02d}.json').write_text(json.dumps(record,indent=2))
+        return response
+    resource.create=create
+    try:
+        return gemini.ask(role,prompt)
+    finally:
+        resource.create=original
+
+
 def response_features(array):
     # Raw saved mean arrays end in distance. All signal features are within-case ranks.
     values = array[:, :, :-1]
@@ -122,7 +145,7 @@ def run_case(args, seed, fold, patient):
                           'shared_board': board,
                           'instruction': 'Review the same observations and earlier proposals, revise scores only with an evidence-based explanation, and return only the required JSON.'}
                 (policy_dir/f'request_{step:02d}.json').write_text(json.dumps(prompt, indent=2))
-                result = validate(gemini.ask('paper-'+role, prompt), n)
+                result = validate(traced_ask(gemini,'paper-'+role,prompt,policy_dir,step), n)
                 artifact = framework.artifact('paper-'+role, 'spes-soz-classification', result,
                                               'soz_prediction', parents)
                 parents = [observation.artifact_id, artifact.artifact_id]
@@ -130,7 +153,13 @@ def run_case(args, seed, fold, patient):
                 (policy_dir/f'response_{step:02d}.json').write_text(json.dumps(result, indent=2))
             # Both policies average the last four equally-budgeted proposals.
             final = np.mean([r['scores'] for r in board[-4:]], axis=0)
+            usage_records=[json.loads(path.read_text()) for path in sorted(policy_dir.glob('api_usage_*.json'))]
+            tokens={}
+            for key in ['prompt_tokens','completion_tokens','total_tokens']:
+                counts=[record.get('usage',{}).get(key) if record.get('usage') is not None else None for record in usage_records]
+                tokens[key]=sum(counts) if len(counts)==8 and all(v is not None for v in counts) else None
             results[policy] = {'calls': gemini.calls, 'seconds': time.perf_counter()-started,
+                               'api_tokens':tokens,'response_models':sorted(set(record['response_model'] for record in usage_records)),
                                'prediction': final.tolist(),
                                'metrics': score(judge['y'], final, np.zeros(n, dtype=int))[0]}
         except Exception as exc:
