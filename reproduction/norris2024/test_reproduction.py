@@ -7,6 +7,7 @@ import numpy as np
 
 from train_reproduction import score, paper_threshold
 from agent_comparison import public_case, validate, traced_ask
+from final_report import summarize_agents
 
 
 class ScoringTests(unittest.TestCase):
@@ -76,6 +77,22 @@ class ScoringTests(unittest.TestCase):
             self.assertEqual(calls,[{'model':'test-model','max_tokens':2800}])
             self.assertEqual(saved['usage']['total_tokens'],15)
             self.assertIs(resource.create,original)
+
+    def test_repeated_evaluations_are_clustered_by_patient(self):
+        records=[]
+        for subject,count,value in [(1,5,.8),(2,1,.2)]:
+            for repeat in range(count):
+                strategies={policy:{'metrics':{'AUROC':value+(.05 if policy=='multi' else 0)},
+                                    'calls':8,'seconds':1,'api_tokens':{'prompt_tokens':10,'completion_tokens':5,'total_tokens':15},'response_models':['test-model']}
+                            for policy in ['single','multi']}
+                numerical={name:{'AUROC':value} for name in ['CNN (divergent)','CNN (convergent)','Transformer (base)','fixed_mean_ensemble']}
+                records.append({'patient':subject,'strategies':strategies,'numerical_baselines':numerical})
+        result=summarize_agents(records)
+        self.assertAlmostEqual(result['mean_patient_AUROC']['single'],.5)
+        self.assertAlmostEqual(result['mean_patient_AUROC']['multi'],.55)
+        self.assertEqual(result['usage']['single']['requests'],48)
+        interval=result['paired_comparisons']['multi minus single']['patient_bootstrap_95CI']
+        self.assertTrue(np.allclose(interval,[.05,.05]))
 
 
 if __name__ == '__main__':

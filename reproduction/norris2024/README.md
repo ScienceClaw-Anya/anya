@@ -56,11 +56,15 @@ $env:PYTHONHASHSEED = '0'
 
 The raw download is about 115 GiB. Downloads resume from partial files and check the complete file hash before preprocessing. Subject processing is resumable through receipts; failures remain visible in per-subject logs. Training resumes completed runs; it never substitutes demonstration scores.
 
-For a new environment, use Python 3.10, install the pinned MNE/Pandas/NumPy/scikit-learn versions in the original requirements plus SciPy 1.11.4, install `torch==2.1.0` from the official CUDA 12.1 wheel index, and install `torcheeg==1.0.11 --no-deps`. `runtime.py` loads only its original required transform. Save a full package lock before a formal run.
+For a new **Windows / Python 3.10** environment, `requirements-windows.lock.txt` contains every installed package from the tested environment. Install it with `pip install --no-deps --extra-index-url https://download.pytorch.org/whl/cu121 -r reproduction/norris2024/requirements-windows.lock.txt`. The complete package list supplies required dependencies; `--no-deps` avoids pulling unrelated optional TorchEEG spectral extensions. Linux requires its own platform-specific CUDA dependency resolution. `runtime.py` loads the original required TorchEEG transform unchanged.
+
+After all stages finish, run `verify_results.py --project .` and `final_report.py --project .`. The latter writes compact, portable English results under `examples/` after requiring complete verified evidence.
 
 ## Agents on the same task
 
 The user authorized the complete public-code reconstruction after reviewing the cohort mismatch. `agent_comparison.py` is gated on all 75 completed primary runs. An explicit `--allow-count-mismatch` records that the agent comparison uses the public-code cohort rather than an exact paper cohort. No Gemini comparison is claimed executed until result artifacts exist.
+
+Classifier execution runs in a project wrapper; native ScienceClaw supplies `LLMClient` requests and `ArtifactStore` provenance.
 
 - Baselines: frozen out-of-fold CNN Transformer and a fixed three-model mean ensemble.
 - Single agent and four specialists share identical measured-response features and numerical predictors. Each receives eight Gemini calls per held-out case; both average their last four score vectors.
