@@ -10,7 +10,7 @@ After dependency installation and `scripts/setup_upstreams.py`:
 python scripts/build_nebius_bundle.py
 ```
 
-Generated local files `cloud/nebius_bootstrap.py` and `cloud/bundle_manifest.json` are ignored by Git. The injected bootstrap must remain below 64 KiB. It includes a whitelist of project Python files, three skills, public evidence cards and dependency pins. It excludes `.env`, keys, private PDFs, browser profiles and user-specific resource IDs.
+Generated local files `cloud/nebius_bootstrap.py` and `cloud/bundle_manifest.json` are ignored by Git. The injected bootstrap must remain below 64 KiB. It includes a whitelist of project Python files, four skills, public evidence cards and dependency pins. Its checksummed ZIP payload uses solid LZMA compression. It excludes `.env`, keys, private PDFs, browser profiles and user-specific resource IDs.
 
 At launch it verifies its payload, downloads pinned VEP files and a SHA-256-verified ScienceClaw source archive, installs requirements, downloads sub-003 and runs the two-site minimum plus four ScienceClaw experiments among 16 candidates. Default agent mode is `demo`. This revised bundle is prepared for validation; the earlier successful cloud job used the previous deterministic worker implementation.
 
@@ -28,3 +28,24 @@ Explicit `NEUROTARGET_ALLOW_EPHEMERAL=1` uses temporary disk. Arrays disappear w
 The approved 1 GiB private result bucket was created after the original ephemeral job completed. Its actual ID and future mount configuration remain in ignored local `cloud/persistent-storage.json`. Reports and log backups were saved there; original cloud arrays were not recovered. Building this file or creating a bucket does not submit an extra compute job.
 
 Reference: https://docs.nebius.com/serverless/jobs/manage
+
+## Diagnostic benchmark compute
+
+The new 17-condition diagnostic response bank was executed on the local
+i9-14900K workstation (approximately 192 GiB RAM), using four CPU workers.
+It took about 1,001 seconds. No new Nebius job was submitted for this benchmark.
+The shared cached bank lets each policy query eight experiments while the simulator
+avoids recomputing overlapping requests. Gemini runs through Google's API.
+
+For larger CPU runs on a prepared Nebius machine, use the same repository commands:
+
+```bash
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m neurotarget.precompute --candidate-count 16 --seconds 55 --workers 4
+python -m neurotarget diagnostic --bank BANK_JSON --mode gemini --budget 8 --random-repeats 20
+```
+
+The compact injected bootstrap still launches the original minimum plus native
+ScienceClaw smoke workflow. Building it does not run the diagnostic command or
+submit a cloud job. Raw arrays require more storage than the small covariance bank;
+check the generated bank/run sizes before selecting an existing results volume.
+A GPU is not used by the current simulator or the inverse-response localizer.

@@ -34,10 +34,20 @@ def main():
     framework.add_argument("--seed", type=int, default=42)
     framework.add_argument("--max-steps", type=int, default=8)
     framework.add_argument("--isolated", action="store_true")
+    diagnostic = commands.add_parser("diagnostic", help="Matched-budget diagnostic localization with multi-round reflection")
+    diagnostic.add_argument("--bank", type=Path, required=True)
+    diagnostic.add_argument("--mode", choices=["demo", "gemini"], default="demo")
+    diagnostic.add_argument("--budget", type=int, default=8)
+    diagnostic.add_argument("--seed", type=int, default=42)
+    diagnostic.add_argument("--random-repeats", type=int, default=20)
     commands.add_parser("infinite-check", help="Read-only check of the privately configured Infinite gateway")
     commands.add_parser("infinite-draft", help="Prepare a local research post draft; no network writes")
+    commands.add_parser("datasets", help="Show verified dataset roles and access constraints")
     args = parser.parse_args()
     project = args.project.resolve()
+    if args.command == "datasets":
+        print((project / "research/datasets.json").read_text(encoding="utf-8"))
+        return
     if args.command in {"infinite-check", "infinite-draft"}:
         from .infinite_gateway import check_connection, build_draft
         print(json.dumps(check_connection(project) if args.command == "infinite-check" else build_draft(project), indent=2))
@@ -48,6 +58,10 @@ def main():
             candidate_count=args.candidate_count, seconds=args.seconds, seed=args.seed,
             isolated=args.isolated, max_steps=args.max_steps)
         print(json.dumps(result, indent=2))
+        return
+    if args.command == "diagnostic":
+        from .benchmark import run_benchmark
+        print(json.dumps(run_benchmark(project, args.bank, args.mode, args.budget, args.seed, args.random_repeats), indent=2))
         return
     patient = Patient.load(project, args.patient)
     if args.command == "inspect":

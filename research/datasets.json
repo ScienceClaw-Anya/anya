@@ -1,0 +1,31 @@
+{
+  "checked_on": "2026-10-31",
+  "scope": "Focused diagnostic-selection resource check; reconciles all six entries in More possible datasets.txt. Not an exhaustive review.",
+  "resources": [
+    {"id": "VEP", "status": "executed_one_virtual_patient", "role": "Active selection with a hidden stimulation-generator susceptibility reference",
+     "access": "Public; EBRAINS terms accepted by the user earlier", "limitation": "Generator reference is not clinical EZ",
+     "sources": ["https://doi.org/10.25493/XWG2-S8X", "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012911"]},
+    {"id": "ds003029", "status": "executed_one_recorded_seizure", "role": "Passive contact ranking against clinical SOZ annotations",
+     "revision": "62b403d544f42c095035efebafe43cb9479b32bd", "access": "Public CC0; separately restricted Cleveland Clinic center omitted",
+     "limitation": "No responses to unperformed stimulation", "sources": ["https://github.com/OpenNeuroDatasets/ds003029", "https://openneuro.org/datasets/ds003029"]},
+    {"id": "PRIOS-ds004370", "status": "executed_recorded_stimulation_check", "role": "Five pulses at each of two distinct recorded anatomical pairs",
+     "revision": "db09a7fa2dc97aa33f6458e43241d8b1e5664adf", "access": "Public CC0",
+     "limitation": "No independent SOZ reference verified for this example; no localization accuracy reported",
+     "sources": ["https://github.com/OpenNeuroDatasets/ds004370", "https://github.com/UMCU-EpiLAB/umcuEpi_PRIOS"]},
+    {"id": "IDEAS-and-IDEAS-II", "status": "provider_records_checked_not_downloaded", "role": "Future anatomy, connectomes and surgical-outcome evaluation",
+     "access": "OpenNeuro raw releases; derived assets need their own license check", "limitation": "Resection is not exact EZ; no stimulation-response bank established",
+     "sources": ["https://onlinelibrary.wiley.com/doi/10.1111/epi.18192", "https://onlinelibrary.wiley.com/doi/10.1002/epi.70186", "https://openneuro.org/datasets/ds005602", "https://openneuro.org/datasets/ds007401"]},
+    {"id": "Harvard-EEG", "status": "credentialed_no_access_attempt", "role": "Potential later EEG feature learning and detection validation",
+     "access": "Credentialed provider access", "limitation": "No compatible intracranial stimulation/gain map established for this benchmark",
+     "sources": ["https://bdsp.io/content/harvard-eeg-db/4.1/"]},
+    {"id": "Epi25", "status": "future_context_not_numerical_input", "role": "Potential genetic context for biological priors",
+     "access": "Public aggregate summaries; controlled individual sequencing", "limitation": "Genetic associations alone do not specify electrode targets",
+     "sources": ["https://epi25.broadinstitute.org/", "https://pmc.ncbi.nlm.nih.gov/articles/PMC11646479/"]},
+    {"id": "MELD", "status": "study_documentation_checked_not_downloaded", "role": "Potential structural-lesion prior",
+     "access": "Study-specific; public code does not imply unrestricted individual MRI", "limitation": "Lesion masks and clinical EZ are distinct references",
+     "sources": ["https://meldproject.github.io/", "https://meldproject.github.io/studies/FocalEpilepsies/"]},
+    {"id": "Ontario-TLE-EpLink", "status": "approval_required_no_access_request", "role": "Potential multimodal and surgical-outcome validation",
+     "access": "Brain-CODE approval required", "limitation": "Limited EEG does not establish a stimulation-response dataset",
+     "sources": ["https://portal.conp.ca/dataset?id=projects%2Fimaging_in_TLE_DR011", "https://braininstitute.ca/news-events/2026/now-on-brain-code-new-eplink-multi-modal-dataset-on-temporal-lobe-epilepsy-and-surgical-outcomes"]}
+  ]
+}

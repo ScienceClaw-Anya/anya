@@ -23,6 +23,7 @@ class RunSpec:
     duration_seconds: float | None = None
     coupling_scale: float = 1.0
     noise_scale: float = 1.0
+    stimulation_scale: float = 1.0
 
 
 def load_author_modules(project: Path):
@@ -67,7 +68,13 @@ def run(patient: Patient, spec: RunSpec, use_cache=True):
     duration = float(sim_p["simulation_length"]) / sfreq if spec.duration_seconds is None else spec.duration_seconds
     if duration <= 0 or duration > 120:
         raise ValueError("Duration must be in (0, 120] seconds")
-    key_payload = {"data": patient.fingerprint, "model": MODEL_VARIANT, "spec": asdict(spec)}
+    if not np.isfinite(spec.stimulation_scale) or not 0 <= spec.stimulation_scale <= 1:
+        raise ValueError("Stimulation scale must be between zero and one")
+    cache_spec = asdict(spec)
+    if spec.stimulation_scale == 1.0:
+        # Preserve existing default-stimulation cache keys.
+        cache_spec.pop("stimulation_scale")
+    key_payload = {"data": patient.fingerprint, "model": MODEL_VARIANT, "spec": cache_spec}
     key = hashlib.sha256(json.dumps(key_payload, sort_keys=True).encode()).hexdigest()[:20]
     output = patient.project / "outputs" / patient.patient_id / key
     output.mkdir(parents=True, exist_ok=True)
@@ -94,8 +101,8 @@ def run(patient: Patient, spec: RunSpec, use_cache=True):
     pulse_width = float(stim_p["pulse_width"])
     waveform = np.zeros_like(times)
     active = (times >= float(stim_p["onset"])) & (times < float(stim_p["stimulation_length"]))
-    waveform[active & (phase < pulse_width)] = float(stim_p["I"])
-    waveform[active & (phase >= pulse_width) & (phase < 2 * pulse_width)] = -float(stim_p["I"])
+    waveform[active & (phase < pulse_width)] = float(stim_p["I"]) * spec.stimulation_scale
+    waveform[active & (phase >= pulse_width) & (phase < 2 * pulse_width)] = -float(stim_p["I"]) * spec.stimulation_scale
 
     class SampledWaveform(equations.DiscreteEquation):
         equation = equations.Final(default="emp")

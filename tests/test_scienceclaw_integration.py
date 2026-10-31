@@ -21,6 +21,29 @@ def test_real_scienceclaw_discovers_and_executes_evidence(tmp_path):
     assert framework.registry.cache_file.is_relative_to(tmp_path)
 
 
+def test_native_executor_reads_only_one_requested_response(tmp_path):
+    import hashlib
+    import tempfile
+    import numpy as np
+    directory = PROJECT / "outputs/response_banks"
+    directory.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=directory) as temporary:
+        root = Path(temporary)
+        feature = root / "covariance.npz"
+        np.savez(feature, covariance=np.eye(2))
+        entry = {"target_id": "A1-2", "feature_file": str(feature),
+                 "feature_sha256": hashlib.sha256(feature.read_bytes()).hexdigest(), "window_start_seconds": 7}
+        bank = {"complete": True, "catalog": [{"target_id": "A1-2"}, {"target_id": "B1-2"}],
+                "spec": {"seconds": 55}, "channels": ["A1-2", "B1-2"],
+                "entries": [{**entry, "stimulation_scale": 0}, {**entry, "stimulation_scale": 1}]}
+        path = root / "bank.json"; path.write_text(json.dumps(bank))
+        framework = Framework(PROJECT, tmp_path / "native-response")
+        result = framework.execute("neurotarget-response", {"bank_path": str(path), "target_id": "A1-2"})
+        assert result["target_id"] == "A1-2" and result["precomputed"]
+        assert result["observation"]["mean_sensor_power"] == 1.
+        assert not any(k in json.dumps(result) for k in ['"x0"', '"threshold"', '"results"'])
+
+
 def test_native_artifact_hashes_and_multi_parent_lineage(tmp_path):
     framework = Framework(PROJECT, tmp_path / "native")
     a = framework.artifact("anya-structure", "neurotarget-catalog", {"results": []}, "neurotarget_catalog")

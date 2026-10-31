@@ -5,6 +5,7 @@ import base64
 import hashlib
 import io
 import json
+import lzma
 from pathlib import Path
 import subprocess
 import zipfile
@@ -15,19 +16,21 @@ def build(project: Path):
     vendor = project / "vendor/virtual_epilepsy_patient_cohort"
     commit = subprocess.check_output(["git", "-C", str(vendor), "rev-parse", "HEAD"], text=True).strip()
     files = sorted((project / "neurotarget").glob("*.py"))
-    files += [project / "scripts/fetch_vep.py", project / "requirements.txt", project / "requirements-scienceclaw.txt"]
-    files += [project / "config/upstream-lock.json", project / "config/agents.json", project / "research/evidence.json"]
-    for name in ["neurotarget-catalog", "neurotarget-simulate", "neurotarget-evidence"]:
+    files += [project / "scripts/fetch_vep.py", project / "requirements.txt", project / "requirements-scienceclaw.txt", project / "requirements-real-data.txt"]
+    files += [project / "config/upstream-lock.json", project / "config/agents.json", project / "config/diagnostic-benchmark.json", project / "research/evidence.json", project / "research/datasets.json"]
+    for name in ["neurotarget-catalog", "neurotarget-simulate", "neurotarget-evidence", "neurotarget-response"]:
         directory = project / "skills" / name
         files += [directory / "SKILL.md"] + sorted((directory / "scripts").glob("*.py"))
     scienceclaw = json.loads((project / "config/upstream-lock.json").read_text(encoding="utf-8"))["scienceclaw"]
     if not scienceclaw.get("archive_sha256"):
         raise RuntimeError("The pinned ScienceClaw source archive checksum is required for cloud execution")
     archive_buffer = io.BytesIO()
-    with zipfile.ZipFile(archive_buffer, "w", zipfile.ZIP_DEFLATED) as archive:
+    with zipfile.ZipFile(archive_buffer, "w", zipfile.ZIP_STORED) as archive:
         for path in files:
             archive.writestr(path.relative_to(project).as_posix(), path.read_bytes())
-    archive_bytes = archive_buffer.getvalue()
+    # Solid compression shares repeated source text across files and keeps the
+    # expanded diagnostic package below Nebius's injected-file size limit.
+    archive_bytes = lzma.compress(archive_buffer.getvalue(), preset=9)
     encoded = base64.b64encode(archive_bytes).decode()
     vendor_paths = ["src/utils_functions/model_2populations.py", "src/utils_functions/integrator.py"]
     # Hash canonical Git blobs, not Windows checkouts with autocrlf conversion.
@@ -40,7 +43,7 @@ def build(project: Path):
             raise RuntimeError("Local upstream code is modified; review and pin it before cloud execution")
         checksums[path] = hashlib.sha256(blob).hexdigest()
     template = r'''# Generated NeuroTarget Swarm job. Contains no secrets or private patient records.
-import base64, hashlib, io, json, os, pathlib, shutil, subprocess, sys, time, urllib.request, zipfile
+import base64, hashlib, io, json, lzma, os, pathlib, shutil, subprocess, sys, time, urllib.request, zipfile
 
 PAYLOAD = "__PAYLOAD__"
 PAYLOAD_SHA256 = "__PAYLOAD_SHA__"
@@ -68,6 +71,7 @@ def main():
     payload = base64.b64decode(PAYLOAD, validate=True)
     if hashlib.sha256(payload).hexdigest() != PAYLOAD_SHA256:
         raise RuntimeError("Bundle checksum mismatch")
+    payload = lzma.decompress(payload, memlimit=128 * 1024 * 1024)
     with zipfile.ZipFile(io.BytesIO(payload)) as archive:
         for entry in archive.infolist():
             relative = pathlib.PurePosixPath(entry.filename)
@@ -166,6 +170,7 @@ if __name__ == "__main__":
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(encoded_script)
     provenance = {"commit": commit, "vendor_sha256": checksums,
+                  "payload_encoding": "base64 of LZMA-compressed ZIP",
                   "bootstrap_bytes": len(encoded_script), "payload_sha256": hashlib.sha256(archive_bytes).hexdigest(),
                   "bundle_sha256": hashlib.sha256(encoded_script).hexdigest(),
                   "included_files": [p.relative_to(project).as_posix() for p in files]}

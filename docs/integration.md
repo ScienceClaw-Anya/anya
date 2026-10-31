@@ -6,7 +6,7 @@ executor, artifact and Gemini client; they are not stand-in classes.
 
 ## Execution path
 
-1. Native SkillRegistry discovers the three project skills.
+1. Native SkillRegistry discovers four project skills, including single-entry response-bank queries.
 2. Native SkillExecutor obtains a public candidate catalog and attributed review cards.
 3. Four independent role profiles select experiments, using either explicit deterministic
    demo policies or the native Gemini client. Candidate count exceeds the budget.
@@ -22,7 +22,8 @@ cross-run learning and model-ensemble optimization remain separate future work.
 
 ## Local persistence policy
 
-Registry and artifact-store subclasses redirect state into `outputs/scienceclaw`.
+Registry and artifact-store subclasses redirect state into `outputs/scienceclaw`
+or each strategy's `outputs/diagnostic/<session>/<strategy>` directory.
 The store uses native artifact creation/hash/lookup and native global-index writing,
 with a local-only save hook that omits optional Infinite publication and PQC key
 generation. No global HOME variables or user ScienceClaw profiles are replaced.
@@ -31,6 +32,23 @@ Simulation arrays stay in numerical run folders. Agent prompts receive only appr
 SEEG summaries, geometry/network scores and attributed evidence. The numerical
 result record and report may contain model diagnostic readouts for offline inspection;
 those readouts are not passed into the agent decision prompt.
+
+## Multi-round diagnostic benchmark
+
+The diagnostic adapter adds a frozen response bank, a shared SEEG-only numerical
+ranking, per-step predictions and post-measurement reflections. Native lineage is
+catalog/evidence/control -> proposal -> measurement -> estimated ranking -> reflection.
+Later roles consume the shared experiment board, including other roles' predictions
+and reflections. Two rounds give each of four roles two turns. One generalist uses
+the same observations and proposal/reflection call budget. Random selection uses
+the same stimulation-query budget, and cache hits are charged.
+
+Only after policy execution does an independent evaluator read the released
+stimulation-generator susceptibility subgroup. Reference labels and accuracy are
+never fed back to agents. This is a scored heuristic development benchmark, not
+full Bayesian patient inference or a clinical diagnostic validation. All region
+rankings are produced by the same fixed numerical localizer; agent confidence does
+not change the official score. See `docs/diagnostic-method.md`.
 
 ## Review alignment
 

@@ -21,7 +21,7 @@ import numpy as np
 from .report import write_report
 
 ROLES = ["structure", "dynamics", "evidence", "critic"]
-SKILLS = ["neurotarget-catalog", "neurotarget-simulate", "neurotarget-evidence"]
+SKILLS = ["neurotarget-catalog", "neurotarget-simulate", "neurotarget-evidence", "neurotarget-response"]
 
 
 def upstream_root(project: Path) -> Path:

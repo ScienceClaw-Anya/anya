@@ -17,6 +17,17 @@
   The attributed method cards in `research/evidence.json` identify the source
   commit, file hashes and URLs. They are context from the team review, not a claim
   that the integration independently repeated its full literature audit.
+- **Multicenter epilepsy iEEG**, OpenNeuro ds003029,
+  https://github.com/OpenNeuroDatasets/ds003029. The dataset description states CC0
+  and attributes Adam Li and collaborators. Raw recordings and the public clinical
+  annotation workbook remain outside Git. Derived contact-level checks cite the
+  dataset and do not implement or claim the proprietary neural-fragility algorithm.
+- **PRIOS**, OpenNeuro ds004370,
+  https://github.com/OpenNeuroDatasets/ds004370. The dataset description states CC0
+  and attributes van Blooijs, Blok, Huiskamp and Leijten. Retain the provider's
+  requested acknowledgment for *The effect of propofol on local effective brain
+  networks*. Raw recordings remain outside Git; this repository contains only a
+  small derived extraction check and its public-source provenance.
 
 Generated results are research simulations. No clinical efficacy or independently
 validated seizure-localization performance is claimed.

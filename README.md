@@ -1,16 +1,69 @@
 # Anya / NeuroTarget Swarm
 
-ScienceClaw + Gemini agents propose and compare diagnostic stimulation experiments in a Virtual Epileptic Patient (VEP) sandbox.
+ScienceClaw + Gemini agents select diagnostic stimulation experiments, share feedback and revise localization hypotheses in a Virtual Epileptic Patient (VEP) sandbox.
 
 The project integrates public VEP data, Epileptor simulations and native ScienceClaw components. Four specialist roles propose the next stimulation site using connectome features, the team's literature evidence and measured SEEG summaries. Each proposal and measurement produces a traceable artifact.
 
-**Research prototype: blinded epileptogenic-zone localization and clinical validation have not been completed. The stimulation model explores diagnostic responses; it does not support treatment-target recommendations or claims of seizure suppression.**
+**Research prototype: the diagnostic benchmark scores a generator-defined susceptibility reference, using a fixed SEEG-only response-ranking heuristic. Clinical localization accuracy and treatment benefit have not been established.**
+
+## Diagnostic selection benchmark
+
+Complete installation and the VEP download below before running these commands.
+
+The multi-agent policy runs two rounds of four specialists. Every experiment records a prediction, one measured response and a reflection. Later agents see earlier proposals, observations and revisions. A single-agent policy receives the same tools and observations; a random policy receives the same experiment budget.
+
+All policies share the candidate pool, waveform, simulation seed, calibration control and numerical localizer. Generator labels and accuracy scores are available only to the final judge. Cached queries still consume experiment budget. Gemini collective and single-agent runs each use 8 proposal calls plus 8 reflection calls. Random repetitions describe variability on the same patient, not independent patient validation.
+
+```powershell
+# Build 16 stimulation conditions and one no-stimulation control on four CPU workers.
+.\.venv\Scripts\python.exe -m neurotarget.precompute --candidate-count 16 --seconds 55 --workers 4
+# Replace BANK_JSON with the bank.json path printed by the previous command.
+.\.venv\Scripts\python.exe -m neurotarget diagnostic --bank BANK_JSON --mode demo --budget 8 --random-repeats 20
+.\.venv\Scripts\python.exe -m neurotarget diagnostic --bank BANK_JSON --mode gemini --budget 8 --random-repeats 20
+```
+
+Reports are `outputs/reports/diagnostic_demo.html` and `diagnostic_gemini.html`. Each run saves its frozen protocol, source hashes, native artifact lineage, per-step predictions/reflections and localization learning curves under `outputs/diagnostic/`.
+`scripts/verify_diagnostic_run.py --session outputs/diagnostic/SESSION` replays the
+rankings and scores from the selected sensor covariances, checks native lineage,
+and audits call/query budgets and the prompt observation gate without new API calls.
+
+The primary metric is average precision; secondary metrics are AUROC, Recall@10, Precision@10 and mean learning-curve AP. The common localizer estimates control-normalized response changes through a gain-normalized ridge inverse. These scores evaluate a development heuristic, not full Bayesian VEP inversion. See [the diagnostic method and limitations](docs/diagnostic-method.md).
+
+Executed Gemini comparison (one virtual patient, eight queries each):
+
+| Policy | Average precision | AUROC | Recall@10 |
+|---|---:|---:|---:|
+| Multi-agent | 0.0411 | 0.5338 | 0.000 |
+| Single agent | 0.0406 | 0.5274 | 0.000 |
+| Random, seed 42 | 0.0425 | 0.5427 | 0.000 |
+
+The 20 random-policy repetitions have mean final AP 0.0475 on the same frozen
+patient. The current experiment does not demonstrate successful localization or
+a multi-agent advantage. [Portable report](examples/diagnostic_benchmark_report.html)
+and [machine-readable run evidence](examples/diagnostic_benchmark_summary.json)
+include the learning curves, predictions, reflections, source hashes and separate
+real-data checks. The two initial schema-debugging API calls are separately accounted.
+
+## Real-recording checks
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-real-data.txt
+.\.venv\Scripts\python.exe -m neurotarget.real_data
+.\.venv\Scripts\python.exe -m neurotarget datasets
+```
+
+Two public examples are implemented and exercised:
+
+- **OpenNeuro ds003029:** one recorded seizure, clinical SOZ contact annotations and bad-contact exclusions. A fixed early-ictal/preictal variance-ratio baseline is scored at the contact level. This is passive localization, not an active stimulation experiment.
+- **PRIOS / ds004370:** five pulses at each of two distinct recorded stimulation pairs, with artifact windows, bad channels and stimulating contacts excluded. Only dimensionless normalized responses are reported. No independent SOZ reference was verified for this example, so no localization accuracy is invented.
+
+Only short, exact HTTP byte ranges are downloaded, with ETag locking and per-range SHA-256 records. Small annex assets are checked against their published checksum. Raw recordings and clinical annotation tables stay outside Git. See [the real-data registry](docs/real-datasets.md), which also covers every resource in the supplied `More possible datasets.txt` list.
 
 ## Actual integration
 
 | Component | Implementation |
 |---|---|
-| Tool discovery | Pinned upstream `SkillRegistry` discovers the three project skills |
+| Tool discovery | Pinned upstream `SkillRegistry` discovers four project skills, including bounded response-bank queries |
 | Tool execution | Upstream `SkillExecutor` runs each scientific tool as a JSON subprocess |
 | Provenance | Native `Artifact` / `ArtifactStore` format, hashes, parent lineage and shared index |
 | Gemini | Native `LLMClient(backend="gemini")` calls the official Google endpoint |
@@ -42,6 +95,9 @@ Read and accept the [EBRAINS access terms](https://kg.ebrains.eu/search-terms-of
 
 ## ScienceClaw + Gemini
 
+The `scienceclaw` command below is the earlier integration smoke workflow. Use
+`diagnostic` above for scored multi-round comparisons with explicit reflection.
+
 Copy `.env.example` to `.env`, privately fill `GEMINI_API_KEY` from your activity project's pre-provisioned Workshop key, and save. A GCP email/password is a sign-in credential, not the API key. The configured model must be available to that key; it is not silently replaced.
 
 ```dotenv
@@ -64,7 +120,7 @@ GEMINI_MAX_RETRIES=0
 
 Profiles are in `config/agents.json`: structure, dynamics, evidence and critic. Candidate count must exceed the experiment budget. Both SDK and upstream retries are disabled. Unknown targets/evidence IDs, invalid JSON and API failures stop explicitly, with no silent demo fallback.
 
-Agent prompts contain geometry/network scores, attributed evidence cards and SEEG summaries. Latent x0/EZ labels, source activity and accumulation-threshold readouts are withheld. This observation gate alone does not establish a clinical localization benchmark.
+The original `scienceclaw` command exposes geometry/network scores, attributed evidence cards and SEEG summaries. The new `diagnostic` command additionally shares predictions, reflections and a numerical ranking inferred from SEEG. Neither command exposes generator x0/EZ labels, true source activity, accumulation thresholds or reference accuracy to agents. This observation gate alone does not establish a clinical localization benchmark.
 
 ## Results and checks
 
@@ -109,7 +165,7 @@ sessions, tokens, passwords or private endpoint configuration.
 
 The team's [epilepsy-virtual-brain review](https://github.com/ScienceClaw-Anya/epilepsy-virtual-brain) supplies attributed method context. Five cards in `research/evidence.json` record the source commit, hashes and URLs. This integration does not independently repeat its full literature audit or implement every proposed onset/bottleneck/control method.
 
-See [cloud/README.md](cloud/README.md) for Nebius. TVB currently uses CPU; Gemini is an external API. Keys, private PDFs, user-specific cloud IDs and existing storage configuration are not included in public code or generated bundles.
+See [cloud/README.md](cloud/README.md) for Nebius. TVB currently uses CPU; Gemini is an external API. The current diagnostic bank ran on the local workstation with four CPU workers, not on a GPU or a new Nebius job. Keys, private PDFs, user-specific cloud IDs and existing storage configuration are not included in public code or generated bundles.
 
 References: VEP dataset [10.25493/XWG2-S8X](https://doi.org/10.25493/XWG2-S8X), CC BY 4.0; Dollomaja et al. (2025), [10.1371/journal.pcbi.1012911](https://doi.org/10.1371/journal.pcbi.1012911); [ScienceClaw](https://github.com/lamm-mit/scienceclaw); [author code](https://github.com/BalanceKey/virtual_epilepsy_patient_cohort); [Gemini compatibility](https://ai.google.dev/gemini-api/docs/openai).
 

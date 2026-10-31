@@ -1,0 +1,56 @@
+{
+  "protocol_version": "diagnostic-response-v1",
+  "task": "Select diagnostic stimulation experiments to rank the released stimulation-generator susceptibility reference",
+  "patient": "sub-003",
+  "candidate_count": 16,
+  "experiment_budget_per_strategy": 8,
+  "simulation_seconds": 55.0,
+  "simulation_seed": 42,
+  "strategy_seed": 42,
+  "random_repeats": 20,
+  "localizer": {
+    "method": "gain-normalized ridge inverse of SEEG covariance",
+    "ridge": 0.1,
+    "contrast": "post-stimulation power relative to matched no-stimulation control",
+    "aggregation": "maximum log relative excess power across queried experiments",
+    "calibrated_probability": false
+  },
+  "evaluation": {
+    "primary": "average_precision",
+    "secondary": [
+      "auroc",
+      "recall_at_10",
+      "precision_at_10",
+      "mean_learning_curve_average_precision"
+    ],
+    "top_k": 10,
+    "reference": "Judge-only elevated-x0 subgroup, checked against lower accumulation thresholds in the released sub-003 stimulation generator",
+    "clinical_gold_standard": false,
+    "tie_handling": "Threshold-grouped AP, average-rank AUROC and expected top-k hits at tied boundaries",
+    "score_feedback_to_agents": false
+  },
+  "fairness": {
+    "shared_candidate_pool": true,
+    "shared_initial_control": true,
+    "shared_localizer": true,
+    "shared_observation_windows_and_simulation_seed": true,
+    "one_budget_unit_per_query_even_on_cache_hit": true,
+    "gemini_calls_per_nonrandom_strategy": 16,
+    "call_types": "One proposal and one post-measurement reflection per experiment",
+    "random_repeats_are_independent_patients": false
+  },
+  "limits": [
+    "One simulated patient; no clinical accuracy or multi-agent superiority claim",
+    "Reference is a generator-defined susceptibility proxy, not all spontaneous-seizure labels or clinical EZ",
+    "Only the selected bank entries are revealed to each policy",
+    "No selection or localizer hyperparameter tuning using hidden scores",
+    "All candidates retain the released diagnostic waveform; no therapeutic stimulation optimization"
+  ],
+  "mode": "gemini",
+  "bank_sha256": "629f4dbb8087d8aabb43b99d816e3ce3c8c31163221bff9bbfcd25eea850ef6b",
+  "implementation_sha256": {
+    "benchmark.py": "6848d2015da70915d2fdbeaf1f14a108c23be28aef28dabc6c616e802349fccf",
+    "diagnosis.py": "02f5c70b9cf5200f39a67aa896a823220414d90ca4ff06b636ae5b88dcc5caab",
+    "evaluation.py": "08dcee60c8e6f283205926b04753ce3a93f10ef05e467038b42af81cf2b56403"
+  }
+}

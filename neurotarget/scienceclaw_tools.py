@@ -21,9 +21,15 @@ def main(tool: str):
     parser.add_argument("--target-id")
     parser.add_argument("--seconds", type=float, default=12)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--bank-path", type=Path)
     args = parser.parse_args()
     project = args.project.resolve()
-    if tool == "evidence":
+    if tool == "response":
+        from .response_bank import read_response
+        if not args.bank_path or not args.target_id:
+            raise ValueError("Response queries require bank-path and target-id")
+        result = read_response(project, args.bank_path, args.target_id)
+    elif tool == "evidence":
         result = evidence(project)
     else:
         import numpy as np
