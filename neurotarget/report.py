@@ -43,10 +43,15 @@ def write_report(project: Path, results: list[dict], events=None, name="minimum"
         for r in results)
     event_rows = "".join("<tr>" + "".join(f"<td>{html.escape(str(e.get(k, '')))}</td>"
         for k in ["event", "agent", "target_id", "reason"]) + "</tr>" for e in (events or []))
-    agent_note = ("本页未运行 agent。" if not events else
-                  "Agent 使用 ScienceClaw 原生 Gemini 客户端提出实验，数值结果来自 VEP 模拟器。" if agent_mode == "gemini" else
-                  "Multi-agent 演示模式使用确定性的专业策略，不调用大模型。")
-    doc = f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+    if not events:
+        agent_note = "No agents were run for this report."
+    elif agent_mode == "gemini" and runtime == "scienceclaw":
+        agent_note = "Agents propose experiments through ScienceClaw's native Gemini client. Numerical results come from the VEP simulator."
+    elif agent_mode in {"llm", "gemini"}:
+        agent_note = "Agents propose experiments through the configured language model. Numerical results come from the VEP simulator."
+    else:
+        agent_note = "Multi-agent demo mode uses deterministic specialist policies without language-model calls."
+    doc = f'''<!doctype html><html lang="en"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NeuroTarget Swarm | {html.escape(name)}</title>
 <style>body{{font:16px/1.65 system-ui,sans-serif;background:#f3f6fa;color:#182739;margin:0}}
@@ -56,18 +61,18 @@ main{{max-width:1080px;margin:auto;padding:36px 24px}}h1{{font-size:36px;margin-
 th,td{{text-align:left;padding:10px;border-bottom:1px solid #e1e7ef;vertical-align:top}}.scroll{{overflow:auto}}
 code{{overflow-wrap:anywhere}}a{{color:#12629b}}@media(max-width:600px){{main{{padding:20px 12px}}section{{padding:16px}}h1{{font-size:28px}}}}
 </style><main><p class="sub">ScienceClaw · VEP sub-003 · offline research prototype</p>
-<h1>NeuroTarget Swarm</h1><p>公开患者来源连接组上的刺激位置比较</p>
-<section class="notice"><b>研究范围</b><p>这里是诊断性刺激的现象学模拟，不是治疗建议。
-作者代码的耦合索引由 [0] 显式修正为 [0,3,6]，避免三个通道的索引越界。
-尚未验证与论文发布运行逐点一致。累积变量越阈值也不等于经过临床验证的发作标签。</p>
-<p>{html.escape(agent_note)} 当前页面比较模拟反应；尚未完成盲测致痫区定位 benchmark。</p></section>
-<section><h2>刺激位置的实际模拟输出</h2><img alt="不同刺激位置的源活动和累积变量随时间变化" src="data:image/png;base64,{embedded}">
-<div class="scroll"><table><thead><tr><th>刺激电极对</th><th>刺激后源方差</th><th>累积变量越阈值脑区数</th><th>首次计算秒数</th><th>随机种子</th></tr></thead><tbody>{rows}</tbody></table></div>
-<p class="sub">模型：{html.escape(results[0]['model_variant'])}。缓存命中会复用相同参数和种子的计算结果。</p></section>
-<section><h2>Agent 实验记录</h2><div class="scroll"><table><thead><tr><th>事件</th><th>Agent</th><th>电极对</th><th>依据</th></tr></thead><tbody>{event_rows or '<tr><td colspan="4">此页面是最小模拟，未启用 agent。</td></tr>'}</tbody></table></div></section>
-<section><h2>数据与可复现性</h2><p>数据 DOI：<a href="https://doi.org/10.25493/XWG2-S8X">10.25493/XWG2-S8X</a>，CC BY 4.0。
-方法：<a href="https://doi.org/10.1371/journal.pcbi.1012911">Dollomaja et al., PLOS Computational Biology (2025)</a>。
-连接矩阵和刺激投影的顺序、波形、时间缩放均取自公开数据。下载清单保存文件 SHA-256，运行目录保存参数、模型版本和数组。</p></section></main></html>'''
+<h1>NeuroTarget Swarm</h1><p>Stimulation-site comparison using a public VEP connectome</p>
+<section class="notice"><b>Research scope</b><p>This is a phenomenological simulation of diagnostic stimulation, not a treatment recommendation.
+The author model's coupling indices are explicitly corrected from [0] to [0,3,6] to prevent out-of-bounds access across three channels.
+Point-by-point agreement with the released paper run has not been established. Accumulation threshold crossings are not clinically validated seizure labels.</p>
+<p>{html.escape(agent_note)} This report compares simulated responses; a blinded epileptogenic-zone localization benchmark has not been completed.</p></section>
+<section><h2>Simulated responses by stimulation site</h2><img alt="Source activity and accumulation over time for different stimulation sites" src="data:image/png;base64,{embedded}">
+<div class="scroll"><table><thead><tr><th>Stimulation contact pair</th><th>Post-stimulus source variance</th><th>Regions crossing the accumulation threshold</th><th>Original compute time (s)</th><th>Random seed</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p class="sub">Model: {html.escape(results[0]['model_variant'])}. Cache hits reuse results computed with the same parameters and seed.</p></section>
+<section><h2>Agent experiment log</h2><div class="scroll"><table><thead><tr><th>Event</th><th>Agent</th><th>Contact pair</th><th>Rationale</th></tr></thead><tbody>{event_rows or '<tr><td colspan="4">This is the minimum simulation; no agents were enabled.</td></tr>'}</tbody></table></div></section>
+<section><h2>Data and reproducibility</h2><p>Dataset DOI: <a href="https://doi.org/10.25493/XWG2-S8X">10.25493/XWG2-S8X</a>, CC BY 4.0.
+Method: <a href="https://doi.org/10.1371/journal.pcbi.1012911">Dollomaja et al., PLOS Computational Biology (2025)</a>.
+The connectivity and stimulation-projection ordering, waveform and time scaling follow the public release. The download manifest records file SHA-256 hashes; run directories store parameters, model versions and numerical arrays.</p></section></main></html>'''
     target = report_dir / f"{name}.html"
     target.write_text(doc, encoding="utf-8")
     (report_dir / f"{name}.json").write_text(json.dumps({"results": results, "events": events or [],

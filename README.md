@@ -2,9 +2,9 @@
 
 ScienceClaw + Gemini agents propose and compare diagnostic stimulation experiments in a Virtual Epileptic Patient (VEP) sandbox.
 
-本项目接入公开 VEP 数据、Epileptor 数值模拟和 ScienceClaw 原生组件。四个角色根据连接组、团队文献依据和已测 SEEG 摘要提出下一刺激位置，每次提议和测量均形成可追溯的 Artifact。
+The project integrates public VEP data, Epileptor simulations and native ScienceClaw components. Four specialist roles propose the next stimulation site using connectome features, the team's literature evidence and measured SEEG summaries. Each proposal and measurement produces a traceable artifact.
 
-**研究原型：尚未完成盲测致痫区定位或临床验证。当前刺激模型用于诊断反应探索，不能据此推荐治疗靶点或宣称抑制发作。**
+**Research prototype: blinded epileptogenic-zone localization and clinical validation have not been completed. The stimulation model explores diagnostic responses; it does not support treatment-target recommendations or claims of seizure suppression.**
 
 ## Actual integration
 
@@ -71,6 +71,7 @@ Agent prompts contain geometry/network scores, attributed evidence cards and SEE
 - Original numerical baseline: two sites, 55 seconds each, run locally and on Nebius CPU. Ten local/cloud source-variance and threshold-count summaries agreed; full cloud waveforms were not compared point by point.
 - Native integration: four real Gemini decisions, four 12-second simulations among 16 candidates, ten artifacts with verified hashes and lineage. Public portable summaries are in `examples/`.
 - Reports: `outputs/reports/minimum.html`, `scienceclaw_demo_shared.html` and `scienceclaw_gemini_shared.html`.
+- Reports, agent explanations and project documentation are generated in English.
 - Native state: `outputs/scienceclaw/<session>/session.json`, `artifacts/<agent>/store.jsonl` and `artifacts/global_index.jsonl`.
 - A 12-second experiment demonstrates early responses, not a full-seizure outcome. Very short runs are smoke checks only.
 

@@ -98,7 +98,7 @@ def demo_proposal(role, catalog, visible, unavailable, seed):
         novelty = np.ones(len(choices))
     if role == "structure":
         score = .75 * network + .25 * novelty
-        reason = "连接组加权网络得分，并考虑与已测刺激投影的差异。"
+        reason = "Use connectome-weighted network scores while accounting for differences from previously tested stimulation projections."
     elif role == "dynamics":
         if visible:
             measured = np.mean([r["summary"]["post_region_power"] for r in visible], axis=0)
@@ -107,26 +107,26 @@ def demo_proposal(role, catalog, visible, unavailable, seed):
             score = .65 * novelty + .35 * overlap
         else:
             score = .6 * network + .4 * focus
-        reason = "根据已公开的响应脑区及刺激投影差异，寻找互补响应；此启发式不等同于信息增益。"
+        reason = "Seek complementary responses using observed responding regions and differences in stimulation projections; this heuristic is not an information-gain estimate."
     elif role == "evidence":
         covered = {c["peak_region"] for c in catalog if c["target_id"] in {r["target_id"] for r in visible}}
         score = .45 * focus + .35 * novelty + .2 * np.asarray([c["peak_region"] not in covered for c in choices])
-        reason = "在已存在相邻触点对中选择较聚焦、覆盖不同脑区的位置，固定已发布波形。"
+        reason = "Select a more focused site covering different regions among available adjacent contact pairs, keeping the released waveform fixed."
     elif role == "critic":
         if previous_profiles:
             # Nearby-profile control: test whether a previous result generalizes locally.
             score = .75 * (1 - novelty) + .25 * focus
         else:
             score = .65 * focus + .35 * (1 - network)
-        reason = "选择局部对照或较弱网络入口，检查高网络得分是否足以解释响应。"
+        reason = "Select a local control or weaker network entry point to test whether a high network score is sufficient to explain the response."
     elif role == "single":
         score = .35 * network + .30 * novelty + .35 * focus
-        reason = "单策略获得全部公开工具，在网络得分、覆盖和聚焦之间固定权衡。"
+        reason = "Give one policy access to all public tools, with fixed trade-offs among network score, coverage and focus."
     elif role == "network":
-        score, reason = network, "传统连接组网络得分基线。"
+        score, reason = network, "Conventional connectome network-score baseline."
     elif role == "random":
         rng = np.random.default_rng(seed + len(unavailable))
-        score, reason = rng.random(len(choices)), "固定种子的随机位置基线。"
+        score, reason = rng.random(len(choices)), "Random stimulation-site baseline with a fixed seed."
     else:
         raise ValueError(role)
     selected = choices[int(np.argmax(score))]
@@ -144,7 +144,7 @@ def llm_proposal(role, catalog, visible, unavailable, seed):
         return None
     observations = [{k: r[k] for k in ["target_id", "summary", "event_seq"]} for r in visible]
     prompt = {"role": role, "allowed_targets": choices, "observations": observations,
-              "task": "Choose one next diagnostic stimulation contact pair. Return JSON with target_id and reason. No clinical efficacy claim.",
+              "task": "Choose one next diagnostic stimulation contact pair. Return JSON with target_id and reason. Write the reason in English. No clinical efficacy claim.",
               "evidence": [PAPER]}
     response = requests.post(base + "/chat/completions", headers={"Authorization": "Bearer " + key},
         json={"model": model, "messages": [

@@ -61,6 +61,7 @@ def test_prompt_observations_withhold_model_hidden_state():
         "window": "post-stimulus", "x0": [99], "post_region_power": [88], "threshold": [77]},
         "artifact_id": "measurement-1"}]
     prompt = _prompt("dynamics", {"expertise": "SEEG"}, choices, observations, evidence)
+    assert "Write the reason in English." in prompt["task"]
     text = json.dumps(prompt)
     assert '"profile"' not in text and '"post_region_power"' not in text
     assert '"x0"' not in text and '"threshold"' not in text
