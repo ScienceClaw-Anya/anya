@@ -10,6 +10,7 @@ from .common import WEIGHTS, check_groups, exclusive, read_json, write_json
 from .crossfit import schedule
 from .selector import candidates, features, fit_selector, select
 from .engine import POLICIES, prompt_for, validate_answer, visible_indices, run_policy, execute_tool
+from .guard import feasibility, has_ranking_choice
 from experiments.spes_agent_v2.providers import ProviderUnavailable
 
 PROJECT=Path(__file__).resolve().parents[2]
@@ -21,6 +22,22 @@ PUBLIC={'task':'Research SOZ ranking','default_action':'transformer','allowed_ac
 TOOL_BANK={'baseline':FACTS['baseline'],'selector':FACTS['selector_decision'],'validation':FACTS['candidate_evidence'],'distribution':FACTS['distribution']}
 
 class V3Tests(unittest.TestCase):
+    def test_launch_guard_skips_identical_ordering_without_model_calls(self):
+        self.assertFalse(has_ranking_choice([[.1,.2],[.8,.9]]))
+        self.assertTrue(has_ranking_choice([[.1,.9],[.8,.2]]))
+        with tempfile.TemporaryDirectory() as temporary:
+            output=Path(temporary);write_json(output/'preparation_audit.json',{'verified':True})
+            write_json(output/'prepared.json',{'cases':[{'case_id':'unit'}]})
+            case=output/'cases/unit';case.mkdir(parents=True);np.savez(case/'scores.npz',scores=[[.1,.2],[.8,.9]])
+            with patch('experiments.spes_agent_v3.engine.Provider') as provider:
+                decision=feasibility(output);provider.assert_not_called()
+            self.assertFalse(decision['launch']);self.assertEqual(decision['model_requests_issued'],0)
+
+    def test_launch_guard_preserves_user_stop(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output=Path(temporary);write_json(output/'interruption.json',{'reason':'User stop'})
+            self.assertEqual(feasibility(output)['reason'],'user_stopped_study')
+
     def test_inner_predictions_exclude_outer_test_and_early_stop_patients(self):
         with tempfile.TemporaryDirectory() as temporary:
             root=Path(temporary);people=[f'patient{i:02d}' for i in range(35)]

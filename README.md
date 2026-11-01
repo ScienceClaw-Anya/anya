@@ -10,6 +10,8 @@ The project integrates public VEP data, Epileptor simulations, trained EEG model
 
 The [v3 conservative-selection track](experiments/spes_agent_v3/README.md) unifies the Transformer default and OOF reliability evidence across all policies, prohibits handwritten probabilities, and fits a patient-isolated conservative selector from **60 newly trained inner models**. It compares two numerical policies and four Gemini policies under common decision/query ceilings, with actual model costs reported separately. See the [English v3 report](docs/spes-agent-v3-report.md) for completion status and effective decision opportunities. The earlier v1/v2 results below remain frozen.
 
+The 60 inner fits and five selectors completed and passed independent leakage/coefficient audits. None of the 15 fold/candidate combinations cleared the fixed development gate; all 35 numerical selector outputs equal Transformer (AUROC **0.7274**). The uninformative agent run was stopped after **500 recorded attempts**, preserving partial traces and leaving **620 attempts unspent**. This is an analytically forced ranking tie, not a completed 35-patient agent comparison or evidence of general multi-agent failure. A new launch guard blocks identical-ordering and user-stopped studies before creating a model client.
+
 The [SPES v2 experiment](experiments/spes_agent_v2/README.md) separates communication from numerical fusion. It adds independent-first and no-exchange controls, a validation-only logistic fusion model, and native ScienceClaw tools for measured responses and trained predictions. Single-agent and multi-agent policies receive the same eight-request budget. The executable control uses **Gemini 4 Argon with medium reasoning**; a separately logged Argon/Nemotron adapter is available when a dedicated model API key is configured.
 
 The fixed numerical fusion experiment completed on all 35 patients over five repeats: prediction-only fusion AUROC **0.6944**, response-feature fusion **0.6595**, versus the reconstructed Transformer **0.7201**. Fifty fits took less than one CPU second locally, with patient-disjoint fitting and independent prediction replay. These particular fusion models did not improve the baseline. Communication results, exact completion status and limitations are in the [English follow-up report](docs/spes-agent-v2-report.md) and [aggregate evidence](examples/spes_agent_v2_summary.json). The new agent experiment uses the first repeat only; its scores must be compared with the matching first-repeat numerical baseline.
@@ -90,7 +92,7 @@ Only short, exact HTTP byte ranges are downloaded, with ETag locking and per-ran
 
 | Component | Implementation |
 |---|---|
-| Tool discovery | Pinned upstream `SkillRegistry` discovers four project skills, including bounded response-bank queries |
+| Tool discovery | Pinned upstream `SkillRegistry` discovers project VEP and SPES skills, including bounded response-bank and evidence queries |
 | Tool execution | Upstream `SkillExecutor` runs each scientific tool as a JSON subprocess |
 | Provenance | Native `Artifact` / `ArtifactStore` format, hashes, parent lineage and shared index |
 | Gemini | Native `LLMClient(backend="gemini")` calls the official Google endpoint |

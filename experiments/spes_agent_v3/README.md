@@ -29,6 +29,8 @@ The selector uses StandardScaler and Ridge(alpha=100), with no tuning. All fitti
 
 This is a conservative development heuristic, not a guarantee of improved ranking or clinical safety. Inner fits overlap, individual gain predictions are not independently calibrated, and inner/outer models have different fitting sample sizes. Candidate OOF performance is training evidence for the selector; it must not be presented as independent validation of the fitted selector. Independent evaluation uses the seven outer held-out patients.
 
+The global eligibility veto can suppress an alternative that might help a predictable subgroup. A closed gate does not disprove such conditional improvements; a subgroup-selection policy would need its own patient-isolated development and evaluation.
+
 All four predictor summaries describe **model predictions**. They are not waveform-quality measurements, causal pathways or physiological biomarkers. No LLM fine-tuning is performed.
 
 ## Matched information and budgets
@@ -62,12 +64,14 @@ python -m experiments.spes_agent_v3.crossfit --project . --output outputs/spes_a
 python -m experiments.spes_agent_v3.prepare --project . --output outputs/spes_agent_v3
 python -m experiments.spes_agent_v3.audit --project . --output outputs/spes_agent_v3
 python -m experiments.spes_agent_v2.providers --project . --output outputs/spes_agent_v3 --providers argon
-python -m experiments.spes_agent_v3.engine --project . --output outputs/spes_agent_v3 --workers 16
+python -m experiments.spes_agent_v3.guard --project . --output outputs/spes_agent_v3 --workers 16
 python -m experiments.spes_agent_v3.audit --project . --output outputs/spes_agent_v3 --policies
 python -m experiments.spes_agent_v3.report --project . --output outputs/spes_agent_v3
 ```
 
 The protocol freezes the split schedule, source hashes, fixed selector configuration and candidate weights before training. The agent protocol separately freezes all decision inputs and critical sources before formal API requests. Coordinator lock files prevent concurrent coordinators against the same stage. Resume only after the previous coordinator exits; a stale lock after a crash requires inspecting its recorded process ID before removal.
+
+The normal entry point is now `guard`: it checks the current executable vectors without reading labels and refuses studies with no ranking choice, before constructing any model client. It also refuses a study carrying `interruption.json`. The direct `engine` entry point remains unchanged for integrity and replay of the original frozen protocol; do not use it to resume a user-stopped or uninformative study. The existing v3 study was stopped for this reason; its partial traces are preserved and are not a completed 35-patient agent comparison.
 
 Captured responses can be parsed again without another model call. Reserved or failed attempts remain spent and default to Transformer on resume. Transport errors halt new scheduling while in-flight tasks finish. Invalid schema or incomplete model responses consume their attempt. There are no automatic request retries. The synthetic interface preflight is separate from the **1,120 formal Gemini attempts** planned for four agent arms.
 

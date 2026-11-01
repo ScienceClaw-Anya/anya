@@ -23,7 +23,7 @@ def audit_preparation(project,output):
     for name,digest in protocol['upstream_sources'].items():assert sha(project/'vendor/norris2024/src'/name)==digest
     selector_protocol=read_json(output/'selector_protocol.json')
     assert source_hashes(project,list(selector_protocol['sources']))==selector_protocol['sources']
-    fits=0;distinct=0;gate_counts={};records=[]
+    fits=0;distinct=0;rank_distinct=0;gate_counts={};records=[]
     for outer in range(5):
         chunks=[];truth=[];people=[]
         for row in [r for r in protocol['jobs'] if r['outer']==outer]:
@@ -54,7 +54,7 @@ def audit_preparation(project,output):
         for patient in sorted(set(p)):
             mask=p==patient;sample=x[mask];z.append(independent_features(sample));baseline=auc(y[mask],sample[:,2])
             rewards.append([auc(y[mask],sample@np.array(WEIGHTS[name]))-baseline for name in alternative])
-        z,rewards=np.array(z),np.array(rewards);mean=z.mean(axis=0);scale=z.std(axis=0);scale[scale==0]=1
+        z,rewards=np.array(z),np.array(rewards);mean=z.mean(axis=0);scale=z.std(axis=0);scale[np.ptp(z,axis=0)==0]=1
         zscale=(z-mean)/scale;intercept=rewards.mean(axis=0)
         coefficient=np.linalg.solve(zscale.T@zscale+SELECTOR['ridge_alpha']*np.eye(4),zscale.T@(rewards-intercept))
         assert np.allclose(fitted['model'].named_steps['scale'].mean_,mean,atol=1e-12)
@@ -77,6 +77,8 @@ def audit_preparation(project,output):
             assert sha(old/f'{slug}_seed1_fold{outer}/checkpoint.pth')==receipt['outer_checkpoint_sha256'][slug]
             originals.append(np.load(old/f'{slug}_seed1_fold{outer}/predictions.npz'))
         base=originals[0];pred=np.column_stack([v['prediction'] for v in originals])
+        for value in originals[1:]:
+            for key in ['patient','y','coords']:assert np.array_equal(value[key],base[key])
         for row in [r for r in prepared['cases'] if r['outer']==outer]:
             mask=base['patient']==row['patient'];sample=pred[mask];feat=independent_features(sample)
             expected=(feat-mean)/scale@coefficient+intercept
@@ -93,14 +95,16 @@ def audit_preparation(project,output):
             assert judge['y']==base['y'][mask].astype(int).tolist()
             for name in ['patient','y','test_accuracy','prevalence']:assert '"'+name+'"' not in json.dumps(public)
             distinct+=int(np.max(np.abs(scores[:,1]-scores[:,0]))>1e-12)
+            rank_distinct+=int(np.any(np.sign(scores[:,0,None]-scores[None,:,0])!=np.sign(scores[:,1,None]-scores[None,:,1])))
             records.append({'case_id':row['case_id'],'patient':row['patient'],'transformer_AUROC':auc(judge['y'],scores[:,0]),
                 'selector_AUROC':auc(judge['y'],scores[:,1])})
-    result={'verified':True,'patients':35,'new_inner_fits':fits,'selector_fits':5,'distinct_action_patients':distinct,
+    result={'verified':True,'patients':35,'new_inner_fits':fits,'selector_fits':5,'distinct_action_patients':distinct,'distinct_ranking_patients':rank_distinct,
         'gates':gate_counts,'records':records,
         'verification_scope':['All inner training/early-stop/OOF/outer-test disjointness and checkpoint/prediction hashes',
             'Released-label row alignment and actual patient IDs','Manual ridge normal-equation coefficient replay',
             'Independent pairwise AUROC and eligibility bootstrap','Exact full-precision scorer execution and public observation gate'],
-        'limitations':['Neural predictions are frozen captured outputs; CNN evaluation includes stochastic channel sampling, and this audit does not claim bit-exact new neural inference replay']}
+        'limitations':['Neural predictions are frozen captured outputs; CNN evaluation includes stochastic channel sampling, and this audit does not claim bit-exact new neural inference replay'],
+        'audit_source_sha256':sha(Path(__file__))}
     write_json(output/'preparation_audit.json',result)
     return {k:v for k,v in result.items() if k!='records'}
 
@@ -121,12 +125,17 @@ def audit_policies(project,output,allow_incomplete=False):
         assert native[ids['observation']]['payload']==public
         states=[read_json(folder/f'state_{i:02d}.json') for i in range(8)]
         numeric=policy.startswith('numeric_')
+        assert len(list(folder.glob('usage_*.json')))==(0 if numeric else 8)
+        assert len(list(folder.glob('request_*.json')))==(0 if numeric else 8)
+        assert len(list(folder.glob('tool_*.json')))==8 and len(list(folder.glob('state_*.json')))==8
         for i,state in enumerate(states):
             assert state['action'] in public['allowed_actions']
             assert native[ids['states'][i]]['payload']==state
             expected=[ids['observation'],ids['tools'][i]]+[ids['states'][j] for j in visible_indices(policy,i)]
             assert native[ids['states'][i]]['parent_artifact_ids']==expected
             tool=read_json(folder/f'tool_{i:02d}.json');assert tool['source_sha256']==sha(case/'tools.json')
+            operation=['baseline','selector','validation','distribution'][i%4]
+            assert tool['operation']==operation and tool['result']==read_json(case/'tools.json')[operation]
             assert native[ids['tools'][i]]['payload']==tool;tools_count+=1
             if numeric:
                 assert not (folder/f'usage_{i:02d}.json').exists()
@@ -135,6 +144,8 @@ def audit_policies(project,output,allow_incomplete=False):
                 prompt=read_json(folder/f'request_{i:02d}.json');usage=read_json(folder/f'usage_{i:02d}.json')
                 assert {k:prompt[k] for k in public}==public
                 assert [r['step'] for r in prompt['shared_board']]==[j+1 for j in visible_indices(policy,i)]
+                keys=['step','role','action','evidence_ids','reason','counterargument','accepted_output']
+                assert prompt['shared_board']==[{k:states[j][k] for k in keys} for j in visible_indices(policy,i)]
                 assert usage['prompt_sha256']==hashlib.sha256(json.dumps(prompt,separators=(',',':')).encode()).hexdigest()
                 api+=1;accepted+=state['accepted_output']
                 if not state['accepted_output']:assert state['action']=='transformer'
@@ -143,7 +154,8 @@ def audit_policies(project,output,allow_incomplete=False):
         assert np.array_equal(prediction,metric['prediction']) and abs(auc(judge['y'],prediction)-metric['AUROC'])<1e-12
         artifacts+=17
     result={'verified':True,'completed_policy_cases':len(completed),'expected_policy_cases':210,'full_cohort_complete':len(completed)==210,
-        'model_attempts_completed_cases':api,'accepted_model_outputs_completed_cases':accepted,'native_tool_queries':tools_count,'native_artifacts':artifacts}
+        'model_attempts_completed_cases':api,'accepted_model_outputs_completed_cases':accepted,'native_tool_queries':tools_count,'native_artifacts':artifacts,
+        'audit_source_sha256':sha(Path(__file__))}
     write_json(output/'policy_audit.json',result);return result
 
 if __name__=='__main__':

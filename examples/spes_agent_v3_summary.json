@@ -1,9 +1,9 @@
 {
   "version": 3,
-  "status": "inner_training",
-  "completed_inner_fits": 27,
+  "status": "stopped_uninformative_action_space",
+  "completed_inner_fits": 60,
   "expected_inner_fits": 60,
-  "training_fit_seconds_sum": 1560.4677993007936,
+  "training_fit_seconds_sum": 3689.94017000054,
   "selector_config": {
     "ridge_alpha": 100.0,
     "minimum_gain": 0.005,
@@ -42,8 +42,314 @@
     ]
   },
   "source_evidence": {
-    "training_protocol_sha256": "9e0d08b1bbe87273b8d2bd3a67aa6452579027914a915a9af45e5f2356b16077"
+    "training_protocol_sha256": "9e0d08b1bbe87273b8d2bd3a67aa6452579027914a915a9af45e5f2356b16077",
+    "interruption_sha256": "f0b486a14604ed098160698aa6681145325529644f2a8a4cdf8a423d511af1d9",
+    "selector_protocol_sha256": "a8da63dcb8b658844a9dc80a080a7bbc0c7d484639c30e76ef5f73278a5f5561",
+    "preparation_audit_sha256": "708aa06ef6da6f58ca86019d591699e353f48a27830aeb391058bdb95e9a16b6"
   },
   "scope": "Exploratory first-repeat study on 35 previously inspected public-code patients; not external clinical validation",
-  "reporting_source_sha256": "7bd516399d60fb093a962aea3d9e12bfbe69da30eb0e4301632ff4a4f7fdad75"
+  "actual_model_attempts": 500,
+  "captured_model_responses": 484,
+  "usage_status_counts": {
+    "response_captured": 484,
+    "attempt_reserved": 16
+  },
+  "captured_usage_tokens": {
+    "prompt_tokens": 1942256,
+    "completion_tokens": 155717,
+    "total_tokens": 2105970
+  },
+  "interruption": {
+    "status": "stopped_uninformative_action_space",
+    "reason": "User requested stopping runs without improvement opportunity; all 35 permitted scorer pairs are identical.",
+    "stopped_at_UTC": "2026-11-01T04:11:51.397891+00:00",
+    "formal_attempts_recorded": 500,
+    "attempt_status_counts": {
+      "response_captured": 484,
+      "attempt_reserved": 16
+    },
+    "completed_policy_cases": 91,
+    "completed_by_policy": {
+      "numeric_selector": 18,
+      "numeric_transformer": 18,
+      "multi_independent": 14,
+      "multi_no_exchange": 13,
+      "multi_serial": 14,
+      "single": 14
+    },
+    "in_flight_attempts_remain_spent": true,
+    "remaining_attempts_not_scheduled": 620,
+    "note": "Partial traces are preserved. This is not a complete observed 35-patient agent study. Exact ranking equivalence follows from the audited score bank."
+  },
+  "patients": 35,
+  "distinct_action_patients": 0,
+  "selector_fits": 5,
+  "gates": {
+    "0": {
+      "convergent_10": false,
+      "divergent_10": false,
+      "both_20": false
+    },
+    "1": {
+      "convergent_10": false,
+      "divergent_10": false,
+      "both_20": false
+    },
+    "2": {
+      "convergent_10": false,
+      "divergent_10": false,
+      "both_20": false
+    },
+    "3": {
+      "convergent_10": false,
+      "divergent_10": false,
+      "both_20": false
+    },
+    "4": {
+      "convergent_10": false,
+      "divergent_10": false,
+      "both_20": false
+    }
+  },
+  "distinct_ranking_patients": 0,
+  "numeric_AUROC": {
+    "transformer": 0.727417638681013,
+    "selector": 0.727417638681013
+  },
+  "selector_training_evidence": [
+    {
+      "outer": 0,
+      "OOF_transformer_AUROC": 0.6579192345571933,
+      "candidate_evidence": {
+        "convergent_10": {
+          "OOF_mean_gain": -0.0016740058194478966,
+          "bootstrap_lower_bound": -0.027182986559370414,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.6562452287377453
+        },
+        "divergent_10": {
+          "OOF_mean_gain": -0.010434322241969812,
+          "bootstrap_lower_bound": -0.036423798714943605,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.6474849123152235
+        },
+        "both_20": {
+          "OOF_mean_gain": -0.005076992353501141,
+          "bootstrap_lower_bound": -0.03680180826882512,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.6528422422036921
+        }
+      }
+    },
+    {
+      "outer": 1,
+      "OOF_transformer_AUROC": 0.7525528260226618,
+      "candidate_evidence": {
+        "convergent_10": {
+          "OOF_mean_gain": -0.00016584338848741223,
+          "bootstrap_lower_bound": -0.009284235546530191,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.7523869826341745
+        },
+        "divergent_10": {
+          "OOF_mean_gain": -0.003430828910300467,
+          "bootstrap_lower_bound": -0.01981450161246761,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.7491219971123613
+        },
+        "both_20": {
+          "OOF_mean_gain": -0.0048155374723830875,
+          "bootstrap_lower_bound": -0.018522328601804097,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.7477372885502788
+        }
+      }
+    },
+    {
+      "outer": 2,
+      "OOF_transformer_AUROC": 0.7232471019607553,
+      "candidate_evidence": {
+        "convergent_10": {
+          "OOF_mean_gain": -0.005386865327160264,
+          "bootstrap_lower_bound": -0.02888690745335893,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.717860236633595
+        },
+        "divergent_10": {
+          "OOF_mean_gain": 0.0017683497558558625,
+          "bootstrap_lower_bound": -0.021315624582759072,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.725015451716611
+        },
+        "both_20": {
+          "OOF_mean_gain": -0.00056009111288916,
+          "bootstrap_lower_bound": -0.031201177688533796,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.7226870108478662
+        }
+      }
+    },
+    {
+      "outer": 3,
+      "OOF_transformer_AUROC": 0.6993555992060164,
+      "candidate_evidence": {
+        "convergent_10": {
+          "OOF_mean_gain": -0.00039571985308507453,
+          "bootstrap_lower_bound": -0.011064046086532785,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.6989598793529315
+        },
+        "divergent_10": {
+          "OOF_mean_gain": -0.0028885756406979725,
+          "bootstrap_lower_bound": -0.013751111224383987,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.6964670235653184
+        },
+        "both_20": {
+          "OOF_mean_gain": 0.00018403047647412994,
+          "bootstrap_lower_bound": -0.013377148253191896,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.6995396296824905
+        }
+      }
+    },
+    {
+      "outer": 4,
+      "OOF_transformer_AUROC": 0.7559187395132659,
+      "candidate_evidence": {
+        "convergent_10": {
+          "OOF_mean_gain": -0.0003743879633109725,
+          "bootstrap_lower_bound": -0.00856396271414622,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.7555443515499549
+        },
+        "divergent_10": {
+          "OOF_mean_gain": -0.009199908515672964,
+          "bootstrap_lower_bound": -0.027940277158414097,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.746718830997593
+        },
+        "both_20": {
+          "OOF_mean_gain": 0.0016703645541294343,
+          "bootstrap_lower_bound": -0.010591272720047623,
+          "eligible": false,
+          "OOF_mean_AUROC": 0.7575891040673955
+        }
+      }
+    }
+  ],
+  "gate_diagnostics": {
+    "candidate_fold_combinations": 15,
+    "positive_mean_gains": 3,
+    "positive_lower_bounds": 0,
+    "largest_mean_gain": 0.0017683497558558625,
+    "largest_lower_bound": -0.00856396271414622
+  },
+  "completed_case_audit": {
+    "verified": true,
+    "completed_policy_cases": 91,
+    "expected_policy_cases": 210,
+    "full_cohort_complete": false,
+    "model_attempts_completed_cases": 440,
+    "accepted_model_outputs_completed_cases": 434,
+    "native_tool_queries": 728,
+    "native_artifacts": 1547,
+    "audit_source_sha256": "241ef227222c354ebbeee124dc3010fa67bf49d86f47c79c79d5f76634cd05f4"
+  },
+  "completed_policy_cases": {
+    "numeric_transformer": 18,
+    "numeric_selector": 18,
+    "single": 14,
+    "multi_serial": 14,
+    "multi_independent": 14,
+    "multi_no_exchange": 13
+  },
+  "development_headroom": {
+    "source_sha256": "7089e5be1a688b612614eda19288f4994f5f2f62e5f49e2a8d22d29955d6f102",
+    "scope": "Exploratory development-only arithmetic; no fitting, neural inference, API calls or outer label use",
+    "folds": [
+      {
+        "outer": 0,
+        "development_patients": 28,
+        "hindsight_best_candidate_mean_gain": 0.03065929586532461,
+        "patients_with_any_candidate_gain": 17
+      },
+      {
+        "outer": 1,
+        "development_patients": 28,
+        "hindsight_best_candidate_mean_gain": 0.016374837210369187,
+        "patients_with_any_candidate_gain": 20
+      },
+      {
+        "outer": 2,
+        "development_patients": 28,
+        "hindsight_best_candidate_mean_gain": 0.02772838143637613,
+        "patients_with_any_candidate_gain": 20
+      },
+      {
+        "outer": 3,
+        "development_patients": 28,
+        "hindsight_best_candidate_mean_gain": 0.014994124814984106,
+        "patients_with_any_candidate_gain": 19
+      },
+      {
+        "outer": 4,
+        "development_patients": 28,
+        "hindsight_best_candidate_mean_gain": 0.015342233817569634,
+        "patients_with_any_candidate_gain": 15
+      }
+    ],
+    "mean_of_fold_hindsight_gains": 0.021019774628924733,
+    "caveat": "Hindsight chooses with development labels. It is optimistic, not deployable, not an arbitrary-mixture bound and not proof of learnable benefit; overlapping development pools are not independent cohorts."
+  },
+  "conditional_selector_diagnostic": {
+    "source_sha256": "7089e5be1a688b612614eda19288f4994f5f2f62e5f49e2a8d22d29955d6f102",
+    "scope": "Exploratory development-only arithmetic; no fitting, neural inference, API calls or outer label use",
+    "margin_unchanged": 0.005,
+    "folds": [
+      {
+        "outer": 0,
+        "ungated_training_activations": 4,
+        "training_resubstitution_mean_gain": 0.003987868073864325,
+        "unlabeled_outer_cases": 7,
+        "ungated_unlabeled_outer_activations": 2,
+        "largest_predicted_outer_gain": 0.0065794140314557655
+      },
+      {
+        "outer": 1,
+        "ungated_training_activations": 0,
+        "training_resubstitution_mean_gain": 0.0,
+        "unlabeled_outer_cases": 7,
+        "ungated_unlabeled_outer_activations": 1,
+        "largest_predicted_outer_gain": 0.007669247749512859
+      },
+      {
+        "outer": 2,
+        "ungated_training_activations": 8,
+        "training_resubstitution_mean_gain": 0.013178753318302297,
+        "unlabeled_outer_cases": 7,
+        "ungated_unlabeled_outer_activations": 2,
+        "largest_predicted_outer_gain": 0.0146844706512318
+      },
+      {
+        "outer": 3,
+        "ungated_training_activations": 0,
+        "training_resubstitution_mean_gain": 0.0,
+        "unlabeled_outer_cases": 7,
+        "ungated_unlabeled_outer_activations": 0,
+        "largest_predicted_outer_gain": 0.0015742146143596977
+      },
+      {
+        "outer": 4,
+        "ungated_training_activations": 3,
+        "training_resubstitution_mean_gain": 0.005185786435786437,
+        "unlabeled_outer_cases": 7,
+        "ungated_unlabeled_outer_activations": 2,
+        "largest_predicted_outer_gain": 0.0061010736648641675
+      }
+    ],
+    "ungated_unlabeled_outer_activations_total": 7,
+    "caveat": "Training gains are resubstitution, not validation. Ignoring the global veto is a diagnostic only, not an approved improved policy or a new held-out performance claim."
+  },
+  "reporting_source_sha256": "034f1a08579dfc96e41e5122f2f4cd9d9c9e78ccf15b153e3b8b0c4db250ad25"
 }
