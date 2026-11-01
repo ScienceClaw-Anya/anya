@@ -12,6 +12,8 @@ See the [English results report](../../docs/spes-agent-v2-report.md) and [portab
 
 The role profiles are signal, measured network, uncertainty and critic. The critic can reject unsupported score changes. Reflections use visible observations and earlier reasoning; there is no clinical-label or accuracy feedback during decisions. No LLM fine-tuning is performed in this version.
 
+All roles in the Argon control share the same base model and observation packet. Hiding proposals does not create independent training data, separately trained specialists, or new physiological measurements. The comparison tests proposal visibility in this prompted-role architecture; it does not settle the value of every form of multi-agent collaboration.
+
 | Policy | Proposal visibility | Output | Requests / patient |
 |---|---|---|---:|
 | `single_serial` | Every earlier generalist proposal | Manual contact scores | 8 |
@@ -24,6 +26,7 @@ The role profiles are signal, measured network, uncertainty and critic. The crit
 All arms average their final four score states. Independent or no-exchange failures fall back to the common Transformer baseline when no proposal is visible; hidden proposals cannot enter through error recovery.
 
 Budget equality means the same number of requests and the same maximum completion-token allowance. Realized input/output tokens and billed cost can differ because exchanged proposals add context and manual vectors are longer than scorer selections. Usage is retained; exact monetary cost is not inferred without a verified price schedule.
+Token totals sum captured usage records only; an uncaptured attempt has unknown consumption, not verified zero cost.
 
 ## Model and compute configuration
 
@@ -48,10 +51,11 @@ python -m experiments.spes_agent_v2.verify --project . --output outputs/spes_age
 python -m experiments.spes_agent_v2.providers --project . --output outputs/spes_agent_v2 --providers argon
 python -m experiments.spes_agent_v2.engine --project . --output outputs/spes_agent_v2 --routing argon_control --workers 16
 python -m experiments.spes_agent_v2.verify --project . --output outputs/spes_agent_v2 --routing argon_control
-python -m experiments.spes_agent_v2.report --project . --output outputs/spes_agent_v2
+python analysis/spes_v2_fusion_diagnostics.py --project . --output outputs/spes_agent_v2
+python analysis/finalize_spes_v2_report.py --project . --output outputs/spes_agent_v2
 ```
 
-The run freezes source and case hashes before any formal requests. Re-running the exact command resumes unspent steps. A successful cached response can be parsed without another request; a reserved or failed attempt stays spent. Transport errors halt new scheduling after the currently active tasks finish. Never delete usage records to obtain a replacement answer. Preflight requests are synthetic, separately stored and excluded from performance. A failed preflight requires an explicitly numbered `--attempt 2` after diagnosis; it is not retried automatically.
+The run freezes source and case hashes before any formal requests. After the previous coordinator exits, re-running the exact command resumes unspent steps. Do not run two coordinators against the same study simultaneously. A successful cached response can be parsed without another request; a reserved or failed attempt stays spent. Transport errors halt new scheduling after the currently active tasks finish. Never delete usage records to obtain a replacement answer. Preflight requests are synthetic, separately stored and excluded from performance. A failed preflight requires an explicitly numbered `--attempt 2` after diagnosis; it is not retried automatically.
 
 The first-repeat communication study has **35 distinct held-out patients**, six arms and **1,680 formal request attempts**. The primary comparison is `multi_independent_first - multi_serial`. Further contrasts are exploratory. `--max-patients` selects a deterministic execution prefix for operational checks; a partial prefix is not a full-cohort result. The report withholds full-cohort performance until all specified arms and offline audit finish.
 
@@ -78,6 +82,8 @@ The 15 response features are six temporal RMS ranks, two valid-pair fractions, f
 
 `public.json` and `tools.json` omit patient identity, clinical labels, outcome, prevalence and held-out accuracy. Only the final judge reads `judge.json`, after all eight decisions are saved. This is a programmatic observation gate, not an operating-system security boundary: the host process prepares and scores data, while models receive only the serialized public packet.
 
+Public model probabilities and response features use five decimal places; executable scorer vectors use six. Numerical baseline tables retain full-precision predictions. This can introduce tiny rank-tie differences against the raw baseline. Every arm within a communication comparison shares the same serialization.
+
 ## Evidence and interpretation
 
 All generated evidence stays under ignored `outputs/spes_agent_v2`:
@@ -90,4 +96,7 @@ All generated evidence stays under ignored `outputs/spes_agent_v2`:
 
 The study audit checks source/case hashes, all eight attempts per completed case, exact board visibility and artifact parents, prediction aggregation and independently recomputed AUROC. It also supports `--allow-incomplete` for operational inspection without declaring the cohort complete. Raw recordings, clinical labels, credentials, checkpoint files and full API outputs are excluded from Git; only code, documentation and aggregate evidence are committed.
 
+The `analysis/` scripts add a post-fit diagnostic and report interpretation after the audit. They never train a model, call an API, or modify agent inputs. Their hashes are recorded separately as reporting provenance. One pre-existing lock file has Windows CRLF locally while Git stores LF; `committed_source_audit.json` retains both hashes and verifies that normalized bytes match, without changing the frozen run.
+
 AUROC evaluates SOZ ranking, not therapeutic benefit or the accuracy of choosing an unobserved stimulation site. Patient-bootstrap intervals resample the 35 distinct patients. The five-repeat fusion results cannot be compared directly with a first-repeat agent number without matching the repeat. Agreement across agents is not evidence of accuracy, and better results after model replacement would not by themselves demonstrate a collaboration benefit.
+The first-repeat study has one agent run per patient and policy. Bootstrap intervals are conditional on recorded generations and frozen numerical checkpoints; they do not quantify all stochastic generation or numerical retraining variability.

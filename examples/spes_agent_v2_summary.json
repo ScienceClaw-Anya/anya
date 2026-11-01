@@ -100,21 +100,21 @@
   },
   "studies": {
     "argon_control": {
-      "status": "incomplete",
+      "status": "complete_audited",
       "completed_cases": {
-        "single_serial": 2,
-        "multi_serial": 2,
-        "multi_independent_first": 3,
-        "multi_no_exchange": 3,
-        "single_tools": 3,
-        "multi_independent_tools": 3
+        "single_serial": 35,
+        "multi_serial": 35,
+        "multi_independent_first": 35,
+        "multi_no_exchange": 35,
+        "single_tools": 35,
+        "multi_independent_tools": 35
       },
-      "total_request_attempts": 197,
-      "captured_responses": 181,
+      "total_request_attempts": 1680,
+      "captured_responses": 1679,
       "usage_tokens": {
-        "prompt_tokens": 2558375,
-        "completion_tokens": 88346,
-        "total_tokens": 2647227
+        "prompt_tokens": 23644180,
+        "completion_tokens": 837861,
+        "total_tokens": 24487000
       },
       "protocol": {
         "version": 2,
@@ -704,7 +704,92 @@
           "skills/neurotarget-spes-tools/scripts/spes_tools.py": "9c7e17e2b16bf6c42d38c3c3238b608c3d1dc684a1bfc64ed206c7e69a08276d",
           "skills/neurotarget-spes-tools/SKILL.md": "760ed62cfedfe07d7341b3906e3d6eb812f6b70ab21374d8edf23226f4a8503e"
         }
-      }
+      },
+      "mean_patient_AUROC": {
+        "single_serial": 0.6984520617922885,
+        "multi_serial": 0.6896776552663778,
+        "multi_independent_first": 0.6869942397967576,
+        "multi_no_exchange": 0.6856715294663639,
+        "single_tools": 0.7235010981260349,
+        "multi_independent_tools": 0.722199978656899
+      },
+      "accepted_agent_outputs": 1678,
+      "native_artifacts": 2450,
+      "contrasts": {
+        "multi_independent_first minus multi_serial": {
+          "mean": -0.0026834154696201763,
+          "patient_bootstrap_95CI": [
+            -0.03045025786227802,
+            0.02340723881073804
+          ],
+          "patients_improved": 16,
+          "patients_worse": 17,
+          "patients_tied": 2
+        },
+        "multi_independent_first minus single_serial": {
+          "mean": -0.01145782199553096,
+          "patient_bootstrap_95CI": [
+            -0.029897423924583423,
+            0.004264409433439802
+          ],
+          "patients_improved": 15,
+          "patients_worse": 18,
+          "patients_tied": 2
+        },
+        "multi_independent_first minus multi_no_exchange": {
+          "mean": 0.0013227103303936974,
+          "patient_bootstrap_95CI": [
+            -0.009750535386796823,
+            0.012083283460861762
+          ],
+          "patients_improved": 18,
+          "patients_worse": 14,
+          "patients_tied": 3
+        },
+        "multi_independent_tools minus single_tools": {
+          "mean": -0.00130111946913586,
+          "patient_bootstrap_95CI": [
+            -0.017916097001485908,
+            0.01498139101038743
+          ],
+          "patients_improved": 9,
+          "patients_worse": 7,
+          "patients_tied": 19
+        }
+      },
+      "feedback_diagnostics": {
+        "single_serial": {
+          "second_minus_first_round_AUROC": 0.0004957278100026846,
+          "identical_final_four_vectors_cases": 34,
+          "cases": 35
+        },
+        "multi_serial": {
+          "second_minus_first_round_AUROC": 0.0010568809842421447,
+          "identical_final_four_vectors_cases": 6,
+          "cases": 35
+        },
+        "multi_independent_first": {
+          "second_minus_first_round_AUROC": 0.002929091466088322,
+          "identical_final_four_vectors_cases": 0,
+          "cases": 35
+        },
+        "multi_no_exchange": {
+          "second_minus_first_round_AUROC": 0.004654268185968472,
+          "identical_final_four_vectors_cases": 0,
+          "cases": 35
+        },
+        "single_tools": {
+          "second_minus_first_round_AUROC": -9.912705577010326e-18,
+          "identical_final_four_vectors_cases": 35,
+          "cases": 35
+        },
+        "multi_independent_tools": {
+          "second_minus_first_round_AUROC": 0.002545819945235233,
+          "identical_final_four_vectors_cases": 30,
+          "cases": 35
+        }
+      },
+      "token_accounting_note": "Sum of captured usage records only; uncaptured requests have unknown consumption, not verified zero cost."
     },
     "mixed": {
       "status": "not_run"
@@ -715,5 +800,165 @@
     "mean_ensemble": 0.6805723161526627,
     "prediction_fusion": 0.6962322284007905,
     "feature_fusion": 0.6780190065221899
+  },
+  "failure_accounting": {
+    "single_serial": {
+      "attempts": 280,
+      "schema_carries": 0,
+      "transport_carries": 0
+    },
+    "multi_serial": {
+      "attempts": 280,
+      "schema_carries": 0,
+      "transport_carries": 1
+    },
+    "multi_independent_first": {
+      "attempts": 280,
+      "schema_carries": 0,
+      "transport_carries": 0
+    },
+    "multi_no_exchange": {
+      "attempts": 280,
+      "schema_carries": 1,
+      "transport_carries": 0
+    },
+    "single_tools": {
+      "attempts": 280,
+      "schema_carries": 0,
+      "transport_carries": 0
+    },
+    "multi_independent_tools": {
+      "attempts": 280,
+      "schema_carries": 0,
+      "transport_carries": 0
+    }
+  },
+  "final_round_scorer_selections": {
+    "single_tools": {
+      "prediction_fusion": 52,
+      "transformer": 84,
+      "feature_fusion": 4
+    },
+    "multi_independent_tools": {
+      "transformer": 109,
+      "prediction_fusion": 26,
+      "feature_fusion": 5
+    }
+  },
+  "interpretation": {
+    "primary_contrast": "multi_independent_first minus multi_serial",
+    "conclusion": "This comparison did not demonstrate a consistent benefit from independent first-round deliberation.",
+    "elapsed_seconds": 1400.9091312885284,
+    "note": "Post-run reporting; no changes to frozen agent or training inputs"
+  },
+  "fusion_postfit_diagnostics": {
+    "purpose": "Post-fit diagnosis; no new tuning or agent prompt changes",
+    "caveat": "Fusion validation scores are resubstitution on fitting patients, not independent validation. The Transformer also used validation for early stopping.",
+    "validation_resubstitution_mean_patient_AUROC": {
+      "transformer": 0.7636206893896795,
+      "prediction_fusion": 0.7565687296253936,
+      "feature_fusion": 0.802998917946452
+    },
+    "held_out_mean_patient_AUROC": {
+      "transformer": 0.7200563202626207,
+      "prediction_fusion": 0.6943636066496238,
+      "feature_fusion": 0.659475650831052
+    },
+    "scaled_coefficient_across_25_fits": {
+      "CNN_divergent": {
+        "mean": 0.1804995994338011,
+        "sd": 0.19062249491339595,
+        "positive_fits": 22
+      },
+      "CNN_convergent": {
+        "mean": 0.19783644941044046,
+        "sd": 0.2323330580513286,
+        "positive_fits": 21
+      },
+      "Transformer_base": {
+        "mean": 0.3147787480737447,
+        "sd": 0.24203957801542558,
+        "positive_fits": 24
+      },
+      "incoming_early": {
+        "mean": 0.05327958035479072,
+        "sd": 0.14746792072541146,
+        "positive_fits": 17
+      },
+      "incoming_middle": {
+        "mean": 0.012453763157959274,
+        "sd": 0.17175253272342758,
+        "positive_fits": 13
+      },
+      "incoming_late": {
+        "mean": 0.22145207090765254,
+        "sd": 0.20607321877588192,
+        "positive_fits": 21
+      },
+      "outgoing_early": {
+        "mean": 0.03159521754158668,
+        "sd": 0.10468704414264356,
+        "positive_fits": 16
+      },
+      "outgoing_middle": {
+        "mean": -0.025910630429892157,
+        "sd": 0.119381838427801,
+        "positive_fits": 9
+      },
+      "outgoing_late": {
+        "mean": 0.10148488777064003,
+        "sd": 0.17366551562608548,
+        "positive_fits": 14
+      },
+      "incoming_valid_fraction": {
+        "mean": -0.11982614846685159,
+        "sd": 0.27079896922348684,
+        "positive_fits": 12
+      },
+      "outgoing_valid_fraction": {
+        "mean": 0.07921950312482035,
+        "sd": 0.167722398072224,
+        "positive_fits": 17
+      },
+      "incoming_peak_magnitude": {
+        "mean": 0.04383558267141008,
+        "sd": 0.19093361007721607,
+        "positive_fits": 16
+      },
+      "incoming_peak_latency": {
+        "mean": -0.026680682613686148,
+        "sd": 0.2045943886916942,
+        "positive_fits": 13
+      },
+      "outgoing_peak_magnitude": {
+        "mean": 0.07070220240226685,
+        "sd": 0.16806195259553214,
+        "positive_fits": 18
+      },
+      "outgoing_peak_latency": {
+        "mean": 0.1640741292704769,
+        "sd": 0.10865473510953935,
+        "positive_fits": 22
+      },
+      "direction_early": {
+        "mean": -0.01829217784519778,
+        "sd": 0.12750277283540928,
+        "positive_fits": 11
+      },
+      "direction_middle": {
+        "mean": -0.029087733488928694,
+        "sd": 0.1553310400530911,
+        "positive_fits": 10
+      },
+      "direction_late": {
+        "mean": -0.08685585276946972,
+        "sd": 0.16005196017890133,
+        "positive_fits": 8
+      }
+    }
+  },
+  "reporting_source_sha256": {
+    "spes_v2_fusion_diagnostics.py": "86d5a4f6341ae0291112c094dadcbfdaef3d500f13c38e63c0e8fc083e9ac971",
+    "finalize_spes_v2_report.py": "d64df1f0e95cd462c614d7b1b050fb76cda3f69c90f52a96c7b8fd62910f76b0"
   }
 }

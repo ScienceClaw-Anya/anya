@@ -1,8 +1,8 @@
 # Anya / NeuroTarget Swarm
 
-ScienceClaw + Gemini agents select diagnostic stimulation experiments, share feedback and revise localization hypotheses in a Virtual Epileptic Patient (VEP) sandbox.
+ScienceClaw + Gemini agents study diagnostic stimulation in a Virtual Epileptic Patient (VEP) sandbox and SOZ contact ranking from real SPES recordings.
 
-The project integrates public VEP data, Epileptor simulations and native ScienceClaw components. Four specialist roles propose the next stimulation site using connectome features, the team's literature evidence and measured SEEG summaries. Each proposal and measurement produces a traceable artifact.
+The project integrates public VEP data, Epileptor simulations, trained EEG models and native ScienceClaw components. The VEP track proposes stimulation sites from connectome features and measured SEEG summaries. The real-SPES track reconstructs numerical models and tests matched-budget agent policies. Decisions and measurements produce traceable artifacts.
 
 **Research prototype: the diagnostic benchmark scores a generator-defined susceptibility reference, using a fixed SEEG-only response-ranking heuristic. Clinical localization accuracy and treatment benefit have not been established.**
 
@@ -11,6 +11,8 @@ The project integrates public VEP data, Epileptor simulations and native Science
 The [SPES v2 experiment](experiments/spes_agent_v2/README.md) separates communication from numerical fusion. It adds independent-first and no-exchange controls, a validation-only logistic fusion model, and native ScienceClaw tools for measured responses and trained predictions. Single-agent and multi-agent policies receive the same eight-request budget. The executable control uses **Gemini 4 Argon with medium reasoning**; a separately logged Argon/Nemotron adapter is available when a dedicated model API key is configured.
 
 The fixed numerical fusion experiment completed on all 35 patients over five repeats: prediction-only fusion AUROC **0.6944**, response-feature fusion **0.6595**, versus the reconstructed Transformer **0.7201**. Fifty fits took less than one CPU second locally, with patient-disjoint fitting and independent prediction replay. These particular fusion models did not improve the baseline. Communication results, exact completion status and limitations are in the [English follow-up report](docs/spes-agent-v2-report.md) and [aggregate evidence](examples/spes_agent_v2_summary.json). The new agent experiment uses the first repeat only; its scores must be compared with the matching first-repeat numerical baseline.
+
+The Gemini 4 Argon comparison completed **35 patients × six arms**, **1,680 formal attempts** and **2,450 verified native artifacts**. Independent-first specialists scored **0.6870**, versus serial specialists **0.6897**; the paired difference was **-0.0027**, 95% patient-bootstrap interval **[-0.0305, +0.0234]**. Numerical-tool single and multi-agent policies scored **0.7235** and **0.7222**, respectively, compared with the same-repeat Transformer **0.7274**. Neither communication comparison demonstrates a consistent multi-agent benefit. One malformed vector and one connection failure remain counted through the frozen carry rule; no spent request was replayed. The API run took about 23 minutes; no additional Nebius GPU job was created.
 
 ## Paper reconstruction and same-task agents
 
