@@ -1,0 +1,10 @@
+{
+  "status": "authorized_pilot_results_incomplete",
+  "recorded_model_attempts": 88,
+  "pilot_attempt_cap": 120,
+  "local_native_tool_calls": 8,
+  "local_native_artifacts_verified": 20,
+  "local_numeric_trajectory_matches_v11": true,
+  "recording_name_ambiguities": 21,
+  "multi_agent_superiority_established": false
+}

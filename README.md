@@ -86,6 +86,16 @@ localizer. Audit refitted all ten readouts and checked 57,159 correlated fitting
 rows and 280 held-out scorer/state outcomes. No new Gemini call or neural fit
 was used. A supported multi-agent improvement remains an open research goal.
 
+The [independent physical-proposal pilot](docs/spes-agent-v16-report.md) is
+implemented and frozen. It replaces serial reviewer control with two
+independent submissions and delayed rationale exchange, using whitelisted
+anatomy, recorded conditions and observed-response quality. The first eight-call
+single trajectory passed 8/8 interface checks and counts inside the explicitly
+authorized five-patient, 120-attempt budget. Complete pilot outcomes and audit
+are still pending; no collaboration advantage is claimed. Eight offline tests
+and a real local native-tool/lineage check passed. Twenty-one ambiguous recording
+names remain explicit. See [reproducible commands](experiments/spes_agent_v16/README.md).
+
 ## Current research: complementary models and real-feedback acquisition
 
 The [v4 research track](experiments/spes_agent_v4/README.md) preserves all earlier

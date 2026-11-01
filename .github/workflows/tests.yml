@@ -82,3 +82,6 @@ jobs:
       - run: python -m unittest experiments.spes_agent_v15.test_readout -v
         env:
           PYTHONUTF8: '1'
+      - run: python -m unittest experiments.spes_agent_v16.test_v16 -v
+        env:
+          PYTHONUTF8: '1'
