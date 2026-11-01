@@ -30,3 +30,20 @@ This stage uses local computation, zero new neural fits and zero Gemini calls.
 It is a representation/readout adaptation test, not a completed LLM comparison.
 No clinical efficacy, external validation or multi-agent advantage is claimed.
 Raw data, labels and model assets stay outside Git.
+
+## Completed result
+
+The primary fails: context AUROC 0.734324 versus original HAT 0.740463; gain
+-0.006139, interval [-0.046473, 0.035096]. The linear secondary scores 0.743970,
+with an uncertain gain. No readout is adopted as an improved localizer.
+See the [English report](../../docs/spes-agent-v15-report.md).
+
+Independent audit refits all ten readouts, reconstructs physical subsets,
+availability and context features, checks original-head scores and all 280
+held-out outcomes, and re-infers five source encoder states. There are 105
+training banks and 57,159 correlated contact/state rows, not new patients.
+
+```powershell
+python -m experiments.spes_agent_v15.audit --project . --output outputs/spes_agent_v15
+python -m experiments.spes_agent_v15.report --project . --output outputs/spes_agent_v15
+```

@@ -77,11 +77,14 @@ versus score-focus **0.7620**. Consensus gain **-0.0348**, interval
 not produce a better policy. The spending gate fails. All 105 trajectories and
 420 adaptive choices passed independent replay; no Gemini call was added.
 
-The next [sparse-readout adaptation](experiments/spes_agent_v15/README.md) is
-running locally. It keeps pretrained HAT encoders fixed and trains each
-encoder's readouts on its own fitting patients with true partial physical
-inputs. No readout result or collaboration advantage is claimed before
-evaluation and audit.
+The [sparse-readout adaptation](docs/spes-agent-v15-report.md) completed ten
+small readouts on frozen pretrained HAT representations. The context primary
+scored **0.7343** versus original HAT **0.7405**; gain **-0.0061**, interval
+**[-0.0465, +0.0351]**. The simpler readout's small positive secondary also has
+an interval crossing zero. The gate fails and neither is adopted as an improved
+localizer. Audit refitted all ten readouts and checked 57,159 correlated fitting
+rows and 280 held-out scorer/state outcomes. No new Gemini call or neural fit
+was used. A supported multi-agent improvement remains an open research goal.
 
 ## Current research: complementary models and real-feedback acquisition
 

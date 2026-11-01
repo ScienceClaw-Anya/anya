@@ -1,0 +1,2066 @@
+{
+  "status": "readout_ranking_gate_failed",
+  "results": {
+    "primary": "context readout minus original HAT at eight same physical random0 groups, mean patient SOZ AUROC",
+    "summary": {
+      "4/hat": {
+        "mean_patient_AUROC": 0.7050305880701305,
+        "gain_over_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "mean_patient_Brier": 0.6046875810892831
+      },
+      "4/constant": {
+        "mean_patient_AUROC": 0.5,
+        "gain_over_hat": -0.2050305880701305,
+        "paired_95CI": [
+          -0.2560376897834946,
+          -0.1511297597060985
+        ],
+        "mean_patient_Brier": 0.11562943202544554
+      },
+      "4/linear": {
+        "mean_patient_AUROC": 0.7251472071552904,
+        "gain_over_hat": 0.0201166190851599,
+        "paired_95CI": [
+          -0.029267214197639484,
+          0.07401318100119578
+        ],
+        "mean_patient_Brier": 0.11109548411640909
+      },
+      "4/context": {
+        "mean_patient_AUROC": 0.6980350697472306,
+        "gain_over_hat": -0.0069955183228997365,
+        "paired_95CI": [
+          -0.05306698818154918,
+          0.038768378986028564
+        ],
+        "mean_patient_Brier": 0.11415404941223027
+      },
+      "8/hat": {
+        "mean_patient_AUROC": 0.7404631485534902,
+        "gain_over_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "mean_patient_Brier": 0.6003415561052277
+      },
+      "8/constant": {
+        "mean_patient_AUROC": 0.5,
+        "gain_over_hat": -0.24046314855349016,
+        "paired_95CI": [
+          -0.28756216186391953,
+          -0.1888088602727886
+        ],
+        "mean_patient_Brier": 0.11562943202544554
+      },
+      "8/linear": {
+        "mean_patient_AUROC": 0.743969817557438,
+        "gain_over_hat": 0.0035066690039477046,
+        "paired_95CI": [
+          -0.03246264786370757,
+          0.04293321355102729
+        ],
+        "mean_patient_Brier": 0.11156979526085416
+      },
+      "8/context": {
+        "mean_patient_AUROC": 0.7343236584616666,
+        "gain_over_hat": -0.006139490091823628,
+        "paired_95CI": [
+          -0.046473408707469716,
+          0.035096462110097836
+        ],
+        "mean_patient_Brier": 0.11553339936656237
+      }
+    },
+    "rows": [
+      {
+        "case_id": "fe3a755470400274",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6314285714285715,
+        "Brier": 0.5871046768503305
+      },
+      {
+        "case_id": "fe3a755470400274",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.10773040070211257
+      },
+      {
+        "case_id": "fe3a755470400274",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.4742857142857143,
+        "Brier": 0.13388968488354572
+      },
+      {
+        "case_id": "fe3a755470400274",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.52,
+        "Brier": 0.12343538831325565
+      },
+      {
+        "case_id": "fe3a755470400274",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6114285714285714,
+        "Brier": 0.5941773649553682
+      },
+      {
+        "case_id": "fe3a755470400274",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.10773040070211257
+      },
+      {
+        "case_id": "fe3a755470400274",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.6028571428571429,
+        "Brier": 0.1336363213895472
+      },
+      {
+        "case_id": "fe3a755470400274",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.5342857142857143,
+        "Brier": 0.13065690303701755
+      },
+      {
+        "case_id": "f4dfd28099df0b9b",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6575342465753424,
+        "Brier": 0.6239369292360184
+      },
+      {
+        "case_id": "f4dfd28099df0b9b",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.06318345327870968
+      },
+      {
+        "case_id": "f4dfd28099df0b9b",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.4,
+        "Brier": 0.06514112373586356
+      },
+      {
+        "case_id": "f4dfd28099df0b9b",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.3287671232876712,
+        "Brier": 0.064666579303895
+      },
+      {
+        "case_id": "f4dfd28099df0b9b",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6136986301369863,
+        "Brier": 0.6295013210242855
+      },
+      {
+        "case_id": "f4dfd28099df0b9b",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.06318345327870968
+      },
+      {
+        "case_id": "f4dfd28099df0b9b",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.5698630136986301,
+        "Brier": 0.06524592537496846
+      },
+      {
+        "case_id": "f4dfd28099df0b9b",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.4602739726027397,
+        "Brier": 0.0677047382417966
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.5293103448275862,
+        "Brier": 0.5034431639111108
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.20911310863123633
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.6232758620689656,
+        "Brier": 0.19802804370347887
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.618103448275862,
+        "Brier": 0.19818893887130898
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.675,
+        "Brier": 0.5072007422325816
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.20911310863123633
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.631896551724138,
+        "Brier": 0.20677229435401445
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.6672413793103448,
+        "Brier": 0.20224648297386613
+      },
+      {
+        "case_id": "e733d9c58feeb9de",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7023809523809523,
+        "Brier": 0.5773600725556133
+      },
+      {
+        "case_id": "e733d9c58feeb9de",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.11960958668168666
+      },
+      {
+        "case_id": "e733d9c58feeb9de",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.6785714285714286,
+        "Brier": 0.12677377610607268
+      },
+      {
+        "case_id": "e733d9c58feeb9de",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.6924603174603174,
+        "Brier": 0.12980832113396912
+      },
+      {
+        "case_id": "e733d9c58feeb9de",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6964285714285714,
+        "Brier": 0.5816324722094338
+      },
+      {
+        "case_id": "e733d9c58feeb9de",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.11960958668168666
+      },
+      {
+        "case_id": "e733d9c58feeb9de",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.7222222222222222,
+        "Brier": 0.12958091432957342
+      },
+      {
+        "case_id": "e733d9c58feeb9de",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7202380952380952,
+        "Brier": 0.13718063265261696
+      },
+      {
+        "case_id": "3e84443d38701504",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8097826086956522,
+        "Brier": 0.5724733277025594
+      },
+      {
+        "case_id": "3e84443d38701504",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.12696011746981395
+      },
+      {
+        "case_id": "3e84443d38701504",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.8831521739130435,
+        "Brier": 0.09853401335043284
+      },
+      {
+        "case_id": "3e84443d38701504",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.8777173913043478,
+        "Brier": 0.09960717287638964
+      },
+      {
+        "case_id": "3e84443d38701504",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8831521739130435,
+        "Brier": 0.5767943271171655
+      },
+      {
+        "case_id": "3e84443d38701504",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.12696011746981395
+      },
+      {
+        "case_id": "3e84443d38701504",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.8831521739130435,
+        "Brier": 0.0966654813238252
+      },
+      {
+        "case_id": "3e84443d38701504",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.8831521739130435,
+        "Brier": 0.09781308927190227
+      },
+      {
+        "case_id": "36e9fb4ca33d9899",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8013888888888889,
+        "Brier": 0.5145384392344752
+      },
+      {
+        "case_id": "36e9fb4ca33d9899",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.19521504621671004
+      },
+      {
+        "case_id": "36e9fb4ca33d9899",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.8111111111111111,
+        "Brier": 0.17803966900996973
+      },
+      {
+        "case_id": "36e9fb4ca33d9899",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.8,
+        "Brier": 0.1857915381977601
+      },
+      {
+        "case_id": "36e9fb4ca33d9899",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7388888888888889,
+        "Brier": 0.517243393973212
+      },
+      {
+        "case_id": "36e9fb4ca33d9899",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.19521504621671004
+      },
+      {
+        "case_id": "36e9fb4ca33d9899",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.7402777777777778,
+        "Brier": 0.18490206672245885
+      },
+      {
+        "case_id": "36e9fb4ca33d9899",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7305555555555555,
+        "Brier": 0.18700008221077838
+      },
+      {
+        "case_id": "17929c817f7e844b",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6992409867172675,
+        "Brier": 0.5300096653279728
+      },
+      {
+        "case_id": "17929c817f7e844b",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.17783367195651759
+      },
+      {
+        "case_id": "17929c817f7e844b",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.7352941176470589,
+        "Brier": 0.16167478539041166
+      },
+      {
+        "case_id": "17929c817f7e844b",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.7172675521821632,
+        "Brier": 0.16316270098741933
+      },
+      {
+        "case_id": "17929c817f7e844b",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7087286527514232,
+        "Brier": 0.5352637793071398
+      },
+      {
+        "case_id": "17929c817f7e844b",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.17783367195651759
+      },
+      {
+        "case_id": "17929c817f7e844b",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.6328273244781784,
+        "Brier": 0.1725656491281415
+      },
+      {
+        "case_id": "17929c817f7e844b",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.6888045540796964,
+        "Brier": 0.1638604661331892
+      },
+      {
+        "case_id": "8329278152fc04eb",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8181818181818182,
+        "Brier": 0.7203554831806855
+      },
+      {
+        "case_id": "8329278152fc04eb",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.05723623122237414
+      },
+      {
+        "case_id": "8329278152fc04eb",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.5636363636363636,
+        "Brier": 0.05969310546951226
+      },
+      {
+        "case_id": "8329278152fc04eb",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.5454545454545454,
+        "Brier": 0.060995545042932
+      },
+      {
+        "case_id": "8329278152fc04eb",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8181818181818182,
+        "Brier": 0.7275732322455911
+      },
+      {
+        "case_id": "8329278152fc04eb",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.05723623122237414
+      },
+      {
+        "case_id": "8329278152fc04eb",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.593939393939394,
+        "Brier": 0.058318165506129026
+      },
+      {
+        "case_id": "8329278152fc04eb",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.6181818181818182,
+        "Brier": 0.060505988805515144
+      },
+      {
+        "case_id": "939e52f178688bfb",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.9444444444444444,
+        "Brier": 0.7085519177100801
+      },
+      {
+        "case_id": "939e52f178688bfb",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.062316430372117954
+      },
+      {
+        "case_id": "939e52f178688bfb",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.8472222222222222,
+        "Brier": 0.05379907967172298
+      },
+      {
+        "case_id": "939e52f178688bfb",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.8611111111111112,
+        "Brier": 0.05458119735813735
+      },
+      {
+        "case_id": "939e52f178688bfb",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.9166666666666666,
+        "Brier": 0.7168442341697316
+      },
+      {
+        "case_id": "939e52f178688bfb",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.062316430372117954
+      },
+      {
+        "case_id": "939e52f178688bfb",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.8263888888888888,
+        "Brier": 0.05345401304444842
+      },
+      {
+        "case_id": "939e52f178688bfb",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.8402777777777778,
+        "Brier": 0.05244853621715768
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6707070707070707,
+        "Brier": 0.6519925268385853
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.1208521178966214
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.9232323232323232,
+        "Brier": 0.08247080110248853
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.9414141414141414,
+        "Brier": 0.08057202740322189
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.901010101010101,
+        "Brier": 0.6574881253043794
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.1208521178966214
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.9717171717171718,
+        "Brier": 0.07734164543661556
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.9777777777777777,
+        "Brier": 0.07331282321022768
+      },
+      {
+        "case_id": "a05ab632869881b0",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7440476190476191,
+        "Brier": 0.7190539887203102
+      },
+      {
+        "case_id": "a05ab632869881b0",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.05660889428136462
+      },
+      {
+        "case_id": "a05ab632869881b0",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.6488095238095238,
+        "Brier": 0.08051395777465632
+      },
+      {
+        "case_id": "a05ab632869881b0",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.5952380952380952,
+        "Brier": 0.08166347012506472
+      },
+      {
+        "case_id": "a05ab632869881b0",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7261904761904762,
+        "Brier": 0.7262929961830589
+      },
+      {
+        "case_id": "a05ab632869881b0",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.05660889428136462
+      },
+      {
+        "case_id": "a05ab632869881b0",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.5952380952380952,
+        "Brier": 0.07719608657547761
+      },
+      {
+        "case_id": "a05ab632869881b0",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.5714285714285714,
+        "Brier": 0.08266083718584653
+      },
+      {
+        "case_id": "6ad4cd4ebf16080c",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7256958450988302,
+        "Brier": 0.4883693406564411
+      },
+      {
+        "case_id": "6ad4cd4ebf16080c",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.2748055294239024
+      },
+      {
+        "case_id": "6ad4cd4ebf16080c",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.7289229528035498,
+        "Brier": 0.24507606154516431
+      },
+      {
+        "case_id": "6ad4cd4ebf16080c",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.7083501411859621,
+        "Brier": 0.24663561302510845
+      },
+      {
+        "case_id": "6ad4cd4ebf16080c",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.681726502622025,
+        "Brier": 0.4929432217345855
+      },
+      {
+        "case_id": "6ad4cd4ebf16080c",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.2748055294239024
+      },
+      {
+        "case_id": "6ad4cd4ebf16080c",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.7075433642597821,
+        "Brier": 0.25522280988057433
+      },
+      {
+        "case_id": "6ad4cd4ebf16080c",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7010891488503429,
+        "Brier": 0.25626386085377917
+      },
+      {
+        "case_id": "a81ad4a94d955562",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.5945945945945946,
+        "Brier": 0.5929761852648172
+      },
+      {
+        "case_id": "a81ad4a94d955562",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.1724749128471099
+      },
+      {
+        "case_id": "a81ad4a94d955562",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.772972972972973,
+        "Brier": 0.16863434124812574
+      },
+      {
+        "case_id": "a81ad4a94d955562",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.7810810810810811,
+        "Brier": 0.16706035327204974
+      },
+      {
+        "case_id": "a81ad4a94d955562",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.22432432432432434,
+        "Brier": 0.6034081470787166
+      },
+      {
+        "case_id": "a81ad4a94d955562",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.1724749128471099
+      },
+      {
+        "case_id": "a81ad4a94d955562",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.5837837837837838,
+        "Brier": 0.17913762311827422
+      },
+      {
+        "case_id": "a81ad4a94d955562",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.527027027027027,
+        "Brier": 0.18476567798165208
+      },
+      {
+        "case_id": "488278ad021a067a",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.582010582010582,
+        "Brier": 0.7122095554630252
+      },
+      {
+        "case_id": "488278ad021a067a",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.05274982158363935
+      },
+      {
+        "case_id": "488278ad021a067a",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.6825396825396826,
+        "Brier": 0.045256988929589
+      },
+      {
+        "case_id": "488278ad021a067a",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.6878306878306878,
+        "Brier": 0.046122639393774006
+      },
+      {
+        "case_id": "488278ad021a067a",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8624338624338624,
+        "Brier": 0.722300826778457
+      },
+      {
+        "case_id": "488278ad021a067a",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.05274982158363935
+      },
+      {
+        "case_id": "488278ad021a067a",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.9629629629629629,
+        "Brier": 0.04420471168474797
+      },
+      {
+        "case_id": "488278ad021a067a",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.9523809523809523,
+        "Brier": 0.04340726490404941
+      },
+      {
+        "case_id": "861cedcaa76e66cf",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8035087719298246,
+        "Brier": 0.5650181229966125
+      },
+      {
+        "case_id": "861cedcaa76e66cf",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.07919870859640064
+      },
+      {
+        "case_id": "861cedcaa76e66cf",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.7368421052631579,
+        "Brier": 0.07359803575542996
+      },
+      {
+        "case_id": "861cedcaa76e66cf",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.8035087719298246,
+        "Brier": 0.07406499293553712
+      },
+      {
+        "case_id": "861cedcaa76e66cf",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6421052631578947,
+        "Brier": 0.5821994288557834
+      },
+      {
+        "case_id": "861cedcaa76e66cf",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.07919870859640064
+      },
+      {
+        "case_id": "861cedcaa76e66cf",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.6947368421052632,
+        "Brier": 0.08137436530183437
+      },
+      {
+        "case_id": "861cedcaa76e66cf",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7228070175438597,
+        "Brier": 0.08504485732081074
+      },
+      {
+        "case_id": "0f598f88761dac93",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7777777777777778,
+        "Brier": 0.5318820612950289
+      },
+      {
+        "case_id": "0f598f88761dac93",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.05619662013742279
+      },
+      {
+        "case_id": "0f598f88761dac93",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.65,
+        "Brier": 0.04864046338076785
+      },
+      {
+        "case_id": "0f598f88761dac93",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.5666666666666667,
+        "Brier": 0.04888058349765996
+      },
+      {
+        "case_id": "0f598f88761dac93",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8222222222222222,
+        "Brier": 0.5453205895919894
+      },
+      {
+        "case_id": "0f598f88761dac93",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.05619662013742279
+      },
+      {
+        "case_id": "0f598f88761dac93",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.8111111111111111,
+        "Brier": 0.046269378064377184
+      },
+      {
+        "case_id": "0f598f88761dac93",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.8388888888888889,
+        "Brier": 0.04572234664542354
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.96,
+        "Brier": 0.6076277543563439
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.036687324864418315
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.98,
+        "Brier": 0.022219764763984937
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.98,
+        "Brier": 0.030098697567074416
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.96,
+        "Brier": 0.5722769742417851
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.036687324864418315
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 1.0,
+        "Brier": 0.016709233984119973
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 1.0,
+        "Brier": 0.018349568019766577
+      },
+      {
+        "case_id": "e57085dab3aa091e",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8207547169811321,
+        "Brier": 0.5859446249656713
+      },
+      {
+        "case_id": "e57085dab3aa091e",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.048357430582270086
+      },
+      {
+        "case_id": "e57085dab3aa091e",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.8113207547169812,
+        "Brier": 0.037922334596430914
+      },
+      {
+        "case_id": "e57085dab3aa091e",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.7924528301886793,
+        "Brier": 0.03895885183659139
+      },
+      {
+        "case_id": "e57085dab3aa091e",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8301886792452831,
+        "Brier": 0.586186317451006
+      },
+      {
+        "case_id": "e57085dab3aa091e",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.048357430582270086
+      },
+      {
+        "case_id": "e57085dab3aa091e",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.8113207547169812,
+        "Brier": 0.04288542931413774
+      },
+      {
+        "case_id": "e57085dab3aa091e",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7735849056603774,
+        "Brier": 0.04462609790650572
+      },
+      {
+        "case_id": "8df7b81da92a7e29",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6299342105263158,
+        "Brier": 0.46651789724431547
+      },
+      {
+        "case_id": "8df7b81da92a7e29",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.22939580817220692
+      },
+      {
+        "case_id": "8df7b81da92a7e29",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.7319078947368421,
+        "Brier": 0.2025785151129209
+      },
+      {
+        "case_id": "8df7b81da92a7e29",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.6776315789473685,
+        "Brier": 0.2679919196728793
+      },
+      {
+        "case_id": "8df7b81da92a7e29",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7401315789473685,
+        "Brier": 0.4668544914210981
+      },
+      {
+        "case_id": "8df7b81da92a7e29",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.22939580817220692
+      },
+      {
+        "case_id": "8df7b81da92a7e29",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.7894736842105263,
+        "Brier": 0.18850871418154314
+      },
+      {
+        "case_id": "8df7b81da92a7e29",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7664473684210527,
+        "Brier": 0.2602931558431975
+      },
+      {
+        "case_id": "3379c4072b56004a",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8562091503267973,
+        "Brier": 0.6316598133296528
+      },
+      {
+        "case_id": "3379c4072b56004a",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.06172425379810739
+      },
+      {
+        "case_id": "3379c4072b56004a",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.8169934640522876,
+        "Brier": 0.09382177777543164
+      },
+      {
+        "case_id": "3379c4072b56004a",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.738562091503268,
+        "Brier": 0.06847064027229688
+      },
+      {
+        "case_id": "3379c4072b56004a",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8235294117647058,
+        "Brier": 0.6232248296058869
+      },
+      {
+        "case_id": "3379c4072b56004a",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.06172425379810739
+      },
+      {
+        "case_id": "3379c4072b56004a",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.8104575163398693,
+        "Brier": 0.07696850936768997
+      },
+      {
+        "case_id": "3379c4072b56004a",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7058823529411765,
+        "Brier": 0.0805573986305365
+      },
+      {
+        "case_id": "d63414d73e592582",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.41106719367588934,
+        "Brier": 0.4903976612746473
+      },
+      {
+        "case_id": "d63414d73e592582",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.15743959455417234
+      },
+      {
+        "case_id": "d63414d73e592582",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.24308300395256918,
+        "Brier": 0.18635951668936987
+      },
+      {
+        "case_id": "d63414d73e592582",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.274703557312253,
+        "Brier": 0.1846115213352082
+      },
+      {
+        "case_id": "d63414d73e592582",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.5632411067193676,
+        "Brier": 0.4775826311154938
+      },
+      {
+        "case_id": "d63414d73e592582",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.15743959455417234
+      },
+      {
+        "case_id": "d63414d73e592582",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.39920948616600793,
+        "Brier": 0.18637239671156594
+      },
+      {
+        "case_id": "d63414d73e592582",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.3715415019762846,
+        "Brier": 0.19008760657583684
+      },
+      {
+        "case_id": "6e715807f8afcaad",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6793478260869565,
+        "Brier": 0.7034662235538931
+      },
+      {
+        "case_id": "6e715807f8afcaad",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.1263816467758269
+      },
+      {
+        "case_id": "6e715807f8afcaad",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.7092391304347826,
+        "Brier": 0.11959306403484739
+      },
+      {
+        "case_id": "6e715807f8afcaad",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.7445652173913043,
+        "Brier": 0.13381577969701144
+      },
+      {
+        "case_id": "6e715807f8afcaad",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8233695652173914,
+        "Brier": 0.7030449118276799
+      },
+      {
+        "case_id": "6e715807f8afcaad",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.1263816467758269
+      },
+      {
+        "case_id": "6e715807f8afcaad",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.8369565217391305,
+        "Brier": 0.11560238206778134
+      },
+      {
+        "case_id": "6e715807f8afcaad",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.8315217391304348,
+        "Brier": 0.13938265241958633
+      },
+      {
+        "case_id": "2d6750ff62d8bf07",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7255434782608695,
+        "Brier": 0.7032618754971591
+      },
+      {
+        "case_id": "2d6750ff62d8bf07",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.12638164677582686
+      },
+      {
+        "case_id": "2d6750ff62d8bf07",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.8315217391304348,
+        "Brier": 0.12023676277816576
+      },
+      {
+        "case_id": "2d6750ff62d8bf07",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.8614130434782609,
+        "Brier": 0.12244184600119988
+      },
+      {
+        "case_id": "2d6750ff62d8bf07",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8804347826086957,
+        "Brier": 0.7027186451461547
+      },
+      {
+        "case_id": "2d6750ff62d8bf07",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.12638164677582686
+      },
+      {
+        "case_id": "2d6750ff62d8bf07",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.9347826086956522,
+        "Brier": 0.11403860641677843
+      },
+      {
+        "case_id": "2d6750ff62d8bf07",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.9266304347826086,
+        "Brier": 0.1124973308357224
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.47368421052631576,
+        "Brier": 0.7712279902428186
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.0660496174472486
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.47368421052631576,
+        "Brier": 0.0914664887148486
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.47368421052631576,
+        "Brier": 0.08059777891774543
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.5153508771929824,
+        "Brier": 0.7706389229797859
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.0660496174472486
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.43859649122807015,
+        "Brier": 0.08211572655769982
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.5219298245614035,
+        "Brier": 0.07807902691346122
+      },
+      {
+        "case_id": "338eb233aaf50203",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.9717514124293786,
+        "Brier": 0.7834350060945104
+      },
+      {
+        "case_id": "338eb233aaf50203",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.053492369881824646
+      },
+      {
+        "case_id": "338eb233aaf50203",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.9548022598870056,
+        "Brier": 0.04432587634953483
+      },
+      {
+        "case_id": "338eb233aaf50203",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.9548022598870056,
+        "Brier": 0.04312675018043472
+      },
+      {
+        "case_id": "338eb233aaf50203",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7966101694915254,
+        "Brier": 0.7821086127693612
+      },
+      {
+        "case_id": "338eb233aaf50203",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.053492369881824646
+      },
+      {
+        "case_id": "338eb233aaf50203",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.9378531073446328,
+        "Brier": 0.044076261782901166
+      },
+      {
+        "case_id": "338eb233aaf50203",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.9322033898305084,
+        "Brier": 0.04376767552856861
+      },
+      {
+        "case_id": "b21bc5941caeae35",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6428571428571429,
+        "Brier": 0.7131654103531008
+      },
+      {
+        "case_id": "b21bc5941caeae35",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.11842262041543918
+      },
+      {
+        "case_id": "b21bc5941caeae35",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.5357142857142857,
+        "Brier": 0.13239494169583138
+      },
+      {
+        "case_id": "b21bc5941caeae35",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.4383116883116883,
+        "Brier": 0.13122433304389564
+      },
+      {
+        "case_id": "b21bc5941caeae35",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6233766233766234,
+        "Brier": 0.7126830472582782
+      },
+      {
+        "case_id": "b21bc5941caeae35",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.11842262041543918
+      },
+      {
+        "case_id": "b21bc5941caeae35",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.525974025974026,
+        "Brier": 0.12967593531069738
+      },
+      {
+        "case_id": "b21bc5941caeae35",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.42207792207792205,
+        "Brier": 0.13584841460332533
+      },
+      {
+        "case_id": "8dc1129a4f872b40",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7757575757575758,
+        "Brier": 0.7170762445657535
+      },
+      {
+        "case_id": "8dc1129a4f872b40",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.11427554878555295
+      },
+      {
+        "case_id": "8dc1129a4f872b40",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.6666666666666666,
+        "Brier": 0.10982175976718633
+      },
+      {
+        "case_id": "8dc1129a4f872b40",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.6727272727272727,
+        "Brier": 0.11847681153995152
+      },
+      {
+        "case_id": "8dc1129a4f872b40",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7272727272727273,
+        "Brier": 0.7168220093985568
+      },
+      {
+        "case_id": "8dc1129a4f872b40",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.11427554878555295
+      },
+      {
+        "case_id": "8dc1129a4f872b40",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.6787878787878788,
+        "Brier": 0.1110136682352849
+      },
+      {
+        "case_id": "8dc1129a4f872b40",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7454545454545455,
+        "Brier": 0.12881367106517183
+      },
+      {
+        "case_id": "bf9b62c1bd10e264",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.9716981132075472,
+        "Brier": 0.7947930507416227
+      },
+      {
+        "case_id": "bf9b62c1bd10e264",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.04470756536123014
+      },
+      {
+        "case_id": "bf9b62c1bd10e264",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.9528301886792453,
+        "Brier": 0.049912051830607554
+      },
+      {
+        "case_id": "bf9b62c1bd10e264",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.839622641509434,
+        "Brier": 0.0479434189749372
+      },
+      {
+        "case_id": "bf9b62c1bd10e264",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8867924528301887,
+        "Brier": 0.7943451029332976
+      },
+      {
+        "case_id": "bf9b62c1bd10e264",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.04470756536123014
+      },
+      {
+        "case_id": "bf9b62c1bd10e264",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.7924528301886793,
+        "Brier": 0.05665112217048297
+      },
+      {
+        "case_id": "bf9b62c1bd10e264",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.6509433962264151,
+        "Brier": 0.05598777224301462
+      },
+      {
+        "case_id": "2cb726a34fa0d36e",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.5534883720930233,
+        "Brier": 0.39727111013907235
+      },
+      {
+        "case_id": "2cb726a34fa0d36e",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.15889693385238682
+      },
+      {
+        "case_id": "2cb726a34fa0d36e",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.5843023255813954,
+        "Brier": 0.1624281459515217
+      },
+      {
+        "case_id": "2cb726a34fa0d36e",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.5930232558139535,
+        "Brier": 0.1618547681443863
+      },
+      {
+        "case_id": "2cb726a34fa0d36e",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6,
+        "Brier": 0.3783878900918013
+      },
+      {
+        "case_id": "2cb726a34fa0d36e",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.15889693385238682
+      },
+      {
+        "case_id": "2cb726a34fa0d36e",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.5656976744186046,
+        "Brier": 0.167564324576064
+      },
+      {
+        "case_id": "2cb726a34fa0d36e",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.5970930232558139,
+        "Brier": 0.16650003178631612
+      },
+      {
+        "case_id": "c8786c64fa785e16",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8062678062678063,
+        "Brier": 0.5903817517804283
+      },
+      {
+        "case_id": "c8786c64fa785e16",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.15798279801504386
+      },
+      {
+        "case_id": "c8786c64fa785e16",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.9458689458689459,
+        "Brier": 0.11970197069488113
+      },
+      {
+        "case_id": "c8786c64fa785e16",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.9259259259259259,
+        "Brier": 0.13647297543204126
+      },
+      {
+        "case_id": "c8786c64fa785e16",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.9857549857549858,
+        "Brier": 0.5824045676628892
+      },
+      {
+        "case_id": "c8786c64fa785e16",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.15798279801504386
+      },
+      {
+        "case_id": "c8786c64fa785e16",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.9943019943019943,
+        "Brier": 0.11572179124191427
+      },
+      {
+        "case_id": "c8786c64fa785e16",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 1.0,
+        "Brier": 0.11712209183289689
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6180555555555556,
+        "Brier": 0.6224689242648213
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.058234446352030386
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.9097222222222222,
+        "Brier": 0.05031397026672214
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.9236111111111112,
+        "Brier": 0.049176636141389
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7430555555555556,
+        "Brier": 0.5941028574722954
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.058234446352030386
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.7638888888888888,
+        "Brier": 0.0528085919176243
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.8819444444444444,
+        "Brier": 0.05182956660587158
+      },
+      {
+        "case_id": "0e6943a1907f666a",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7948717948717948,
+        "Brier": 0.5100987081460031
+      },
+      {
+        "case_id": "0e6943a1907f666a",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.1270070803791759
+      },
+      {
+        "case_id": "0e6943a1907f666a",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.8290598290598291,
+        "Brier": 0.1128965162007628
+      },
+      {
+        "case_id": "0e6943a1907f666a",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.7927350427350427,
+        "Brier": 0.11943164113486865
+      },
+      {
+        "case_id": "0e6943a1907f666a",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.9401709401709402,
+        "Brier": 0.38878894037780976
+      },
+      {
+        "case_id": "0e6943a1907f666a",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.1270070803791759
+      },
+      {
+        "case_id": "0e6943a1907f666a",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.8141025641025641,
+        "Brier": 0.12314650695806179
+      },
+      {
+        "case_id": "0e6943a1907f666a",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.8205128205128205,
+        "Brier": 0.1270385007562461
+      },
+      {
+        "case_id": "fb7758c0e03ea66c",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6190476190476191,
+        "Brier": 0.46139567663987596
+      },
+      {
+        "case_id": "fb7758c0e03ea66c",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.13292286730167593
+      },
+      {
+        "case_id": "fb7758c0e03ea66c",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.6938775510204082,
+        "Brier": 0.12148012968409205
+      },
+      {
+        "case_id": "fb7758c0e03ea66c",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.6757369614512472,
+        "Brier": 0.12400431407616215
+      },
+      {
+        "case_id": "fb7758c0e03ea66c",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7052154195011338,
+        "Brier": 0.4414383740855441
+      },
+      {
+        "case_id": "fb7758c0e03ea66c",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.13292286730167593
+      },
+      {
+        "case_id": "fb7758c0e03ea66c",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.7981859410430839,
+        "Brier": 0.11875475352714152
+      },
+      {
+        "case_id": "fb7758c0e03ea66c",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.7845804988662132,
+        "Brier": 0.11578763535996382
+      },
+      {
+        "case_id": "359155846365ce48",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.23255813953488372,
+        "Brier": 0.6313869356220013
+      },
+      {
+        "case_id": "359155846365ce48",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.030253090560847393
+      },
+      {
+        "case_id": "359155846365ce48",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.813953488372093,
+        "Brier": 0.026879631769552683
+      },
+      {
+        "case_id": "359155846365ce48",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.37209302325581395,
+        "Brier": 0.0368076766930134
+      },
+      {
+        "case_id": "359155846365ce48",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.627906976744186,
+        "Brier": 0.5874011862990433
+      },
+      {
+        "case_id": "359155846365ce48",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.030253090560847393
+      },
+      {
+        "case_id": "359155846365ce48",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.9767441860465116,
+        "Brier": 0.021987938965714774
+      },
+      {
+        "case_id": "359155846365ce48",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.9534883720930233,
+        "Brier": 0.02455605928234309
+      },
+      {
+        "case_id": "3f44bc7cb111febd",
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6411411411411412,
+        "Brier": 0.3832132223695565
+      },
+      {
+        "case_id": "3f44bc7cb111febd",
+        "measurements": 4,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.2663328257175691
+      },
+      {
+        "case_id": "3f44bc7cb111febd",
+        "measurements": 4,
+        "scorer": "linear",
+        "AUROC": 0.7357357357357357,
+        "Brier": 0.2642247943403928
+      },
+      {
+        "case_id": "3f44bc7cb111febd",
+        "measurements": 4,
+        "scorer": "context",
+        "AUROC": 0.6546546546546547,
+        "Brier": 0.2746483070294898
+      },
+      {
+        "case_id": "3f44bc7cb111febd",
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6216216216216216,
+        "Brier": 0.41475994878372313
+      },
+      {
+        "case_id": "3f44bc7cb111febd",
+        "measurements": 8,
+        "scorer": "constant",
+        "AUROC": 0.5,
+        "Brier": 0.2663328257175691
+      },
+      {
+        "case_id": "3f44bc7cb111febd",
+        "measurements": 8,
+        "scorer": "linear",
+        "AUROC": 0.6396396396396397,
+        "Brier": 0.27845348960768435
+      },
+      {
+        "case_id": "3f44bc7cb111febd",
+        "measurements": 8,
+        "scorer": "context",
+        "AUROC": 0.581081081081081,
+        "Brier": 0.281950133975723
+      }
+    ],
+    "next_gate": false,
+    "new_API_calls": 0,
+    "new_neural_fits": 0,
+    "multi_agent_superiority_established": false
+  },
+  "audit": {
+    "status": "verified",
+    "training_banks": 105,
+    "training_contact_state_rows": 57159,
+    "readouts_refitted": 10,
+    "representative_source_encoder_reinferences": 5,
+    "heldout_scorer_state_results": 280,
+    "new_API_calls": 0,
+    "checks": [
+      "All patient/encoder/map/raw/bank/protocol provenance; per-encoder fitting coordinate systems.",
+      "Physical subsets and trial availability independently reconstructed; original linear head reconstruction for every stored fitting embedding.",
+      "All ten readouts refitted, independent context features and held-out readout predictions replayed.",
+      "Original HAT matches frozen v12; every held-out AUROC and Brier independently recomputed."
+    ],
+    "limits": [
+      "Five representative source encoder states re-inferred; remaining stored neural features were not all re-inferred.",
+      "Readout features are intentionally in-sample for their frozen encoder; outer testing remains isolated and same-cohort exploratory."
+    ]
+  },
+  "multi_agent_superiority_established": false
+}
