@@ -56,6 +56,8 @@ def native_artifacts(project,folder,ids):
 def audit(project,output,full=False):
     import torch
     project,output=Path(project),Path(output); p=verified(project,output); torch.set_num_threads(2)
+    approval=read_json(output/('expansion_transmission_approval.json' if full else 'transmission_approval.json'))
+    if approval.get('status')!='explicit_user_approval_received' or approval.get('destination_host')!='generativelanguage.googleapis.com' or approval.get('maximum_paid_attempts',0)<(840 if full else 120): raise ValueError('Specific transmission/paid-attempt authorization scope missing')
     cases=[c for c in p['cases'] if full or c['pilot']]; known=[]; attempts=valid=artifacts_count=measurements=0; unknown=0; prompt_tokens=completion_tokens=0
     for case in cases:
         map_path=project/'outputs/spes_physical/maps'/case['subject']/'receipt.json'
@@ -118,6 +120,7 @@ def audit(project,output,full=False):
     old=read_json(output/('full_results.json' if full else 'pilot_results.json')); summarize(project,output,pilot=not full)
     if old!=read_json(output/('full_results.json' if full else 'pilot_results.json')): raise ValueError('Result summary/gate replay differs')
     result={'status':'verified','scope':'full' if full else 'pilot','patients':len(cases),'physical_trajectories':len(cases)*3,
+            'specific_transmission_approval_verified':True,
             'actual_API_attempts':attempts,'accepted_model_outputs':valid,'physical_response_groups':measurements,'native_artifacts_verified':artifacts_count,
             'reported_prompt_tokens':prompt_tokens,'reported_completion_tokens':completion_tokens,'attempts_without_token_usage':unknown,
             'checks':['Every actual physical trajectory re-inferred with all three original own neural scorers; all public anatomy, observed-only quality and feedback reconstructed.',

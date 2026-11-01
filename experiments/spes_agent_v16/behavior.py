@@ -9,7 +9,7 @@ from experiments.spes_agent_v8.crossfit import write_json
 def describe(output):
     output=Path(output); p=read_json(output/'protocol.json'); summary={}
     for policy in p['policies']:
-        rounds=0; agree=0; overlap=[]; chosen_first=0; chosen_neither=0; leaders={'coverage':0,'score_focus':0,'uncertainty':0}; proposals_by_slot={str(i):{n:0 for n in leaders} for i in [0,1]}; selected_conditions={}; carry=total_carry=0
+        rounds=0; agree=0; overlap=[]; chosen_first=0; chosen_neither=0; leaders={'coverage':0,'score_focus':0,'uncertainty':0}; proposals_by_slot={str(i):{n:0 for n in leaders} for i in [0,1]}; selected_conditions={}; expected_conditions={}; carry=total_carry=0
         for c in [c for c in p['cases'] if c['pilot']]:
             folder=output/'trajectories'/c['case_id']/policy
             if not (folder/'metrics.json').exists(): raise ValueError('Only a complete pilot can be described')
@@ -24,6 +24,9 @@ def describe(output):
                     for slot in [0,1]: proposals_by_slot[str(slot)][name]+=proposals[slot]['ranked_queries'][0]==q
                 selected=next(row for row in rows if row['id']==joint['choice']); condition=public['evidence']['geometry']['recorded_conditions'][selected['recorded_condition_id']]
                 key=str(condition); selected_conditions[key]=selected_conditions.get(key,0)+1
+                for candidate in rows:
+                    candidate_condition=public['evidence']['geometry']['recorded_conditions'][candidate['recorded_condition_id']]
+                    condition_key=str(candidate_condition); expected_conditions[condition_key]=expected_conditions.get(condition_key,0.)+1/len(rows)
                 if previous is not None:
                     available={row['id'] for row in rows}
                     for slot in [0,1]:
@@ -35,7 +38,7 @@ def describe(output):
            'merged_choice_matches_numeric_leader':{k:int(v) for k,v in leaders.items()},
            'proposal_top1_matches_numeric_leader_by_slot':{s:{k:int(v) for k,v in row.items()} for s,row in proposals_by_slot.items()},
            'next_top1_carries_unexecuted_previous_top3':int(carry),'eligible_carry_comparisons':int(total_carry),
-           'adaptive_recorded_conditions':selected_conditions}
+           'adaptive_recorded_conditions':selected_conditions,'uniform_candidate_expected_condition_counts':expected_conditions}
     result={'scope':'Posthoc descriptive pilot behavior; no new model call or policy selection.','policies':summary,
             'interpretation_limits':['Disagreement, repeated choices or rationale changes do not establish useful reflection.','Numeric-leader matching is descriptive, not proof a heuristic is optimal.',
                                      'Same response-group count does not equate current/charge; recorded conditions are reported separately.']}

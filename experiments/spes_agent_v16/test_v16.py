@@ -61,6 +61,16 @@ class FakeProvider:
 
 
 class IndependentTests(unittest.TestCase):
+    def test_smoke_stops_after_first_spent_invalid_response(self):
+        class InvalidProvider(FakeProvider):
+            def ask(self,prompt,path):
+                super().ask(prompt,path); saved=json.loads(path.read_text()); saved['response_model']='wrong-model'; path.write_text(json.dumps(saved))
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp); out=root/'outputs/spes_agent_v16'; env=FakeEnv(); framework=FakeFramework(root); FakeProvider.calls=[]
+            with self.assertRaises(RuntimeError): execute_trajectory(root,out,{'case_id':'bad','pilot':True},'single',env,framework,[0,1,2,3],None,None,
+                strict_smoke=True,client_factory=InvalidProvider,state_builder=lambda env,*args:public(env.selected))
+            self.assertEqual(len(FakeProvider.calls),1); self.assertEqual(env.selected,[0,1,2,3]); self.assertTrue((out/'smoke_interruption.json').exists())
+
     def test_prompt_isolation_delayed_exchange_and_ablation(self):
         base=public([0,1,2,3]); batch=prompts(base,'multi',0,[])
         self.assertEqual(batch[0]['evidence'],batch[1]['evidence']); self.assertEqual(batch[1]['history'],[])

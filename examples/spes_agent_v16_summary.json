@@ -1,10 +1,220 @@
 {
-  "status": "authorized_pilot_results_incomplete",
-  "recorded_model_attempts": 88,
-  "pilot_attempt_cap": 120,
-  "local_native_tool_calls": 8,
-  "local_native_artifacts_verified": 20,
-  "local_numeric_trajectory_matches_v11": true,
-  "recording_name_ambiguities": 21,
+  "status": "audited_pilot_complete",
+  "summary": {
+    "random_0": {
+      "mean_patient_AUROC": 0.7979177673053591
+    },
+    "random_1": {
+      "mean_patient_AUROC": 0.7765993280783814
+    },
+    "coverage": {
+      "mean_patient_AUROC": 0.8057993360439795
+    },
+    "score_focus": {
+      "mean_patient_AUROC": 0.8119397968694418
+    },
+    "uncertainty": {
+      "mean_patient_AUROC": 0.7891021443467878
+    },
+    "single": {
+      "mean_patient_AUROC": 0.7955424084141705
+    },
+    "multi": {
+      "mean_patient_AUROC": 0.7944134996581431
+    },
+    "multi_reason_hidden": {
+      "mean_patient_AUROC": 0.7987785790232225
+    }
+  },
+  "comparisons": {
+    "single": {
+      "multi_gain": -0.0011289087560273803,
+      "paired_95CI": [
+        -0.016422466422466364,
+        0.015140932513813876
+      ]
+    },
+    "multi_reason_hidden": {
+      "multi_gain": -0.00436507936507935,
+      "paired_95CI": [
+        -0.013095238095238049,
+        0.0
+      ]
+    },
+    "random_0": {
+      "multi_gain": -0.0035042676472161415,
+      "paired_95CI": [
+        -0.08181018604747414,
+        0.07480165075304186
+      ]
+    },
+    "random_1": {
+      "multi_gain": 0.017814171579761638,
+      "paired_95CI": [
+        -0.08526885650326643,
+        0.08424908424908431
+      ]
+    },
+    "coverage": {
+      "multi_gain": -0.011385836385836368,
+      "paired_95CI": [
+        -0.03137973137973131,
+        0.004761904761904745
+      ]
+    },
+    "score_focus": {
+      "multi_gain": -0.017526297211298815,
+      "paired_95CI": [
+        -0.07817384175714848,
+        0.027914852443154326
+      ]
+    },
+    "uncertainty": {
+      "multi_gain": 0.005311355311355315,
+      "paired_95CI": [
+        -0.02445054945054941,
+        0.032692307692307666
+      ]
+    }
+  },
+  "valid_model_decisions": 120,
+  "actual_attempts": 120,
+  "pilot_expansion_eligible": false,
+  "audit": {
+    "status": "verified",
+    "scope": "pilot",
+    "patients": 5,
+    "physical_trajectories": 15,
+    "specific_transmission_approval_verified": true,
+    "actual_API_attempts": 120,
+    "accepted_model_outputs": 120,
+    "physical_response_groups": 120,
+    "native_artifacts_verified": 420,
+    "reported_prompt_tokens": 3364204,
+    "reported_completion_tokens": 113699,
+    "attempts_without_token_usage": 0,
+    "checks": [
+      "Every actual physical trajectory re-inferred with all three original own neural scorers; all public anatomy, observed-only quality and feedback reconstructed.",
+      "All source/model/catalog/raw hashes and patient isolation; zero test labels or unobserved summaries in requests.",
+      "Both independent requests, delayed histories and reason-hidden ablation replayed; all API schemas/identities/reservations/budgets checked.",
+      "All native artifact hashes, parent graphs, independent merger votes, physical identities and AUROC verified."
+    ],
+    "limits": [
+      "Re-inference permits small floating point differences; source identities remain the same repeatedly inspected cohort.",
+      "Equal call/token caps do not imply identical actual token consumption. Pilot is not a confirmatory clinical or collaboration trial."
+    ]
+  },
+  "behavior": {
+    "scope": "Posthoc descriptive pilot behavior; no new model call or policy selection.",
+    "policies": {
+      "single": {
+        "adaptive_rounds": 20,
+        "same_independent_top_choice": 18,
+        "mean_top3_Jaccard": 0.9,
+        "merged_choice_is_a_top1": 20,
+        "merged_choice_is_neither_top1": 0,
+        "merged_choice_matches_numeric_leader": {
+          "coverage": 12,
+          "score_focus": 12,
+          "uncertainty": 9
+        },
+        "proposal_top1_matches_numeric_leader_by_slot": {
+          "0": {
+            "coverage": 12,
+            "score_focus": 12,
+            "uncertainty": 9
+          },
+          "1": {
+            "coverage": 13,
+            "score_focus": 10,
+            "uncertainty": 10
+          }
+        },
+        "next_top1_carries_unexecuted_previous_top3": 10,
+        "eligible_carry_comparisons": 30,
+        "adaptive_recorded_conditions": {
+          "{'electrical_stimulation_current': '0.008', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 18,
+          "{'electrical_stimulation_current': '0.004', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 2
+        },
+        "uniform_candidate_expected_condition_counts": {
+          "{'electrical_stimulation_current': '0.008', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 18.301719364868372,
+          "{'electrical_stimulation_current': '0.004', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 1.6982806351316364
+        }
+      },
+      "multi": {
+        "adaptive_rounds": 20,
+        "same_independent_top_choice": 18,
+        "mean_top3_Jaccard": 0.725,
+        "merged_choice_is_a_top1": 20,
+        "merged_choice_is_neither_top1": 0,
+        "merged_choice_matches_numeric_leader": {
+          "coverage": 13,
+          "score_focus": 7,
+          "uncertainty": 12
+        },
+        "proposal_top1_matches_numeric_leader_by_slot": {
+          "0": {
+            "coverage": 15,
+            "score_focus": 7,
+            "uncertainty": 12
+          },
+          "1": {
+            "coverage": 13,
+            "score_focus": 7,
+            "uncertainty": 12
+          }
+        },
+        "next_top1_carries_unexecuted_previous_top3": 7,
+        "eligible_carry_comparisons": 30,
+        "adaptive_recorded_conditions": {
+          "{'electrical_stimulation_current': '0.008', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 19,
+          "{'electrical_stimulation_current': '0.004', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 1
+        },
+        "uniform_candidate_expected_condition_counts": {
+          "{'electrical_stimulation_current': '0.008', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 18.301719364868372,
+          "{'electrical_stimulation_current': '0.004', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 1.6982806351316364
+        }
+      },
+      "multi_reason_hidden": {
+        "adaptive_rounds": 20,
+        "same_independent_top_choice": 14,
+        "mean_top3_Jaccard": 0.635,
+        "merged_choice_is_a_top1": 20,
+        "merged_choice_is_neither_top1": 0,
+        "merged_choice_matches_numeric_leader": {
+          "coverage": 13,
+          "score_focus": 9,
+          "uncertainty": 12
+        },
+        "proposal_top1_matches_numeric_leader_by_slot": {
+          "0": {
+            "coverage": 17,
+            "score_focus": 12,
+            "uncertainty": 10
+          },
+          "1": {
+            "coverage": 13,
+            "score_focus": 8,
+            "uncertainty": 14
+          }
+        },
+        "next_top1_carries_unexecuted_previous_top3": 12,
+        "eligible_carry_comparisons": 30,
+        "adaptive_recorded_conditions": {
+          "{'electrical_stimulation_current': '0.008', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 19,
+          "{'electrical_stimulation_current': '0.004', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 1
+        },
+        "uniform_candidate_expected_condition_counts": {
+          "{'electrical_stimulation_current': '0.008', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 18.301719364868372,
+          "{'electrical_stimulation_current': '0.004', 'electrical_stimulation_frequency': '0.2', 'electrical_stimulation_pulsewidth': '0.001', 'electrical_stimulation_type': 'monophasic'}": 1.6982806351316364
+        }
+      }
+    },
+    "interpretation_limits": [
+      "Disagreement, repeated choices or rationale changes do not establish useful reflection.",
+      "Numeric-leader matching is descriptive, not proof a heuristic is optimal.",
+      "Same response-group count does not equate current/charge; recorded conditions are reported separately."
+    ]
+  },
   "multi_agent_superiority_established": false
 }

@@ -71,3 +71,20 @@ python -m experiments.spes_agent_v16.report --project . --output outputs/spes_ag
 Audit and behavior stages require a completed pilot. Every real physical
 trajectory is re-inferred in the audit. The evidence skill is
 [`neurotarget-spes-v16`](../../skills/neurotarget-spes-v16/SKILL.md).
+
+## Completed negative pilot
+
+All120 requests completed with accepted schema-constrained rankings. Multi
+AUROC0.794413 versus single0.795542 (gain-0.001129, paired nominal95%interval
+[-0.016422,0.015141]) and score-focus0.811940 fails the frozen expansion gate.
+No remaining-cohort run occurs. Full/hidden multi final rankings differ for only
+one of five patients. Both independent multi proposals share the same first
+choice in18/20rounds. This is not evidence for general collaboration benefit.
+
+The audit re-inferred all15physical trajectories with all three scorers,
+reconstructed common evidence and histories, checked120requests and420native
+artifacts, and independently recomputed every finalAUROC. Actual reported
+prompt/completion token totals are3,364,204/113,699, with no unavailable usage.
+Model calls used the specifically approved five-patient120-attempt budget;
+additional paid runs require a new applicable authorization. See the full
+[English report](../../docs/spes-agent-v16-report.md).
