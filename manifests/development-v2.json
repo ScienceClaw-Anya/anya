@@ -1,0 +1,23 @@
+{
+  "version": "development-v2",
+  "phase": "exploratory_development_not_confirmatory",
+  "execution_host": "scienceclaw-gcp",
+  "execution_directory": "/home/devstar3022/anya-intervention-research",
+  "subjects": ["sub-003", "sub-010"],
+  "held_out_access": false,
+  "workers": 1,
+  "numerical_threads": 1,
+  "nice": 10,
+  "maximum_experiment_wall_seconds": 3600,
+  "maximum_full_length_simulations": 48,
+  "maximum_new_data_bytes": 67108864,
+  "tasks": [
+    "Audit development source-to-sensor reconstruction with name-aligned absolute-difference, signed-difference and mean gains; compare crop, affine scaling and residuals. Source arrays are evaluator-only diagnostics.",
+    "Quantify released coupling contributions and changes under zero/donor/permuted connectivity. Any stronger coupling is a labeled synthetic stress condition, not a correction or clinical calibration.",
+    "If observation semantics are supported, implement a bounded observation-only fit with explicit priors and withheld temporal blocks or separate conditions. No hidden patient parameters may initialize or tune the fit.",
+    "Report prediction, identifiability, network sensitivity and failures before considering a larger intervention benchmark."
+  ],
+  "fitting_gate": "Observation semantics and train/validation partition must be documented before fitting; no claim of independent recording validation from a temporal split.",
+  "intervention_gate": "Do not repeat or enlarge the oracle intervention benchmark unless the observation-only fit and network sensitivity justify it.",
+  "resource_policy": "Existing GCP CPUs only. No GPU, provisioning, other jobs, paid model calls or IDEAS download retries. Preserve v1 outputs."
+}
