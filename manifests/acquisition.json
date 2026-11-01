@@ -207,5 +207,16 @@
     "bytes": 6745,
     "sha256": "a0287b05cf4245f2b77a60732414148484c37da2b015bf8045a8d675a30bfcaf",
     "provider_hash": "77894391e4ca41731351aa30dabc07b6"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-010/struct/sub-010_connectome.zip",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:23:27Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-010/struct/sub-010_connectome.zip",
+    "bytes": 274896,
+    "sha256": "5f0ea35493494db3084959901b0a4906eb54302d40d862f62cf3eb8fc633d464",
+    "provider_hash": "28a8a83898467782723d2b5156139671"
   }
 ]
