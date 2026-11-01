@@ -1,0 +1,14 @@
+{
+  "host": "scienceclaw-swarm.c.scienceclaw26bos-3022.internal",
+  "observed_utc": "2026-11-01T16:35:40Z",
+  "pilot_processes": [
+    {
+      "pid": 757542,
+      "nice": 10,
+      "threads": 1,
+      "rss_bytes": 246517760
+    }
+  ],
+  "memory_available_bytes": 131038347264,
+  "logical_cpus": 32
+}

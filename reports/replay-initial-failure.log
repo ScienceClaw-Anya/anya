@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/devstar3022/anya-intervention-research/scripts/replay_pilot.py", line 23, in <module>
+    assert int(np.count_nonzero(alternate[1000:]))==expected
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

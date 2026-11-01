@@ -56,3 +56,25 @@ workaround will be attempted. No clinical table was acquired or joined, no
 12-month endpoint completeness was computed, and no retrospective prediction
 was run. The concrete dependency is authorized access to the clinical dictionary
 and table plus subject-level processed-connectome and resection inventories.
+
+### Additional source checks
+
+IDEAS I Table 1 reports 427 patients with 12-month ILAE outcomes. Its narrative
+analysis uses 422 after excluding five multilobar resections. These denominators
+must not be conflated. IDEAS II's published 191 processed-network patients put an
+upper bound of 191 on a connectome-based retrospective cohort before further
+exclusions; this is an inference from published counts, not a joined cohort.
+A candidate endpoint is ILAE 1 at 12 months, conditional on verifying dictionary
+coding. ILAE 1–2 measures freedom from disabling seizures and is a different
+endpoint. Postoperative pathology must not enter a strictly preoperative model.
+
+The VEC metadata inventory shows all eight required file types for all 30
+clinicalhypothesis run-01 cases (`manifests/vec-file-eligibility.tsv`). This checks
+names only and does not open reserved subjects' parameters or recordings.
+
+A separate pipeline source check found that `get_region_volumes` multiplies
+label counts by the product of NIfTI voxel dimensions, then writes `volumes.txt`:
+https://github.com/ins-amu/tvb-pipeline/blob/70d35cea1828e2919b5fe6a696c0860492ef6aa2/util/create_tvb_dataset.py#L349 .
+This supports a likely physical-volume interpretation, but the VEC release does
+not establish the generating pipeline revision or the individual NIfTI header
+units. The pilot remains a parcel-count proxy comparison.

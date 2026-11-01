@@ -1,0 +1,54 @@
+{
+  "dataset": "VEC v1.0",
+  "source_identity": "EBRAINS 10.25493/XWG2-S8X",
+  "atlas": "VEP, 162 nonzero labels, verified exact connectome label order for development sub-003 and sub-010",
+  "subjects_used": {
+    "sub-003": "intervention development subject; prior exposure in Anya",
+    "sub-010": "reserved development subject; structural donor control only"
+  },
+  "modalities": {
+    "connectome": {
+      "meaning": "patient-derived structural weights; rows targets, columns sources in TVB",
+      "simulation_transform": "zero diagonal, divide by intact maximum once, zero all delays",
+      "intervention_transform": "zero rows and columns; never normalize again"
+    },
+    "gain": {
+      "meaning": "monopolar inverse-square forward gain, contacts by atlas regions",
+      "bipolar_transform": "absolute adjacent-contact row difference within electrode, matched to header channel names",
+      "unit": "unverified model-to-sensor scale; no physical conductivity calibration established",
+      "verification": "185 bipolar names matched, 162 columns; released source projection residual remains unresolved"
+    },
+    "sensor_recording": {
+      "status": "simulated SEEG, not real patient electrophysiology",
+      "encoding": "BrainVision MULTIPLEXED IEEE_FLOAT_32, little endian; header resolution applied",
+      "header_sampling_interval_microseconds": 1000,
+      "header_unit": "microvolt",
+      "caveat": "synthetic export amplitude and physical time scaling are not independently validated"
+    },
+    "source_recording": {
+      "status": "simulated x2 minus x1; development reconstruction reference only",
+      "unit": "model units",
+      "alignment": "source NPZ 4800 samples; SEEG 4600; best inspected crop starts at 100"
+    },
+    "generator_parameters": {
+      "status": "evaluator-only simulation truth, not clinical SOZ",
+      "hypothesis": "clinicalhypothesis, ses-01, run-01",
+      "oracle_access": "personal_oracle and donor_oracle explicitly receive parameters; observation-only policies do not"
+    },
+    "coordinates": {
+      "declared_frame": "T1w",
+      "declared_unit": "vox",
+      "affine": "not verified; coordinates not used for spatial feasibility"
+    },
+    "volumes": {
+      "available": true,
+      "physical_units_verified": false,
+      "used_for_cost": false,
+      "pilot_cost": "exactly one parcel per action, count proxy only"
+    }
+  },
+  "clinical_SOZ_annotations_verified": false,
+  "clinical_surgical_outcomes_acquired": false,
+  "held_out_contents_inspected": false,
+  "acquisition_details": "acquisition.json contains per-file URLs, retrieval times, bytes and hashes; raw data remain ignored"
+}

@@ -175,3 +175,52 @@ cost accounting; unchanged normalization; mapping/permutation invariance; hidden
 label exclusion; patient separation; seed pairing; reproducible metrics. Have
 an independent calculation replay saved results. Numerical replay is not proof
 of model validity. Preserve negative results, failed runs and versioned amendments.
+
+## Development execution amendment, 2026-11-01 (not a confirmatory freeze)
+
+The user moved experiments to the existing GCP host before any local simulation.
+All numerical tests and trajectories run in the isolated GCP research directory,
+with one worker/thread at reduced priority. The initial pilot retains the
+60-minute experiment wall-time ceiling and 2-GiB dataset acquisition ceiling.
+
+`manifests/split-v1.json` reserves 6 development and 24 held-out patients before
+intervention outcomes. `manifests/pilot-v1.json`, committed in `8d24247` before
+interventions, defines a one-patient engineering/development comparison with
+sub-010 used only as an anatomical donor. Six common single-parcel candidates
+are derived from pretreatment simulated-SEEG onset proxies and anatomy. Cost is
+exactly one parcel, a proxy; the available volume file's physical units are not
+yet independently verified. No clinical SOZ annotation is substituted for the
+proxy, and neither is equated with generator excitability.
+
+The pilot uses the released 6D Epileptor parameters, zero-delay difference
+coupling, dt=0.05, period=1, an 8,000-model-unit horizon and a 1,000-unit transient.
+A development detector thresholds the 100-sample mean of x1 at -1.0; -1.2 and
+-0.8 are sensitivity analyses. Time remains model units. Missing release noise
+correlation/seed metadata is handled by a declared development assumption:
+ntau=1 as in inspected upstream spontaneous-seizure code, fresh paired seeds.
+Current TVB 2.10.0 is pinned and numerically cross-checked, not asserted to be
+the exact unreleased original environment. No bitwise original-seizure claim.
+
+Both dynamical planners are known-parameter ORACLE controls. They share the
+same generator parameters and candidate-call budget, varying only the network.
+A one-donor network is a sensitivity control, not a well-estimated population
+reference. Their comparison against observation-only policies has an information
+advantage and cannot test P0's equal-information primary hypothesis. The
+observation-only policies are the SOZ proxy and a localization-weighted outgoing
+strength heuristic. There is no fitted realistic dynamical planner yet.
+
+Planning uses seed 101. The selected actions are saved before evaluating all
+candidates with seed 201, and seed 202 with coupling multiplied by 1.2 and x0
+shifted by +0.05. Those two scenarios are not independent patients or a confidence
+interval. Candidate regret is finite-set regret only. No held-out cohort is run.
+
+The legacy diagnostic names `onset_generator_burden` and
+`nononset_generator_burden` in raw pilot rows actually partition x0 > -2.1 versus
+x0 <= -2.1. These are susceptibility partitions, not verified initiation versus
+propagation. Exported summaries rename these fields. A proper initiation/spread
+endpoint remains a formal-protocol gate.
+
+Post-pilot zero-coupling and repeatability controls are exploratory development
+checks motivated by the early planning outputs. They preserve the original
+pilot manifest and outcomes. Independent metric replay uses cumulative sums
+and saved x1 arrays without importing the primary metric implementation.

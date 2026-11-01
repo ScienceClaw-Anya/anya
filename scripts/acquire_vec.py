@@ -11,13 +11,17 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00'
 CAP = 2 * 1024**3
 
-def get(url):
+def get(url, maximum=16*1024**2):
     with urllib.request.urlopen(url, timeout=45) as r:
         if r.status != 200:
             raise RuntimeError(f'Unexpected HTTP {r.status}')
-        return r.read()
+        result=r.read(maximum+1)
+        if len(result)>maximum:
+            raise RuntimeError('Response exceeds allowed byte count')
+        return result
 
 def inventory():
+    (ROOT/'data/metadata').mkdir(parents=True,exist_ok=True)
     rows, marker = [], ''
     while True:
         q = urllib.parse.urlencode({'limit':1000, 'marker':marker})
@@ -30,19 +34,25 @@ def inventory():
     return rows
 
 def acquire(rows, names):
+    (ROOT/'manifests').mkdir(exist_ok=True)
     logpath=ROOT/'manifests/acquisition.json'
     log=json.loads(logpath.read_text()) if logpath.exists() else []
     used=sum(x['bytes'] for x in log)
     index={x['name']:x for x in rows}
     for name in names:
         target=ROOT/'data/vec'/name
+        if not target.resolve().is_relative_to((ROOT/'data/vec').resolve()):
+            raise ValueError('Unsafe asset path')
         if target.exists():
+            known=next((x for x in log if x['path']==str(target.relative_to(ROOT))),None)
+            if known is None or hashlib.sha256(target.read_bytes()).hexdigest()!=known['sha256']:
+                raise RuntimeError(f'Untracked or changed cached asset: {name}')
             continue
         size=index[name]['bytes']
         if used+size>CAP:
             raise RuntimeError('Dataset download cap reached')
         url=BASE+'/'+urllib.parse.quote(name, safe='/')
-        payload=get(url)
+        payload=get(url,maximum=size)
         if len(payload)!=size:
             raise RuntimeError(f'Size mismatch for {name}')
         target.parent.mkdir(parents=True,exist_ok=True)

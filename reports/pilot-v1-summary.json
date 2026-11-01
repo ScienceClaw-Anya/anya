@@ -1,0 +1,633 @@
+{
+  "summary": {
+    "phase": "known_parameter_development",
+    "selections": {
+      "SOZ_proxy": [
+        122
+      ],
+      "network_heuristic": [
+        122
+      ],
+      "personal_oracle": [
+        126
+      ],
+      "donor_oracle": [
+        126
+      ]
+    },
+    "results": [
+      {
+        "policy": "SOZ_proxy",
+        "scenario": {
+          "seed": 201,
+          "coupling_multiplier": 1.0,
+          "x0_shift": 0.0
+        },
+        "R": 0.0,
+        "regret_fraction": 0.05839858389015581,
+        "cost_parcels": 1
+      },
+      {
+        "policy": "network_heuristic",
+        "scenario": {
+          "seed": 201,
+          "coupling_multiplier": 1.0,
+          "x0_shift": 0.0
+        },
+        "R": 0.0,
+        "regret_fraction": 0.05839858389015581,
+        "cost_parcels": 1
+      },
+      {
+        "policy": "personal_oracle",
+        "scenario": {
+          "seed": 201,
+          "coupling_multiplier": 1.0,
+          "x0_shift": 0.0
+        },
+        "R": 0.05839858389015584,
+        "regret_fraction": 0.0,
+        "cost_parcels": 1
+      },
+      {
+        "policy": "donor_oracle",
+        "scenario": {
+          "seed": 201,
+          "coupling_multiplier": 1.0,
+          "x0_shift": 0.0
+        },
+        "R": 0.05839858389015584,
+        "regret_fraction": 0.0,
+        "cost_parcels": 1
+      },
+      {
+        "policy": "SOZ_proxy",
+        "scenario": {
+          "seed": 202,
+          "coupling_multiplier": 1.2,
+          "x0_shift": 0.05
+        },
+        "R": 0.000524383848977461,
+        "regret_fraction": 0.05912053337328639,
+        "cost_parcels": 1
+      },
+      {
+        "policy": "network_heuristic",
+        "scenario": {
+          "seed": 202,
+          "coupling_multiplier": 1.2,
+          "x0_shift": 0.05
+        },
+        "R": 0.000524383848977461,
+        "regret_fraction": 0.05912053337328639,
+        "cost_parcels": 1
+      },
+      {
+        "policy": "personal_oracle",
+        "scenario": {
+          "seed": 202,
+          "coupling_multiplier": 1.2,
+          "x0_shift": 0.05
+        },
+        "R": 0.05964491722226384,
+        "regret_fraction": 0.0,
+        "cost_parcels": 1
+      },
+      {
+        "policy": "donor_oracle",
+        "scenario": {
+          "seed": 202,
+          "coupling_multiplier": 1.2,
+          "x0_shift": 0.05
+        },
+        "R": 0.05964491722226384,
+        "regret_fraction": 0.0,
+        "cost_parcels": 1
+      }
+    ],
+    "completed_calls": 26,
+    "runtime_seconds": 631.4229348360095,
+    "elapsed_since_first_baseline_seconds": 803.1459228992462,
+    "failure": null
+  },
+  "controls": {
+    "phase": "exploratory_development_controls",
+    "reason": "Initial development runs showed no detected non-susceptible recruitment; examine direct-removal contribution without changing pilot-v1",
+    "untreated_repeated_hash_matches": true,
+    "zero_coupling_untreated_burden": 62162.0,
+    "coupled_untreated_burden": 62707.0,
+    "coupled_zero_ictal_mask_disagreement_fraction": 0.0028897707231040565,
+    "selected_action_decomposition": [
+      {
+        "action": [
+          122
+        ],
+        "coupled_total_reduction": 0.0,
+        "direct_removed_baseline_burden": 0,
+        "survivor_burden_change": 0.0,
+        "zero_coupling_analytic_R": 0.0
+      },
+      {
+        "action": [
+          126
+        ],
+        "coupled_total_reduction": 3662.0,
+        "direct_removed_baseline_burden": 3770,
+        "survivor_burden_change": -108.0,
+        "zero_coupling_analytic_R": 0.06116276825069977
+      }
+    ],
+    "sensor_projection_channel_correlation_quantiles": [
+      0.5783785012661196,
+      0.7185924602649539,
+      0.9004321257298183,
+      0.939251700097714,
+      0.9866587656612809,
+      0.9986506445895622,
+      0.999568781991165
+    ],
+    "sensor_projection_channels_below_099": 151,
+    "runtime_seconds": 58.45159709399741,
+    "elapsed_since_first_baseline_seconds": 872.4657652378082
+  },
+  "replay": {
+    "replayed_trajectories": 26,
+    "thresholds": [
+      -1.2,
+      -1.0,
+      -0.8
+    ],
+    "hashes_verified": true,
+    "burdens_exact": true,
+    "reductions_agree": true,
+    "initial_failure": "Sensitivity boundary handling: primary nearest, sensitivity default reflect. Original output preserved; replay corrected to match actual definitions.",
+    "limitation": "Numerical replay is not biological validation; one development patient provides no population confidence interval."
+  },
+  "trajectories": [
+    {
+      "stage": "personal_oracle",
+      "action": [
+        122
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 62327.0,
+      "detector_sensitivity": {
+        "-1.2": 63039,
+        "-0.8": 61607
+      },
+      "runtime_seconds": 40.454695702006575,
+      "x1_path": "outputs/pilot-v1/personal_oracle-seed101-action122.npy",
+      "x1_sha256": "3c1606b1025b6650a65e3dcc5c955a710d0e8295cce91b2720fee2a2b6b15b93",
+      "generator_x0_gt_minus2p1_burden": 62327,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "personal_oracle",
+      "action": [
+        125
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 59458.0,
+      "detector_sensitivity": {
+        "-1.2": 60161,
+        "-0.8": 58774
+      },
+      "runtime_seconds": 35.36696360500355,
+      "x1_path": "outputs/pilot-v1/personal_oracle-seed101-action125.npy",
+      "x1_sha256": "61c19a9e6f227ac6179e511257b899e07409f14009bc7aef59e0311c7b7e1dca",
+      "generator_x0_gt_minus2p1_burden": 59458,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "personal_oracle",
+      "action": [
+        121
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 62576.0,
+      "detector_sensitivity": {
+        "-1.2": 63286,
+        "-0.8": 61849
+      },
+      "runtime_seconds": 23.15472057199804,
+      "x1_path": "outputs/pilot-v1/personal_oracle-seed101-action121.npy",
+      "x1_sha256": "1552d4e741058cee5466cb653e323acb1f0f8b5ca0072213cb430bd08a953561",
+      "generator_x0_gt_minus2p1_burden": 62576,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "personal_oracle",
+      "action": [
+        126
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 58830.0,
+      "detector_sensitivity": {
+        "-1.2": 59508,
+        "-0.8": 58144
+      },
+      "runtime_seconds": 23.19011334500101,
+      "x1_path": "outputs/pilot-v1/personal_oracle-seed101-action126.npy",
+      "x1_sha256": "564ea832646e7d67d571a22343e5ec44c945791997812c49f10c5c4dda951fbe",
+      "generator_x0_gt_minus2p1_burden": 58830,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "personal_oracle",
+      "action": [
+        140
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 59357.0,
+      "detector_sensitivity": {
+        "-1.2": 60025,
+        "-0.8": 58689
+      },
+      "runtime_seconds": 23.115817027995945,
+      "x1_path": "outputs/pilot-v1/personal_oracle-seed101-action140.npy",
+      "x1_sha256": "7877d38c4383da777dcf63110c94694674b2decb610df707b739ea09795ce477",
+      "generator_x0_gt_minus2p1_burden": 59357,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "personal_oracle",
+      "action": [
+        147
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 62425.0,
+      "detector_sensitivity": {
+        "-1.2": 63179,
+        "-0.8": 61695
+      },
+      "runtime_seconds": 23.1282014669996,
+      "x1_path": "outputs/pilot-v1/personal_oracle-seed101-action147.npy",
+      "x1_sha256": "e7a67730edf123f4d745298cad3216360288c2624f49d5b7033fd9ba7dad5b8a",
+      "generator_x0_gt_minus2p1_burden": 62425,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "donor_oracle",
+      "action": [
+        122
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 62102.0,
+      "detector_sensitivity": {
+        "-1.2": 62846,
+        "-0.8": 61388
+      },
+      "runtime_seconds": 22.87043772499601,
+      "x1_path": "outputs/pilot-v1/donor_oracle-seed101-action122.npy",
+      "x1_sha256": "efd77663bd0f660cbe4b2a14c6ce1588ee337a659c03dff4fa7d8354861fabcf",
+      "generator_x0_gt_minus2p1_burden": 62102,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "donor_oracle",
+      "action": [
+        125
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 59484.0,
+      "detector_sensitivity": {
+        "-1.2": 60142,
+        "-0.8": 58814
+      },
+      "runtime_seconds": 22.77858098100114,
+      "x1_path": "outputs/pilot-v1/donor_oracle-seed101-action125.npy",
+      "x1_sha256": "cff714ce308da7de0d805be039a811178ac7ce249d7aaf7c7ba9379e1440bd63",
+      "generator_x0_gt_minus2p1_burden": 59484,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "donor_oracle",
+      "action": [
+        121
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 62059.0,
+      "detector_sensitivity": {
+        "-1.2": 62780,
+        "-0.8": 61329
+      },
+      "runtime_seconds": 22.799437174995546,
+      "x1_path": "outputs/pilot-v1/donor_oracle-seed101-action121.npy",
+      "x1_sha256": "34ec51df83194c3110560d6d4245761e6652d9a7287e0790fa8e5450ec2be200",
+      "generator_x0_gt_minus2p1_burden": 62059,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "donor_oracle",
+      "action": [
+        126
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 58582.0,
+      "detector_sensitivity": {
+        "-1.2": 59242,
+        "-0.8": 57922
+      },
+      "runtime_seconds": 22.860086423010216,
+      "x1_path": "outputs/pilot-v1/donor_oracle-seed101-action126.npy",
+      "x1_sha256": "910842c092c4724b56cfc86d1775e65a3cd983aa860036e49ea5826b20e80317",
+      "generator_x0_gt_minus2p1_burden": 58582,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "donor_oracle",
+      "action": [
+        140
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 59289.0,
+      "detector_sensitivity": {
+        "-1.2": 59963,
+        "-0.8": 58613
+      },
+      "runtime_seconds": 22.735935214004712,
+      "x1_path": "outputs/pilot-v1/donor_oracle-seed101-action140.npy",
+      "x1_sha256": "8acb275d21e78c8a4551e4090cdc0e691b0f048034ae3a8afef2b300fd1ecb8b",
+      "generator_x0_gt_minus2p1_burden": 59289,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "donor_oracle",
+      "action": [
+        147
+      ],
+      "seed": 101,
+      "cost_parcels": 1,
+      "burden": 62104.0,
+      "detector_sensitivity": {
+        "-1.2": 62857,
+        "-0.8": 61365
+      },
+      "runtime_seconds": 22.74893815800897,
+      "x1_path": "outputs/pilot-v1/donor_oracle-seed101-action147.npy",
+      "x1_sha256": "4c58e88cac85940b53b1ad0f5e1d10188e61ad953b7602e857419cbc89d6f321",
+      "generator_x0_gt_minus2p1_burden": 62104,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [],
+      "seed": 201,
+      "cost_parcels": 0,
+      "burden": 62707.0,
+      "detector_sensitivity": {
+        "-1.2": 63439,
+        "-0.8": 61970
+      },
+      "runtime_seconds": 23.373426402991754,
+      "x1_path": "outputs/pilot-v1/evaluation-seed201-actionnone.npy",
+      "x1_sha256": "b7ed490a1b54a99fd5fbfb756862dc9eef5d64ec96d608b071d6883aa98043da",
+      "generator_x0_gt_minus2p1_burden": 62707,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        122
+      ],
+      "seed": 201,
+      "cost_parcels": 1,
+      "burden": 62707.0,
+      "detector_sensitivity": {
+        "-1.2": 63432,
+        "-0.8": 61976
+      },
+      "runtime_seconds": 23.19754065500456,
+      "x1_path": "outputs/pilot-v1/evaluation-seed201-action122.npy",
+      "x1_sha256": "c978ce8dd6edb42bba547bde332f836b4cda5e79060825c3a9b0d2042bfef0f1",
+      "generator_x0_gt_minus2p1_burden": 62707,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        125
+      ],
+      "seed": 201,
+      "cost_parcels": 1,
+      "burden": 59678.0,
+      "detector_sensitivity": {
+        "-1.2": 60372,
+        "-0.8": 58979
+      },
+      "runtime_seconds": 23.22927536199859,
+      "x1_path": "outputs/pilot-v1/evaluation-seed201-action125.npy",
+      "x1_sha256": "d763b5d01d09813c1e8cac660f148ad0eb62c3169da09d312a9297d89fad2305",
+      "generator_x0_gt_minus2p1_burden": 59678,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        121
+      ],
+      "seed": 201,
+      "cost_parcels": 1,
+      "burden": 62836.0,
+      "detector_sensitivity": {
+        "-1.2": 63575,
+        "-0.8": 62082
+      },
+      "runtime_seconds": 23.25281669400283,
+      "x1_path": "outputs/pilot-v1/evaluation-seed201-action121.npy",
+      "x1_sha256": "e100479ed9b7f311a584836bb090f7e8840fe6acda9a36fc4eb63066e0e63e19",
+      "generator_x0_gt_minus2p1_burden": 62836,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        126
+      ],
+      "seed": 201,
+      "cost_parcels": 1,
+      "burden": 59045.0,
+      "detector_sensitivity": {
+        "-1.2": 59737,
+        "-0.8": 58344
+      },
+      "runtime_seconds": 23.186263901996426,
+      "x1_path": "outputs/pilot-v1/evaluation-seed201-action126.npy",
+      "x1_sha256": "2d0b21bf6cff0e99f623ae6f32d6c925035fcb7dde3b1c2009c6e40dc12c954a",
+      "generator_x0_gt_minus2p1_burden": 59045,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        140
+      ],
+      "seed": 201,
+      "cost_parcels": 1,
+      "burden": 59628.0,
+      "detector_sensitivity": {
+        "-1.2": 60324,
+        "-0.8": 58923
+      },
+      "runtime_seconds": 23.098713444996974,
+      "x1_path": "outputs/pilot-v1/evaluation-seed201-action140.npy",
+      "x1_sha256": "0e1cdb20c97e9ee63297f21bb57d78c0f918150d50828492512013d8a32c3475",
+      "generator_x0_gt_minus2p1_burden": 59628,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        147
+      ],
+      "seed": 201,
+      "cost_parcels": 1,
+      "burden": 62380.0,
+      "detector_sensitivity": {
+        "-1.2": 63110,
+        "-0.8": 61636
+      },
+      "runtime_seconds": 23.256287908996455,
+      "x1_path": "outputs/pilot-v1/evaluation-seed201-action147.npy",
+      "x1_sha256": "c5696ede8534db3b056a0c7b84266db52e6352d89b789a46e9d7fa937a0ad751",
+      "generator_x0_gt_minus2p1_burden": 62380,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [],
+      "seed": 202,
+      "cost_parcels": 0,
+      "burden": 66745.0,
+      "detector_sensitivity": {
+        "-1.2": 67475,
+        "-0.8": 66003
+      },
+      "runtime_seconds": 23.29034589600633,
+      "x1_path": "outputs/pilot-v1/evaluation-seed202-actionnone.npy",
+      "x1_sha256": "46b49ff7b54b766a6778639ff9c63b1f3fc51cf222e840dbbd240de834eddeb2",
+      "generator_x0_gt_minus2p1_burden": 66745,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        122
+      ],
+      "seed": 202,
+      "cost_parcels": 1,
+      "burden": 66710.0,
+      "detector_sensitivity": {
+        "-1.2": 67437,
+        "-0.8": 65965
+      },
+      "runtime_seconds": 23.169188913991093,
+      "x1_path": "outputs/pilot-v1/evaluation-seed202-action122.npy",
+      "x1_sha256": "7f9e1e25cab344a81d28abe79d3796355eeabbc2c1975a2cd5d8583db7c1187c",
+      "generator_x0_gt_minus2p1_burden": 66710,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        125
+      ],
+      "seed": 202,
+      "cost_parcels": 1,
+      "burden": 63180.0,
+      "detector_sensitivity": {
+        "-1.2": 63867,
+        "-0.8": 62478
+      },
+      "runtime_seconds": 23.246305826003663,
+      "x1_path": "outputs/pilot-v1/evaluation-seed202-action125.npy",
+      "x1_sha256": "46be2434b57ffb54bbff7dbdb924c3288b023410b9a5f8eb87d0524cb6de5609",
+      "generator_x0_gt_minus2p1_burden": 63180,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        121
+      ],
+      "seed": 202,
+      "cost_parcels": 1,
+      "burden": 67092.0,
+      "detector_sensitivity": {
+        "-1.2": 67826,
+        "-0.8": 66344
+      },
+      "runtime_seconds": 23.19033081700036,
+      "x1_path": "outputs/pilot-v1/evaluation-seed202-action121.npy",
+      "x1_sha256": "58ace2206765b2a85b66c4c7927960e9f2f89433c1b3c4b7134c4f0d6d539654",
+      "generator_x0_gt_minus2p1_burden": 67092,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        126
+      ],
+      "seed": 202,
+      "cost_parcels": 1,
+      "burden": 62764.0,
+      "detector_sensitivity": {
+        "-1.2": 63444,
+        "-0.8": 62071
+      },
+      "runtime_seconds": 23.29866907199903,
+      "x1_path": "outputs/pilot-v1/evaluation-seed202-action126.npy",
+      "x1_sha256": "6342b139ed5c481d9960a5fc6c087187bc0c3248b5925ab6761fb3be28f6aeb9",
+      "generator_x0_gt_minus2p1_burden": 62764,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        140
+      ],
+      "seed": 202,
+      "cost_parcels": 1,
+      "burden": 64113.0,
+      "detector_sensitivity": {
+        "-1.2": 64808,
+        "-0.8": 63402
+      },
+      "runtime_seconds": 23.249538452000706,
+      "x1_path": "outputs/pilot-v1/evaluation-seed202-action140.npy",
+      "x1_sha256": "883a5ea6e35c9648f0582cbbadbc950555a1b86ca9b753275d493e26395f7b4a",
+      "generator_x0_gt_minus2p1_burden": 64113,
+      "generator_x0_le_minus2p1_burden": 0
+    },
+    {
+      "stage": "evaluation",
+      "action": [
+        147
+      ],
+      "seed": 202,
+      "cost_parcels": 1,
+      "burden": 67250.0,
+      "detector_sensitivity": {
+        "-1.2": 68006,
+        "-0.8": 66491
+      },
+      "runtime_seconds": 23.222398130004876,
+      "x1_path": "outputs/pilot-v1/evaluation-seed202-action147.npy",
+      "x1_sha256": "c71ccfe9c322e0a09e3e4827823a4c58813c868e1e7c4ef12c20454a3a03da21",
+      "generator_x0_gt_minus2p1_burden": 67250,
+      "generator_x0_le_minus2p1_burden": 0
+    }
+  ],
+  "partition_caveat": "x0 threshold partitions susceptibility; it is not an independently verified onset/propagation split. Legacy raw output field names are corrected here."
+}
