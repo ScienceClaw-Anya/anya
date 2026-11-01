@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-11-01",
+  "track": "personalized-intervention-research",
+  "repository": "ScienceClaw-Anya/anya",
+  "branch": "codex/personalized-intervention-research",
+  "history": "independent_root",
+  "reference_main_commit": "d666bd356d944fb363dbf60537b5682e44b269a7",
+  "protocol_version": "0.1",
+  "protocol_status": "design_not_frozen",
+  "phase": "documentation_and_execution_handoff",
+  "dataset_acquisition": "not_started",
+  "research_runs_completed": 0,
+  "intervention_improvement_established": false,
+  "clinical_prediction_improvement_established": false,
+  "clinical_treatment_benefit_established": false,
+  "execution_thread_id": null,
+  "next_steps": [
+    "Audit local environment and VEC development assets",
+    "Verify anatomical costs and define virtual resection semantics",
+    "Run bounded development pilot with numerical baselines",
+    "Freeze protocol before held-out cohort evaluation",
+    "Audit IDEAS eligibility for a separate retrospective outcome study"
+  ]
+}
