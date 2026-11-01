@@ -1,0 +1,211 @@
+[
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/dataset_coordsystem.json",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:16Z",
+    "path": "data/vec/VirtualEpilepticCohort/dataset_coordsystem.json",
+    "bytes": 230,
+    "sha256": "562e8535f8a49e5fdb83658820972c94562f42102496815a95a829fe21512e4f",
+    "provider_hash": "1292f26611e5ce4786eacb77f5985728"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/dataset_description.json",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:17Z",
+    "path": "data/vec/VirtualEpilepticCohort/dataset_description.json",
+    "bytes": 496,
+    "sha256": "26c9b32db92cbe2c75c6cae50019ea088202eef1be68db8ca2b136cfb13b3704",
+    "provider_hash": "f319deca78983a37e87a974670aa85aa"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/img/sub-003_simulated_sensor_timeseries_run-01.png",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:23Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/img/sub-003_simulated_sensor_timeseries_run-01.png",
+    "bytes": 7400459,
+    "sha256": "9b0b8ad1d6b2528aa26f5bd54c3b8a253b5d7f41fb05141638ed07ad7ba8f9da",
+    "provider_hash": "25b6a76692e77103080ea7eb9e12f349"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/img/sub-003_simulated_sensor_timeseries_run-01_AC.png",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:30Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/img/sub-003_simulated_sensor_timeseries_run-01_AC.png",
+    "bytes": 8201007,
+    "sha256": "841f06b74766cba38f5db78c08412b8ccf278427b7a4c4672c440aae945d0e4f",
+    "provider_hash": "4088633d874c46152ad8ea1cfcd9e627"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/img/sub-003_simulated_source_timeseries_run-01.png",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:32Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/img/sub-003_simulated_source_timeseries_run-01.png",
+    "bytes": 1945607,
+    "sha256": "7bce316175ef2ee16ee0f800110235570243c4851ac764948dabbd448791a8bf",
+    "provider_hash": "5b68f3571be143c51dc506643885b999"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/parameters/sub-003_epileptor_parameters_run-01.tsv",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:33Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/parameters/sub-003_epileptor_parameters_run-01.tsv",
+    "bytes": 6517,
+    "sha256": "804e5d975d5e5d15143d7b574b4b3561ab705baf307302a05424cf5322767009",
+    "provider_hash": "25c64e90c2d68ba77d0701b3f5143c86"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/parameters/sub-003_simulator_parameters_run-01.tsv",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:34Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/parameters/sub-003_simulator_parameters_run-01.tsv",
+    "bytes": 211,
+    "sha256": "0b4f3450f69c665b5a2931b8adede262a8259d6b5fa6e225a249c3bee02679f0",
+    "provider_hash": "2c72b53262b9ae5e1e179997e2c9aa4f"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/sub-003_simulated_source_timeseries_run-01.npz",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:39Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/sub-003_simulated_source_timeseries_run-01.npz",
+    "bytes": 6259732,
+    "sha256": "0d25a472fee595e5cf8767aea7f80cb1381cc64e6b6d2f0bc27d3072c1d18d44",
+    "provider_hash": "c9dd8ca7025b2fffbff29d5431eba4fb"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/sub-003_simulated_source_timeseries_run-01.tsv",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:40Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/ses-01/clinicalhypothesis/sub-003_simulated_source_timeseries_run-01.tsv",
+    "bytes": 521,
+    "sha256": "3b6ceea4495e18441fb9f197f93194f4cc07cc9b74895ce8e80a1870c1c19a3b",
+    "provider_hash": "e8bd4b4517fa27c067a6f0b12bb47129"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/struct/sub-003_connectome.zip",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:41Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/struct/sub-003_connectome.zip",
+    "bytes": 281607,
+    "sha256": "ed76d84a6792defe20bfd22bb15c3198e81e55a3ac4bc5113c1b76929944d2ff",
+    "provider_hash": "7d3212ec0cf52e7437787a8788fad4a6"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/derivatives/tvb/sub-003/struct/sub-003_gain.txt",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:42Z",
+    "path": "data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/struct/sub-003_gain.txt",
+    "bytes": 895050,
+    "sha256": "bcf94bf38770b170c7ce4ca21b85e8f38c0fa1b117af853639ac98958535aad3",
+    "provider_hash": "364817b915ba5eccdaa7fc4400a3c772"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/participants.tsv",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:43Z",
+    "path": "data/vec/VirtualEpilepticCohort/participants.tsv",
+    "bytes": 286,
+    "sha256": "850ec710dc97c441bd241efbf03c7fbf5253442fdc9c3b81cdacfc3d3cfdd03d",
+    "provider_hash": "3c648402a671b20d6ed065ccb0775264"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.eeg",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:46Z",
+    "path": "data/vec/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.eeg",
+    "bytes": 3404000,
+    "sha256": "f8211598eecc8525ec1f5c39ecc0be66e91f55ea12a3723ac2f3a257c5ca40af",
+    "provider_hash": "f905b5408ac371820ae10c2e9aa998fc"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.vhdr",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:47Z",
+    "path": "data/vec/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.vhdr",
+    "bytes": 4653,
+    "sha256": "43d0dfc1e1874d06875abaee6e1aa319dea01528a5eaf9401d913423ca522f1f",
+    "provider_hash": "b0c27f63a487ea860da5678dcffe6e3c"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.vmrk",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:48Z",
+    "path": "data/vec/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.vmrk",
+    "bytes": 557,
+    "sha256": "2238f821ccbe223a13c3d123969f9b7f6360d5a6bd48eb79f96095ae6e9354ed",
+    "provider_hash": "70a51dbea24eb3c92842eb42ed87f874"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_channels.tsv",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:49Z",
+    "path": "data/vec/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_channels.tsv",
+    "bytes": 11325,
+    "sha256": "d7e9ce5ec2ecd30e1580b0016fa6c9de74482643f947fa751d995016400e6c3e",
+    "provider_hash": "2eb80ccbbc29177490de1ef8c4da5f2e"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_run-01_channels.tsv",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:50Z",
+    "path": "data/vec/VirtualEpilepticCohort/sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_run-01_channels.tsv",
+    "bytes": 11325,
+    "sha256": "d7e9ce5ec2ecd30e1580b0016fa6c9de74482643f947fa751d995016400e6c3e",
+    "provider_hash": "2eb80ccbbc29177490de1ef8c4da5f2e"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/sub-003/sub-003_electrodes.tsv",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:50Z",
+    "path": "data/vec/VirtualEpilepticCohort/sub-003/sub-003_electrodes.tsv",
+    "bytes": 6249,
+    "sha256": "2c78a707f5deffceb3f7fb35e531e47b2000f47ac01d270ca1d84062490138d8",
+    "provider_hash": "4eb8d4fc6c805a812fcaa781ebbc81b9"
+  },
+  {
+    "provider_url": "https://data-proxy.ebrains.eu/api/v1/datasets/c1702a5b-bc8f-486e-a0ee-4758a707ff00/VirtualEpilepticCohort/vep_atlas.tsv",
+    "dataset_doi": "10.25493/XWG2-S8X",
+    "version": "v1.0",
+    "license": "CC-BY-4.0",
+    "retrieved_utc": "2026-11-01T16:17:51Z",
+    "path": "data/vec/VirtualEpilepticCohort/vep_atlas.tsv",
+    "bytes": 6745,
+    "sha256": "a0287b05cf4245f2b77a60732414148484c37da2b015bf8045a8d675a30bfcaf",
+    "provider_hash": "77894391e4ca41731351aa30dabc07b6"
+  }
+]

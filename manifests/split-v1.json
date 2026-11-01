@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "stage": "development_split_reserved_before_interventions",
+  "method": "sub-003 forced development; remaining IDs sorted by SHA256 of anya-intervention-split-v1:ID; first 5 development",
+  "inventory_sha256": "b345302812aceb417fb9bf853b91b522622b360d2d9247f263f5f7fb44027086",
+  "development": [
+    "sub-003",
+    "sub-010",
+    "sub-011",
+    "sub-014",
+    "sub-017",
+    "sub-030"
+  ],
+  "held_out_reserved": [
+    "sub-001",
+    "sub-002",
+    "sub-004",
+    "sub-005",
+    "sub-006",
+    "sub-007",
+    "sub-008",
+    "sub-009",
+    "sub-012",
+    "sub-013",
+    "sub-015",
+    "sub-016",
+    "sub-018",
+    "sub-019",
+    "sub-020",
+    "sub-021",
+    "sub-022",
+    "sub-023",
+    "sub-024",
+    "sub-025",
+    "sub-026",
+    "sub-027",
+    "sub-028",
+    "sub-029"
+  ],
+  "eligibility": "30 listed subjects; per-subject asset completeness pending; no intervention outcomes inspected"
+}
