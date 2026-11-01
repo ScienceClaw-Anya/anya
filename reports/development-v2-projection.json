@@ -1,0 +1,126 @@
+{
+  "phase": "exploratory_observation_audit",
+  "subject": "sub-003",
+  "variants": [
+    {
+      "gain": "absolute_difference",
+      "lag": 100,
+      "global_scale": 979853.7794357806,
+      "raw_relative_rmse": 0.18602412048851955,
+      "centered_global_relative_rmse": 0.34366765283160544,
+      "channel_affine_relative_rmse": 0.33646375740682866,
+      "corr_quantiles": [
+        0.5783785012661187,
+        0.7185924602649548,
+        0.9392517000977105,
+        0.9986506445895604,
+        0.999568781991166
+      ],
+      "scale_quantiles": [
+        577195.055835087,
+        710298.7141690528,
+        937269.684742055,
+        1006453.1945950252,
+        1023819.0575288197
+      ]
+    },
+    {
+      "gain": "signed_difference",
+      "lag": 100,
+      "global_scale": -469017.0966613911,
+      "raw_relative_rmse": 0.9570762209114444,
+      "centered_global_relative_rmse": 0.9915761006700725,
+      "channel_affine_relative_rmse": 0.42801195565332784,
+      "corr_quantiles": [
+        -0.999438314958745,
+        -0.990138329688338,
+        0.0626260219626477,
+        0.975727752277959,
+        0.9945629957899293
+      ],
+      "scale_quantiles": [
+        -2002178.8949749346,
+        -1549329.9001910593,
+        188351.77478333164,
+        1391086.6820504596,
+        1755105.0582574832
+      ]
+    },
+    {
+      "gain": "mean",
+      "lag": 100,
+      "global_scale": 138442.48984591177,
+      "raw_relative_rmse": 0.5146983617305946,
+      "centered_global_relative_rmse": 0.6715598650632683,
+      "channel_affine_relative_rmse": 0.3892344824202933,
+      "corr_quantiles": [
+        0.6147885854923367,
+        0.7549570229253754,
+        0.9298604629873544,
+        0.986383083735949,
+        0.9964943089016703
+      ],
+      "scale_quantiles": [
+        23307.154230215107,
+        62738.8414974922,
+        164833.2538179627,
+        555368.3035152004,
+        873481.8899091259
+      ]
+    },
+    {
+      "gain": "first_contact",
+      "lag": 100,
+      "global_scale": 136701.1346122722,
+      "raw_relative_rmse": 0.5117794988033605,
+      "centered_global_relative_rmse": 0.665333528559996,
+      "channel_affine_relative_rmse": 0.3829724487923985,
+      "corr_quantiles": [
+        0.6275280442284338,
+        0.7612743130197029,
+        0.9290324726436132,
+        0.9864752624626197,
+        0.9961027783540295
+      ],
+      "scale_quantiles": [
+        23178.729094633087,
+        62355.51054190772,
+        167643.89291639914,
+        507798.872179492,
+        1409050.0603342282
+      ]
+    },
+    {
+      "gain": "second_contact",
+      "lag": 100,
+      "global_scale": 139574.65855452005,
+      "raw_relative_rmse": 0.5209630267451372,
+      "centered_global_relative_rmse": 0.6946027634423736,
+      "channel_affine_relative_rmse": 0.44959498890985755,
+      "corr_quantiles": [
+        0.603965296366388,
+        0.7391704334476286,
+        0.9236655075998097,
+        0.987000609122981,
+        0.9968009033774993
+      ],
+      "scale_quantiles": [
+        23433.59000714052,
+        63261.264044021205,
+        163639.58577989208,
+        557715.6772725751,
+        1039128.7290997077
+      ]
+    }
+  ],
+  "unconstrained_source_projection": {
+    "fit_samples": 2300,
+    "validation_samples": 2300,
+    "rank": 163,
+    "singular_ratio": 0.0002693104595430421,
+    "validation_relative_rmse": 0.2142440669644639,
+    "caveat": "Temporal blocks in one release; diagnostic mapping learned from evaluator source; never planner input"
+  },
+  "runtime_seconds": 0.7076463849953143,
+  "code_sha256": "e237647972e15593a011f94e5516314f96389acf033e5d327df65eeeac9279b4"
+}

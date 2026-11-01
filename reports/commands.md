@@ -56,3 +56,41 @@ SSH/resource/log inspection is read-only apart from this isolated directory.
 IDEAS direct downloads returned HTTP 202 with a zero-length WAF response. A
 browser download request was explicitly denied. No alternate download route was
 attempted after denial; record-level eligibility and outcome fitting remain undone.
+
+## CPU development v2
+
+User-authorized continuation used one GCP worker/thread at nice 10. Pre-run
+milestones: d6ca090 (scope/projection audit), d4a713e (network controls),
+5182533 (linear fit/replay), c53c9d8 (Epileptor fit), eb0e3e5 (separate exploratory
+cross-recording addendum). Original fitting manifest is unchanged from c53c9d8.
+All commits were pushed only to the explicit isolated branch destination.
+
+After scoped source/manifest synchronization with rsync, commands ran serially
+on GCP with the same numerical-thread environment as v1:
+
+```sh
+timeout 180 nice -n 10 .venv/bin/python scripts/audit_projection_v2.py
+timeout 300 nice -n 10 .venv/bin/python scripts/acquire_development_v2.py
+timeout 90 nice -n 10 .venv/bin/python -m pytest -q tests
+timeout 1000 nice -n 10 .venv/bin/python scripts/network_sensitivity_v2.py
+timeout 60 nice -n 10 .venv/bin/python scripts/audit_sources_v2.py
+timeout 120 nice -n 10 .venv/bin/python scripts/fit_forecast_v2.py
+timeout 90 nice -n 10 .venv/bin/python scripts/replay_development_v2.py
+timeout 700 nice -n 10 .venv/bin/python scripts/fit_epileptor_v2.py
+timeout 350 nice -n 10 .venv/bin/python scripts/evaluate_epileptor_fit_v2.py
+timeout 90 nice -n 10 .venv/bin/python scripts/replay_fit_v2.py
+timeout 60 nice -n 10 .venv/bin/python scripts/cross_recording_fit_v2.py
+timeout 60 nice -n 10 .venv/bin/python scripts/plot_development_v2.py
+```
+
+Tests were rerun as new fitting invariants were added; final result: 9 passed.
+Full raw arrays remain in `outputs/development-v2` on GCP. Only compact summaries,
+the aggregate figure and acquisition hashes were retrieved locally. Figure
+calculations ran on GCP and the final image was visually inspected locally.
+The figure was revised to show the zero-covariance reference explicitly.
+
+Each simulation checks the shared `outputs/development-v2/budget.json` deadline.
+The scripts refuse to overwrite existing stage output directories; rerun a new
+versioned stage rather than modifying the recorded results. Exact source/data
+hashes are in the manifests and output summaries. No other job was signaled or
+changed. No local simulation, numerical test or metric replay was run.

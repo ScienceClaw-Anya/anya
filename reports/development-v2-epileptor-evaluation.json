@@ -1,0 +1,74 @@
+{
+  "phase": "development_feature_prediction_not_intervention",
+  "rows": [
+    {
+      "network": "personal",
+      "seed": 501,
+      "errors_against_development_test_block": {
+        "covariance_relative_error": 2.3295614580998163,
+        "sensor_std_relative_error": 1.5325378851369467
+      },
+      "x0_mae": 0.21049382716049392,
+      "constant_minus2p7_x0_mae": 0.2444444444444442
+    },
+    {
+      "network": "personal",
+      "seed": 502,
+      "errors_against_development_test_block": {
+        "covariance_relative_error": 1.9843949734512405,
+        "sensor_std_relative_error": 1.4634604607248871
+      },
+      "x0_mae": 0.21049382716049392,
+      "constant_minus2p7_x0_mae": 0.2444444444444442
+    },
+    {
+      "network": "donor",
+      "seed": 501,
+      "errors_against_development_test_block": {
+        "covariance_relative_error": 2.3853792627518167,
+        "sensor_std_relative_error": 1.5184293594254896
+      },
+      "x0_mae": 0.21049382716049392,
+      "constant_minus2p7_x0_mae": 0.2444444444444442
+    },
+    {
+      "network": "donor",
+      "seed": 502,
+      "errors_against_development_test_block": {
+        "covariance_relative_error": 2.5891444251799585,
+        "sensor_std_relative_error": 1.5492403006466255
+      },
+      "x0_mae": 0.21049382716049392,
+      "constant_minus2p7_x0_mae": 0.2444444444444442
+    },
+    {
+      "network": "zero",
+      "seed": 501,
+      "errors_against_development_test_block": {
+        "covariance_relative_error": 2.274112733978786,
+        "sensor_std_relative_error": 1.5177043287218364
+      },
+      "x0_mae": 0.21049382716049392,
+      "constant_minus2p7_x0_mae": 0.2444444444444442
+    },
+    {
+      "network": "zero",
+      "seed": 502,
+      "errors_against_development_test_block": {
+        "covariance_relative_error": 2.8731756661951295,
+        "sensor_std_relative_error": 1.5811248491327161
+      },
+      "x0_mae": 0.21049382716049392,
+      "constant_minus2p7_x0_mae": 0.2444444444444442
+    }
+  ],
+  "training_feature_baseline": {
+    "covariance_relative_error": 3.219015649128321,
+    "sensor_std_relative_error": 1.4278835332746835
+  },
+  "training_covariance_norm": 1187.7520670649656,
+  "test_covariance_norm": 342.21401679891653,
+  "simulator_calls": 6,
+  "runtime_seconds": 113.58485646900954,
+  "limitation": "Stationary simulated feature distributions versus a later temporal block, not time-aligned forecasts or an independently recorded seizure. The final block was already used by the linear development experiment."
+}

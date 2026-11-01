@@ -1,0 +1,183 @@
+{
+  "phase": "development_release_consistency_audit",
+  "results": [
+    {
+      "subject": "sub-003",
+      "run": "01",
+      "source_samples": 4800,
+      "sensor_samples": 4600,
+      "crop": 100,
+      "npz_tsv_excerpt_max_abs_error": 0.06636625191746204,
+      "npz_tsv_excerpt_fraction_beyond_5e_minus9": 1.0,
+      "same_excerpt_within_rounding": false,
+      "projection_scale": 979853.7794357806,
+      "raw_projection_relative_rmse": 0.18602412048851955,
+      "centered_projection_relative_rmse": 0.34366765283160544,
+      "projection_corr_quantiles": [
+        0.5783785012661187,
+        0.7185924602649548,
+        0.9392517000977105,
+        0.9986506445895604,
+        0.999568781991166
+      ],
+      "gain_shape": [
+        185,
+        162
+      ],
+      "gain_numerical_rank": 162,
+      "gain_condition_number": 27630960.152276035,
+      "smoothing_diagnostics": [
+        {
+          "window_samples": 1,
+          "centered_relative_rmse": 0.3436676528316054
+        },
+        {
+          "window_samples": 5,
+          "centered_relative_rmse": 0.2752995122100075
+        },
+        {
+          "window_samples": 25,
+          "centered_relative_rmse": 0.2458942203577388
+        },
+        {
+          "window_samples": 100,
+          "centered_relative_rmse": 0.22672458557153716
+        }
+      ]
+    },
+    {
+      "subject": "sub-010",
+      "run": "01",
+      "source_samples": 3800,
+      "sensor_samples": 3700,
+      "crop": 0,
+      "npz_tsv_excerpt_max_abs_error": 4.607681680646181e-09,
+      "npz_tsv_excerpt_fraction_beyond_5e_minus9": 0.0,
+      "same_excerpt_within_rounding": true,
+      "projection_scale": 1000000.0000426796,
+      "raw_projection_relative_rmse": 2.4312746554910315e-08,
+      "centered_projection_relative_rmse": 9.529054108501098e-08,
+      "projection_corr_quantiles": [
+        0.9999999999982984,
+        0.9999999999986317,
+        0.9999999999999271,
+        1.0000000000000007,
+        1.0000000000000027
+      ],
+      "gain_shape": [
+        113,
+        162
+      ],
+      "gain_numerical_rank": 113,
+      "gain_condition_number": 203365.7056858673,
+      "smoothing_diagnostics": [
+        {
+          "window_samples": 1,
+          "centered_relative_rmse": 9.529054108525898e-08
+        },
+        {
+          "window_samples": 5,
+          "centered_relative_rmse": 4.439033008257365e-08
+        },
+        {
+          "window_samples": 25,
+          "centered_relative_rmse": 2.0545657718807145e-08
+        },
+        {
+          "window_samples": 100,
+          "centered_relative_rmse": 1.1746118179758652e-08
+        }
+      ]
+    },
+    {
+      "subject": "sub-010",
+      "run": "02",
+      "source_samples": 1400,
+      "sensor_samples": 1250,
+      "crop": 0,
+      "npz_tsv_excerpt_max_abs_error": 4.783132334651441e-09,
+      "npz_tsv_excerpt_fraction_beyond_5e_minus9": 0.0,
+      "same_excerpt_within_rounding": true,
+      "projection_scale": 999999.9998594146,
+      "raw_projection_relative_rmse": 2.4370619696038946e-08,
+      "centered_projection_relative_rmse": 1.0427379600280496e-07,
+      "projection_corr_quantiles": [
+        0.9999999999999659,
+        0.9999999999999719,
+        0.9999999999999832,
+        1.0,
+        1.0000000000000022
+      ],
+      "gain_shape": [
+        117,
+        162
+      ],
+      "gain_numerical_rank": 117,
+      "gain_condition_number": 276914.41527107125,
+      "smoothing_diagnostics": [
+        {
+          "window_samples": 1,
+          "centered_relative_rmse": 1.0427379600144504e-07
+        },
+        {
+          "window_samples": 5,
+          "centered_relative_rmse": 4.93109369974402e-08
+        },
+        {
+          "window_samples": 25,
+          "centered_relative_rmse": 2.3516389915276713e-08
+        },
+        {
+          "window_samples": 100,
+          "centered_relative_rmse": 1.5313999786485865e-08
+        }
+      ]
+    },
+    {
+      "subject": "sub-010",
+      "run": "03",
+      "source_samples": 1200,
+      "sensor_samples": 1200,
+      "crop": 0,
+      "npz_tsv_excerpt_max_abs_error": 4.993501834249514e-09,
+      "npz_tsv_excerpt_fraction_beyond_5e_minus9": 0.0,
+      "same_excerpt_within_rounding": true,
+      "projection_scale": 999999.9999510637,
+      "raw_projection_relative_rmse": 2.435351447155631e-08,
+      "centered_projection_relative_rmse": 1.335412098150515e-07,
+      "projection_corr_quantiles": [
+        0.9999999999979716,
+        0.9999999999983011,
+        0.9999999999996142,
+        0.9999999999999997,
+        1.000000000000002
+      ],
+      "gain_shape": [
+        114,
+        162
+      ],
+      "gain_numerical_rank": 114,
+      "gain_condition_number": 203444.6729605743,
+      "smoothing_diagnostics": [
+        {
+          "window_samples": 1,
+          "centered_relative_rmse": 1.3354120981513735e-07
+        },
+        {
+          "window_samples": 5,
+          "centered_relative_rmse": 6.27517148130684e-08
+        },
+        {
+          "window_samples": 25,
+          "centered_relative_rmse": 2.965548632714549e-08
+        },
+        {
+          "window_samples": 100,
+          "centered_relative_rmse": 2.0029181771648615e-08
+        }
+      ]
+    }
+  ],
+  "runtime_seconds": 0.30171756699564867,
+  "note": "Source snippets are evaluator diagnostics; no source-derived observation matrix is used by a planner."
+}

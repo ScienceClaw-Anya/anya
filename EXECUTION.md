@@ -8,6 +8,14 @@ run there. Use one worker/thread at nice priority 10 unless a later bounded run
 manifest justifies up to the existing two-worker ceiling. Current results and
 open scientific gates are in `reports/2026-11-01-pilot.md` and STATUS.json.
 
+**CPU continuation, 2026-11-01:** the user reconfirmed use of existing GCP CPU
+resources, with no GPU. Development v2 completed 35 additional simulations and
+observation-only fitting under one worker/thread and the shared 60-minute cap.
+See `reports/2026-11-01-cpu-development-v2.md`. The second case's observation
+mapping passes, but the fitted models are not ready for intervention selection.
+Future development remains bounded and requires a new recorded run schedule;
+no held-out evaluation, automatic monitor or ongoing experiment was started.
+
 This document hands execution to a separate chat. The originating chat continues
 idea exploration. The user authorized this isolated branch and execution of the
 proposed experiments; proceed with reversible implementation and bounded local

@@ -14,6 +14,8 @@ directory is an isolated execution mirror, not another existing checkout; its
 editing, metadata inspection, provenance, reporting and Git. Do not provision
 new cloud resources or change other jobs. Default to one worker/thread at nice
 priority 10; preserve the bounded pilot limits and record any new run schedule.
+The user confirmed continued CPU-only execution on 2026-11-01. No GPU is available
+or needed for the current bounded development work.
 
 Read README.md, PROTOCOL.md, RESOURCES.md, EXECUTION.md and STATUS.json before
 research work. The mode is user-directed research execution. These documents

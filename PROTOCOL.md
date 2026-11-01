@@ -224,3 +224,32 @@ Post-pilot zero-coupling and repeatability controls are exploratory development
 checks motivated by the early planning outputs. They preserve the original
 pilot manifest and outcomes. Independent metric replay uses cumulative sums
 and saved x1 arrays without importing the primary metric implementation.
+
+## CPU development v2 amendment, 2026-11-01 (not a confirmatory freeze)
+
+The user authorized continuation on existing GCP CPUs. The committed
+`development-v2.json`, `forecast-v2.json` and `epileptor-fit-v2.json` define a
+one-worker, 60-minute development stage with no held-out patient access. New
+work comprises source/sensor consistency checks, untreated network controls,
+observation-only linear forecasting and a bounded mechanistic covariance fit.
+The original pilot is preserved. No new intervention comparisons were run.
+
+Sub-010's source/sensor mapping is consistent across three recordings. Sub-003's
+source NPZ/TSV excerpts disagree and its sensor reconstruction remains imperfect;
+it is excluded from this mechanistic fitting experiment. Fitting uses the strict
+`PlannerObservation` schema. An access guard additionally rejects source and
+generator file paths during the Epileptor fit. Priors are development-informed,
+not investigator-blinded. Hidden parameters are read by the separate evaluator.
+
+Temporal forecasting uses a 60/20/20 split with 50-sample embargoes. The later
+Epileptor fit reuses the final development block and is exploratory; it matches
+stationary covariance, not seizure timing. All networks get equal fit-candidate
+budgets. Another-recording check has its own manifest addendum, specified after
+some initial results and without any refitting. Different generating conditions
+in those recordings are reported explicitly. They remain one development patient.
+
+The nine invariant tests and independent replays pass, while scientific model
+prediction and network-value gates do not. These fits are retained as baselines,
+not promoted into the primary intervention study. The 24 reserved patients remain
+untouched. Next development must address nonstationary seizure dynamics and an
+informative, scientifically justified network comparison before formal freezing.

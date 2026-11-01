@@ -1,0 +1,7 @@
+{
+  "feature_comparisons_replayed": 18,
+  "choices_match_training_scores": true,
+  "feature_errors_agree": true,
+  "parameter_errors_agree": true,
+  "fit_input_log_excludes_sources_and_generators": true
+}

@@ -1,41 +1,43 @@
-# Gates after the first GCP development pilot
+# Gates after CPU development v2
 
-This is a development plan; it does not authorize held-out outcome inspection.
-The user already authorizes ordinary reversible development on the existing GCP
-host. No new resources, paid language-model calls or changes to existing jobs.
+See `2026-11-01-cpu-development-v2.md` for completed results. Ordinary bounded
+development on the existing GCP CPUs remains authorized; use a new run manifest,
+one thread at nice 10, and no new resources or changes to existing jobs. No
+experiment is currently running, and no held-out evaluation has been started.
 
-1. **Observation mapping.** The VEP atlas and connectome have exactly matching
-   162-region order. Monopolar gains can be matched to electrodes and the released
-   185 bipolar channel labels. Source-to-sensor reconstruction still has an 18.6%
-   residual after fitting one scale and a 100-sample offset. Resolve whether this
-   comes from montage, a different saved realization, gain processing or another
-   cause; do not use a favorable single-channel correlation as full verification.
-2. **Physical costs and time.** `volumes.txt` exists, but physical units and
-   individual voxel geometry remain unverified. Confirm volume computation and
-   the units for the release before volume-matched comparisons. Exported 1-kHz
-   SEEG sampling does not establish that model time units equal biological
-   milliseconds. Use node-model-time and parcel-count units for this pilot.
-3. **Realistic personalization.** Keep generator parameters evaluator-only.
-   Fit a tractable model from permitted pretreatment recordings, validate
-   prediction on another recording/condition and compare against simple fits.
-   The current personal/donor simulation planners are oracle controls. They
-   cannot answer the equal-information primary question.
-4. **Stronger network controls.** A single development donor is a sensitivity
-   control. Build a training-only reference network after eligibility/mapping
-   checks. Add zero-coupling and shuffled-network checks, matching localization,
-   simulator calls and intervention costs. Inspect whether these VEC parameters
-   yield enough propagating network dynamics to identify a useful network effect.
-5. **Formal freeze.** Resolve detector, horizon, near-zero eligibility, candidate
-   feasibility, verified cost, practical effect threshold and patient-level
-   statistical rule on development data. Then commit a new immutable protocol
-   and manifest before reading intervention outcomes for the 24 reserved cases.
-   None of the known-parameter pilot outcomes count toward that evaluation.
-6. **IDEAS.** The clinical-table browser download was denied. An authorized
-   clinical table/dictionary and subject inventories are needed to count the
-   intersection of processed connectivity, delivered resection and a common
-   12-month outcome. Imaging records are not presumed to contain SEEG/SOZ.
-   Retrospective prediction must be a separate protocol using actual operations.
+1. **Improve observation prediction.** Sub-010's mapping is verified across three
+   recordings. The observation-only linear baseline loses to last-observation
+   persistence, and stationary Epileptor covariance fitting still has large
+   prediction errors. Fit seizure phase, onset/offset or time-varying envelopes
+   and quantify which parameters are identifiable. Keep generators and source
+   arrays evaluator-only. Do not optimize interventions with the failed fits.
+2. **Resolve sub-003 provenance.** NPZ/TSV source excerpts disagree at matching
+   timestamps, and source-to-sensor reconstruction retains 18.6% raw error.
+   Alternative gains and affine scaling do not repair it. This is a development
+   data-quality exclusion from mechanistic fitting, not evidence that all VEC
+   cases are inconsistent. Do not silently replace the release with fitted gains.
+3. **Establish informative network effects.** Released settings in both cases
+   show small effects of network removal/replacement compared with the sampled
+   noise variation. Even synthetic 1000x coupling in sub-003 does not recruit
+   additional regions under the detector. Choose a scientifically justified
+   propagation model/regime and validate observations; do not tune for a desired
+   personalization result. Include a training-only reference and an established
+   virtual-resection method with compatible information and compute budgets.
+4. **Verify costs and units.** Parcel volumes are present but individual geometry
+   and physical units remain unverified. Keep parcel-count/model-time labels until
+   resolved, or explicitly freeze a proxy-cost benchmark with restricted claims.
+   Exporter amplitude scaling and 1-kHz sample metadata do not establish biological
+   amplitude or time calibration.
+5. **Freeze before cohort evaluation.** Finalize detector, horizons, baseline
+   eligibility, candidate feasibility, cost, practical effect threshold and
+   patient-level analysis before reading outcomes for the 24 reserved cases.
+   All v1/v2 outcomes and temporal/other-recording checks are development evidence.
+6. **Retrospective study separately.** The IDEAS clinical-table download remains
+   denied. An authorized table/dictionary and subject inventories are needed to
+   verify actual overlap of connectivity, delivered surgery and a consistent
+   follow-up outcome. Do not retry the denied download by another route or
+   assume imaging records contain SEEG/SOZ.
 
-The first benchmark is intentionally small. Do not enlarge it solely because
-it runs cheaply: better mapping, model fitting and informative dynamics are
-scientific prerequisites to a credible cohort comparison.
+The next stage should advance fitting and model validity, with explicit failure
+criteria, before investing in more intervention search. CPU throughput is
+adequate for such bounded development; GPUs are not required for this step.

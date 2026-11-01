@@ -1,0 +1,177 @@
+{
+  "phase": "exploratory_other_recording_validation",
+  "subject": "sub-010",
+  "rows": [
+    {
+      "recording": "02",
+      "network": "personal",
+      "seed": 501,
+      "common_channels": 113,
+      "covariance_relative_error": 1.326456146975816,
+      "training_feature_baseline_error": 1.7273165388953475,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 162,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "02",
+      "network": "personal",
+      "seed": 502,
+      "common_channels": 113,
+      "covariance_relative_error": 1.1824981026171457,
+      "training_feature_baseline_error": 1.7273165388953475,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 162,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "02",
+      "network": "donor",
+      "seed": 501,
+      "common_channels": 113,
+      "covariance_relative_error": 1.3499753092210958,
+      "training_feature_baseline_error": 1.7273165388953475,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 162,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "02",
+      "network": "donor",
+      "seed": 502,
+      "common_channels": 113,
+      "covariance_relative_error": 1.3972438553605433,
+      "training_feature_baseline_error": 1.7273165388953475,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 162,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "02",
+      "network": "zero",
+      "seed": 501,
+      "common_channels": 113,
+      "covariance_relative_error": 1.315548373892163,
+      "training_feature_baseline_error": 1.7273165388953475,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 162,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "02",
+      "network": "zero",
+      "seed": 502,
+      "common_channels": 113,
+      "covariance_relative_error": 1.5610096376104916,
+      "training_feature_baseline_error": 1.7273165388953475,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 162,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "03",
+      "network": "personal",
+      "seed": 501,
+      "common_channels": 113,
+      "covariance_relative_error": 1.0941323426860377,
+      "training_feature_baseline_error": 1.1573346300579859,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 163,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "03",
+      "network": "personal",
+      "seed": 502,
+      "common_channels": 113,
+      "covariance_relative_error": 1.0222563634371542,
+      "training_feature_baseline_error": 1.1573346300579859,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 163,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "03",
+      "network": "donor",
+      "seed": 501,
+      "common_channels": 113,
+      "covariance_relative_error": 1.1077872998722589,
+      "training_feature_baseline_error": 1.1573346300579859,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 163,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "03",
+      "network": "donor",
+      "seed": 502,
+      "common_channels": 113,
+      "covariance_relative_error": 1.0240625337964604,
+      "training_feature_baseline_error": 1.1573346300579859,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 163,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "03",
+      "network": "zero",
+      "seed": 501,
+      "common_channels": 113,
+      "covariance_relative_error": 1.1021311310435422,
+      "training_feature_baseline_error": 1.1573346300579859,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 163,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    },
+    {
+      "recording": "03",
+      "network": "zero",
+      "seed": 502,
+      "common_channels": 113,
+      "covariance_relative_error": 1.155412540640836,
+      "training_feature_baseline_error": 1.1573346300579859,
+      "evaluator_generator_comparison": {
+        "x0_regions_different": 4,
+        "other_parameter_entries_different": 163,
+        "coupling_factor_different": false,
+        "noise_different": false
+      }
+    }
+  ],
+  "selection_changes": 0,
+  "additional_simulations": 0,
+  "limitation": "Other recordings were audited before this check but never entered fit selection. Same development patient, potentially different generator conditions; not independent patients or confirmatory evidence."
+}

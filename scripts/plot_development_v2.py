@@ -34,6 +34,8 @@ for name in ['personal','donor','zero']:
     values.append(np.mean([r['errors_against_development_test_block']['covariance_relative_error'] for r in evaluation['rows'] if r['network']==name]))
 values.append(evaluation['training_feature_baseline']['covariance_relative_error'])
 axes[2].bar(np.arange(4),values,color=['#2166ac','#888888','#bbbbbb','#b35806'])
+axes[2].axhline(1,color='black',ls='--',lw=1,label='Zero covariance reference')
+axes[2].legend(frameon=False,fontsize=8)
 axes[2].set(xticks=np.arange(4),xticklabels=labels,ylabel='Relative sensor covariance error',title='Epileptor fit: sub-010 development')
 for ax in axes:
     ax.spines[['top','right']].set_visible(False)
@@ -48,4 +50,5 @@ resource={'experiment_wall_seconds_to_report':time.time()-budget['start_epoch'],
           'host':'scienceclaw-gcp','new_simulator_calls':35,'new_network_calls':15,
           'new_fit_library_calls':2,'new_fit_candidate_calls':12,'new_fit_evaluation_calls':6,
           'held_out_patients_inspected':0,'gpu_used':False}
-(OUT/'resource-summary.json').write_text(json.dumps(resource,indent=2)+'\n')
+if not (OUT/'resource-summary.json').exists():
+    (OUT/'resource-summary.json').write_text(json.dumps(resource,indent=2)+'\n')

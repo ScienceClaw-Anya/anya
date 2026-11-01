@@ -1,0 +1,15 @@
+{
+  "experiment_wall_seconds_to_report": 1107.6991345882416,
+  "max_wall_seconds": 3600,
+  "workers": 1,
+  "threads": 1,
+  "nice": 10,
+  "host": "scienceclaw-gcp",
+  "new_simulator_calls": 35,
+  "new_network_calls": 15,
+  "new_fit_library_calls": 2,
+  "new_fit_candidate_calls": 12,
+  "new_fit_evaluation_calls": 6,
+  "held_out_patients_inspected": 0,
+  "gpu_used": false
+}

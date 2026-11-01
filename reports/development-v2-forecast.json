@@ -1,0 +1,376 @@
+{
+  "phase": "observation_only_development_forecasting_baseline",
+  "results": [
+    {
+      "subject": "sub-003",
+      "network": "personal",
+      "train_samples": 2760,
+      "validation_samples": 870,
+      "test_samples": 870,
+      "selected_ridge": 1.0,
+      "a": 0.9519358498855,
+      "b": 0.2730235969441483,
+      "spectral_radius": 0.9519358498855011,
+      "validation_candidates": [
+        {
+          "ridge": 1e-06,
+          "mse": 0.57052919711714
+        },
+        {
+          "ridge": 0.0001,
+          "mse": 0.5713110497141428
+        },
+        {
+          "ridge": 0.01,
+          "mse": 0.5902299656801022
+        },
+        {
+          "ridge": 1.0,
+          "mse": 0.5335629696381968
+        }
+      ],
+      "test_errors": {
+        "1": {
+          "mse": 0.009354631610545554,
+          "persistence_mse": 0.0009242814222506342,
+          "training_mean_mse": 1.2768508194288606
+        },
+        "10": {
+          "mse": 0.4039767327995502,
+          "persistence_mse": 0.010750667558975418,
+          "training_mean_mse": 1.2752553457183078
+        },
+        "50": {
+          "mse": 1.1995207238281997,
+          "persistence_mse": 0.015755189915241587,
+          "training_mean_mse": 1.26737578054602
+        }
+      }
+    },
+    {
+      "subject": "sub-003",
+      "network": "donor",
+      "train_samples": 2760,
+      "validation_samples": 870,
+      "test_samples": 870,
+      "selected_ridge": 1.0,
+      "a": 0.9420961587808201,
+      "b": 0.36116055634040084,
+      "spectral_radius": 0.9420961587808219,
+      "validation_candidates": [
+        {
+          "ridge": 1e-06,
+          "mse": 0.5621456493063028
+        },
+        {
+          "ridge": 0.0001,
+          "mse": 0.564615861819896
+        },
+        {
+          "ridge": 0.01,
+          "mse": 0.5839897317863862
+        },
+        {
+          "ridge": 1.0,
+          "mse": 0.5418399489424882
+        }
+      ],
+      "test_errors": {
+        "1": {
+          "mse": 0.009398859327771255,
+          "persistence_mse": 0.0009242814222506342,
+          "training_mean_mse": 1.2768508194288606
+        },
+        "10": {
+          "mse": 0.4142409404017162,
+          "persistence_mse": 0.010750667558975418,
+          "training_mean_mse": 1.2752553457183078
+        },
+        "50": {
+          "mse": 1.2175026171748904,
+          "persistence_mse": 0.015755189915241587,
+          "training_mean_mse": 1.26737578054602
+        }
+      }
+    },
+    {
+      "subject": "sub-003",
+      "network": "shuffled",
+      "train_samples": 2760,
+      "validation_samples": 870,
+      "test_samples": 870,
+      "selected_ridge": 1.0,
+      "a": 0.9182214253737983,
+      "b": 4.782747962023949e-20,
+      "spectral_radius": 0.9182214253737997,
+      "validation_candidates": [
+        {
+          "ridge": 1e-06,
+          "mse": 0.5407322469459224
+        },
+        {
+          "ridge": 0.0001,
+          "mse": 0.5391571456098395
+        },
+        {
+          "ridge": 0.01,
+          "mse": 0.5492020082451934
+        },
+        {
+          "ridge": 1.0,
+          "mse": 0.5161711280108426
+        }
+      ],
+      "test_errors": {
+        "1": {
+          "mse": 0.00937668274557847,
+          "persistence_mse": 0.0009242814222506342,
+          "training_mean_mse": 1.2768508194288606
+        },
+        "10": {
+          "mse": 0.42386004586600645,
+          "persistence_mse": 0.010750667558975418,
+          "training_mean_mse": 1.2752553457183078
+        },
+        "50": {
+          "mse": 1.231981010756299,
+          "persistence_mse": 0.015755189915241587,
+          "training_mean_mse": 1.26737578054602
+        }
+      }
+    },
+    {
+      "subject": "sub-003",
+      "network": "zero",
+      "train_samples": 2760,
+      "validation_samples": 870,
+      "test_samples": 870,
+      "selected_ridge": 1e-06,
+      "a": 0.9182214253737987,
+      "b": 0.0,
+      "spectral_radius": 0.9182214253737987,
+      "validation_candidates": [
+        {
+          "ridge": 1e-06,
+          "mse": 0.5161711280108399
+        },
+        {
+          "ridge": 0.0001,
+          "mse": 0.5161711280108399
+        },
+        {
+          "ridge": 0.01,
+          "mse": 0.5161711280108399
+        },
+        {
+          "ridge": 1.0,
+          "mse": 0.5161711280108399
+        }
+      ],
+      "test_errors": {
+        "1": {
+          "mse": 0.009376682745578378,
+          "persistence_mse": 0.0009242814222506342,
+          "training_mean_mse": 1.2768508194288606
+        },
+        "10": {
+          "mse": 0.42386004586600357,
+          "persistence_mse": 0.010750667558975418,
+          "training_mean_mse": 1.2752553457183078
+        },
+        "50": {
+          "mse": 1.2319810107562983,
+          "persistence_mse": 0.015755189915241587,
+          "training_mean_mse": 1.26737578054602
+        }
+      }
+    },
+    {
+      "subject": "sub-010",
+      "network": "personal",
+      "train_samples": 2220,
+      "validation_samples": 690,
+      "test_samples": 690,
+      "selected_ridge": 1.0,
+      "a": 0.9240133817403174,
+      "b": 1.130192380567687e-19,
+      "spectral_radius": 0.9240133817403191,
+      "validation_candidates": [
+        {
+          "ridge": 1e-06,
+          "mse": 0.679253616606452
+        },
+        {
+          "ridge": 0.0001,
+          "mse": 0.6776398103459159
+        },
+        {
+          "ridge": 0.01,
+          "mse": 0.666212638083785
+        },
+        {
+          "ridge": 1.0,
+          "mse": 0.5245258620422835
+        }
+      ],
+      "test_errors": {
+        "1": {
+          "mse": 0.0312974807676211,
+          "persistence_mse": 0.02250346730873265,
+          "training_mean_mse": 1.8083126220210644
+        },
+        "10": {
+          "mse": 0.5936938218348933,
+          "persistence_mse": 0.11183007653438774,
+          "training_mean_mse": 1.8140360136445997
+        },
+        "50": {
+          "mse": 1.77476272682849,
+          "persistence_mse": 0.179069966009835,
+          "training_mean_mse": 1.8408928587063684
+        }
+      }
+    },
+    {
+      "subject": "sub-010",
+      "network": "donor",
+      "train_samples": 2220,
+      "validation_samples": 690,
+      "test_samples": 690,
+      "selected_ridge": 1.0,
+      "a": 0.9240133817403177,
+      "b": 5.459097004069097e-16,
+      "spectral_radius": 0.924013381740319,
+      "validation_candidates": [
+        {
+          "ridge": 1e-06,
+          "mse": 0.5471616988927263
+        },
+        {
+          "ridge": 0.0001,
+          "mse": 0.5489904962163373
+        },
+        {
+          "ridge": 0.01,
+          "mse": 0.539734124649851
+        },
+        {
+          "ridge": 1.0,
+          "mse": 0.524525862042282
+        }
+      ],
+      "test_errors": {
+        "1": {
+          "mse": 0.031297480767621046,
+          "persistence_mse": 0.02250346730873265,
+          "training_mean_mse": 1.8083126220210644
+        },
+        "10": {
+          "mse": 0.5936938218348911,
+          "persistence_mse": 0.11183007653438774,
+          "training_mean_mse": 1.8140360136445997
+        },
+        "50": {
+          "mse": 1.774762726828489,
+          "persistence_mse": 0.179069966009835,
+          "training_mean_mse": 1.8408928587063684
+        }
+      }
+    },
+    {
+      "subject": "sub-010",
+      "network": "shuffled",
+      "train_samples": 2220,
+      "validation_samples": 690,
+      "test_samples": 690,
+      "selected_ridge": 1e-06,
+      "a": 0.9240133817403178,
+      "b": 4.01801090371982e-18,
+      "spectral_radius": 0.924013381740319,
+      "validation_candidates": [
+        {
+          "ridge": 1e-06,
+          "mse": 0.5245258620422816
+        },
+        {
+          "ridge": 0.0001,
+          "mse": 0.524525862042282
+        },
+        {
+          "ridge": 0.01,
+          "mse": 0.5245258620422827
+        },
+        {
+          "ridge": 1.0,
+          "mse": 0.524525862042282
+        }
+      ],
+      "test_errors": {
+        "1": {
+          "mse": 0.031297480767621025,
+          "persistence_mse": 0.02250346730873265,
+          "training_mean_mse": 1.8083126220210644
+        },
+        "10": {
+          "mse": 0.5936938218348904,
+          "persistence_mse": 0.11183007653438774,
+          "training_mean_mse": 1.8140360136445997
+        },
+        "50": {
+          "mse": 1.774762726828489,
+          "persistence_mse": 0.179069966009835,
+          "training_mean_mse": 1.8408928587063684
+        }
+      }
+    },
+    {
+      "subject": "sub-010",
+      "network": "zero",
+      "train_samples": 2220,
+      "validation_samples": 690,
+      "test_samples": 690,
+      "selected_ridge": 1e-06,
+      "a": 0.9240133817403179,
+      "b": 0.0,
+      "spectral_radius": 0.9240133817403179,
+      "validation_candidates": [
+        {
+          "ridge": 1e-06,
+          "mse": 0.524525862042281
+        },
+        {
+          "ridge": 0.0001,
+          "mse": 0.524525862042281
+        },
+        {
+          "ridge": 0.01,
+          "mse": 0.524525862042281
+        },
+        {
+          "ridge": 1.0,
+          "mse": 0.524525862042281
+        }
+      ],
+      "test_errors": {
+        "1": {
+          "mse": 0.03129748076762099,
+          "persistence_mse": 0.02250346730873265,
+          "training_mean_mse": 1.8083126220210644
+        },
+        "10": {
+          "mse": 0.5936938218348895,
+          "persistence_mse": 0.11183007653438774,
+          "training_mean_mse": 1.8140360136445997
+        },
+        "50": {
+          "mse": 1.7747627268284885,
+          "persistence_mse": 0.179069966009835,
+          "training_mean_mse": 1.8408928587063684
+        }
+      }
+    }
+  ],
+  "runtime_seconds": 1.5290882109984523,
+  "manifest_sha256": "6f02c582b40f67f85e220c5eec61508975adcf80b9b0714044e903f4a025c16f",
+  "limitation": "Linear forecasting of the released sensors; unresolved source-file discrepancies prevent physical source-validation claims. No fitted seizure parameters or intervention choices."
+}

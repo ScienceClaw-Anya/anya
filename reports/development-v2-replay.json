@@ -1,0 +1,41 @@
+{
+  "network_trajectories_replayed": 15,
+  "network_burdens_exact": true,
+  "paired_network_comparisons": [
+    {
+      "subject": "sub-003",
+      "seed": 301,
+      "paired_zero_mask_disagreement": 0.0016331569664902999,
+      "burden_difference_personal_minus_zero": -150
+    },
+    {
+      "subject": "sub-003",
+      "seed": 302,
+      "paired_zero_mask_disagreement": 0.0008430335097001764,
+      "burden_difference_personal_minus_zero": -116
+    },
+    {
+      "subject": "sub-003",
+      "personal_seed_change_mask_disagreement": 0.011947089947089947
+    },
+    {
+      "subject": "sub-010",
+      "seed": 301,
+      "paired_zero_mask_disagreement": 0.00045679012345679014,
+      "burden_difference_personal_minus_zero": 168
+    },
+    {
+      "subject": "sub-010",
+      "seed": 302,
+      "paired_zero_mask_disagreement": 0.0011825396825396826,
+      "burden_difference_personal_minus_zero": -207
+    },
+    {
+      "subject": "sub-010",
+      "personal_seed_change_mask_disagreement": 0.007022045855379189
+    }
+  ],
+  "forecast_error_checks": 24,
+  "forecast_errors_agree": true,
+  "note": "Numerical replay only; development patients and temporal forecast blocks do not establish intervention or clinical benefit."
+}

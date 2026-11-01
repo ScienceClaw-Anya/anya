@@ -1,8 +1,12 @@
 # Resource map and acquisition audit
 
 Reviewed 2026-11-01. Availability in a paper is not a verified local download.
-No dataset has yet been acquired by this new track. Pin revisions and record
-access/license terms, hashes, anatomical conventions and usable cases when acquired.
+Selected VEC sub-003/sub-010 development assets have been acquired (40,520,331
+bytes in total). Exact URLs, hashes and terms are in `manifests/acquisition.json`.
+Sub-010's three source/sensor recordings are internally consistent; sub-003's
+source representations disagree. No IDEAS record-level table has been acquired.
+Pin revisions and record access/license terms, hashes, anatomical conventions
+and usable cases when acquiring further assets.
 
 | Resource | Inputs and useful role | Current evidence and limitations |
 |---|---|---|

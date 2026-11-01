@@ -1,0 +1,217 @@
+{
+  "phase": "exploratory_observation_only_mechanistic_fit",
+  "subject": "sub-010",
+  "rows": [
+    {
+      "network": "personal",
+      "candidate": 0,
+      "r": 0.00015,
+      "slope": 0.0,
+      "training_errors": {
+        "covariance_relative_error": 0.6135025845980507,
+        "sensor_std_relative_error": 0.3246942521538893
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "personal",
+      "candidate": 1,
+      "r": 0.00015,
+      "slope": 0.2,
+      "training_errors": {
+        "covariance_relative_error": 0.658945773551784,
+        "sensor_std_relative_error": 0.37381511367815196
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "personal",
+      "candidate": 2,
+      "r": 0.00035,
+      "slope": 0.0,
+      "training_errors": {
+        "covariance_relative_error": 0.6371674416400187,
+        "sensor_std_relative_error": 0.3407096628633149
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "personal",
+      "candidate": 3,
+      "r": 0.00035,
+      "slope": 0.2,
+      "training_errors": {
+        "covariance_relative_error": 0.5878414508293324,
+        "sensor_std_relative_error": 0.36905337196730265
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "donor",
+      "candidate": 0,
+      "r": 0.00015,
+      "slope": 0.0,
+      "training_errors": {
+        "covariance_relative_error": 0.6256752740001542,
+        "sensor_std_relative_error": 0.32387941772964773
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "donor",
+      "candidate": 1,
+      "r": 0.00015,
+      "slope": 0.2,
+      "training_errors": {
+        "covariance_relative_error": 0.6182282389822379,
+        "sensor_std_relative_error": 0.34947489252012753
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "donor",
+      "candidate": 2,
+      "r": 0.00035,
+      "slope": 0.0,
+      "training_errors": {
+        "covariance_relative_error": 0.6714958918464683,
+        "sensor_std_relative_error": 0.34372744425905366
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "donor",
+      "candidate": 3,
+      "r": 0.00035,
+      "slope": 0.2,
+      "training_errors": {
+        "covariance_relative_error": 0.6088514468026992,
+        "sensor_std_relative_error": 0.3646789899188264
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "zero",
+      "candidate": 0,
+      "r": 0.00015,
+      "slope": 0.0,
+      "training_errors": {
+        "covariance_relative_error": 0.6096208017400574,
+        "sensor_std_relative_error": 0.32502455152145837
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "zero",
+      "candidate": 1,
+      "r": 0.00015,
+      "slope": 0.2,
+      "training_errors": {
+        "covariance_relative_error": 0.652075330239024,
+        "sensor_std_relative_error": 0.373079368751772
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "zero",
+      "candidate": 2,
+      "r": 0.00035,
+      "slope": 0.0,
+      "training_errors": {
+        "covariance_relative_error": 0.6932850907517973,
+        "sensor_std_relative_error": 0.34396525680447415
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    },
+    {
+      "network": "zero",
+      "candidate": 3,
+      "r": 0.00035,
+      "slope": 0.2,
+      "training_errors": {
+        "covariance_relative_error": 0.5916064720031778,
+        "sensor_std_relative_error": 0.3646163940961827
+      },
+      "q_above_library_range": 12,
+      "x0_range": [
+        -3.0,
+        -1.4
+      ]
+    }
+  ],
+  "selections": [
+    {
+      "network": "personal",
+      "candidate": 3,
+      "training_loss": 0.5878414508293324
+    },
+    {
+      "network": "donor",
+      "candidate": 3,
+      "training_loss": 0.6088514468026992
+    },
+    {
+      "network": "zero",
+      "candidate": 3,
+      "training_loss": 0.5916064720031778
+    }
+  ],
+  "independent_source_covariance_relative_error": 0.5462373159854131,
+  "input_paths": [
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-003/struct/sub-003_connectome.zip",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-010/struct/sub-010_connectome.zip",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-010/struct/sub-010_gain.txt",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/sub-010/ses-01/ieeg/sub-010_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.eeg",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/sub-010/ses-01/ieeg/sub-010_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.vhdr",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/sub-010/sub-010_electrodes.tsv",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/vep_atlas.tsv"
+  ],
+  "forbidden_input_guard_enabled": true,
+  "simulator_calls": 14,
+  "runtime_seconds": 232.31189694299246,
+  "manifest_sha256": "784f10bdcdc021d14971522f869c862844b4faa926cff53b6eafe2964017ddf0"
+}
