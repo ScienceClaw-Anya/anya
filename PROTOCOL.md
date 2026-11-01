@@ -253,3 +253,27 @@ prediction and network-value gates do not. These fits are retained as baselines,
 not promoted into the primary intervention study. The 24 reserved patients remain
 untouched. Next development must address nonstationary seizure dynamics and an
 informative, scientifically justified network comparison before formal freezing.
+
+## CPU development v3 amendment, 2026-11-01 (exploratory timing diagnostic)
+
+`manifests/development-v3.json` freezes a bounded test of timing alignment before
+new feature scores are computed. It reuses sub-010 run-01 and the observation-only
+v2 fitted trajectories. A causal 50-sample variance envelope, scaled from the
+first 60% only, measures activity evolution without claiming clinical seizure
+labels or verified physical time. The window differs from BVEP's clinical
+high-pass log-power preprocessing; this is not a BVEP replication.
+
+For each of the same four candidates per network, fit a global time offset using
+the first 60%; select a candidate using the next 20%. Refit only the offset on
+the first 80%, then predict the final 20% without further observation updates.
+Compare with validation-selected persistence, mean, zero, damped trend and
+autoregressive baselines with the same observation boundary. Target windows are
+embargoed by 50 samples. Fit offsets for two fresh noise realizations per selected
+network to check sensitivity, without selecting seeds or changing coupling.
+
+All data are reused development data, including the previously inspected final
+block. A phase search is an approximate initial-state diagnostic, not full
+parameter inference. The six new simulations and all tests/replays remain on
+the existing GCP CPU, one worker/thread at nice 10, under a 60-minute ceiling.
+No downloads, held-out patients, clinical labels or intervention searches enter
+this stage. Both failure and success require reporting before further planning.

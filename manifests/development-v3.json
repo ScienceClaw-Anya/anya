@@ -1,0 +1,47 @@
+{
+  "version": "development-v3",
+  "phase": "exploratory_temporal_alignment_on_reused_development_recording",
+  "base_commit": "cb98565d5aa5868d2ffa06c5595cb05d37110371",
+  "execution_host": "scienceclaw-gcp",
+  "execution_directory": "/home/devstar3022/anya-intervention-research",
+  "subject": "sub-010",
+  "recording": "ses-01 clinicalhypothesis run-01",
+  "workers": 1,
+  "numerical_threads": 1,
+  "nice": 10,
+  "maximum_experiment_wall_seconds": 3600,
+  "maximum_new_simulator_calls": 6,
+  "maximum_new_data_bytes": 0,
+  "held_out_access": false,
+  "observation_boundary": "Only recordings/anatomy and prior observation-only v2 fit artifacts. Reject opening released source trajectories or generator parameters. No hidden-label evaluation in this stage.",
+  "feature": {
+    "definition": "log1p(causal 50-sample population variance / channel training mean variance). Numerical variance floors use 1% of the median positive channel training mean variance; the scale is frozen from the first 60%.",
+    "window_samples": 50,
+    "stride_samples": 10,
+    "units": "Exported sample/model units, not verified biological milliseconds. This is a low-frequency-inclusive envelope proxy, not the clinical high-pass log-power preprocessing of BVEP.",
+    "interpretation": "Channel activity envelope; not a clinical seizure or SOZ label. No future samples in a feature."
+  },
+  "partition": "First 60% fit, next 20% validation, final 20% exploratory evaluation. Scores omit the first 50 samples after either boundary so target windows do not share raw samples with the preceding block. Final 20% was already inspected in v2 and is not an independent test.",
+  "mechanistic_fit": {
+    "networks": ["personal", "donor", "zero"],
+    "reuse": "Four v2 observation-only candidate trajectories per network, seed 401. Those x0 parameters used only first-60% recording covariance. No new parameter fitting or calibration of sensor gains.",
+    "phase_offsets_samples": {"start": 0, "stop_inclusive": 3300, "step": 25},
+    "selection": "For each candidate, fit the single global time offset by first-60% envelope MSE. Choose the candidate using validation envelope MSE with that frozen offset. Then refit only its offset on the first 80%, save choices, and forecast the final block without reading future observations.",
+    "fresh_seeds": [701, 702],
+    "fresh_seed_rule": "For each selected network/candidate, simulate two fresh trajectories with identical v2 parameters/priors and unchanged observation scale. Fit each time offset on the first 80% only; predict the final block. Report both individually and their mean prediction. No seed selection.",
+    "phase_profile": "Report all offset losses, count/range within 5% of the minimum, and boundary optima. This is a profile diagnostic, not a posterior or proof of parameter identifiability."
+  },
+  "baselines": {
+    "fixed": ["last envelope persistence", "prefix mean envelope", "zero envelope"],
+    "damped_trend": "OLS slope on last 10 feature points per channel; forecast from last point using summed powers of damping in [0.8,0.95,1.0]; choose damping on validation, refit slope on first 80%.",
+    "autoregression": "Shared lag coefficients across channels, channel-specific prefix means; lags [1,5,10], ridge [0.000001,0.001,0.1] times number of training pairs. Reject candidates whose companion spectral radius exceeds 1.000001. Select by validation MSE; refit on first 80% and use persistence if refit is unstable, explicitly reported. Clamp predicted log envelopes at zero.",
+    "comparator": "Choose the best baseline on validation, save its identity before final scores. All final forecasts start from the first-80% boundary with no subsequent observation updates."
+  },
+  "endpoints": {
+    "primary": "Mean squared channel log-envelope prediction error over the embargoed final block; ratio to validation-selected baseline. Report reference seed, each fresh seed and fresh-seed mean.",
+    "secondary": "MAE and mean-envelope high-activity proxy mismatch. Proxy threshold is midpoint of training 20th/80th percentiles, with episodes of at least 3 feature points. Report onset/offset and boundary censoring; missing episodes remain failures rather than discarded timing errors.",
+    "provisional_prediction_gate": "Reference-seed MSE at least 10% below the selected baseline and both fresh seeds below baseline. Passing is only a development screen, not validation for intervention planning.",
+    "network_screen": "Personal fresh-seed mean-prediction MSE at least 10% below zero-network mean-prediction MSE, in addition to prediction gate. No patient-level statistical inference from one recording."
+  },
+  "limits": "Approximate phase search in previously fitted stochastic trajectories, not Bayesian state inference or a new mechanistic parameter fit. No altered coupling, intervention selection, clinical downloads, new resources, GPU or other-job changes. Preserve v1/v2 outputs."
+}
