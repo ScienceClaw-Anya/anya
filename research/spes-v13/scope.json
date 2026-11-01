@@ -1,0 +1,16 @@
+{
+  "mode": "Targeted known-source method check, not a systematic or new full literature review",
+  "question": "How should weighted HAT scores be interpreted, and does the unused 128-feature block have verified semantics?",
+  "access": {
+    "web_fetch": "403 on primary medRxiv HTML; not taken as evidence of missing content",
+    "Chrome": "Existing canonical full preprint Methods read through visible DOM; official supplementary page opened normally",
+    "supplement": "Official nine-page PDF downloaded through its visible source link; pp. 2-4 and 6-7 read, p. 7 rendered and visually checked",
+    "status": "Official supplement verified; associated article remains a preprint version as accessed"
+  },
+  "queries": [
+    "Known-source exact DOI and its visible Supplementary Material link; no query-grid search"
+  ],
+  "source_url": "https://www.medrxiv.org/content/medrxiv/early/2026/07/31/2026.07.27.26358819/DC1/embed/media-1.pdf?download=true",
+  "claims": "v13_literature_claims.json",
+  "conclusion": "Sampling/loss weighting and median/MAD thresholding verified. Unused128 semantics unresolved, therefore excluded. Calibrating decision evidence is a new project hypothesis, not published active-selection evidence."
+}

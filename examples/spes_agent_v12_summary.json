@@ -1,0 +1,2073 @@
+{
+  "status": "ranking_gate_failed_not_adopted",
+  "results": {
+    "primary": "logistic minus unchanged HAT at the same eight random0 physical queries, mean patient SOZ AUROC",
+    "results": {
+      "4/hat": {
+        "mean_patient_AUROC": 0.7050305880701305,
+        "gain_over_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "mean_patient_Brier": 0.6046875810892831
+      },
+      "4/logistic": {
+        "mean_patient_AUROC": 0.7261406865011817,
+        "gain_over_hat": 0.0211100984310511,
+        "paired_95CI": [
+          -0.044170449340038,
+          0.08912876263335967
+        ],
+        "mean_patient_Brier": 0.114197311520325
+      },
+      "4/boosting": {
+        "mean_patient_AUROC": 0.6675425700635962,
+        "gain_over_hat": -0.03748801800653424,
+        "paired_95CI": [
+          -0.0910410398088938,
+          0.02075121218113359
+        ],
+        "mean_patient_Brier": 0.11352315674159681
+      },
+      "4/rank_mean_boost": {
+        "mean_patient_AUROC": 0.70888692757013,
+        "gain_over_hat": 0.0038563394999994514,
+        "paired_95CI": [
+          -0.02593506215064246,
+          0.036840768385298484
+        ],
+        "mean_patient_Brier": null
+      },
+      "8/hat": {
+        "mean_patient_AUROC": 0.7404631485534902,
+        "gain_over_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "mean_patient_Brier": 0.6003415561052277
+      },
+      "8/logistic": {
+        "mean_patient_AUROC": 0.7336623302706567,
+        "gain_over_hat": -0.006800818282833508,
+        "paired_95CI": [
+          -0.06326115578711076,
+          0.04810349009847081
+        ],
+        "mean_patient_Brier": 0.1133779131844974
+      },
+      "8/boosting": {
+        "mean_patient_AUROC": 0.7002716539712801,
+        "gain_over_hat": -0.04019149458221008,
+        "paired_95CI": [
+          -0.08986985827273891,
+          0.008980171533826515
+        ],
+        "mean_patient_Brier": 0.11215626698129232
+      },
+      "8/rank_mean_boost": {
+        "mean_patient_AUROC": 0.7394650448349979,
+        "gain_over_hat": -0.0009981037184923491,
+        "paired_95CI": [
+          -0.028499831735646113,
+          0.02725193981177095
+        ],
+        "mean_patient_Brier": null
+      }
+    },
+    "rows": [
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6314285714285715,
+        "Brier": 0.5871046768503305,
+        "case_id": "fe3a755470400274"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.8228571428571428,
+        "Brier": 0.09992250009094088,
+        "case_id": "fe3a755470400274"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.44285714285714284,
+        "Brier": 0.11348841725885694,
+        "case_id": "fe3a755470400274"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5342857142857143,
+        "Brier": null,
+        "case_id": "fe3a755470400274"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6114285714285714,
+        "Brier": 0.5941773649553682,
+        "case_id": "fe3a755470400274"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.72,
+        "Brier": 0.10250422774540524,
+        "case_id": "fe3a755470400274"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.5971428571428572,
+        "Brier": 0.10297898435807025,
+        "case_id": "fe3a755470400274"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6042857142857143,
+        "Brier": null,
+        "case_id": "fe3a755470400274"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6575342465753424,
+        "Brier": 0.6239369292360184,
+        "case_id": "f4dfd28099df0b9b"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.6575342465753424,
+        "Brier": 0.06142378705104647,
+        "case_id": "f4dfd28099df0b9b"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7808219178082192,
+        "Brier": 0.05449895270352441,
+        "case_id": "f4dfd28099df0b9b"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7438356164383562,
+        "Brier": null,
+        "case_id": "f4dfd28099df0b9b"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6136986301369863,
+        "Brier": 0.6295013210242855,
+        "case_id": "f4dfd28099df0b9b"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.6136986301369863,
+        "Brier": 0.05953142348594909,
+        "case_id": "f4dfd28099df0b9b"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.6931506849315069,
+        "Brier": 0.05842555011879553,
+        "case_id": "f4dfd28099df0b9b"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.673972602739726,
+        "Brier": null,
+        "case_id": "f4dfd28099df0b9b"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.5293103448275862,
+        "Brier": 0.5034431639111108,
+        "case_id": "4a10d0dae3b7a856"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.6163793103448276,
+        "Brier": 0.2214956648665109,
+        "case_id": "4a10d0dae3b7a856"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.6629310344827586,
+        "Brier": 0.2080538569317459,
+        "case_id": "4a10d0dae3b7a856"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6206896551724138,
+        "Brier": null,
+        "case_id": "4a10d0dae3b7a856"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.675,
+        "Brier": 0.5072007422325816,
+        "case_id": "4a10d0dae3b7a856"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.7267241379310345,
+        "Brier": 0.2142657609313496,
+        "case_id": "4a10d0dae3b7a856"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.6866379310344828,
+        "Brier": 0.20738440939456168,
+        "case_id": "4a10d0dae3b7a856"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7206896551724138,
+        "Brier": null,
+        "case_id": "4a10d0dae3b7a856"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7023809523809523,
+        "Brier": 0.5773600725556133,
+        "case_id": "e733d9c58feeb9de"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.9126984126984127,
+        "Brier": 0.12043164554907847,
+        "case_id": "e733d9c58feeb9de"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.49603174603174605,
+        "Brier": 0.12201246596415434,
+        "case_id": "e733d9c58feeb9de"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6130952380952381,
+        "Brier": null,
+        "case_id": "e733d9c58feeb9de"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6964285714285714,
+        "Brier": 0.5816324722094338,
+        "case_id": "e733d9c58feeb9de"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.875,
+        "Brier": 0.121313102091871,
+        "case_id": "e733d9c58feeb9de"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.6388888888888888,
+        "Brier": 0.11807139176241134,
+        "case_id": "e733d9c58feeb9de"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6984126984126984,
+        "Brier": null,
+        "case_id": "e733d9c58feeb9de"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8097826086956522,
+        "Brier": 0.5724733277025594,
+        "case_id": "3e84443d38701504"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.845108695652174,
+        "Brier": 0.11414861551300334,
+        "case_id": "3e84443d38701504"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7690217391304348,
+        "Brier": 0.11961809906928245,
+        "case_id": "3e84443d38701504"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8057065217391305,
+        "Brier": null,
+        "case_id": "3e84443d38701504"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8831521739130435,
+        "Brier": 0.5767943271171655,
+        "case_id": "3e84443d38701504"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.8532608695652174,
+        "Brier": 0.11301514624612834,
+        "case_id": "3e84443d38701504"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.7744565217391305,
+        "Brier": 0.11750553651307181,
+        "case_id": "3e84443d38701504"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8559782608695652,
+        "Brier": null,
+        "case_id": "3e84443d38701504"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8013888888888889,
+        "Brier": 0.5145384392344752,
+        "case_id": "36e9fb4ca33d9899"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.8736111111111111,
+        "Brier": 0.19944237239294876,
+        "case_id": "36e9fb4ca33d9899"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.8416666666666667,
+        "Brier": 0.18761770213570886,
+        "case_id": "36e9fb4ca33d9899"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8430555555555556,
+        "Brier": null,
+        "case_id": "36e9fb4ca33d9899"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7388888888888889,
+        "Brier": 0.517243393973212,
+        "case_id": "36e9fb4ca33d9899"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.8444444444444444,
+        "Brier": 0.20310475192036184,
+        "case_id": "36e9fb4ca33d9899"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.7736111111111111,
+        "Brier": 0.18903491983761975,
+        "case_id": "36e9fb4ca33d9899"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7708333333333334,
+        "Brier": null,
+        "case_id": "36e9fb4ca33d9899"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6992409867172675,
+        "Brier": 0.5300096653279728,
+        "case_id": "17929c817f7e844b"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.49620493358633777,
+        "Brier": 0.18624797555871161,
+        "case_id": "17929c817f7e844b"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.5161290322580645,
+        "Brier": 0.17860769298329898,
+        "case_id": "17929c817f7e844b"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6110056925996205,
+        "Brier": null,
+        "case_id": "17929c817f7e844b"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7087286527514232,
+        "Brier": 0.5352637793071398,
+        "case_id": "17929c817f7e844b"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.5806451612903226,
+        "Brier": 0.18100300760137633,
+        "case_id": "17929c817f7e844b"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.3961100569259962,
+        "Brier": 0.18085318141408843,
+        "case_id": "17929c817f7e844b"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5654648956356736,
+        "Brier": null,
+        "case_id": "17929c817f7e844b"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8181818181818182,
+        "Brier": 0.7203554831806855,
+        "case_id": "8329278152fc04eb"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.7636363636363637,
+        "Brier": 0.06526076015456729,
+        "case_id": "8329278152fc04eb"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7090909090909091,
+        "Brier": 0.06848664815757247,
+        "case_id": "8329278152fc04eb"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7878787878787878,
+        "Brier": null,
+        "case_id": "8329278152fc04eb"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8181818181818182,
+        "Brier": 0.7275732322455911,
+        "case_id": "8329278152fc04eb"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.8121212121212121,
+        "Brier": 0.06416066946937582,
+        "case_id": "8329278152fc04eb"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.8,
+        "Brier": 0.08862701615556554,
+        "case_id": "8329278152fc04eb"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8181818181818182,
+        "Brier": null,
+        "case_id": "8329278152fc04eb"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.9444444444444444,
+        "Brier": 0.7085519177100801,
+        "case_id": "939e52f178688bfb"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.9166666666666666,
+        "Brier": 0.052258441158344604,
+        "case_id": "939e52f178688bfb"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.9305555555555556,
+        "Brier": 0.05290149429698126,
+        "case_id": "939e52f178688bfb"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.9305555555555556,
+        "Brier": null,
+        "case_id": "939e52f178688bfb"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.9166666666666666,
+        "Brier": 0.7168442341697316,
+        "case_id": "939e52f178688bfb"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.9097222222222222,
+        "Brier": 0.052997815443956604,
+        "case_id": "939e52f178688bfb"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.9305555555555556,
+        "Brier": 0.05963603901047492,
+        "case_id": "939e52f178688bfb"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.9131944444444444,
+        "Brier": null,
+        "case_id": "939e52f178688bfb"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6707070707070707,
+        "Brier": 0.6519925268385853,
+        "case_id": "9d0526be30940c39"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.8121212121212121,
+        "Brier": 0.09363437914326266,
+        "case_id": "9d0526be30940c39"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7878787878787878,
+        "Brier": 0.08956697675242242,
+        "case_id": "9d0526be30940c39"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7313131313131314,
+        "Brier": null,
+        "case_id": "9d0526be30940c39"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.901010101010101,
+        "Brier": 0.6574881253043794,
+        "case_id": "9d0526be30940c39"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.8929292929292929,
+        "Brier": 0.08982088065916233,
+        "case_id": "9d0526be30940c39"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.9454545454545454,
+        "Brier": 0.06840555397233046,
+        "case_id": "9d0526be30940c39"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.9272727272727272,
+        "Brier": null,
+        "case_id": "9d0526be30940c39"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7440476190476191,
+        "Brier": 0.7190539887203102,
+        "case_id": "a05ab632869881b0"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.875,
+        "Brier": 0.049928193842586184,
+        "case_id": "a05ab632869881b0"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7976190476190477,
+        "Brier": 0.05478197684355316,
+        "case_id": "a05ab632869881b0"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7708333333333334,
+        "Brier": null,
+        "case_id": "a05ab632869881b0"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7261904761904762,
+        "Brier": 0.7262929961830589,
+        "case_id": "a05ab632869881b0"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.8690476190476191,
+        "Brier": 0.054346191829687265,
+        "case_id": "a05ab632869881b0"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.6130952380952381,
+        "Brier": 0.06471769236762333,
+        "case_id": "a05ab632869881b0"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6845238095238095,
+        "Brier": null,
+        "case_id": "a05ab632869881b0"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7256958450988302,
+        "Brier": 0.4883693406564411,
+        "case_id": "6ad4cd4ebf16080c"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.5611133521581283,
+        "Brier": 0.2635723406253012,
+        "case_id": "6ad4cd4ebf16080c"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.5871319080274304,
+        "Brier": 0.25996368869711123,
+        "case_id": "6ad4cd4ebf16080c"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6557079467527229,
+        "Brier": null,
+        "case_id": "6ad4cd4ebf16080c"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.681726502622025,
+        "Brier": 0.4929432217345855,
+        "case_id": "6ad4cd4ebf16080c"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.5921742638160549,
+        "Brier": 0.26019340950002906,
+        "case_id": "6ad4cd4ebf16080c"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.6419927390076644,
+        "Brier": 0.265872298656042,
+        "case_id": "6ad4cd4ebf16080c"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6758773699072207,
+        "Brier": null,
+        "case_id": "6ad4cd4ebf16080c"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.5945945945945946,
+        "Brier": 0.5929761852648172,
+        "case_id": "a81ad4a94d955562"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.8324324324324325,
+        "Brier": 0.16435404357769715,
+        "case_id": "a81ad4a94d955562"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.3567567567567568,
+        "Brier": 0.19327268325600697,
+        "case_id": "a81ad4a94d955562"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5,
+        "Brier": null,
+        "case_id": "a81ad4a94d955562"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.22432432432432434,
+        "Brier": 0.6034081470787166,
+        "case_id": "a81ad4a94d955562"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.6513513513513514,
+        "Brier": 0.18439232128490407,
+        "case_id": "a81ad4a94d955562"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.27297297297297296,
+        "Brier": 0.19687728333794027,
+        "case_id": "a81ad4a94d955562"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.23378378378378378,
+        "Brier": null,
+        "case_id": "a81ad4a94d955562"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.582010582010582,
+        "Brier": 0.7122095554630252,
+        "case_id": "488278ad021a067a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.7777777777777778,
+        "Brier": 0.04719083726716825,
+        "case_id": "488278ad021a067a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.4074074074074074,
+        "Brier": 0.05284636497140808,
+        "case_id": "488278ad021a067a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5,
+        "Brier": null,
+        "case_id": "488278ad021a067a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8624338624338624,
+        "Brier": 0.722300826778457,
+        "case_id": "488278ad021a067a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.9841269841269841,
+        "Brier": 0.033172870766281164,
+        "case_id": "488278ad021a067a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.798941798941799,
+        "Brier": 0.04706828283090653,
+        "case_id": "488278ad021a067a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8465608465608465,
+        "Brier": null,
+        "case_id": "488278ad021a067a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8035087719298246,
+        "Brier": 0.5650181229966125,
+        "case_id": "861cedcaa76e66cf"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.7368421052631579,
+        "Brier": 0.0725639552358106,
+        "case_id": "861cedcaa76e66cf"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7192982456140351,
+        "Brier": 0.07622490047811567,
+        "case_id": "861cedcaa76e66cf"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7473684210526316,
+        "Brier": null,
+        "case_id": "861cedcaa76e66cf"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6421052631578947,
+        "Brier": 0.5821994288557834,
+        "case_id": "861cedcaa76e66cf"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.5964912280701754,
+        "Brier": 0.0766092129305778,
+        "case_id": "861cedcaa76e66cf"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.5157894736842106,
+        "Brier": 0.07802088140252593,
+        "case_id": "861cedcaa76e66cf"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5684210526315789,
+        "Brier": null,
+        "case_id": "861cedcaa76e66cf"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7777777777777778,
+        "Brier": 0.5318820612950289,
+        "case_id": "0f598f88761dac93"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.6888888888888889,
+        "Brier": 0.05779302569822978,
+        "case_id": "0f598f88761dac93"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7111111111111111,
+        "Brier": 0.05680087174893316,
+        "case_id": "0f598f88761dac93"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7444444444444445,
+        "Brier": null,
+        "case_id": "0f598f88761dac93"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8222222222222222,
+        "Brier": 0.5453205895919894,
+        "case_id": "0f598f88761dac93"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.7722222222222223,
+        "Brier": 0.05218163857236415,
+        "case_id": "0f598f88761dac93"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.7555555555555555,
+        "Brier": 0.056402265840406564,
+        "case_id": "0f598f88761dac93"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7916666666666666,
+        "Brier": null,
+        "case_id": "0f598f88761dac93"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.96,
+        "Brier": 0.6076277543563439,
+        "case_id": "a63ad350a2b86c97"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 1.0,
+        "Brier": 0.018421201848648615,
+        "case_id": "a63ad350a2b86c97"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.98,
+        "Brier": 0.021490385966640397,
+        "case_id": "a63ad350a2b86c97"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.99,
+        "Brier": null,
+        "case_id": "a63ad350a2b86c97"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.96,
+        "Brier": 0.5722769742417851,
+        "case_id": "a63ad350a2b86c97"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 1.0,
+        "Brier": 0.015355715442597602,
+        "case_id": "a63ad350a2b86c97"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 1.0,
+        "Brier": 0.022888813248182982,
+        "case_id": "a63ad350a2b86c97"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.98,
+        "Brier": null,
+        "case_id": "a63ad350a2b86c97"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8207547169811321,
+        "Brier": 0.5859446249656713,
+        "case_id": "e57085dab3aa091e"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.8679245283018868,
+        "Brier": 0.03220025412375437,
+        "case_id": "e57085dab3aa091e"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7547169811320755,
+        "Brier": 0.040189861395673154,
+        "case_id": "e57085dab3aa091e"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8160377358490566,
+        "Brier": null,
+        "case_id": "e57085dab3aa091e"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8301886792452831,
+        "Brier": 0.586186317451006,
+        "case_id": "e57085dab3aa091e"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.8962264150943396,
+        "Brier": 0.036615727012751564,
+        "case_id": "e57085dab3aa091e"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.9056603773584906,
+        "Brier": 0.04237057985726719,
+        "case_id": "e57085dab3aa091e"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8584905660377359,
+        "Brier": null,
+        "case_id": "e57085dab3aa091e"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6299342105263158,
+        "Brier": 0.46651789724431547,
+        "case_id": "8df7b81da92a7e29"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.7532894736842105,
+        "Brier": 0.21143092473577438,
+        "case_id": "8df7b81da92a7e29"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.8289473684210527,
+        "Brier": 0.18364635590019557,
+        "case_id": "8df7b81da92a7e29"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7541118421052632,
+        "Brier": null,
+        "case_id": "8df7b81da92a7e29"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7401315789473685,
+        "Brier": 0.4668544914210981,
+        "case_id": "8df7b81da92a7e29"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.8042763157894737,
+        "Brier": 0.21316841245590157,
+        "case_id": "8df7b81da92a7e29"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.796875,
+        "Brier": 0.18201755885971455,
+        "case_id": "8df7b81da92a7e29"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7713815789473685,
+        "Brier": null,
+        "case_id": "8df7b81da92a7e29"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8562091503267973,
+        "Brier": 0.6316598133296528,
+        "case_id": "3379c4072b56004a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.6993464052287581,
+        "Brier": 0.10575191325164095,
+        "case_id": "3379c4072b56004a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.803921568627451,
+        "Brier": 0.06575060689031573,
+        "case_id": "3379c4072b56004a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8594771241830066,
+        "Brier": null,
+        "case_id": "3379c4072b56004a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8235294117647058,
+        "Brier": 0.6232248296058869,
+        "case_id": "3379c4072b56004a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.7189542483660131,
+        "Brier": 0.09800575886731633,
+        "case_id": "3379c4072b56004a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.8496732026143791,
+        "Brier": 0.06272626314909446,
+        "case_id": "3379c4072b56004a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8529411764705882,
+        "Brier": null,
+        "case_id": "3379c4072b56004a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.41106719367588934,
+        "Brier": 0.4903976612746473,
+        "case_id": "d63414d73e592582"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.4209486166007905,
+        "Brier": 0.19510062378424342,
+        "case_id": "d63414d73e592582"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.18181818181818182,
+        "Brier": 0.19943025560065614,
+        "case_id": "d63414d73e592582"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.2826086956521739,
+        "Brier": null,
+        "case_id": "d63414d73e592582"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.5632411067193676,
+        "Brier": 0.4775826311154938,
+        "case_id": "d63414d73e592582"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.5434782608695652,
+        "Brier": 0.18601475930248407,
+        "case_id": "d63414d73e592582"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.3211462450592885,
+        "Brier": 0.19224158534975636,
+        "case_id": "d63414d73e592582"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.4407114624505929,
+        "Brier": null,
+        "case_id": "d63414d73e592582"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6793478260869565,
+        "Brier": 0.7034662235538931,
+        "case_id": "6e715807f8afcaad"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.8179347826086957,
+        "Brier": 0.10788901974062395,
+        "case_id": "6e715807f8afcaad"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.7282608695652174,
+        "Brier": 0.11616043650723522,
+        "case_id": "6e715807f8afcaad"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8070652173913043,
+        "Brier": null,
+        "case_id": "6e715807f8afcaad"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8233695652173914,
+        "Brier": 0.7030449118276799,
+        "case_id": "6e715807f8afcaad"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.717391304347826,
+        "Brier": 0.1185481779048218,
+        "case_id": "6e715807f8afcaad"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.8396739130434783,
+        "Brier": 0.10840166965602219,
+        "case_id": "6e715807f8afcaad"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8654891304347826,
+        "Brier": null,
+        "case_id": "6e715807f8afcaad"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7255434782608695,
+        "Brier": 0.7032618754971591,
+        "case_id": "2d6750ff62d8bf07"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.41847826086956524,
+        "Brier": 0.14243428553142243,
+        "case_id": "2d6750ff62d8bf07"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.45108695652173914,
+        "Brier": 0.13622118877476855,
+        "case_id": "2d6750ff62d8bf07"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5964673913043478,
+        "Brier": null,
+        "case_id": "2d6750ff62d8bf07"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8804347826086957,
+        "Brier": 0.7027186451461547,
+        "case_id": "2d6750ff62d8bf07"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.6304347826086957,
+        "Brier": 0.13763542992239775,
+        "case_id": "2d6750ff62d8bf07"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.6739130434782609,
+        "Brier": 0.13046279148299234,
+        "case_id": "2d6750ff62d8bf07"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7853260869565217,
+        "Brier": null,
+        "case_id": "2d6750ff62d8bf07"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.47368421052631576,
+        "Brier": 0.7712279902428186,
+        "case_id": "94c79a9ce64fa837"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.8070175438596491,
+        "Brier": 0.08721302725624779,
+        "case_id": "94c79a9ce64fa837"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.9166666666666666,
+        "Brier": 0.07040087999693526,
+        "case_id": "94c79a9ce64fa837"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7280701754385965,
+        "Brier": null,
+        "case_id": "94c79a9ce64fa837"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.5153508771929824,
+        "Brier": 0.7706389229797859,
+        "case_id": "94c79a9ce64fa837"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.6798245614035088,
+        "Brier": 0.08638925908103443,
+        "case_id": "94c79a9ce64fa837"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.7850877192982456,
+        "Brier": 0.07416866724247512,
+        "case_id": "94c79a9ce64fa837"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6842105263157895,
+        "Brier": null,
+        "case_id": "94c79a9ce64fa837"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.9717514124293786,
+        "Brier": 0.7834350060945104,
+        "case_id": "338eb233aaf50203"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.9209039548022598,
+        "Brier": 0.04144467651254168,
+        "case_id": "338eb233aaf50203"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.9548022598870056,
+        "Brier": 0.045680316805714404,
+        "case_id": "338eb233aaf50203"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.9858757062146892,
+        "Brier": null,
+        "case_id": "338eb233aaf50203"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7966101694915254,
+        "Brier": 0.7821086127693612,
+        "case_id": "338eb233aaf50203"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.7909604519774012,
+        "Brier": 0.0443916286692984,
+        "case_id": "338eb233aaf50203"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.807909604519774,
+        "Brier": 0.06347188415556555,
+        "case_id": "338eb233aaf50203"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.847457627118644,
+        "Brier": null,
+        "case_id": "338eb233aaf50203"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6428571428571429,
+        "Brier": 0.7131654103531008,
+        "case_id": "b21bc5941caeae35"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.41883116883116883,
+        "Brier": 0.14461053470468105,
+        "case_id": "b21bc5941caeae35"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.39285714285714285,
+        "Brier": 0.1438383071514454,
+        "case_id": "b21bc5941caeae35"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5194805194805194,
+        "Brier": null,
+        "case_id": "b21bc5941caeae35"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6233766233766234,
+        "Brier": 0.7126830472582782,
+        "case_id": "b21bc5941caeae35"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.2922077922077922,
+        "Brier": 0.15332384697547385,
+        "case_id": "b21bc5941caeae35"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.2824675324675325,
+        "Brier": 0.1485652033318972,
+        "case_id": "b21bc5941caeae35"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.42045454545454547,
+        "Brier": null,
+        "case_id": "b21bc5941caeae35"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7757575757575758,
+        "Brier": 0.7170762445657535,
+        "case_id": "8dc1129a4f872b40"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.40606060606060607,
+        "Brier": 0.1268195401937059,
+        "case_id": "8dc1129a4f872b40"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.6484848484848484,
+        "Brier": 0.11353425615278971,
+        "case_id": "8dc1129a4f872b40"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7242424242424242,
+        "Brier": null,
+        "case_id": "8dc1129a4f872b40"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7272727272727273,
+        "Brier": 0.7168220093985568,
+        "case_id": "8dc1129a4f872b40"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.5212121212121212,
+        "Brier": 0.11747846532330501,
+        "case_id": "8dc1129a4f872b40"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.8484848484848485,
+        "Brier": 0.08526785821862998,
+        "case_id": "8dc1129a4f872b40"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8090909090909091,
+        "Brier": null,
+        "case_id": "8dc1129a4f872b40"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.9716981132075472,
+        "Brier": 0.7947930507416227,
+        "case_id": "bf9b62c1bd10e264"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.5471698113207547,
+        "Brier": 0.04119859454784723,
+        "case_id": "bf9b62c1bd10e264"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.839622641509434,
+        "Brier": 0.04072574690101155,
+        "case_id": "bf9b62c1bd10e264"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 1.0,
+        "Brier": null,
+        "case_id": "bf9b62c1bd10e264"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.8867924528301887,
+        "Brier": 0.7943451029332976,
+        "case_id": "bf9b62c1bd10e264"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.3584905660377358,
+        "Brier": 0.04438971533721118,
+        "case_id": "bf9b62c1bd10e264"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.839622641509434,
+        "Brier": 0.04043227380633734,
+        "case_id": "bf9b62c1bd10e264"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.9528301886792453,
+        "Brier": null,
+        "case_id": "bf9b62c1bd10e264"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.5534883720930233,
+        "Brier": 0.39727111013907235,
+        "case_id": "2cb726a34fa0d36e"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.5767441860465117,
+        "Brier": 0.15578701693676134,
+        "case_id": "2cb726a34fa0d36e"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.46744186046511627,
+        "Brier": 0.16138990142756682,
+        "case_id": "2cb726a34fa0d36e"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5351744186046512,
+        "Brier": null,
+        "case_id": "2cb726a34fa0d36e"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6,
+        "Brier": 0.3783878900918013,
+        "case_id": "2cb726a34fa0d36e"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.5709302325581396,
+        "Brier": 0.15338775817849615,
+        "case_id": "2cb726a34fa0d36e"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.4578488372093023,
+        "Brier": 0.15929594462912067,
+        "case_id": "2cb726a34fa0d36e"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5479651162790697,
+        "Brier": null,
+        "case_id": "2cb726a34fa0d36e"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.8062678062678063,
+        "Brier": 0.5903817517804283,
+        "case_id": "c8786c64fa785e16"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.9715099715099715,
+        "Brier": 0.10214871561962836,
+        "case_id": "c8786c64fa785e16"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.8547008547008547,
+        "Brier": 0.1275860149898038,
+        "case_id": "c8786c64fa785e16"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8646723646723646,
+        "Brier": null,
+        "case_id": "c8786c64fa785e16"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.9857549857549858,
+        "Brier": 0.5824045676628892,
+        "case_id": "c8786c64fa785e16"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.9743589743589743,
+        "Brier": 0.11345552242601786,
+        "case_id": "c8786c64fa785e16"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.9658119658119658,
+        "Brier": 0.09536891409621344,
+        "case_id": "c8786c64fa785e16"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.9843304843304843,
+        "Brier": null,
+        "case_id": "c8786c64fa785e16"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6180555555555556,
+        "Brier": 0.6224689242648213,
+        "case_id": "f30d8f6953124d77"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.5763888888888888,
+        "Brier": 0.05758577806955834,
+        "case_id": "f30d8f6953124d77"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.9027777777777778,
+        "Brier": 0.05065948431108263,
+        "case_id": "f30d8f6953124d77"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8819444444444444,
+        "Brier": null,
+        "case_id": "f30d8f6953124d77"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7430555555555556,
+        "Brier": 0.5941028574722954,
+        "case_id": "f30d8f6953124d77"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.7083333333333334,
+        "Brier": 0.05551816954707158,
+        "case_id": "f30d8f6953124d77"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.8541666666666666,
+        "Brier": 0.054409565746569,
+        "case_id": "f30d8f6953124d77"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8958333333333334,
+        "Brier": null,
+        "case_id": "f30d8f6953124d77"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.7948717948717948,
+        "Brier": 0.5100987081460031,
+        "case_id": "0e6943a1907f666a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.7329059829059829,
+        "Brier": 0.11911683157819987,
+        "case_id": "0e6943a1907f666a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.5341880341880342,
+        "Brier": 0.13101622081041117,
+        "case_id": "0e6943a1907f666a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7542735042735043,
+        "Brier": null,
+        "case_id": "0e6943a1907f666a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.9401709401709402,
+        "Brier": 0.38878894037780976,
+        "case_id": "0e6943a1907f666a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.7799145299145299,
+        "Brier": 0.11702798814643865,
+        "case_id": "0e6943a1907f666a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.5,
+        "Brier": 0.12976561926270833,
+        "case_id": "0e6943a1907f666a"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.7863247863247863,
+        "Brier": null,
+        "case_id": "0e6943a1907f666a"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6190476190476191,
+        "Brier": 0.46139567663987596,
+        "case_id": "fb7758c0e03ea66c"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.7732426303854876,
+        "Brier": 0.11601361711555012,
+        "case_id": "fb7758c0e03ea66c"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.6167800453514739,
+        "Brier": 0.12692121380541652,
+        "case_id": "fb7758c0e03ea66c"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6587301587301587,
+        "Brier": null,
+        "case_id": "fb7758c0e03ea66c"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.7052154195011338,
+        "Brier": 0.4414383740855441,
+        "case_id": "fb7758c0e03ea66c"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.7845804988662132,
+        "Brier": 0.11654694543213494,
+        "case_id": "fb7758c0e03ea66c"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.564625850340136,
+        "Brier": 0.12992178673100613,
+        "case_id": "fb7758c0e03ea66c"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.6700680272108843,
+        "Brier": null,
+        "case_id": "fb7758c0e03ea66c"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.23255813953488372,
+        "Brier": 0.6313869356220013,
+        "case_id": "359155846365ce48"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.8837209302325582,
+        "Brier": 0.06551717867017906,
+        "case_id": "359155846365ce48"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.5116279069767442,
+        "Brier": 0.04143512250194176,
+        "case_id": "359155846365ce48"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.3372093023255814,
+        "Brier": null,
+        "case_id": "359155846365ce48"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.627906976744186,
+        "Brier": 0.5874011862990433,
+        "case_id": "359155846365ce48"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.9534883720930233,
+        "Brier": 0.054160554113633956,
+        "case_id": "359155846365ce48"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.9302325581395349,
+        "Brier": 0.03786446170901138,
+        "case_id": "359155846365ce48"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.8372093023255814,
+        "Brier": null,
+        "case_id": "359155846365ce48"
+      },
+      {
+        "measurements": 4,
+        "scorer": "hat",
+        "AUROC": 0.6411411411411412,
+        "Brier": 0.3832132223695565,
+        "case_id": "3f44bc7cb111febd"
+      },
+      {
+        "measurements": 4,
+        "scorer": "logistic",
+        "AUROC": 0.6336336336336337,
+        "Brier": 0.2565536312651582,
+        "case_id": "3f44bc7cb111febd"
+      },
+      {
+        "measurements": 4,
+        "scorer": "boosting",
+        "AUROC": 0.47897897897897895,
+        "Brier": 0.2684911378176088,
+        "case_id": "3f44bc7cb111febd"
+      },
+      {
+        "measurements": 4,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5758258258258259,
+        "Brier": null,
+        "case_id": "3f44bc7cb111febd"
+      },
+      {
+        "measurements": 8,
+        "scorer": "hat",
+        "AUROC": 0.6216216216216216,
+        "Brier": 0.41475994878372313,
+        "case_id": "3f44bc7cb111febd"
+      },
+      {
+        "measurements": 8,
+        "scorer": "logistic",
+        "AUROC": 0.6591591591591591,
+        "Brier": 0.2442006968402427,
+        "case_id": "3f44bc7cb111febd"
+      },
+      {
+        "measurements": 8,
+        "scorer": "boosting",
+        "AUROC": 0.4519519519519519,
+        "Brier": 0.2659466168402325,
+        "case_id": "3f44bc7cb111febd"
+      },
+      {
+        "measurements": 8,
+        "scorer": "rank_mean_boost",
+        "AUROC": 0.5420420420420421,
+        "Brier": null,
+        "case_id": "3f44bc7cb111febd"
+      }
+    ],
+    "next_tool_eligible": false,
+    "new_API_calls": 0,
+    "multi_agent_superiority_established": false,
+    "scope": "Physically valid contact-posterior feasibility; not an agent comparison."
+  },
+  "audit": {
+    "status": "verified",
+    "source_models_reused": 20,
+    "new_small_models": 10,
+    "training_feature_rows_reconstructed": 42340,
+    "outer_patients": 35,
+    "scorer_state_results": 280,
+    "new_API_calls": 0,
+    "checks": [
+      "Patient/source-model isolation and all map/model/bank/protocol hashes.",
+      "All physical-state training features reconstructed, labels checked against released references.",
+      "Both fitted contact predictors replayed at four/eight physical measurements; every AUROC/Brier independently recomputed; HAT matches v11."
+    ],
+    "limits": [
+      "Recorded source/outer HAT outputs were not all re-inferred in this audit.",
+      "Repeated-cohort exploration and correlated state rows do not provide independent clinical validation."
+    ]
+  },
+  "posthoc_calibration_diagnostic": {
+    "mean_patient_raw_HAT_score": 0.8259024024009705,
+    "mean_patient_SOZ_prevalence": 0.13232758035919637,
+    "observed_gap": "Raw weighted-classifier scores are not directly calibrated SOZ probabilities.",
+    "verified_training_code": "Inverse-class and inverse-patient weighted sampling plus BCE positive weight n_negative/n_positive.",
+    "causal_caveat": "Weighting motivates a prior-correction test; finite training and partial-input distribution shift may also contribute."
+  },
+  "multi_agent_superiority_established": false,
+  "clinical_benefit_established": false
+}

@@ -47,7 +47,19 @@ All 35 patients show mixed physical pairs within old columns. Geometry verifies
 114,021 cells; 253 ambiguous cells are excluded. The two-position smoke and an
 actual HAT remap-invariance check passed. See the
 [English action-grain correction](docs/spes-physical-action-audit.md).
-No new agent-performance claim is made before a new physically valid benchmark.
+The [first physically valid comparison](docs/spes-agent-v11-report.md) completed
+175 trajectories on 35 patients. Score-focus selection scored **0.7620** versus
+random **0.7405**, with paired gain interval **[-0.0117, +0.0520]**. This remains
+uncertain; it does not establish agent value.
+
+The [physical-state specialist test](docs/spes-agent-v12-report.md) completed ten
+patient-isolated contact models. Logistic scored **0.7337** versus HAT **0.7405**
+on identical eight-query inputs and is not adopted as a stronger scorer. Its
+audit replayed 42,340 feature rows and 280 scorer/state outcomes. A separate
+diagnostic found raw HAT scores average **0.826**, compared with mean patient
+SOZ prevalence **0.132**. Training uses both class-weighted sampling and a
+positive-weighted loss. Calibration and patient-adaptive uncertainty are the next
+fixed hypotheses; no new calibration result or multi-agent benefit is claimed yet.
 
 ## Current research: complementary models and real-feedback acquisition
 
