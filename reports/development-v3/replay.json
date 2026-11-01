@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "independent_direct_window_features": true,
+  "candidate_profiles_replayed": 12,
+  "fresh_seed_profiles_replayed": 6,
+  "final_metric_rows_replayed": 17,
+  "baseline_predictions_checked": true,
+  "artifact_hashes_verified": true,
+  "rows": [
+    {
+      "method": "persistence",
+      "kind": "baseline",
+      "mse": 0.14190315094375133
+    },
+    {
+      "method": "prefix_mean",
+      "kind": "baseline",
+      "mse": 0.16069474199567765
+    },
+    {
+      "method": "zero_envelope",
+      "kind": "baseline",
+      "mse": 0.25035444036732724
+    },
+    {
+      "method": "damped_trend",
+      "kind": "baseline",
+      "mse": 0.2642856723701994
+    },
+    {
+      "method": "autoregression",
+      "kind": "baseline",
+      "mse": 0.13852655543326303
+    },
+    {
+      "method": "personal",
+      "kind": "reference_seed401",
+      "mse": 0.17221308857140716
+    },
+    {
+      "method": "personal",
+      "kind": "fresh_seed701",
+      "mse": 0.17070772991098804
+    },
+    {
+      "method": "personal",
+      "kind": "fresh_seed702",
+      "mse": 0.18175964434546293
+    },
+    {
+      "method": "personal",
+      "kind": "fresh_seed_mean_prediction",
+      "mse": 0.15406068029110045
+    },
+    {
+      "method": "donor",
+      "kind": "reference_seed401",
+      "mse": 0.18686283532722983
+    },
+    {
+      "method": "donor",
+      "kind": "fresh_seed701",
+      "mse": 0.15873246671633817
+    },
+    {
+      "method": "donor",
+      "kind": "fresh_seed702",
+      "mse": 0.16458741234385876
+    },
+    {
+      "method": "donor",
+      "kind": "fresh_seed_mean_prediction",
+      "mse": 0.14352912842254067
+    },
+    {
+      "method": "zero",
+      "kind": "reference_seed401",
+      "mse": 0.16521455030052723
+    },
+    {
+      "method": "zero",
+      "kind": "fresh_seed701",
+      "mse": 0.17199227637001865
+    },
+    {
+      "method": "zero",
+      "kind": "fresh_seed702",
+      "mse": 0.17655522657391218
+    },
+    {
+      "method": "zero",
+      "kind": "fresh_seed_mean_prediction",
+      "mse": 0.15291513134192794
+    }
+  ],
+  "runtime_seconds": 4.260127544403076
+}

@@ -1,6 +1,6 @@
-# Gates after CPU development v2
+# Gates after CPU development v3
 
-See `2026-11-01-cpu-development-v2.md` for completed results. Ordinary bounded
+See `2026-11-01-cpu-development-v3.md` for completed results. Ordinary bounded
 development on the existing GCP CPUs remains authorized; use a new run manifest,
 one thread at nice 10, and no new resources or changes to existing jobs. No
 experiment is currently running, and no held-out evaluation has been started.
@@ -8,9 +8,13 @@ experiment is currently running, and no held-out evaluation has been started.
 1. **Improve observation prediction.** Sub-010's mapping is verified across three
    recordings. The observation-only linear baseline loses to last-observation
    persistence, and stationary Epileptor covariance fitting still has large
-   prediction errors. Fit seizure phase, onset/offset or time-varying envelopes
-   and quantify which parameters are identifiable. Keep generators and source
-   arrays evaluator-only. Do not optimize interventions with the failed fits.
+   prediction errors. V3 phase alignment also loses to envelope autoregression:
+   its fresh personal mean prediction has 11.2% greater final MSE. Jointly address
+   regional amplitudes and temporal evolution, and quantify parameter/state
+   identifiability. Specify event-containing evaluation conditions before new
+   scores; v3's final block had no proxy episode and cannot validate onset/offset.
+   Keep generators and source arrays evaluator-only. Preserve the simple
+   baselines and do not optimize interventions with the failed fits.
 2. **Resolve sub-003 provenance.** NPZ/TSV source excerpts disagree at matching
    timestamps, and source-to-sensor reconstruction retains 18.6% raw error.
    Alternative gains and affine scaling do not repair it. This is a development
@@ -31,7 +35,7 @@ experiment is currently running, and no held-out evaluation has been started.
 5. **Freeze before cohort evaluation.** Finalize detector, horizons, baseline
    eligibility, candidate feasibility, cost, practical effect threshold and
    patient-level analysis before reading outcomes for the 24 reserved cases.
-   All v1/v2 outcomes and temporal/other-recording checks are development evidence.
+   All v1/v2/v3 outcomes and temporal/other-recording checks are development evidence.
 6. **Retrospective study separately.** The IDEAS clinical-table download remains
    denied. An authorized table/dictionary and subject inventories are needed to
    verify actual overlap of connectivity, delivered surgery and a consistent

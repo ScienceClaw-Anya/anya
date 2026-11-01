@@ -1,0 +1,398 @@
+{
+  "phase": "exploratory_temporal_alignment_on_reused_development_recording",
+  "subject": "sub-010",
+  "raw_samples": 3700,
+  "channels": 113,
+  "train_features": 218,
+  "prefix_features": 292,
+  "validation_scored_features": 70,
+  "final_scored_features": 70,
+  "proxy_threshold": 0.6408672177288119,
+  "baselines": [
+    {
+      "name": "persistence",
+      "validation_mse": 0.14013020549261568
+    },
+    {
+      "name": "prefix_mean",
+      "validation_mse": 0.12405585651589175
+    },
+    {
+      "name": "zero_envelope",
+      "validation_mse": 0.45954604447939634
+    },
+    {
+      "name": "damped_trend",
+      "damping": 0.8,
+      "validation_mse": 0.17090761952263456,
+      "candidates": [
+        {
+          "damping": 0.8,
+          "validation_mse": 0.17090761952263456
+        },
+        {
+          "damping": 0.95,
+          "validation_mse": 0.3848125338641899
+        },
+        {
+          "damping": 1.0,
+          "validation_mse": 1.2222597898225003
+        }
+      ]
+    },
+    {
+      "name": "autoregression",
+      "lag": 10,
+      "ridge": 0.001,
+      "spectral_radius": 0.9676953282638736,
+      "stable": true,
+      "validation_mse": 0.09759376754455168,
+      "candidates": [
+        {
+          "lag": 1,
+          "ridge": 1e-06,
+          "spectral_radius": 0.9137483609740461,
+          "stable": true,
+          "validation_mse": 0.10992482769399993
+        },
+        {
+          "lag": 1,
+          "ridge": 0.001,
+          "spectral_radius": 0.9068562488734011,
+          "stable": true,
+          "validation_mse": 0.11109300036761904
+        },
+        {
+          "lag": 1,
+          "ridge": 0.1,
+          "spectral_radius": 0.5189529806106896,
+          "stable": true,
+          "validation_mse": 0.12383292831079136
+        },
+        {
+          "lag": 5,
+          "ridge": 1e-06,
+          "spectral_radius": 0.9279043417450794,
+          "stable": true,
+          "validation_mse": 0.10741441333481397
+        },
+        {
+          "lag": 5,
+          "ridge": 0.001,
+          "spectral_radius": 0.9279516527400429,
+          "stable": true,
+          "validation_mse": 0.10737372735215206
+        },
+        {
+          "lag": 5,
+          "ridge": 0.1,
+          "spectral_radius": 0.8932179000979108,
+          "stable": true,
+          "validation_mse": 0.11410119910002803
+        },
+        {
+          "lag": 10,
+          "ridge": 1e-06,
+          "spectral_radius": 0.9673906910618799,
+          "stable": true,
+          "validation_mse": 0.09764334359724178
+        },
+        {
+          "lag": 10,
+          "ridge": 0.001,
+          "spectral_radius": 0.9676953282638736,
+          "stable": true,
+          "validation_mse": 0.09759376754455168
+        },
+        {
+          "lag": 10,
+          "ridge": 0.1,
+          "spectral_radius": 0.9530438676962298,
+          "stable": true,
+          "validation_mse": 0.10335843556831557
+        }
+      ],
+      "refit_spectral_radius": 0.966333849705888,
+      "refit_unstable_persistence_fallback": false
+    }
+  ],
+  "selected_baseline": "autoregression",
+  "networks": [
+    {
+      "network": "personal",
+      "candidate": 0,
+      "validation_mse": 0.18026465364242225,
+      "training_phase": {
+        "offset": 1650,
+        "mse": 0.18904236040537511,
+        "near_minimum_count": 13,
+        "near_minimum_offset_range": [
+          1525,
+          1825
+        ],
+        "boundary_optimum": false
+      },
+      "prefix_phase": {
+        "offset": 1650,
+        "mse": 0.1873510093526093,
+        "near_minimum_count": 14,
+        "near_minimum_offset_range": [
+          1500,
+          1825
+        ],
+        "boundary_optimum": false
+      },
+      "candidates": [
+        {
+          "candidate": 0,
+          "training_phase": {
+            "offset": 1650,
+            "mse": 0.18904236040537511,
+            "near_minimum_count": 13,
+            "near_minimum_offset_range": [
+              1525,
+              1825
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.18026465364242225
+        },
+        {
+          "candidate": 1,
+          "training_phase": {
+            "offset": 1475,
+            "mse": 0.18860021446032463,
+            "near_minimum_count": 16,
+            "near_minimum_offset_range": [
+              1275,
+              1650
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.4033609922508244
+        },
+        {
+          "candidate": 2,
+          "training_phase": {
+            "offset": 2700,
+            "mse": 0.250322014832905,
+            "near_minimum_count": 17,
+            "near_minimum_offset_range": [
+              2625,
+              3025
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.23916321717843103
+        },
+        {
+          "candidate": 3,
+          "training_phase": {
+            "offset": 3300,
+            "mse": 0.25015056113126716,
+            "near_minimum_count": 7,
+            "near_minimum_offset_range": [
+              0,
+              3300
+            ],
+            "boundary_optimum": true
+          },
+          "validation_mse": 0.22959180489950282
+        }
+      ]
+    },
+    {
+      "network": "donor",
+      "candidate": 0,
+      "validation_mse": 0.17156615889444196,
+      "training_phase": {
+        "offset": 1650,
+        "mse": 0.18956140935845164,
+        "near_minimum_count": 9,
+        "near_minimum_offset_range": [
+          1550,
+          1750
+        ],
+        "boundary_optimum": false
+      },
+      "prefix_phase": {
+        "offset": 1650,
+        "mse": 0.18574163516342243,
+        "near_minimum_count": 12,
+        "near_minimum_offset_range": [
+          1550,
+          1825
+        ],
+        "boundary_optimum": false
+      },
+      "candidates": [
+        {
+          "candidate": 0,
+          "training_phase": {
+            "offset": 1650,
+            "mse": 0.18956140935845164,
+            "near_minimum_count": 9,
+            "near_minimum_offset_range": [
+              1550,
+              1750
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.17156615889444196
+        },
+        {
+          "candidate": 1,
+          "training_phase": {
+            "offset": 1750,
+            "mse": 0.1843661019730136,
+            "near_minimum_count": 15,
+            "near_minimum_offset_range": [
+              1475,
+              1825
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.43615207681500046
+        },
+        {
+          "candidate": 2,
+          "training_phase": {
+            "offset": 2900,
+            "mse": 0.2440537235815464,
+            "near_minimum_count": 19,
+            "near_minimum_offset_range": [
+              1275,
+              3125
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.2523564991438995
+        },
+        {
+          "candidate": 3,
+          "training_phase": {
+            "offset": 3300,
+            "mse": 0.2549177251905999,
+            "near_minimum_count": 5,
+            "near_minimum_offset_range": [
+              3200,
+              3300
+            ],
+            "boundary_optimum": true
+          },
+          "validation_mse": 0.23969861570471587
+        }
+      ]
+    },
+    {
+      "network": "zero",
+      "candidate": 0,
+      "validation_mse": 0.1762429567277436,
+      "training_phase": {
+        "offset": 1650,
+        "mse": 0.19631647840446548,
+        "near_minimum_count": 16,
+        "near_minimum_offset_range": [
+          1425,
+          1800
+        ],
+        "boundary_optimum": false
+      },
+      "prefix_phase": {
+        "offset": 1650,
+        "mse": 0.1919128430901977,
+        "near_minimum_count": 18,
+        "near_minimum_offset_range": [
+          1400,
+          1825
+        ],
+        "boundary_optimum": false
+      },
+      "candidates": [
+        {
+          "candidate": 0,
+          "training_phase": {
+            "offset": 1650,
+            "mse": 0.19631647840446548,
+            "near_minimum_count": 16,
+            "near_minimum_offset_range": [
+              1425,
+              1800
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.1762429567277436
+        },
+        {
+          "candidate": 1,
+          "training_phase": {
+            "offset": 1300,
+            "mse": 0.1951270751687544,
+            "near_minimum_count": 19,
+            "near_minimum_offset_range": [
+              1175,
+              1625
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.2912212485743515
+        },
+        {
+          "candidate": 2,
+          "training_phase": {
+            "offset": 3000,
+            "mse": 0.25003076180619627,
+            "near_minimum_count": 25,
+            "near_minimum_offset_range": [
+              1175,
+              3075
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.2865703752330331
+        },
+        {
+          "candidate": 3,
+          "training_phase": {
+            "offset": 1675,
+            "mse": 0.2649378482586687,
+            "near_minimum_count": 19,
+            "near_minimum_offset_range": [
+              0,
+              3300
+            ],
+            "boundary_optimum": false
+          },
+          "validation_mse": 0.2417413462675249
+        }
+      ]
+    }
+  ],
+  "input_paths": [
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-010/struct/sub-010_connectome.zip",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/derivatives/tvb/sub-010/struct/sub-010_gain.txt",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/sub-010/ses-01/ieeg/sub-010_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.eeg",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/sub-010/ses-01/ieeg/sub-010_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg.vhdr",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/sub-010/sub-010_electrodes.tsv",
+    "/home/devstar3022/anya-intervention-research/data/vec/VirtualEpilepticCohort/vep_atlas.tsv"
+  ],
+  "forbidden_asset_guard": true,
+  "reused_artifact_sha256": {
+    "outputs/development-v2/epileptor-fit/personal-candidate0.npz": "5f6147962ae3f81c40eb9cae9becd9454d0d032768119b03a4c765084f11df06",
+    "outputs/development-v2/epileptor-fit/personal-candidate1.npz": "3dd988c850281d56ec1c31470cedd06bd66f37f0eaf3dc7dfc62171e0846421d",
+    "outputs/development-v2/epileptor-fit/personal-candidate2.npz": "02d17873b24da2ad72aedbfc9a57181ff548e554f08729a12b595d2d40f6745d",
+    "outputs/development-v2/epileptor-fit/personal-candidate3.npz": "b6984ae6e78c33e9c2393ae6078b64c9719b9b5d2a7a340250ea6a10930405c4",
+    "outputs/development-v2/epileptor-fit/donor-candidate0.npz": "beb98f076e3d4dc98e680d21a5ef09da007e14dcb6d6726d1369cede82354cbc",
+    "outputs/development-v2/epileptor-fit/donor-candidate1.npz": "ac820ae90c980a185b0fc6438a4dbd26a7c9ff8375fe24d9907ed70ab3cbde2d",
+    "outputs/development-v2/epileptor-fit/donor-candidate2.npz": "40fc87a17442989293e51dae48325ad7667beedfb7e16fca075929c60bc04e2d",
+    "outputs/development-v2/epileptor-fit/donor-candidate3.npz": "0427061341071e19ecb53abb580e1bc1a5d33d4345c4e241a67897ffaaa2a873",
+    "outputs/development-v2/epileptor-fit/zero-candidate0.npz": "860b3481ae7adb7fbc9546430dd85824984082983cc5e1bf4a8aa9b716525efe",
+    "outputs/development-v2/epileptor-fit/zero-candidate1.npz": "3d6ab09d9ff56ecf3df6a943a89620497a01410311502b2d18055648fb7ac144",
+    "outputs/development-v2/epileptor-fit/zero-candidate2.npz": "88b35a9d6f007aa6de7c35032dc15931111eaacd50d26c8265fec50ad521f49b",
+    "outputs/development-v2/epileptor-fit/zero-candidate3.npz": "a63704baade8dc698dfd238913eb751a9796e6a838442cc7de5ad680e1ad6a7f"
+  },
+  "source_commit": "8d823e5c40ae86076b5de3a37e3a88f26507c393",
+  "manifest_sha256": "a61d37519f3c0998c9c5c43ee20f9e35c05b817c1d41b83f6cebf7d598dd496e",
+  "runtime_seconds": 0.9620068073272705,
+  "new_simulator_calls": 0
+}

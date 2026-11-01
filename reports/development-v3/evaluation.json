@@ -1,0 +1,367 @@
+{
+  "phase": "exploratory_temporal_alignment_on_reused_development_recording",
+  "selected_baseline": "autoregression",
+  "rows": [
+    {
+      "method": "persistence",
+      "kind": "baseline",
+      "errors": {
+        "mse": 0.14190315094375258,
+        "mae": 0.2657376937385922,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.024375077398903
+    },
+    {
+      "method": "prefix_mean",
+      "kind": "baseline",
+      "errors": {
+        "mse": 0.1606947419956757,
+        "mae": 0.351607819622443,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.1600284255468414
+    },
+    {
+      "method": "zero_envelope",
+      "kind": "baseline",
+      "errors": {
+        "mse": 0.25035444036732724,
+        "mae": 0.37118454676016677,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.807266769785077
+    },
+    {
+      "method": "damped_trend",
+      "kind": "baseline",
+      "errors": {
+        "mse": 0.26428567237020206,
+        "mae": 0.3448600457727227,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.9078340000847314
+    },
+    {
+      "method": "autoregression",
+      "kind": "baseline",
+      "errors": {
+        "mse": 0.13852655543326334,
+        "mae": 0.31719572014735825,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.0
+    },
+    {
+      "method": "personal",
+      "kind": "reference_seed401",
+      "errors": {
+        "mse": 0.17221308857140458,
+        "mae": 0.3009003247353055,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.2431774401145064
+    },
+    {
+      "method": "personal",
+      "kind": "fresh_seed701",
+      "errors": {
+        "mse": 0.17070772991098782,
+        "mae": 0.29755525141702155,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.2323105080976917
+    },
+    {
+      "method": "personal",
+      "kind": "fresh_seed702",
+      "errors": {
+        "mse": 0.1817596443454586,
+        "mae": 0.31737419409358253,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.3120924271665968
+    },
+    {
+      "method": "personal",
+      "kind": "fresh_seed_mean_prediction",
+      "errors": {
+        "mse": 0.1540606802910982,
+        "mae": 0.294477615803323,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.112138245329565
+    },
+    {
+      "method": "donor",
+      "kind": "reference_seed401",
+      "errors": {
+        "mse": 0.18686283532722922,
+        "mae": 0.31844847361583867,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.348931508062022
+    },
+    {
+      "method": "donor",
+      "kind": "fresh_seed701",
+      "errors": {
+        "mse": 0.15873246671633764,
+        "mae": 0.27627795567852226,
+        "high_activity_proxy_mismatch": 0.014285714285714285,
+        "predicted_high_activity_fraction": 0.014285714285714285,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.1458630889931334
+    },
+    {
+      "method": "donor",
+      "kind": "fresh_seed702",
+      "errors": {
+        "mse": 0.16458741234385726,
+        "mae": 0.2940981414492572,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.1881289607547416
+    },
+    {
+      "method": "donor",
+      "kind": "fresh_seed_mean_prediction",
+      "errors": {
+        "mse": 0.14352912842253965,
+        "mae": 0.27214899430947426,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.0361127364614675
+    },
+    {
+      "method": "zero",
+      "kind": "reference_seed401",
+      "errors": {
+        "mse": 0.165214550300527,
+        "mae": 0.291974215813705,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.1926561646161837
+    },
+    {
+      "method": "zero",
+      "kind": "fresh_seed701",
+      "errors": {
+        "mse": 0.17199227637001743,
+        "mae": 0.2958229442714434,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.2415834338194929
+    },
+    {
+      "method": "zero",
+      "kind": "fresh_seed702",
+      "errors": {
+        "mse": 0.17655522657391418,
+        "mae": 0.31437335393755245,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.2745226070316285
+    },
+    {
+      "method": "zero",
+      "kind": "fresh_seed_mean_prediction",
+      "errors": {
+        "mse": 0.15291513134192833,
+        "mae": 0.29146119849837593,
+        "high_activity_proxy_mismatch": 0.0,
+        "predicted_high_activity_fraction": 0.0,
+        "observed_high_activity_fraction": 0.0,
+        "predicted_episodes": [],
+        "observed_episodes": []
+      },
+      "mse_ratio_to_selected_baseline": 1.103868719348882
+    }
+  ],
+  "fresh_phase_profiles": [
+    {
+      "network": "personal",
+      "seed": 701,
+      "phase": {
+        "offset": 1675,
+        "mse": 0.194688891790127,
+        "near_minimum_count": 15,
+        "near_minimum_offset_range": [
+          1525,
+          1900
+        ],
+        "boundary_optimum": false
+      }
+    },
+    {
+      "network": "personal",
+      "seed": 702,
+      "phase": {
+        "offset": 1625,
+        "mse": 0.1876662610563369,
+        "near_minimum_count": 13,
+        "near_minimum_offset_range": [
+          1500,
+          1825
+        ],
+        "boundary_optimum": false
+      }
+    },
+    {
+      "network": "donor",
+      "seed": 701,
+      "phase": {
+        "offset": 1700,
+        "mse": 0.19274712304001138,
+        "near_minimum_count": 15,
+        "near_minimum_offset_range": [
+          1550,
+          1900
+        ],
+        "boundary_optimum": false
+      }
+    },
+    {
+      "network": "donor",
+      "seed": 702,
+      "phase": {
+        "offset": 1650,
+        "mse": 0.18447568938841033,
+        "near_minimum_count": 17,
+        "near_minimum_offset_range": [
+          1550,
+          1950
+        ],
+        "boundary_optimum": false
+      }
+    },
+    {
+      "network": "zero",
+      "seed": 701,
+      "phase": {
+        "offset": 1675,
+        "mse": 0.19204372618895493,
+        "near_minimum_count": 17,
+        "near_minimum_offset_range": [
+          1500,
+          1900
+        ],
+        "boundary_optimum": false
+      }
+    },
+    {
+      "network": "zero",
+      "seed": 702,
+      "phase": {
+        "offset": 1550,
+        "mse": 0.18763739885395092,
+        "near_minimum_count": 18,
+        "near_minimum_offset_range": [
+          1425,
+          1850
+        ],
+        "boundary_optimum": false
+      }
+    }
+  ],
+  "provisional_personal_prediction_gate": false,
+  "personal_to_zero_mean_prediction_mse_ratio": 1.0074914034936697,
+  "provisional_network_screen": false,
+  "new_simulator_calls": 6,
+  "evaluation_runtime_seconds": 113.90811443328857,
+  "wall_seconds_to_evaluation": 115.30361557006836,
+  "artifact_sha256": {
+    "baseline-autoregression.npz": "4a314fbfad1d7a0bfb1cdfe8cb949a3e3e66179e1baea68839512f04b285b478",
+    "baseline-damped_trend.npz": "14467be346082b116481ff1d189f8bcf5b82415dc8da0be2881168469b94be45",
+    "baseline-persistence.npz": "374bfaf73cf3864e15b0bc1c96205dbfe668cf4d0d8b1c096eb8e0553360d61d",
+    "baseline-prefix_mean.npz": "d82bb7af968aef030e96360356f1ab6f07b02ba880718b83ab1bae306d3b0ed1",
+    "baseline-zero_envelope.npz": "898ffcfa8a32080cd6e03446d1b40792175cf101a5cc8172d7a2b70eef611524",
+    "donor-candidate0-profile.npz": "780ea5f4cc65d4c1d8fa1a56560b561f0686832056990c2b1176e86d964cf62c",
+    "donor-candidate1-profile.npz": "5aa0de4e020f376d21748865ad87e7e6d233c8a500772a3100a830e614590e37",
+    "donor-candidate2-profile.npz": "6d893d56e71cc1103e78a6c8de16f8c67ee0fcd0b23386569b9181f591d14956",
+    "donor-candidate3-profile.npz": "5629345705b806411229ce4fa692f7936982d5a6984234b9d44cfbc1f3df9050",
+    "donor-reference.npz": "aeedaef7f2d510d0c3617bee842df85a59373cb10df04faaceff3527cb37a23c",
+    "donor-seed701.npz": "d5256679e46b0c2a4ce51560e22699a7339292a82e2ef6d24c657fb4a3dde7f0",
+    "donor-seed702.npz": "0b33f49e717bb2aff4c30258bd37c5f1041eb3fc202c6e531a7793d9f1d55015",
+    "features.npz": "9f7b06f764c79141e255c1889130d077c8b292479272c2e850f8c5d234155dc2",
+    "personal-candidate0-profile.npz": "227a34165fb5ae99ea6187295a9b1d2f78a58fae8ce5d7bf3716f80deb6d5568",
+    "personal-candidate1-profile.npz": "b58ef26fe19981950b990a4e7d57cb91d566cf06f40fe00a0864994651dec5ea",
+    "personal-candidate2-profile.npz": "b203864f1ce88d8d5b44ed2b4320089465145f6f9ad7e27336be3c3d84f81668",
+    "personal-candidate3-profile.npz": "28d48d6b06c4621da828445cb650be3d18adaad8c824feb620d1401a9cb5d13a",
+    "personal-reference.npz": "3d70df8985474f078ea3521a18baba8d2493a86d34cf20517ea232bb49a69f4c",
+    "personal-seed701.npz": "b47aca043e45995419e4a096d96bfa146e666e37b41c819171a2f37ff7fb355b",
+    "personal-seed702.npz": "48e847c4f53532961dde7e0fd4376d667ba5835271e515e43eb648982a54698b",
+    "zero-candidate0-profile.npz": "f815e8eef1b539d3de6f36bc98e32e0d95826ef518f75ce6365ca9487ce9ab13",
+    "zero-candidate1-profile.npz": "adcc817fcc88b88b17fadb6cd22c3f6fdd7aa9be35492409b6b395ad880998aa",
+    "zero-candidate2-profile.npz": "a9548639136ad053ddd1db60a1f91bd9995b3e2eb4e198978f4f087fd39818ef",
+    "zero-candidate3-profile.npz": "542f4df0f4ddf7cd765113276a8c382ec7b38280c6b8061ff16f262715ee4117",
+    "zero-reference.npz": "99f260f8d228366ab783b89c88f8a49490b2f971c7ec56d80483f6dc1513f3ac",
+    "zero-seed701.npz": "e05256c030fc69b6e7b5e752b3c76eb8275e0ba2b0f0ee13d69e05cd3228438f",
+    "zero-seed702.npz": "c64b00b1716d41cab07ef973f8e8cb0abc0d2544fcff9258095a20ad9461cfa8"
+  },
+  "selection_sha256": "becb2ca62e08dc7202d7ed2062b3ebd2cebcc3c14d2090a59389fb276deac92e",
+  "held_out_patients_inspected": 0
+}

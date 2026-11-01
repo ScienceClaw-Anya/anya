@@ -16,6 +16,14 @@ mapping passes, but the fitted models are not ready for intervention selection.
 Future development remains bounded and requires a new recorded run schedule;
 no held-out evaluation, automatic monitor or ongoing experiment was started.
 
+**Temporal continuation, 2026-11-01:** development v3 completed six fresh CPU
+simulations and a causal-envelope phase search using the existing observation-only
+fits. The personal model still loses to the validation-selected autoregressive
+baseline, and the final block has no high-activity episode under the fixed proxy.
+Onset/offset accuracy and network value remain unestablished. Twelve invariant
+tests and independent replay pass. See `reports/2026-11-01-cpu-development-v3.md`.
+No intervention or held-out cohort run was started.
+
 This document hands execution to a separate chat. The originating chat continues
 idea exploration. The user authorized this isolated branch and execution of the
 proposed experiments; proceed with reversible implementation and bounded local

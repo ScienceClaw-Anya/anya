@@ -94,3 +94,30 @@ The scripts refuse to overwrite existing stage output directories; rerun a new
 versioned stage rather than modifying the recorded results. Exact source/data
 hashes are in the manifests and output summaries. No other job was signaled or
 changed. No local simulation, numerical test or metric replay was run.
+
+## CPU development v3
+
+`8d823e5` froze the manifest, fitting/evaluation code and tests before new scores.
+The tracked source snapshot was sent with `git archive` over SSH to the same
+isolated GCP directory; `outputs/source-commit.txt` records its full commit.
+`66deed0` added independent replay and plotting without changing fit choices.
+
+Using the same one-thread environment on GCP:
+
+```sh
+timeout 90 nice -n 10 .venv/bin/python -m pytest -q tests
+timeout 240 nice -n 10 .venv/bin/python scripts/temporal_fit_v3.py
+timeout 500 nice -n 10 .venv/bin/python scripts/temporal_evaluate_v3.py
+timeout 120 nice -n 10 .venv/bin/python scripts/replay_temporal_v3.py
+timeout 60 nice -n 10 .venv/bin/python scripts/plot_temporal_v3.py
+```
+
+Tests passed: 12. Six fresh trajectories and the reused v2 arrays were retained
+only on GCP. Independent direct-window replay passed 12 candidate and six
+fresh-seed profiles, baseline predictions, and 17 final metric rows. The aggregate
+figure was rendered on GCP and visually checked locally. Only selection,
+evaluation, replay and resource JSON files and the PNG were retrieved into
+`reports/development-v3/`. No source data, hidden labels or model arrays were
+retrieved. Experiment start through the initial report figure took 145.22 seconds.
+The new stage refuses to overwrite its output directory and bounds fresh calls
+at six. All pushes use only the explicit isolated branch destination.

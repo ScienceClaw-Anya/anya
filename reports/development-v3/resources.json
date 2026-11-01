@@ -1,0 +1,14 @@
+{
+  "host": "scienceclaw-gcp",
+  "workers": 1,
+  "threads": 1,
+  "nice": 10,
+  "gpu_used": false,
+  "new_data_bytes": 0,
+  "new_simulator_calls": 6,
+  "reused_fit_trajectories": 12,
+  "experiment_wall_seconds_to_report": 145.224867105484,
+  "stage_compute_seconds": 119.13024878501892,
+  "max_wall_seconds": 3600,
+  "held_out_patients_inspected": 0
+}

@@ -4,13 +4,15 @@ This is an independent research track in `ScienceClaw-Anya/anya`, created on
 2026-11-01 from the user's research discussion. It studies virtual intervention
 selection and retrospective outcome prediction without recruiting new patients.
 
-**Status: two bounded CPU development stages completed on the existing GCP host. No
+**Status: three bounded CPU development stages completed on the existing GCP host. No
 personalization advantage, equal-information intervention advantage or clinical
 prediction improvement has been established.**
 
-Read the [CPU development v2 report](reports/2026-11-01-cpu-development-v2.md)
-for the verified sub-010 observation mapping, weak network effects and limited
-observation-only fits. The 24 reserved patients remain untouched. The
+Read the [CPU development v3 report](reports/2026-11-01-cpu-development-v3.md)
+for the temporal-alignment experiment: the personalized model still loses to a
+simple forecast, and removing all network edges gives essentially the same
+result. The [v2 report](reports/2026-11-01-cpu-development-v2.md) preserves the
+verified sub-010 observation mapping and earlier fits. The 24 reserved patients remain untouched. The
 [first pilot report](reports/2026-11-01-pilot.md) retains the earlier results, limitations,
 resource use and the remaining scientific gates. All numerical experiments and
 tests run on GCP; this checkout holds code, provenance and compact reports.
