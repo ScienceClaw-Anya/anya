@@ -19,6 +19,5 @@
   "outputs": "Fresh-seed sensor covariance/std errors against the development test block, independent-source fit residual, x0 recovery error evaluated separately, comparison against training-feature persistence.",
   "limitations": "Stationary covariance fitting ignores timing and source correlations; inverse projection is underdetermined; no posterior uncertainty or intervention optimization. Failure of basic observation prediction prevents using this fit for therapy planning.",
   "maximum_simulator_calls": 20,
-  "additional_validation_amendment": "After fit selection, compare the same saved fresh-seed sensor outputs against sub-010 run-02 and run-03 on channels shared with run-01. No new fit or simulation. Record generator differences only in the evaluator. This exploratory addition was specified after seeing training-fit results and the first within-recording evaluation rows; it is not confirmatory.",
   "resource_limit": "One existing GCP CPU thread; within shared 3600-second development-v2 cap and 48-call ceiling. No new data or intervention runs."
 }

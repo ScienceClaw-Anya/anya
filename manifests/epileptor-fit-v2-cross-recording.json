@@ -1,0 +1,9 @@
+{
+  "parent": "epileptor-fit-v2.json at c53c9d8",
+  "phase": "exploratory_additional_validation",
+  "recordings": ["sub-010 run-02", "sub-010 run-03"],
+  "method": "Compare the same saved fresh-seed sensor outputs against other recordings on channels shared with run-01. No new fit or simulation. Record generator differences only in the evaluator.",
+  "timing": "Specified after seeing training-fit results and the first within-recording evaluation rows; not confirmatory. Preserve the original fitting manifest unchanged.",
+  "maximum_runtime_seconds": 60,
+  "execution": "One existing GCP CPU thread within the shared development-v2 budget"
+}
