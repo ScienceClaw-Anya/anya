@@ -1,0 +1,175 @@
+{
+  "status": "numerical_feasibility_gate_failed",
+  "results": {
+    "primary": "expert_consensus minus frozen v11 score_focus, mean patient SOZ AUROC after eight physical groups",
+    "summary": {
+      "expert_consensus": {
+        "mean_patient_AUROC": 0.7271824654493854,
+        "comparisons": {
+          "random_0": {
+            "gain": -0.013280683104104905,
+            "paired_95CI": [
+              -0.05709607810077772,
+              0.032662804879960525
+            ]
+          },
+          "random_1": {
+            "gain": -0.017754983436874112,
+            "paired_95CI": [
+              -0.06137659444653505,
+              0.02822949656981079
+            ]
+          },
+          "coverage": {
+            "gain": -0.02630337955228253,
+            "paired_95CI": [
+              -0.07065060593816821,
+              0.0181037231889409
+            ]
+          },
+          "score_focus": {
+            "gain": -0.03479512966751709,
+            "paired_95CI": [
+              -0.07749116446847969,
+              0.011200165142386639
+            ]
+          },
+          "uncertainty": {
+            "gain": -0.03181458475226594,
+            "paired_95CI": [
+              -0.07400858414736997,
+              0.00956771816537311
+            ]
+          },
+          "monolithic": {
+            "gain": 0.02106013794486178,
+            "paired_95CI": [
+              -0.020221529282130758,
+              0.06955902986447879
+            ]
+          }
+        }
+      },
+      "monolithic": {
+        "mean_patient_AUROC": 0.7061223275045235,
+        "comparisons": {
+          "random_0": {
+            "gain": -0.034340821048966685,
+            "paired_95CI": [
+              -0.08387260243854909,
+              0.01572247458016933
+            ]
+          },
+          "random_1": {
+            "gain": -0.038815121381735894,
+            "paired_95CI": [
+              -0.0710455490704266,
+              -0.004829375232682208
+            ]
+          },
+          "coverage": {
+            "gain": -0.04736351749714431,
+            "paired_95CI": [
+              -0.08840569862020313,
+              -0.005722906111194564
+            ]
+          },
+          "score_focus": {
+            "gain": -0.05585526761237887,
+            "paired_95CI": [
+              -0.09208622275872146,
+              -0.01892897145568402
+            ]
+          },
+          "uncertainty": {
+            "gain": -0.05287472269712771,
+            "paired_95CI": [
+              -0.09320943257406798,
+              -0.01371798343243833
+            ]
+          },
+          "monolithic": {
+            "gain": 0.0,
+            "paired_95CI": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "ridge": {
+        "mean_patient_AUROC": 0.7234156261805769,
+        "comparisons": {
+          "random_0": {
+            "gain": -0.01704752237291335,
+            "paired_95CI": [
+              -0.06581976903510682,
+              0.033632650443550606
+            ]
+          },
+          "random_1": {
+            "gain": -0.021521822705682557,
+            "paired_95CI": [
+              -0.06397683936818656,
+              0.022145683277069315
+            ]
+          },
+          "coverage": {
+            "gain": -0.030070218821090976,
+            "paired_95CI": [
+              -0.07981505597263064,
+              0.020685744324495704
+            ]
+          },
+          "score_focus": {
+            "gain": -0.03856196893632554,
+            "paired_95CI": [
+              -0.08238163319945117,
+              0.006927181743160169
+            ]
+          },
+          "uncertainty": {
+            "gain": -0.03558142402107437,
+            "paired_95CI": [
+              -0.07929303110402847,
+              0.008795246704044146
+            ]
+          },
+          "monolithic": {
+            "gain": 0.017293298676053337,
+            "paired_95CI": [
+              -0.024094152656814326,
+              0.06352161017521475
+            ]
+          }
+        }
+      }
+    },
+    "diverse_expert_steps": 132,
+    "consensus_steps": 140,
+    "next_agent_gate": false,
+    "physical_trajectories": 105,
+    "new_API_calls": 0,
+    "multi_agent_superiority_established": false
+  },
+  "audit": {
+    "status": "verified",
+    "stage": "full",
+    "training_rows_reconstructed": 3360,
+    "source_states": 560,
+    "physical_trajectories": 105,
+    "adaptive_choices_replayed": 420,
+    "new_API_calls": 0,
+    "checks": [
+      "Patient/model/map/raw/bank/protocol hashes and source/outer patient exclusion.",
+      "Every training candidate slate and observed-only feature row reconstructed.",
+      "Every gain recomputed using independent sklearn AUROC; random0 next scores match audited physical banks.",
+      "For full audit, every runtime feature, expert prediction, decision, identity and final AUROC replayed."
+    ],
+    "limits": [
+      "New alternative-response and runtime neural scores are audited from stored predictions, not all re-inferred.",
+      "Pure feature/model prediction recipes are replayed; this does not establish causal or external validity."
+    ]
+  },
+  "multi_agent_superiority_established": false
+}

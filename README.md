@@ -69,6 +69,20 @@ without improving eight-query ranking. Adaptive-boundary selection scored
 does not trigger new Gemini calls. All 420 calibration outcomes and 420 adaptive
 choices passed replay checks; no multi-agent improvement is established.
 
+The [physical query-value expert test](docs/spes-agent-v14-report.md) fitted
+25 regressors from 3,360 source-held-out physical counterfactual targets.
+Consensus scored **0.7272**, all-feature boosting **0.7061**, and ridge **0.7234**,
+versus score-focus **0.7620**. Consensus gain **-0.0348**, interval
+**[-0.0775, +0.0112]**. Experts disagreed in 132/140 steps, but diversity did
+not produce a better policy. The spending gate fails. All 105 trajectories and
+420 adaptive choices passed independent replay; no Gemini call was added.
+
+The next [sparse-readout adaptation](experiments/spes_agent_v15/README.md) is
+running locally. It keeps pretrained HAT encoders fixed and trains each
+encoder's readouts on its own fitting patients with true partial physical
+inputs. No readout result or collaboration advantage is claimed before
+evaluation and audit.
+
 ## Current research: complementary models and real-feedback acquisition
 
 The [v4 research track](experiments/spes_agent_v4/README.md) preserves all earlier
