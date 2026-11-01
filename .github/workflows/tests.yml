@@ -73,3 +73,6 @@ jobs:
       - run: python -m unittest experiments.spes_physical.test_mapping -v
         env:
           PYTHONUTF8: '1'
+      - run: python -m unittest experiments.spes_agent_v13.test_tools -v
+        env:
+          PYTHONUTF8: '1'

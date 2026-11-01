@@ -58,8 +58,16 @@ on identical eight-query inputs and is not adopted as a stronger scorer. Its
 audit replayed 42,340 feature rows and 280 scorer/state outcomes. A separate
 diagnostic found raw HAT scores average **0.826**, compared with mean patient
 SOZ prevalence **0.132**. Training uses both class-weighted sampling and a
-positive-weighted loss. Calibration and patient-adaptive uncertainty are the next
-fixed hypotheses; no new calibration result or multi-agent benefit is claimed yet.
+positive-weighted loss.
+
+The [calibration and adaptive-boundary test](docs/spes-agent-v13-report.md)
+completed 75 calibrators and 105 physical trajectories. Patient-centered
+calibration modestly reduced Brier error (**0.1117** versus constant **0.1152**),
+without improving eight-query ranking. Adaptive-boundary selection scored
+**0.7440** versus score-focus **0.7620**; gain **-0.0179**, interval
+**[-0.0431, +0.0053]**. Both fixed practical-gain gates fail. This hypothesis
+does not trigger new Gemini calls. All 420 calibration outcomes and 420 adaptive
+choices passed replay checks; no multi-agent improvement is established.
 
 ## Current research: complementary models and real-feedback acquisition
 
