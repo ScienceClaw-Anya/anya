@@ -6,6 +6,15 @@ ongoing diagnostic/SPES branch. Never switch or modify another checkout, merge
 into main, rewrite main, change the default branch, or stop an existing process
 to free resources. Do not open an integration PR unless the user later asks.
 
+The user explicitly requires experiments on the existing `scienceclaw-gcp`
+host, not the local machine. Run simulations, numerical tests and experimental
+metric replay only in `/home/devstar3022/anya-intervention-research`. This remote
+directory is an isolated execution mirror, not another existing checkout; its
+`outputs/source-commit.txt` identifies the source snapshot. Keep local work to
+editing, metadata inspection, provenance, reporting and Git. Do not provision
+new cloud resources or change other jobs. Default to one worker/thread at nice
+priority 10; preserve the bounded pilot limits and record any new run schedule.
+
 Read README.md, PROTOCOL.md, RESOURCES.md, EXECUTION.md and STATUS.json before
 research work. The mode is user-directed research execution. These documents
 record hypotheses and plans, not evidence that the hypotheses are true.

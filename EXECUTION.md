@@ -1,5 +1,13 @@
 # Execution plan
 
+**Execution-host amendment, 2026-11-01:** the user explicitly requires the
+existing GCP host for experiments. All references below to local computation
+mean bounded computation in `/home/devstar3022/anya-intervention-research` on
+`scienceclaw-gcp`, not the local desktop. Numerical tests and metric replay also
+run there. Use one worker/thread at nice priority 10 unless a later bounded run
+manifest justifies up to the existing two-worker ceiling. Current results and
+open scientific gates are in `reports/2026-11-01-pilot.md` and STATUS.json.
+
 This document hands execution to a separate chat. The originating chat continues
 idea exploration. The user authorized this isolated branch and execution of the
 proposed experiments; proceed with reversible implementation and bounded local
