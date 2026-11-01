@@ -8,15 +8,28 @@ The project integrates public VEP data, Epileptor simulations, trained EEG model
 
 **Research prototype: the diagnostic benchmark scores a generator-defined susceptibility reference, using a fixed SEEG-only response-ranking heuristic. Clinical localization accuracy and treatment benefit have not been established.**
 
-## Complete-cohort comparison now running
+## One-slide project update
+
+The [English presentation](docs/presentations/anya_seizure_localization.pptx)
+explains the goal and method without specialist terminology. It uses the
+completed historical results: **0.762** for the 35-patient numerical study and
+**0.812** for the separate five-patient pilot. It also shows the single- and
+multi-agent pilot controls and does not claim a collaboration advantage.
+
+## Comparison on the complete original cohort
 
 The [new same-input benchmark](experiments/spes_matched_2024/README.md) uses the
 original **35 patients, 2,145 contacts and 304 SOZ labels** that produced the
-**0.7201** Transformer reconstruction. It freezes all 25 original splits and
-reuses their baseline predictions by hash, then trains 25 mean-input HAT fits
-with the original normalization and training rules. The legacy summaries cannot
-supply true individual trials. Test outcomes stay sealed until all fits finish.
-This is a numerical architecture comparison, not evidence for agent value.
+**0.7201** Transformer reconstruction. All 25 new mean-input HAT fits and 175
+patient-repeat evaluations are complete. The original baseline fits are reused
+by frozen hashes. **The user stopped the independent audit on 2026-11-01 after
+18 fold checks.** No complete audit receipt exists, and this new experiment is
+excluded from the presentation. Do not restart the audit without a new request.
+All local results and partial audit logs remain preserved.
+
+All new fits finished before test predictions. The legacy summaries cannot
+supply individual trials, so this is a mean-input architecture comparison,
+not a full-trial HAT replication or evidence for agent value.
 
 The newer physical-query cohort has **2,117 contacts and 296 SOZ labels** and only
 34 patients overlap the original cohort. Its 0.7620 score-focus result and the

@@ -12,12 +12,12 @@ The target difference cancels the common before-query AUROC, which the runtime
 controller cannot observe. It uses the existing audited v14 physical banks,
 not the privileged v16 test-patient oracle choices.
 
-For each outer fold, 28 development patients supply672candidate rows across112
-states. Six candidates yield15unordered comparisons per state, but pair weights
-sum to the original672row weight. Pair differences are not new participants.
-Fixed Ridge alpha100 models use standardized observed-only descriptors and
-state/candidate interactions. Geometry, neural-state and waveform specialists
-are averaged by percentile rank. Same-data all-feature pairwise and pointwise
+For each outer fold, 28 development patients supply 672 candidate rows across 112
+states. Six candidates yield 15 unordered comparisons per state, but pair weights
+sum to the original 672-row weight. Pair differences are not new participants.
+Fixed Ridge models with alpha 100 use standardized observed-only descriptors and
+interactions between state and candidate features. Geometry, neural-state and
+waveform specialists combine percentile ranks. All-feature pairwise and pointwise
 models serve as controls. No hyperparameter search or test-label selection is
 performed. Every source target patient was excluded from its neural fitting and
 early stopping, and every outer test patient is excluded from the full pipeline.
@@ -25,7 +25,7 @@ early stopping, and every outer test patient is excluded from the full pipeline.
 All controllers receive the same four initial and eight total verified physical
 groups, compute the same full feature table, and retain the original outer HAT
 as final scorer. A cached feature recipe was previously independently checked
-against the old runtime to1e-12 and is newly pinned here; no frozen study is edited.
+against the old runtime to 1e-12 and is newly pinned here; no frozen study is edited.
 
 ```powershell
 python -m unittest experiments.spes_agent_v17.test_ranking
@@ -34,13 +34,13 @@ python -m experiments.spes_agent_v17.experiment --project . --output outputs/spe
 python -m experiments.spes_agent_v17.experiment --project . --output outputs/spes_agent_v17 --stage evaluate --workers 4
 ```
 
-The fixed primary is the expert panel versus frozen v11score-focus. Both this
-comparison and expert-panel versus all-feature pairwise control must exceed0.01
-with positive paired95%lower bounds before further tool development. A better
+The fixed primary is the expert panel versus frozen v11 score-focus. Both this
+comparison and expert-panel versus all-feature pairwise control must exceed 0.01
+with positive paired 95% lower bounds before further tool development. A better
 numerical panel would still not prove Gemini communication value. Current
 Gemini authorization is fully consumed; this experiment makes zero API calls.
 
-The local workstation is sufficient. All25small fits are frozen before new
+The local workstation is sufficient. All 25 small fits are frozen before new
 outer outcomes. Three views have a structural inductive bias and fewer total
 coefficients than the all-feature model, so this is not an exact parameter-match
 proof. Same-cohort adaptation, random-prefix/runtime shift, and source/final

@@ -3,6 +3,7 @@ import argparse
 import html
 import json
 from pathlib import Path
+import re
 import numpy as np
 from .experiment import read,write,sha
 
@@ -43,8 +44,23 @@ def build(project,output):
     report='\n'.join(lines); (project/'docs/spes-matched-2024-report.md').write_text(report,encoding='utf8')
     public={k:v for k,v in r.items() if k not in ['cases','patient_means']}; public.update({'verdict':verdict,'repeat_summary':repeats,'audit':a})
     write(project/'examples/spes_matched_2024_summary.json',public)
-    paragraphs='\n'.join('<p>'+html.escape(line)+'</p>' for line in lines if line)
-    page='<!doctype html><html lang="en"><meta charset="utf-8"><title>Complete-cohort comparison</title><style>body{max-width:1000px;margin:48px auto;padding:0 28px;font:18px/1.6 Arial;color:#20364b}p{white-space:pre-wrap}</style><body>'+paragraphs+'</body></html>'
+    def inline(line):
+        escaped=html.escape(line)
+        escaped=re.sub(r'\*\*(.*?)\*\*',r'<strong>\1</strong>',escaped)
+        return re.sub(r'`(.*?)`',r'<code>\1</code>',escaped)
+    parts=[]; in_table=False
+    for line in lines:
+        if line.startswith('|'):
+            if not in_table: parts.append('<table>'); in_table=True
+            if re.fullmatch(r'[|: \-]+',line): continue
+            parts.append('<tr>'+''.join('<td>'+inline(cell.strip())+'</td>' for cell in line.strip('|').split('|'))+'</tr>')
+        else:
+            if in_table: parts.append('</table>'); in_table=False
+            if line.startswith('## '): parts.append('<h2>'+inline(line[3:])+'</h2>')
+            elif line.startswith('# '): parts.append('<h1>'+inline(line[2:])+'</h1>')
+            elif line: parts.append('<p>'+inline(line)+'</p>')
+    if in_table: parts.append('</table>')
+    page='<!doctype html><html lang="en"><meta charset="utf-8"><title>Complete-cohort comparison</title><style>body{max-width:1000px;margin:48px auto;padding:0 28px;font:18px/1.6 Arial;color:#20364b}h1{line-height:1.2}h2{margin-top:40px}table{border-collapse:collapse;width:100%;margin:24px 0}td{padding:10px 14px;border-bottom:1px solid #d7e0e7}tr:first-child{font-weight:bold;background:#eef4f8}code{overflow-wrap:anywhere;font-size:14px}p{overflow-wrap:anywhere}</style><body>'+''.join(parts)+'</body></html>'
     (project/'examples/spes_matched_2024_report.html').write_text(page,encoding='utf8')
     print('Saved English matched-cohort report and aggregate summary.',flush=True)
 

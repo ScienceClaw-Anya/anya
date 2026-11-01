@@ -1,5 +1,12 @@
 # Complete legacy-cohort comparison
 
+**Training and evaluation complete; audit stopped by the user.** All 25 candidate
+fits and 175 patient-repeat evaluations are complete. The independent audit was
+stopped at the user's explicit request on 2026-11-01 after 18 fold checks.
+There is no complete audit receipt. All local results and partial checks remain
+preserved, but this experiment is excluded from the requested presentation.
+Do not resume the audit without a new user request.
+
 This new local experiment tests an adapted HAT architecture against the exact
 complete-cohort Transformer reconstruction that produced **0.7201 AUROC**.
 It uses the same 35 patients, 2,145 contacts and 304 SOZ labels, all 25 original
@@ -32,6 +39,8 @@ has been examined in prior work; this is exploratory, not untouched validation.
 ```powershell
 python -m unittest experiments.spes_matched_2024.test_matched -v
 python -m experiments.spes_matched_2024.experiment --project . --output outputs/spes_matched_2024 --stage run --workers 2
+python -m experiments.spes_matched_2024.audit --project . --output outputs/spes_matched_2024
+python -m experiments.spes_matched_2024.report --project . --output outputs/spes_matched_2024
 ```
 
 The runner requires both pinned upstream repositories and original processed
@@ -44,3 +53,13 @@ treat 175 repeated patient cases or electrodes as independent participants.
 Results must distinguish this numerical architecture comparison from the
 existing full-response agent comparison and the five-patient physical-query
 pilot. No numerical gain alone demonstrates multi-agent superiority.
+
+## Sources
+
+- [Norris et al., MLHC 2024](https://proceedings.mlr.press/v252/norris24a.html),
+  with the [original implementation](https://github.com/norrisjamie23/Localising_SOZ_from_SPES)
+  pinned at `90062e8c5fe5593713125eaf5f573faedb739f65`.
+- [HAT implementation](https://github.com/norrisjamie23/SOZ_localisation_SPES_HAT),
+  pinned at `11f65182a2114440f1425656f91d0ebec51ee726`. This experiment adapts
+  its architecture and does not claim an exact reproduction of its publication.
+- [OpenNeuro ds004080 v1.2.4](https://openneuro.org/datasets/ds004080/versions/1.2.4).

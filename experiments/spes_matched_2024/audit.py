@@ -43,7 +43,7 @@ def infer(net,loader):
 
 def audit(project,output):
     import torch
-    project,output=Path(project),Path(output); p=read(output/'protocol.json'); result=read(output/'results.json')
+    project,output=Path(project).resolve(),Path(output).resolve(); p=read(output/'protocol.json'); result=read(output/'results.json')
     if (output/'run.lock').exists(): raise ValueError('Wait for training and evaluation to finish')
     for f,h in {**p['sources'],**p['data']}.items():
         if sha(project/f)!=h: raise ValueError('Source or data changed: '+f)
