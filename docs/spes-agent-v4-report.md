@@ -24,7 +24,7 @@ Removing the global veto did not help. The 10% pairwise-ranker blend had only a 
 
 A [2026 preprint](https://doi.org/10.64898/2026.07.27.26358819) and its [public author code](https://github.com/norrisjamie23/SOZ_localisation_SPES_HAT) motivate testing trial-averaged, mean-trial-embedding (MTE), and hierarchical-attention (HAT) representations. The preprint models cross-trial and cross-channel dependencies; it does not study LLM collaboration. Its reported SOZ improvement did not establish postsurgical benefit. Full HTML Methods/Results/Discussion were verified in Chrome. The literature search was focused and non-exhaustive.
 
-The newly released processed arrays contain **35 patients, 2,117 contacts and 296 SOZ contacts**. The old project cohort contains 2,145 contacts and 304 SOZ contacts. These are not interchangeable denominators.
+The newly released processed arrays contain **35 patients, 2,117 contacts and 296 SOZ contacts**. The old project cohort contains 2,145 contacts and 304 SOZ contacts. A later source audit corrected the initial identity assumption: only 34 patients overlap; patient 39 replaces patient 47. Across 2,036 unambiguous reciprocal coordinate matches in the common patients, scored SOZ labels agreed. The ignored new-version file for patient 47 stays ignored because its exclusion reason is unresolved. These are not interchangeable denominators or identical patient splits. The frozen manifests remain unchanged; see analysis/audit_spes_cohort_versions.py and examples/spes_cohort_versions_summary.json.
 
 The new local runner fixes five patient-held-out folds and published architecture presets before evaluation. All fitting, normalization and early stopping exclude each outer test patient. The best validation weights are cloned. We do not load upstream checkpoint pickles. There is no new hyperparameter search. The runner uses the paper's 25-epoch maximum and patience 5, not the CLI defaults. Streamed float64 statistics, batch padding, weight snapshot handling and deterministic seed assignment differ from upstream. This is an adaptation with one repeat, not an exact reproduction of the full paper.
 
@@ -83,7 +83,7 @@ The 35-patient numerical means must not be directly compared with the five-patie
 
 ## Limits and next decision
 
-All 35 patient identities have been examined in earlier work. Patient-isolated training prevents direct train/test leakage, but repeated research on this cohort still makes improvements exploratory. Preserve all trials; do not keep tuning to a reported test winner. A meaningful claim needs stable paired gains versus both single-agent and the strongest numerical control, repeat-generation sensitivity, and ideally a fresh external cohort. SOZ agreement is not treatment effectiveness.
+This current 35-patient cohort has been repeatedly examined during this research programme; 34 patients also overlap the older reconstruction. Patient-isolated training prevents direct train/test leakage, but repeated research on this cohort still makes improvements exploratory. Preserve all trials; do not keep tuning to a reported test winner. A meaningful claim needs stable paired gains versus both single-agent and the strongest numerical control, repeat-generation sensitivity, and ideally a fresh external cohort. SOZ agreement is not treatment effectiveness.
 
 All current neural training and waveform inference run on the local workstation's RTX 4090. Gemini inference uses Google's API. No new Nebius resources are created.
 

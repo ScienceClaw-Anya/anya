@@ -1,0 +1,238 @@
+{
+  "status": "completed_valid_no_gain_not_expanded",
+  "pilot_decision": {
+    "pilot_complete": true,
+    "expand": false,
+    "mean_AUROC": {
+      "random_0": 0.7614918238647821,
+      "random_1": 0.7713640946671799,
+      "coverage": 0.7904403838750482,
+      "score_focus": 0.7999588443417844,
+      "uncertainty": 0.7751615978294744,
+      "single": 0.7904403838750482,
+      "multi": 0.7904403838750482,
+      "multi_reason_hidden": 0.7904403838750482
+    },
+    "accepted_fraction": 1.0,
+    "comparisons_multi_minus": {
+      "single": {
+        "mean_gain": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ]
+      },
+      "multi_reason_hidden": {
+        "mean_gain": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ]
+      },
+      "random_0": {
+        "mean_gain": 0.028948560010266,
+        "paired_95CI": [
+          -0.030774991292232646,
+          0.13179691653375863
+        ]
+      },
+      "random_1": {
+        "mean_gain": 0.01907628920786819,
+        "paired_95CI": [
+          -0.15583333333333332,
+          0.2457894736842106
+        ]
+      },
+      "coverage": {
+        "mean_gain": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ]
+      },
+      "score_focus": {
+        "mean_gain": -0.0095184604667363,
+        "paired_95CI": [
+          -0.03620689655172411,
+          0.010883838383838417
+        ]
+      },
+      "uncertainty": {
+        "mean_gain": 0.015278786045573733,
+        "paired_95CI": [
+          -0.013448275862068915,
+          0.04656432748538011
+        ]
+      }
+    },
+    "rule": "Five fixed patients; multi-minus-single >0.005, no more than 0.02 below best declared numeric policy, >=95% accepted model decisions. Pilot is not confirmatory.",
+    "caveat": "Exploratory five-patient screen; no superiority or clinical claim."
+  },
+  "audit": {
+    "verified": true,
+    "completed_trajectories": 40,
+    "native_artifacts": 960,
+    "attempts_in_completed": 120,
+    "formal_reserved_attempts": 120,
+    "separate_synthetic_preflight_calls": 2,
+    "accepted_in_completed": 120,
+    "pilot_complete": true,
+    "checks": [
+      "Same four real prefix measurements",
+      "Same proposal/review feedback schedule",
+      "Actual API JSON Schema captures",
+      "Full raw model decisions/rationales equal executed states",
+      "No peer rationale leak",
+      "Independent AUROC",
+      "Exact old random_0 scores",
+      "Native hashes and backward lineage",
+      "No request replay"
+    ]
+  },
+  "behavior": {
+    "scope": "Post-hoc behavioral description; no causal attribution from five patients",
+    "choice_counts": {
+      "proposal_coverage_True": 45,
+      "review_coverage_True": 58,
+      "proposal_coverage_False": 15,
+      "review_coverage_False": 2
+    },
+    "review_counts": {
+      "kept_proposal": 47,
+      "changed_proposal": 13,
+      "changed_to_maximum_geometric_coverage": 13
+    },
+    "completed_LLM_trajectories": 15,
+    "same_query_set_as_coverage": 13,
+    "same_AUROC_as_coverage": 15,
+    "same_ranking_as_coverage": 13,
+    "rows": [
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "policy": "multi",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "policy": "multi_reason_hidden",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "4a10d0dae3b7a856",
+        "policy": "single",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "policy": "multi",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "policy": "multi_reason_hidden",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "94c79a9ce64fa837",
+        "policy": "single",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "policy": "multi",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "policy": "multi_reason_hidden",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "9d0526be30940c39",
+        "policy": "single",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "policy": "multi",
+        "same_query_set_as_coverage": false,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": false,
+        "maximum_score_difference": 0.031006276607513428
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "policy": "multi_reason_hidden",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "a63ad350a2b86c97",
+        "policy": "single",
+        "same_query_set_as_coverage": false,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": false,
+        "maximum_score_difference": 0.031006276607513428
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "policy": "multi",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "policy": "multi_reason_hidden",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      },
+      {
+        "case_id": "f30d8f6953124d77",
+        "policy": "single",
+        "same_query_set_as_coverage": true,
+        "same_AUROC_as_coverage": true,
+        "same_ordered_ranking_as_coverage": true,
+        "maximum_score_difference": 0.0
+      }
+    ],
+    "interpretation": "Roles repeatedly selected a shared geometric heuristic. This does not demonstrate added localization information or clinical efficacy. A trained query-value tool needs separate patient-isolated evaluation."
+  },
+  "separate_synthetic_preflight_calls": 2,
+  "formal_calls": 120,
+  "formal_accepted": 120,
+  "multi_agent_superiority_established": false,
+  "clinical_benefit_established": false
+}

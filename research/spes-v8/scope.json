@@ -1,0 +1,27 @@
+{
+  "review_type": "targeted methodological scan; non-exhaustive",
+  "question": "Can learned measurement value address the observed collapse of proposal/review collaboration to geometric coverage?",
+  "queries": [
+    "Learning Active Learning from Data Konyushkova Sznitman Fua NeurIPS 2017 code regression error reduction",
+    "EDDI Efficient Dynamic Discovery High Value Information ICML 2019 partial VAE code",
+    "learning active feature acquisition medical diagnosis supervised information gain dataset code"
+  ],
+  "sources": [
+    {
+      "title": "Learning Active Learning from Data",
+      "official_page": "https://papers.nips.cc/paper/2017/hash/8ca8da41fe1ebc8d3ca31dc14f5fc56c-Abstract.html",
+      "access": "Publisher/proceedings VOR full text verified — PDF",
+      "inspected": "Sections 4-5 and Algorithms 1-3, pp. 4-6; official PDF also opened in Chrome",
+      "code": "https://github.com/ksenia-konyushkova/LAL",
+      "project_use": "Conceptual adaptation only: label acquisition becomes waveform acquisition and the final neural scorer stays fixed."
+    },
+    {
+      "title": "EDDI: Efficient Dynamic Discovery of High-Value Information with Partial VAE",
+      "official_page": "https://proceedings.mlr.press/v97/ma19c.html",
+      "access": "Abstract only",
+      "code": "https://github.com/microsoft/EDDI",
+      "project_use": "Considered, not implemented. Repository README inspected; old TensorFlow stack not installed."
+    }
+  ],
+  "interpretation": "Neither source establishes multi-agent SPES benefit. New learned tools must beat same-information numerical controls before more LLM spending."
+}

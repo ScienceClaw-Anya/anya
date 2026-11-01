@@ -6,6 +6,40 @@ The project integrates public VEP data, Epileptor simulations, trained EEG model
 
 **Research prototype: the diagnostic benchmark scores a generator-defined susceptibility reference, using a fixed SEEG-only response-ranking heuristic. Clinical localization accuracy and treatment benefit have not been established.**
 
+## Schema-constrained acquisition follow-up
+
+The sparse-training follow-up completed ten fits without improvement; those
+weights are not adopted ([English v5 report](docs/spes-agent-v5-report.md)).
+The feedback-matched v6 pilot completed 120 attempts, but an over-strict
+validator rejected 15 real nested evidence references. Its actual fallback
+outcomes stay recorded and cannot isolate collaboration ability
+([English v6 report](docs/spes-agent-v6-report.md)).
+
+The v7 interface attaches **JSON Schema to the actual Gemini request**: only
+currently available query IDs and real evidence-root IDs may be returned.
+Two synthetic interface checks and the complete eight-call smoke trajectory
+passed. The formal five-patient pilot accepted **120/120 decisions**. Single,
+multi and rationale-hidden policies all scored **0.7904**, equal to coverage;
+the pilot is not expanded. Reviewers chose maximum coverage in 58/60 decisions
+and replaced 13 proposals, always moving to coverage. See the
+[English v7 report](docs/spes-agent-v7-report.md). Old studies remain frozen;
+no multi-agent superiority or treatment benefit is claimed.
+
+The [v8 experiment](experiments/spes_agent_v8/README.md) completed 20 inner
+HAT fits, 110 small regressors, 6,720 correlated replay rows and 350 numerical
+trajectories. All policies shared four initial measurements, four adaptive
+measurements and unchanged final HAT. The fixed primary scored **0.7222** versus
+random **0.7357**; its spending gate failed. The phase-zero secondary scored
+**0.7475**, but its gain interval included zero and it does not replace the
+primary. All rows passed independent feature/target/budget/outcome auditing.
+See the [English v8 report](docs/spes-agent-v8-report.md).
+
+The running [v9 prototype](experiments/spes_agent_v9/README.md) adds two
+observed-only hypothetical-response predictors before learning query value.
+Estimated candidate responses are explicitly predictions, never observed
+feedback. It reuses source-held-out models, tests numerical utility first and
+does not yet claim improved performance or collaboration benefit.
+
 ## Current research: complementary models and real-feedback acquisition
 
 The [v4 research track](experiments/spes_agent_v4/README.md) preserves all earlier
@@ -13,6 +47,9 @@ negative results and keeps the stopped v3 study stopped. Its cheap numerical
 screen did not justify more static-agent calls. Fifteen new patient-separated
 fits test trial averaging, mean trial embeddings and hierarchical attention on
 newly released multi-trial SPES arrays (35 patients / 2,117 contacts / 296 SOZ).
+A [cohort identity audit](examples/spes_cohort_versions_summary.json) found only
+34 patients overlap the older reconstruction: patient 39 replaces patient 47.
+Same-data comparisons remain valid; cross-version scores are not directly comparable.
 HAT scored **0.7495** versus the retrained same-data baseline **0.7138**;
 the paired gain's 95% interval includes zero. This is an exploratory numerical
 result, not demonstrated multi-agent superiority or clinical benefit.

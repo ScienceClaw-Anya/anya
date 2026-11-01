@@ -28,6 +28,13 @@ are explicitly preprint/code evidence. The released arrays used here contain
 the project's older public-code cohort and the original paper's cohort counts.
 Never compare these scores as if the contacts and split were identical.
 
+A later identity audit found **34 shared patients**: patient 39 replaces patient
+47 in this processed version. Labels agree on 2,036 unambiguous reciprocal
+coordinate matches. The ignored patient-47 array remains excluded; its upstream
+exclusion reason is unresolved. Frozen experiment manifests are preserved.
+See `analysis/audit_spes_cohort_versions.py` and
+`examples/spes_cohort_versions_summary.json` for the scored-cohort comparison.
+
 The upstream reference checkpoints were **not loaded**: tensor-only safe
 loading rejected a serialized loss object, and new training provides clearer
 patient provenance. The new runner freezes source hashes and split manifests,
@@ -92,7 +99,8 @@ The first five pilot patients remain separately reported from later patients.
 
 ## Interpretation rules
 
-All 35 patients have been examined in earlier project iterations. New runs
+This cohort has been repeatedly inspected; 34 patients overlap the older
+reconstruction. New runs
 remain exploratory even though training and scoring are patient separated.
 Track the complete trial history; report patient-level uncertainty and compare
 with the strongest same-information numerical control. An agent's choice must

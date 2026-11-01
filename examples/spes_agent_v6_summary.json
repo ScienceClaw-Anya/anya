@@ -1,0 +1,1451 @@
+{
+  "status": "completed_interface_confounded_not_expanded",
+  "pilot_decision": {
+    "pilot_complete": true,
+    "expand": false,
+    "mean_AUROC": {
+      "random_0": 0.7559160630140381,
+      "random_1": 0.7754849668012265,
+      "coverage": 0.7806854405603662,
+      "score_focus": 0.7711358002066758,
+      "uncertainty": 0.7021938467307735,
+      "single": 0.7615782864919256,
+      "multi": 0.7400595719878031,
+      "multi_reason_hidden": 0.7378373497655808
+    },
+    "accepted_fraction": 0.8583333333333333,
+    "accepted_fraction_by_policy": {
+      "single": 0.875,
+      "multi": 0.85,
+      "multi_reason_hidden": 0.85
+    },
+    "comparisons_multi_minus": {
+      "single": {
+        "mean_gain": -0.02151871450412244,
+        "paired_95CI": [
+          -0.09270212394095649,
+          0.0569565217391305
+        ]
+      },
+      "multi_reason_hidden": {
+        "mean_gain": 0.0022222222222222365,
+        "paired_95CI": [
+          0.0,
+          0.00666666666666671
+        ]
+      },
+      "random_0": {
+        "mean_gain": -0.01585649102623492,
+        "paired_95CI": [
+          -0.09718417047184172,
+          0.06820512820512822
+        ]
+      },
+      "random_1": {
+        "mean_gain": -0.03542539481342337,
+        "paired_95CI": [
+          -0.187533461784504,
+          0.1035507246376812
+        ]
+      },
+      "coverage": {
+        "mean_gain": -0.04062586857256305,
+        "paired_95CI": [
+          -0.10365296803652968,
+          -0.001630434782608714
+        ]
+      },
+      "score_focus": {
+        "mean_gain": -0.031076228218872615,
+        "paired_95CI": [
+          -0.09466216663357811,
+          0.02651802303976223
+        ]
+      },
+      "uncertainty": {
+        "mean_gain": 0.03786572525702962,
+        "paired_95CI": [
+          -0.01734299516908213,
+          0.12649572649572655
+        ]
+      }
+    },
+    "rule": "Frozen >0.005 versus single; no more than 0.02 below best numerical pilot policy; >=90% accepted decisions",
+    "caveat": "Five-patient exploratory pilot. No multi-agent superiority or clinical efficacy established."
+  },
+  "schema_diagnostic": {
+    "scope": "Post-hoc interface diagnosis; historical executed fallback scores remain unchanged",
+    "fallbacks": 17,
+    "kinds": {
+      "valid_nested_reference_rejected": 15,
+      "other_schema_or_generation": 2
+    },
+    "rows": [
+      {
+        "policy": "multi",
+        "step": 1,
+        "case_id": "0f598f88761dac93",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi_reason_hidden",
+        "step": 1,
+        "case_id": "0f598f88761dac93",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "single",
+        "step": 1,
+        "case_id": "0f598f88761dac93",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi",
+        "step": 1,
+        "case_id": "2d6750ff62d8bf07",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi_reason_hidden",
+        "step": 1,
+        "case_id": "2d6750ff62d8bf07",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "single",
+        "step": 1,
+        "case_id": "2d6750ff62d8bf07",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi",
+        "step": 1,
+        "case_id": "939e52f178688bfb",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi_reason_hidden",
+        "step": 1,
+        "case_id": "939e52f178688bfb",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "single",
+        "step": 1,
+        "case_id": "939e52f178688bfb",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi",
+        "step": 1,
+        "case_id": "c8786c64fa785e16",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi",
+        "step": 8,
+        "case_id": "c8786c64fa785e16",
+        "kind": "other_schema_or_generation",
+        "otherwise_executable_with_resolved_refs": false
+      },
+      {
+        "policy": "multi_reason_hidden",
+        "step": 1,
+        "case_id": "c8786c64fa785e16",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "single",
+        "step": 1,
+        "case_id": "c8786c64fa785e16",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi",
+        "step": 1,
+        "case_id": "f4dfd28099df0b9b",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi_reason_hidden",
+        "step": 1,
+        "case_id": "f4dfd28099df0b9b",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      },
+      {
+        "policy": "multi_reason_hidden",
+        "step": 6,
+        "case_id": "f4dfd28099df0b9b",
+        "kind": "other_schema_or_generation",
+        "otherwise_executable_with_resolved_refs": false
+      },
+      {
+        "policy": "single",
+        "step": 1,
+        "case_id": "f4dfd28099df0b9b",
+        "kind": "valid_nested_reference_rejected",
+        "otherwise_executable_with_resolved_refs": true
+      }
+    ],
+    "not_claimed": "No counterfactual AUROC, no repaired full-trajectory performance, no API request replay",
+    "implication": "The pilot is confounded by over-strict evidence-reference validation; its scores do not isolate collaboration ability."
+  },
+  "completed": [
+    {
+      "outer": 2,
+      "AUROC": 0.7333333333333334,
+      "average_precision": 0.10790598290598291,
+      "queries": [
+        "s047",
+        "s007",
+        "s016",
+        "s035",
+        "s026",
+        "s051",
+        "s012",
+        "s032"
+      ],
+      "contacts": 63,
+      "case_id": "0f598f88761dac93",
+      "policy": "coverage",
+      "pilot": true,
+      "prefix": [
+        "s047",
+        "s007",
+        "s016",
+        "s035"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 2,
+      "AUROC": 0.7000000000000001,
+      "average_precision": 0.1,
+      "queries": [
+        "s047",
+        "s007",
+        "s016",
+        "s035",
+        "s026",
+        "s049",
+        "s012",
+        "s032"
+      ],
+      "contacts": 63,
+      "case_id": "0f598f88761dac93",
+      "policy": "multi",
+      "pilot": true,
+      "prefix": [
+        "s047",
+        "s007",
+        "s016",
+        "s035"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 2,
+      "AUROC": 0.6888888888888889,
+      "average_precision": 0.09949723479135245,
+      "queries": [
+        "s047",
+        "s007",
+        "s016",
+        "s035",
+        "s026",
+        "s050",
+        "s012",
+        "s032"
+      ],
+      "contacts": 63,
+      "case_id": "0f598f88761dac93",
+      "policy": "multi_reason_hidden",
+      "pilot": true,
+      "prefix": [
+        "s047",
+        "s007",
+        "s016",
+        "s035"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 2,
+      "AUROC": 0.5722222222222222,
+      "average_precision": 0.06973315642046292,
+      "queries": [
+        "s047",
+        "s007",
+        "s016",
+        "s035",
+        "s030",
+        "s006",
+        "s040",
+        "s032"
+      ],
+      "contacts": 63,
+      "case_id": "0f598f88761dac93",
+      "policy": "random_0",
+      "pilot": true,
+      "prefix": [
+        "s047",
+        "s007",
+        "s016",
+        "s035"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 2,
+      "AUROC": 0.5111111111111111,
+      "average_precision": 0.07272727272727272,
+      "queries": [
+        "s047",
+        "s007",
+        "s016",
+        "s035",
+        "s049",
+        "s038",
+        "s015",
+        "s005"
+      ],
+      "contacts": 63,
+      "case_id": "0f598f88761dac93",
+      "policy": "random_1",
+      "pilot": true,
+      "prefix": [
+        "s047",
+        "s007",
+        "s016",
+        "s035"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 2,
+      "AUROC": 0.6777777777777776,
+      "average_precision": 0.09209656084656084,
+      "queries": [
+        "s047",
+        "s007",
+        "s016",
+        "s035",
+        "s026",
+        "s051",
+        "s009",
+        "s012"
+      ],
+      "contacts": 63,
+      "case_id": "0f598f88761dac93",
+      "policy": "score_focus",
+      "pilot": true,
+      "prefix": [
+        "s047",
+        "s007",
+        "s016",
+        "s035"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 2,
+      "AUROC": 0.5833333333333333,
+      "average_precision": 0.07098765432098765,
+      "queries": [
+        "s047",
+        "s007",
+        "s016",
+        "s035",
+        "s026",
+        "s050",
+        "s012",
+        "s009"
+      ],
+      "contacts": 63,
+      "case_id": "0f598f88761dac93",
+      "policy": "single",
+      "pilot": true,
+      "prefix": [
+        "s047",
+        "s007",
+        "s016",
+        "s035"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 2,
+      "AUROC": 0.6888888888888889,
+      "average_precision": 0.09949723479135245,
+      "queries": [
+        "s047",
+        "s007",
+        "s016",
+        "s035",
+        "s026",
+        "s050",
+        "s012",
+        "s032"
+      ],
+      "contacts": 63,
+      "case_id": "0f598f88761dac93",
+      "policy": "uncertainty",
+      "pilot": true,
+      "prefix": [
+        "s047",
+        "s007",
+        "s016",
+        "s035"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 3,
+      "AUROC": 0.8152173913043479,
+      "average_precision": 0.4896370839305622,
+      "queries": [
+        "s033",
+        "s038",
+        "s013",
+        "s023",
+        "s028",
+        "s015",
+        "s024",
+        "s041"
+      ],
+      "contacts": 54,
+      "case_id": "2d6750ff62d8bf07",
+      "policy": "coverage",
+      "pilot": true,
+      "prefix": [
+        "s033",
+        "s038",
+        "s013",
+        "s023"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 3,
+      "AUROC": 0.8070652173913043,
+      "average_precision": 0.4997759344012204,
+      "queries": [
+        "s033",
+        "s038",
+        "s013",
+        "s023",
+        "s000",
+        "s028",
+        "s015",
+        "s029"
+      ],
+      "contacts": 54,
+      "case_id": "2d6750ff62d8bf07",
+      "policy": "multi",
+      "pilot": true,
+      "prefix": [
+        "s033",
+        "s038",
+        "s013",
+        "s023"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 3,
+      "AUROC": 0.8070652173913043,
+      "average_precision": 0.4997759344012204,
+      "queries": [
+        "s033",
+        "s038",
+        "s013",
+        "s023",
+        "s000",
+        "s028",
+        "s015",
+        "s029"
+      ],
+      "contacts": 54,
+      "case_id": "2d6750ff62d8bf07",
+      "policy": "multi_reason_hidden",
+      "pilot": true,
+      "prefix": [
+        "s033",
+        "s038",
+        "s013",
+        "s023"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 3,
+      "AUROC": 0.8614130434782609,
+      "average_precision": 0.6763096816976127,
+      "queries": [
+        "s033",
+        "s038",
+        "s013",
+        "s023",
+        "s012",
+        "s028",
+        "s002",
+        "s043"
+      ],
+      "contacts": 54,
+      "case_id": "2d6750ff62d8bf07",
+      "policy": "random_0",
+      "pilot": true,
+      "prefix": [
+        "s033",
+        "s038",
+        "s013",
+        "s023"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 3,
+      "AUROC": 0.8315217391304348,
+      "average_precision": 0.41563852813852814,
+      "queries": [
+        "s033",
+        "s038",
+        "s013",
+        "s023",
+        "s044",
+        "s040",
+        "s018",
+        "s035"
+      ],
+      "contacts": 54,
+      "case_id": "2d6750ff62d8bf07",
+      "policy": "random_1",
+      "pilot": true,
+      "prefix": [
+        "s033",
+        "s038",
+        "s013",
+        "s023"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 3,
+      "AUROC": 0.8505434782608696,
+      "average_precision": 0.6485036119711043,
+      "queries": [
+        "s033",
+        "s038",
+        "s013",
+        "s023",
+        "s000",
+        "s028",
+        "s005",
+        "s007"
+      ],
+      "contacts": 54,
+      "case_id": "2d6750ff62d8bf07",
+      "policy": "score_focus",
+      "pilot": true,
+      "prefix": [
+        "s033",
+        "s038",
+        "s013",
+        "s023"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 3,
+      "AUROC": 0.8396739130434783,
+      "average_precision": 0.5786578716725775,
+      "queries": [
+        "s033",
+        "s038",
+        "s013",
+        "s023",
+        "s028",
+        "s015",
+        "s007",
+        "s029"
+      ],
+      "contacts": 54,
+      "case_id": "2d6750ff62d8bf07",
+      "policy": "single",
+      "pilot": true,
+      "prefix": [
+        "s033",
+        "s038",
+        "s013",
+        "s023"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 3,
+      "AUROC": 0.8396739130434783,
+      "average_precision": 0.5786578716725775,
+      "queries": [
+        "s033",
+        "s038",
+        "s013",
+        "s023",
+        "s028",
+        "s015",
+        "s007",
+        "s029"
+      ],
+      "contacts": 54,
+      "case_id": "2d6750ff62d8bf07",
+      "policy": "uncertainty",
+      "pilot": true,
+      "prefix": [
+        "s033",
+        "s038",
+        "s013",
+        "s023"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 1,
+      "AUROC": 0.8888888888888888,
+      "average_precision": 0.33333333333333337,
+      "queries": [
+        "s006",
+        "s022",
+        "s020",
+        "s038",
+        "s034",
+        "s042",
+        "s009",
+        "s021"
+      ],
+      "contacts": 51,
+      "case_id": "939e52f178688bfb",
+      "policy": "coverage",
+      "pilot": true,
+      "prefix": [
+        "s006",
+        "s022",
+        "s020",
+        "s038"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 1,
+      "AUROC": 0.8888888888888888,
+      "average_precision": 0.33333333333333337,
+      "queries": [
+        "s006",
+        "s022",
+        "s020",
+        "s038",
+        "s034",
+        "s042",
+        "s009",
+        "s021"
+      ],
+      "contacts": 51,
+      "case_id": "939e52f178688bfb",
+      "policy": "multi",
+      "pilot": true,
+      "prefix": [
+        "s006",
+        "s022",
+        "s020",
+        "s038"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 1,
+      "AUROC": 0.8888888888888888,
+      "average_precision": 0.33333333333333337,
+      "queries": [
+        "s006",
+        "s022",
+        "s020",
+        "s038",
+        "s034",
+        "s042",
+        "s009",
+        "s021"
+      ],
+      "contacts": 51,
+      "case_id": "939e52f178688bfb",
+      "policy": "multi_reason_hidden",
+      "pilot": true,
+      "prefix": [
+        "s006",
+        "s022",
+        "s020",
+        "s038"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 1,
+      "AUROC": 0.9166666666666666,
+      "average_precision": 0.5285714285714286,
+      "queries": [
+        "s006",
+        "s022",
+        "s020",
+        "s038",
+        "s047",
+        "s002",
+        "s015",
+        "s025"
+      ],
+      "contacts": 51,
+      "case_id": "939e52f178688bfb",
+      "policy": "random_0",
+      "pilot": true,
+      "prefix": [
+        "s006",
+        "s022",
+        "s020",
+        "s038"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 1,
+      "AUROC": 0.9583333333333334,
+      "average_precision": 0.7777777777777777,
+      "queries": [
+        "s006",
+        "s022",
+        "s020",
+        "s038",
+        "s028",
+        "s041",
+        "s023",
+        "s019"
+      ],
+      "contacts": 51,
+      "case_id": "939e52f178688bfb",
+      "policy": "random_1",
+      "pilot": true,
+      "prefix": [
+        "s006",
+        "s022",
+        "s020",
+        "s038"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 1,
+      "AUROC": 0.9236111111111112,
+      "average_precision": 0.5575757575757576,
+      "queries": [
+        "s006",
+        "s022",
+        "s020",
+        "s038",
+        "s009",
+        "s043",
+        "s034",
+        "s021"
+      ],
+      "contacts": 51,
+      "case_id": "939e52f178688bfb",
+      "policy": "score_focus",
+      "pilot": true,
+      "prefix": [
+        "s006",
+        "s022",
+        "s020",
+        "s038"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 1,
+      "AUROC": 0.9236111111111112,
+      "average_precision": 0.5575757575757576,
+      "queries": [
+        "s006",
+        "s022",
+        "s020",
+        "s038",
+        "s034",
+        "s009",
+        "s043",
+        "s021"
+      ],
+      "contacts": 51,
+      "case_id": "939e52f178688bfb",
+      "policy": "single",
+      "pilot": true,
+      "prefix": [
+        "s006",
+        "s022",
+        "s020",
+        "s038"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 1,
+      "AUROC": 0.8888888888888888,
+      "average_precision": 0.33333333333333337,
+      "queries": [
+        "s006",
+        "s022",
+        "s020",
+        "s038",
+        "s034",
+        "s042",
+        "s009",
+        "s021"
+      ],
+      "contacts": 51,
+      "case_id": "939e52f178688bfb",
+      "policy": "uncertainty",
+      "pilot": true,
+      "prefix": [
+        "s006",
+        "s022",
+        "s020",
+        "s038"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 4,
+      "AUROC": 0.8632478632478633,
+      "average_precision": 0.6347789159966662,
+      "queries": [
+        "s035",
+        "s028",
+        "s036",
+        "s013",
+        "s007",
+        "s005",
+        "s025",
+        "s018"
+      ],
+      "contacts": 48,
+      "case_id": "c8786c64fa785e16",
+      "policy": "coverage",
+      "pilot": true,
+      "prefix": [
+        "s035",
+        "s028",
+        "s036",
+        "s013"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 4,
+      "AUROC": 0.8632478632478633,
+      "average_precision": 0.6347789159966662,
+      "queries": [
+        "s035",
+        "s028",
+        "s036",
+        "s013",
+        "s007",
+        "s005",
+        "s025",
+        "s018"
+      ],
+      "contacts": 48,
+      "case_id": "c8786c64fa785e16",
+      "policy": "multi",
+      "pilot": true,
+      "prefix": [
+        "s035",
+        "s028",
+        "s036",
+        "s013"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 6,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 4,
+      "AUROC": 0.8632478632478633,
+      "average_precision": 0.6347789159966662,
+      "queries": [
+        "s035",
+        "s028",
+        "s036",
+        "s013",
+        "s007",
+        "s005",
+        "s025",
+        "s018"
+      ],
+      "contacts": 48,
+      "case_id": "c8786c64fa785e16",
+      "policy": "multi_reason_hidden",
+      "pilot": true,
+      "prefix": [
+        "s035",
+        "s028",
+        "s036",
+        "s013"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 4,
+      "AUROC": 0.8347578347578348,
+      "average_precision": 0.6604809388142722,
+      "queries": [
+        "s035",
+        "s028",
+        "s036",
+        "s013",
+        "s006",
+        "s018",
+        "s005",
+        "s014"
+      ],
+      "contacts": 48,
+      "case_id": "c8786c64fa785e16",
+      "policy": "random_0",
+      "pilot": true,
+      "prefix": [
+        "s035",
+        "s028",
+        "s036",
+        "s013"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 4,
+      "AUROC": 0.8148148148148148,
+      "average_precision": 0.6866458644236422,
+      "queries": [
+        "s035",
+        "s028",
+        "s036",
+        "s013",
+        "s025",
+        "s000",
+        "s031",
+        "s023"
+      ],
+      "contacts": 48,
+      "case_id": "c8786c64fa785e16",
+      "policy": "random_1",
+      "pilot": true,
+      "prefix": [
+        "s035",
+        "s028",
+        "s036",
+        "s013"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 4,
+      "AUROC": 0.811965811965812,
+      "average_precision": 0.46803926188859113,
+      "queries": [
+        "s035",
+        "s028",
+        "s036",
+        "s013",
+        "s005",
+        "s007",
+        "s025",
+        "s004"
+      ],
+      "contacts": 48,
+      "case_id": "c8786c64fa785e16",
+      "policy": "score_focus",
+      "pilot": true,
+      "prefix": [
+        "s035",
+        "s028",
+        "s036",
+        "s013"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 4,
+      "AUROC": 0.8831908831908831,
+      "average_precision": 0.7387007943273928,
+      "queries": [
+        "s035",
+        "s028",
+        "s036",
+        "s013",
+        "s015",
+        "s025",
+        "s012",
+        "s023"
+      ],
+      "contacts": 48,
+      "case_id": "c8786c64fa785e16",
+      "policy": "single",
+      "pilot": true,
+      "prefix": [
+        "s035",
+        "s028",
+        "s036",
+        "s013"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 4,
+      "AUROC": 0.6524216524216524,
+      "average_precision": 0.2856221750958593,
+      "queries": [
+        "s035",
+        "s028",
+        "s036",
+        "s013",
+        "s007",
+        "s005",
+        "s029",
+        "s030"
+      ],
+      "contacts": 48,
+      "case_id": "c8786c64fa785e16",
+      "policy": "uncertainty",
+      "pilot": true,
+      "prefix": [
+        "s035",
+        "s028",
+        "s036",
+        "s013"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 0,
+      "AUROC": 0.6027397260273973,
+      "average_precision": 0.12596462361168242,
+      "queries": [
+        "s009",
+        "s030",
+        "s039",
+        "s037",
+        "s019",
+        "s005",
+        "s051",
+        "s016"
+      ],
+      "contacts": 78,
+      "case_id": "f4dfd28099df0b9b",
+      "policy": "coverage",
+      "pilot": true,
+      "prefix": [
+        "s009",
+        "s030",
+        "s039",
+        "s037"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 0,
+      "AUROC": 0.441095890410959,
+      "average_precision": 0.06780318135222078,
+      "queries": [
+        "s009",
+        "s030",
+        "s039",
+        "s037",
+        "s020",
+        "s005",
+        "s017",
+        "s051"
+      ],
+      "contacts": 78,
+      "case_id": "f4dfd28099df0b9b",
+      "policy": "multi",
+      "pilot": true,
+      "prefix": [
+        "s009",
+        "s030",
+        "s039",
+        "s037"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 0,
+      "AUROC": 0.441095890410959,
+      "average_precision": 0.06780318135222078,
+      "queries": [
+        "s009",
+        "s030",
+        "s039",
+        "s037",
+        "s020",
+        "s005",
+        "s051",
+        "s017"
+      ],
+      "contacts": 78,
+      "case_id": "f4dfd28099df0b9b",
+      "policy": "multi_reason_hidden",
+      "pilot": true,
+      "prefix": [
+        "s009",
+        "s030",
+        "s039",
+        "s037"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 6,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 0,
+      "AUROC": 0.5945205479452056,
+      "average_precision": 0.09980853033484613,
+      "queries": [
+        "s009",
+        "s030",
+        "s039",
+        "s037",
+        "s013",
+        "s024",
+        "s064",
+        "s032"
+      ],
+      "contacts": 78,
+      "case_id": "f4dfd28099df0b9b",
+      "policy": "random_0",
+      "pilot": true,
+      "prefix": [
+        "s009",
+        "s030",
+        "s039",
+        "s037"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 0,
+      "AUROC": 0.7616438356164383,
+      "average_precision": 0.3932078257659653,
+      "queries": [
+        "s009",
+        "s030",
+        "s039",
+        "s037",
+        "s045",
+        "s040",
+        "s000",
+        "s056"
+      ],
+      "contacts": 78,
+      "case_id": "f4dfd28099df0b9b",
+      "policy": "random_1",
+      "pilot": true,
+      "prefix": [
+        "s009",
+        "s030",
+        "s039",
+        "s037"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 0,
+      "AUROC": 0.5917808219178082,
+      "average_precision": 0.0992470760233918,
+      "queries": [
+        "s009",
+        "s030",
+        "s039",
+        "s037",
+        "s018",
+        "s064",
+        "s052",
+        "s016"
+      ],
+      "contacts": 78,
+      "case_id": "f4dfd28099df0b9b",
+      "policy": "score_focus",
+      "pilot": true,
+      "prefix": [
+        "s009",
+        "s030",
+        "s039",
+        "s037"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 0,
+      "AUROC": 0.5780821917808219,
+      "average_precision": 0.0937973137973138,
+      "queries": [
+        "s009",
+        "s030",
+        "s039",
+        "s037",
+        "s018",
+        "s005",
+        "s052",
+        "s016"
+      ],
+      "contacts": 78,
+      "case_id": "f4dfd28099df0b9b",
+      "policy": "single",
+      "pilot": true,
+      "prefix": [
+        "s009",
+        "s030",
+        "s039",
+        "s037"
+      ],
+      "LLM_attempts": 8,
+      "accepted_model_outputs": 7,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    },
+    {
+      "outer": 0,
+      "AUROC": 0.441095890410959,
+      "average_precision": 0.06780318135222078,
+      "queries": [
+        "s009",
+        "s030",
+        "s039",
+        "s037",
+        "s020",
+        "s005",
+        "s051",
+        "s017"
+      ],
+      "contacts": 78,
+      "case_id": "f4dfd28099df0b9b",
+      "policy": "uncertainty",
+      "pilot": true,
+      "prefix": [
+        "s009",
+        "s030",
+        "s039",
+        "s037"
+      ],
+      "LLM_attempts": 0,
+      "accepted_model_outputs": 0,
+      "native_public_queries": 8,
+      "measurements": 8,
+      "adaptive_measurements": 4,
+      "native_artifacts": 24
+    }
+  ],
+  "multi_agent_superiority_established": false,
+  "clinical_benefit_established": false
+}

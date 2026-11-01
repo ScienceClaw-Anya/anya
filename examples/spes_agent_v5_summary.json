@@ -1,0 +1,305 @@
+{
+  "status": "completed_negative_not_adopted",
+  "patients": 35,
+  "new_fits": 10,
+  "new_API_calls": 0,
+  "methods": {
+    "random_0": {
+      "old_hat": {
+        "mean_patient_AUROC": 0.7356602733528027,
+        "gain_over_old_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "patients_better": 0,
+        "patients_worse": 0
+      },
+      "sparse_baseline": {
+        "mean_patient_AUROC": 0.7008990080554527,
+        "gain_over_old_hat": -0.03476126529735,
+        "paired_95CI": [
+          -0.0871946316880891,
+          0.01669946272894365
+        ],
+        "patients_better": 13,
+        "patients_worse": 21
+      },
+      "sparse_hat": {
+        "mean_patient_AUROC": 0.6184115072106011,
+        "gain_over_old_hat": -0.11724876614220162,
+        "paired_95CI": [
+          -0.18718236270230054,
+          -0.05048790933599992
+        ],
+        "patients_better": 11,
+        "patients_worse": 23
+      },
+      "sparse_rank_mean": {
+        "mean_patient_AUROC": 0.7012446423783244,
+        "gain_over_old_hat": -0.0344156309744784,
+        "paired_95CI": [
+          -0.09113376155508039,
+          0.020750137961950268
+        ],
+        "patients_better": 14,
+        "patients_worse": 20
+      }
+    },
+    "random_1": {
+      "old_hat": {
+        "mean_patient_AUROC": 0.7157786288629633,
+        "gain_over_old_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "patients_better": 0,
+        "patients_worse": 0
+      },
+      "sparse_baseline": {
+        "mean_patient_AUROC": 0.7090110034672925,
+        "gain_over_old_hat": -0.006767625395670689,
+        "paired_95CI": [
+          -0.07909992225042464,
+          0.06705210544353285
+        ],
+        "patients_better": 16,
+        "patients_worse": 18
+      },
+      "sparse_hat": {
+        "mean_patient_AUROC": 0.6081244755200496,
+        "gain_over_old_hat": -0.10765415334291364,
+        "paired_95CI": [
+          -0.1789815836810157,
+          -0.03994142741788895
+        ],
+        "patients_better": 9,
+        "patients_worse": 26
+      },
+      "sparse_rank_mean": {
+        "mean_patient_AUROC": 0.6921659424774573,
+        "gain_over_old_hat": -0.023612686385505857,
+        "paired_95CI": [
+          -0.08703782590493193,
+          0.04084253267362102
+        ],
+        "patients_better": 14,
+        "patients_worse": 21
+      }
+    },
+    "coverage": {
+      "old_hat": {
+        "mean_patient_AUROC": 0.693128898285139,
+        "gain_over_old_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "patients_better": 0,
+        "patients_worse": 0
+      },
+      "sparse_baseline": {
+        "mean_patient_AUROC": 0.6570910143550078,
+        "gain_over_old_hat": -0.036037883930131104,
+        "paired_95CI": [
+          -0.10345658092610403,
+          0.031366561917410885
+        ],
+        "patients_better": 16,
+        "patients_worse": 18
+      },
+      "sparse_hat": {
+        "mean_patient_AUROC": 0.5981724384359219,
+        "gain_over_old_hat": -0.09495645984921715,
+        "paired_95CI": [
+          -0.1625306741244086,
+          -0.026532935727431307
+        ],
+        "patients_better": 11,
+        "patients_worse": 23
+      },
+      "sparse_rank_mean": {
+        "mean_patient_AUROC": 0.6598989679234175,
+        "gain_over_old_hat": -0.03322993036172137,
+        "paired_95CI": [
+          -0.09365043602011718,
+          0.02368292866079587
+        ],
+        "patients_better": 13,
+        "patients_worse": 21
+      }
+    },
+    "score_focus": {
+      "old_hat": {
+        "mean_patient_AUROC": 0.7091894666836875,
+        "gain_over_old_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "patients_better": 0,
+        "patients_worse": 0
+      },
+      "sparse_baseline": {
+        "mean_patient_AUROC": 0.7017576681196654,
+        "gain_over_old_hat": -0.007431798564021982,
+        "paired_95CI": [
+          -0.07618211434034337,
+          0.05985450541705051
+        ],
+        "patients_better": 16,
+        "patients_worse": 16
+      },
+      "sparse_hat": {
+        "mean_patient_AUROC": 0.602795524260305,
+        "gain_over_old_hat": -0.10639394242338221,
+        "paired_95CI": [
+          -0.17727416610305724,
+          -0.03892433434064796
+        ],
+        "patients_better": 11,
+        "patients_worse": 23
+      },
+      "sparse_rank_mean": {
+        "mean_patient_AUROC": 0.6907259372081027,
+        "gain_over_old_hat": -0.018463529475584696,
+        "paired_95CI": [
+          -0.07900438568997271,
+          0.03845011082006766
+        ],
+        "patients_better": 16,
+        "patients_worse": 18
+      }
+    },
+    "uncertainty": {
+      "old_hat": {
+        "mean_patient_AUROC": 0.7129486069636803,
+        "gain_over_old_hat": 0.0,
+        "paired_95CI": [
+          0.0,
+          0.0
+        ],
+        "patients_better": 0,
+        "patients_worse": 0
+      },
+      "sparse_baseline": {
+        "mean_patient_AUROC": 0.6717522862549262,
+        "gain_over_old_hat": -0.04119632070875409,
+        "paired_95CI": [
+          -0.11449683898581874,
+          0.03313460870136489
+        ],
+        "patients_better": 15,
+        "patients_worse": 18
+      },
+      "sparse_hat": {
+        "mean_patient_AUROC": 0.5994009752201898,
+        "gain_over_old_hat": -0.11354763174349057,
+        "paired_95CI": [
+          -0.17820602509251085,
+          -0.047808560583803346
+        ],
+        "patients_better": 9,
+        "patients_worse": 25
+      },
+      "sparse_rank_mean": {
+        "mean_patient_AUROC": 0.6758786311980498,
+        "gain_over_old_hat": -0.03706997576563047,
+        "paired_95CI": [
+          -0.10400460152570028,
+          0.02521537831109945
+        ],
+        "patients_better": 13,
+        "patients_worse": 21
+      }
+    }
+  },
+  "fits": [
+    {
+      "outer": 0,
+      "family": "baseline",
+      "best_epoch": 1,
+      "best_validation_AUROC": 0.7310910128207568,
+      "seconds": 17.70600900007412
+    },
+    {
+      "outer": 0,
+      "family": "hat",
+      "best_epoch": 1,
+      "best_validation_AUROC": 0.6125691997760228,
+      "seconds": 48.126050000078976
+    },
+    {
+      "outer": 1,
+      "family": "baseline",
+      "best_epoch": 18,
+      "best_validation_AUROC": 0.6605830287615606,
+      "seconds": 64.64472979982384
+    },
+    {
+      "outer": 1,
+      "family": "hat",
+      "best_epoch": 2,
+      "best_validation_AUROC": 0.506531665546714,
+      "seconds": 50.65645750006661
+    },
+    {
+      "outer": 2,
+      "family": "baseline",
+      "best_epoch": 2,
+      "best_validation_AUROC": 0.7230561846457363,
+      "seconds": 18.249112700112164
+    },
+    {
+      "outer": 2,
+      "family": "hat",
+      "best_epoch": 25,
+      "best_validation_AUROC": 0.7537439635909666,
+      "seconds": 200.06645420007408
+    },
+    {
+      "outer": 3,
+      "family": "baseline",
+      "best_epoch": 8,
+      "best_validation_AUROC": 0.768556538089642,
+      "seconds": 38.56645300006494
+    },
+    {
+      "outer": 3,
+      "family": "hat",
+      "best_epoch": 2,
+      "best_validation_AUROC": 0.6461291734933168,
+      "seconds": 56.26678940001875
+    },
+    {
+      "outer": 4,
+      "family": "baseline",
+      "best_epoch": 3,
+      "best_validation_AUROC": 0.7426183058161462,
+      "seconds": 23.467572499997914
+    },
+    {
+      "outer": 4,
+      "family": "hat",
+      "best_epoch": 13,
+      "best_validation_AUROC": 0.704760839583742,
+      "seconds": 126.86309859994799
+    }
+  ],
+  "audit": {
+    "verified": true,
+    "new_neural_fits": 10,
+    "heldout_patients": 35,
+    "fixed_query_sets": 175,
+    "new_API_calls": 0,
+    "checks": [
+      "Disjoint train/early-stop/test patients",
+      "Checkpoint/protocol hashes",
+      "First maximum validation epoch",
+      "Exact label alignment",
+      "Independent pairwise AUROC for all methods/sequences"
+    ],
+    "not_claimed": "Bitwise training reproduction or external clinical validation"
+  }
+}

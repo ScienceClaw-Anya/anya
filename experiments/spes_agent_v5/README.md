@@ -35,3 +35,11 @@ Separately, v4's sequential single-agent controller had seven opportunities to
 react between queries, while its batch collaboration controller had one.
 Any later collaboration redesign should match the feedback schedule as well
 as request and measurement budgets. The historical v4 comparison stays frozen.
+
+## Completed result
+
+All ten fits and 175 fixed held-out measurement sets completed and passed
+independent AUROC/provenance audits. On the primary random_0 sequence, sparse
+HAT scored **0.6184**, versus the original HAT **0.7357** (gain -0.1172,
+95% interval [-0.1872, -0.0505]). These weights are not adopted. See the
+[English negative-result report](../../docs/spes-agent-v5-report.md).

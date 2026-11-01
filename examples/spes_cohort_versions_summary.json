@@ -1,0 +1,127 @@
+{
+  "scope": "Nested cohort-quality check supporting the existing research reports; no extra report/dashboard",
+  "grain": "One contact row per patient per processed-data version, using actual first-repeat outer scoring files",
+  "old": {
+    "patients": 35,
+    "contacts": 2145,
+    "SOZ": 304,
+    "patient_ids": [
+      7,
+      15,
+      17,
+      21,
+      26,
+      28,
+      29,
+      31,
+      33,
+      35,
+      36,
+      37,
+      38,
+      40,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      51,
+      52,
+      53,
+      55,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      65,
+      69
+    ]
+  },
+  "new": {
+    "patients": 35,
+    "contacts": 2117,
+    "SOZ": 296,
+    "patient_ids": [
+      7,
+      15,
+      17,
+      21,
+      26,
+      28,
+      29,
+      31,
+      33,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      44,
+      45,
+      46,
+      48,
+      49,
+      51,
+      52,
+      53,
+      55,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      65,
+      69
+    ]
+  },
+  "shared_patients": 34,
+  "old_only_patients": [
+    47
+  ],
+  "new_only_patients": [
+    39
+  ],
+  "unique_coordinate_matches_in_shared_patients": 2036,
+  "label_disagreements_in_unique_matches": 0,
+  "coordinate_mapping_limit": "Only unique reciprocal matches within 0.001 coordinate units. Coordinate reference frames were not independently re-registered. Unmatched contacts are unresolved, not proven distinct.",
+  "ignored_author_file": {
+    "name": "ignore_X_ccepAgeUMCU47.npz",
+    "shape": [
+      14,
+      40,
+      11,
+      641
+    ],
+    "dtype": "float32",
+    "labels": 14,
+    "SOZ": 5,
+    "handling": "Not included: author default X_* discovery excludes ignore_X_*. Reason for the ignore prefix has not been established; labels contain both classes."
+  },
+  "findings": [
+    {
+      "finding": "Patient composition and contact denominators differ between versions",
+      "severity": "high for cross-version score comparisons",
+      "evidence": "Direct rosters and scored labels; source hashes retained",
+      "impact": "Old/new AUROCs cannot be interpreted as an isolated architecture effect.",
+      "remediation": "Keep model/policy comparisons within one version; disclose cohort differences; do not pool or reindex contacts across versions."
+    },
+    {
+      "finding": "Within the new experiments, all scorers use the same current cohort",
+      "severity": "no cohort-integrity defect found",
+      "evidence": "Existing independent v4/v5/v6/v7 label-alignment and patient-isolation audits",
+      "impact": "Current same-version comparisons remain interpretable within their exploratory scope."
+    }
+  ],
+  "source_script_sha256": "18bb2921dd5dcb0a52c558c6d6a5083d61a3032da92e04fa6df08f9bfee97651"
+}
