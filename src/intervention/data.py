@@ -41,7 +41,6 @@ def load_recording(root,subject='sub-003',run='01'):
     with zipfile.ZipFile(p/'struct'/f'{subject}_connectome.zip') as z:
         labels=tuple(l.split()[0] for l in z.read('centres.txt').decode().splitlines())
         weights,scale=normalized_weights(np.loadtxt(z.open('weights.txt')))
-        volumes=np.loadtxt(z.open('volumes.txt'))
     atlas=list(csv.DictReader((root/'vep_atlas.tsv').open(),delimiter='\t'))
     atlas_names=tuple(row['region_name'] for row in atlas if int(row['label'])>0)
     if labels!=atlas_names:

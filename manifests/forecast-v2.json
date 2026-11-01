@@ -1,0 +1,17 @@
+{
+  "version": "forecast-v2",
+  "phase": "observation_only_development_forecasting_baseline",
+  "subjects": ["sub-003", "sub-010"],
+  "recording": "ses-01 clinicalhypothesis run-01",
+  "model": "Two-coefficient linear sensor dynamics induced by anatomical gain and graph Laplacian; not fitted Epileptor or a therapeutic intervention planner",
+  "inputs": ["connectome", "gain", "electrode names", "synthetic SEEG", "atlas"],
+  "forbidden_inputs": ["generator parameters", "source trajectories", "clinical labels", "intervention results"],
+  "split": "First 60% training; next 20% validation; final 20% development test. Omit first 50 samples of each later block as embargo.",
+  "selection": "Choose anatomical inverse ridge from [1e-6,1e-4,1e-2,1] by validation MSE at 10-sample forecast horizon; deterministic first tie",
+  "networks": ["personal", "single_development_donor", "permuted_personal_seed3001", "zero"],
+  "comparators": ["last_observation_persistence", "training_mean", "scalar_autoregression_zero_network"],
+  "evaluation_horizons_samples": [1, 10, 50],
+  "units": "Samples only, no physical-time interpretation",
+  "claims": "Exploratory within-recording forecast errors and sensitivity to connectivity. No independent patient evaluation, parameter recovery, intervention benefit or clinical benefit.",
+  "runtime": "One GCP CPU thread, within shared development-v2 3600-second wall cap; max 120 seconds for this baseline"
+}
