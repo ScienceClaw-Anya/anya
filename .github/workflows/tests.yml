@@ -88,3 +88,6 @@ jobs:
       - run: python -m unittest experiments.spes_agent_v16_supplement.test_supplement -v
         env:
           PYTHONUTF8: '1'
+      - run: python -m unittest experiments.spes_agent_v17.test_ranking experiments.spes_matched_2024.test_matched -v
+        env:
+          PYTHONUTF8: '1'

@@ -8,6 +8,28 @@ The project integrates public VEP data, Epileptor simulations, trained EEG model
 
 **Research prototype: the diagnostic benchmark scores a generator-defined susceptibility reference, using a fixed SEEG-only response-ranking heuristic. Clinical localization accuracy and treatment benefit have not been established.**
 
+## Complete-cohort comparison now running
+
+The [new same-input benchmark](experiments/spes_matched_2024/README.md) uses the
+original **35 patients, 2,145 contacts and 304 SOZ labels** that produced the
+**0.7201** Transformer reconstruction. It freezes all 25 original splits and
+reuses their baseline predictions by hash, then trains 25 mean-input HAT fits
+with the original normalization and training rules. The legacy summaries cannot
+supply true individual trials. Test outcomes stay sealed until all fits finish.
+This is a numerical architecture comparison, not evidence for agent value.
+
+The newer physical-query cohort has **2,117 contacts and 296 SOZ labels** and only
+34 patients overlap the original cohort. Its 0.7620 score-focus result and the
+five-patient 0.8119 result cannot establish an improvement over 0.7201. All new
+work here runs locally without model API calls.
+
+The [relative query-ranking experiment](docs/spes-agent-v17-report.md) completed
+25 small fits and 105 physical trajectories. The specialist panel scored
+**0.7421**, versus all-feature pairwise **0.7573**, pointwise **0.7525**, and
+frozen score-focus **0.7620**. The fixed gate fails. Independent auditing verified
+20 pairwise models through equivalent centered loss, refitted five controls and
+replayed all 420 adaptive choices. No new weights are adopted.
+
 ## Schema-constrained acquisition follow-up
 
 The sparse-training follow-up completed ten fits without improvement; those
