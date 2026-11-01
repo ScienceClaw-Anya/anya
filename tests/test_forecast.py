@@ -30,3 +30,26 @@ def test_multistep_forecast_uses_only_origin_and_training():
     manual=origin.copy()
     for _ in range(10): manual=(manual-m.mean)@m.transition.T+m.mean
     np.testing.assert_allclose(p,manual,atol=1e-12)
+
+
+def test_recording_loader_does_not_require_hidden_assets(tmp_path,monkeypatch):
+    import zipfile
+    from intervention.data import load_recording
+    root=tmp_path/'VirtualEpilepticCohort'
+    anatomy=root/'derivatives/tvb/sub-003/struct'
+    anatomy.mkdir(parents=True)
+    (root/'sub-003/ses-01/ieeg').mkdir(parents=True)
+    (root/'vep_atlas.tsv').write_text('label\tregion_name\n1\tA\n2\tB\n3\tC\n')
+    with zipfile.ZipFile(anatomy/'sub-003_connectome.zip','w') as z:
+        z.writestr('centres.txt','A 0 0 0\nB 1 0 0\nC 0 1 0\n')
+        z.writestr('weights.txt','0 1 0\n1 0 1\n0 1 0\n')
+    np.savetxt(anatomy/'sub-003_gain.txt',np.arange(12).reshape(4,3)+1.)
+    (root/'sub-003/sub-003_electrodes.tsv').write_text('name\nA1\nA2\nB1\nB2\n')
+    prefix=root/'sub-003/ses-01/ieeg/sub-003_ses-01_task-simulatedseizure_acq-clinicalhypothesis_run-01_ieeg'
+    prefix.with_suffix('.vhdr').write_text('DataOrientation=MULTIPLEXED\nBinaryFormat=IEEE_FLOAT_32\nCh1=A1-2,,0.1,µV\nCh2=B1-2,,0.1,µV\n')
+    np.arange(20,dtype='<f4').tofile(prefix.with_suffix('.eeg'))
+    def forbidden(*args,**kwargs): raise AssertionError('NPZ/source access forbidden')
+    monkeypatch.setattr(np,'load',forbidden)
+    observation=load_recording(tmp_path)
+    assert observation.sensors.shape==(10,2)
+    assert isinstance(observation,PlannerObservation)
