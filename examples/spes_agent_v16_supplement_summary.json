@@ -1,0 +1,276 @@
+{
+  "scope": "Posthoc diagnostics, not executable agent performance",
+  "budget": {
+    "full35": {
+      "random_0": {
+        "mean": 0.0354325604833597,
+        "paired_95CI": [
+          -0.010099089430787422,
+          0.08140272467103712
+        ],
+        "patients": 35,
+        "mean_AUROC4": 0.7050305880701305,
+        "mean_AUROC8": 0.7404631485534902,
+        "patients_improved": 18,
+        "patients_worse": 16
+      },
+      "random_1": {
+        "mean": 0.039906860816128924,
+        "paired_95CI": [
+          0.001371095933498466,
+          0.07868449238474014
+        ],
+        "patients": 35,
+        "mean_AUROC4": 0.7050305880701305,
+        "mean_AUROC8": 0.7449374488862595,
+        "patients_improved": 24,
+        "patients_worse": 11
+      },
+      "coverage": {
+        "mean": 0.04845525693153735,
+        "paired_95CI": [
+          0.002032000643778157,
+          0.09583452772362523
+        ],
+        "patients": 35,
+        "mean_AUROC4": 0.7050305880701305,
+        "mean_AUROC8": 0.7534858450016678,
+        "patients_improved": 25,
+        "patients_worse": 10
+      },
+      "score_focus": {
+        "mean": 0.0569470070467719,
+        "paired_95CI": [
+          0.016647981410789197,
+          0.09849324419851482
+        ],
+        "patients": 35,
+        "mean_AUROC4": 0.7050305880701305,
+        "mean_AUROC8": 0.7619775951169024,
+        "patients_improved": 25,
+        "patients_worse": 9
+      },
+      "uncertainty": {
+        "mean": 0.05396646213152075,
+        "paired_95CI": [
+          0.009109636512085397,
+          0.10138522359498991
+        ],
+        "patients": 35,
+        "mean_AUROC4": 0.7050305880701305,
+        "mean_AUROC8": 0.7589970502016513,
+        "patients_improved": 26,
+        "patients_worse": 9
+      }
+    },
+    "pilot5": {
+      "random_0": {
+        "mean": -0.008843531836816122,
+        "paired_95CI": [
+          -0.1043884295003578,
+          0.08241758241758239
+        ],
+        "patients": 5,
+        "mean_AUROC4": 0.8067612991421754,
+        "mean_AUROC8": 0.7979177673053591,
+        "patients_improved": 2,
+        "patients_worse": 3
+      },
+      "random_1": {
+        "mean": -0.03016197106379388,
+        "paired_95CI": [
+          -0.1406345067362016,
+          0.04504342617550168
+        ],
+        "patients": 5,
+        "mean_AUROC4": 0.8067612991421754,
+        "mean_AUROC8": 0.7765993280783814,
+        "patients_improved": 3,
+        "patients_worse": 2
+      },
+      "coverage": {
+        "mean": -0.0009619630981958727,
+        "paired_95CI": [
+          -0.12130284969268013,
+          0.09319982952058421
+        ],
+        "patients": 5,
+        "mean_AUROC4": 0.8067612991421754,
+        "mean_AUROC8": 0.8057993360439795,
+        "patients_improved": 3,
+        "patients_worse": 2
+      },
+      "score_focus": {
+        "mean": 0.005178497727266506,
+        "paired_95CI": [
+          -0.06408279653402774,
+          0.07166470845716129
+        ],
+        "patients": 5,
+        "mean_AUROC4": 0.8067612991421754,
+        "mean_AUROC8": 0.8119397968694418,
+        "patients_improved": 3,
+        "patients_worse": 2
+      },
+      "uncertainty": {
+        "mean": -0.01765915479538758,
+        "paired_95CI": [
+          -0.12528248587570615,
+          0.06881033013108487
+        ],
+        "patients": 5,
+        "mean_AUROC4": 0.8067612991421754,
+        "mean_AUROC8": 0.7891021443467878,
+        "patients_improved": 3,
+        "patients_worse": 2
+      },
+      "single": {
+        "mean": -0.01121889072800486,
+        "paired_95CI": [
+          -0.13024823575671024,
+          0.08962840094915563
+        ],
+        "patients": 5,
+        "mean_AUROC4": 0.8067612991421754,
+        "mean_AUROC8": 0.7955424084141705,
+        "patients_improved": 3,
+        "patients_worse": 2
+      },
+      "multi": {
+        "mean": -0.012347799484032284,
+        "paired_95CI": [
+          -0.13115897888843195,
+          0.09316930449005918
+        ],
+        "patients": 5,
+        "mean_AUROC4": 0.8067612991421754,
+        "mean_AUROC8": 0.7944134996581431,
+        "patients_improved": 3,
+        "patients_worse": 2
+      },
+      "multi_reason_hidden": {
+        "mean": -0.007982720118952912,
+        "paired_95CI": [
+          -0.12679389952335257,
+          0.09316930449005918
+        ],
+        "patients": 5,
+        "mean_AUROC4": 0.8067612991421754,
+        "mean_AUROC8": 0.7987785790232225,
+        "patients_improved": 3,
+        "patients_worse": 2
+      }
+    }
+  },
+  "candidate_oracle": {
+    "single": {
+      "mean_actual_AUROC8": 0.7955424084141705,
+      "mean_proposal_oracle_AUROC8": 0.8395429464825052,
+      "mean_matched_random_oracle_AUROC8": 0.8337974211766985,
+      "mean_proposal_pool_size": 3.2,
+      "oracle_minus_actual": {
+        "mean": 0.04400053806833466,
+        "paired_95CI": [
+          0.005952380952380931,
+          0.09906510626849607
+        ],
+        "patients": 5
+      },
+      "oracle_minus_matched_random_oracle": {
+        "mean": 0.00574552530580672,
+        "paired_95CI": [
+          -0.019072246021398544,
+          0.034380053908355857
+        ],
+        "patients": 5
+      },
+      "score_focus_minus_actual": {
+        "mean": 0.0011299435028248484,
+        "paired_95CI": [
+          0.0,
+          0.003389830508474545
+        ],
+        "patients": 5
+      }
+    },
+    "multi": {
+      "mean_actual_AUROC8": 0.7944134996581431,
+      "mean_proposal_oracle_AUROC8": 0.8456784776180364,
+      "mean_matched_random_oracle_AUROC8": 0.8243886598779468,
+      "mean_proposal_pool_size": 3.6,
+      "oracle_minus_actual": {
+        "mean": 0.051264977959893196,
+        "paired_95CI": [
+          0.00641025641025641,
+          0.10361178369652943
+        ],
+        "patients": 5
+      },
+      "oracle_minus_matched_random_oracle": {
+        "mean": 0.021289817740089534,
+        "paired_95CI": [
+          -0.002480081124148925,
+          0.05484449512751397
+        ],
+        "patients": 5
+      },
+      "score_focus_minus_actual": {
+        "mean": 0.000274725274725296,
+        "paired_95CI": [
+          -0.015476190476190399,
+          0.013369963369963411
+        ],
+        "patients": 5
+      }
+    },
+    "multi_reason_hidden": {
+      "mean_actual_AUROC8": 0.7987785790232225,
+      "mean_proposal_oracle_AUROC8": 0.8127285179731615,
+      "mean_matched_random_oracle_AUROC8": 0.7875362444470215,
+      "mean_proposal_pool_size": 3.4,
+      "oracle_minus_actual": {
+        "mean": 0.013949938949938966,
+        "paired_95CI": [
+          0.0,
+          0.029029304029304082
+        ],
+        "patients": 5
+      },
+      "oracle_minus_matched_random_oracle": {
+        "mean": 0.025192273526139862,
+        "paired_95CI": [
+          -0.0010744810744810706,
+          0.0514590281267608
+        ],
+        "patients": 5
+      },
+      "score_focus_minus_actual": {
+        "mean": -0.0021062271062270987,
+        "paired_95CI": [
+          -0.017857142857142794,
+          0.011538461538461497
+        ],
+        "patients": 5
+      }
+    }
+  },
+  "audit": {
+    "status": "verified",
+    "budget_patient_policy_rows": 190,
+    "conditional_oracle_rows": 15,
+    "local_counterfactual_predictions": 197,
+    "unchanged_original_API_attempts": 120,
+    "new_API_calls": 0,
+    "checks": [
+      "Frozen sources and all completed input hashes; paired patient-level four-to-eight metrics independently recomputed.",
+      "Every conditional candidate/random pool, cache key and true-label AUROC independently reconstructed.",
+      "All reported gap bootstrap intervals reproduced with an independent loop; original API count remains120."
+    ],
+    "limits": [
+      "New counterfactual neural outputs were checked from stored predictions; actual executed choices were matched to the separately re-inferred v16 audit.",
+      "The oracle uses true labels and is not executable agent accuracy or a full-trajectory upper bound."
+    ]
+  },
+  "new_API_calls": 0,
+  "multi_agent_superiority_established": false
+}

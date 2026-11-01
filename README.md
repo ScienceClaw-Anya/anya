@@ -97,6 +97,17 @@ run. Nine offline tests pass; code and aggregate results are committed, while
 requests and patient-derived traces stay local. Twenty-one ambiguous recording
 names remain explicit. See [reproducible commands](experiments/spes_agent_v16/README.md).
 
+The [presentation supplement](docs/spes-agent-v16-supplement.md) adds two
+zero-API diagnostics and ready-to-use PNG/SVG figures. On35patients, numerical
+score-focus improves from four-group0.7050 to eight-group0.7620 (paired gain
+**+0.0569**, nominal95%interval **[+0.0166,+0.0985]**). The five-patient pilot
+already starts at0.8068, so its marginal measurement gains are uncertain.
+A true-label final-query oracle finds selection room within multi proposals
+(0.8457 versus executed0.7944), but proposal-pool quality versus matched-size
+random pools remains uncertain. This is a privileged posthoc diagnostic,
+**not executable agent accuracy**. All190budget rows and197local counterfactual
+predictions passed independent metric/pool auditing. Original API attempts stay120.
+
 ## Current research: complementary models and real-feedback acquisition
 
 The [v4 research track](experiments/spes_agent_v4/README.md) preserves all earlier
