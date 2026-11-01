@@ -4,6 +4,27 @@ This track reconstructs **SPES-based SOZ electrode classification** from [Norris
 
 **Current status:** all 48 public BrainVision recordings for the 36 SOZ-labelled metadata candidates have been downloaded and checksum-verified. Original preprocessing retains 35 patients, **2,145 electrodes and 304 SOZ-positive electrodes**. The paper reports **35 / 2,066 / 298**. This is a real unresolved replication discrepancy. No contacts have been removed to force agreement, and no paper accuracy has been presented as an executed result.
 
+## Completed results
+
+All **75 numerical training/evaluation runs**, **175 held-out agent cases** (35 patients across five repeats) and **2,800 formal request attempts** are complete. Independent replay verified source hashes, patient separation, label order, scoring, budgets and all **2,975 native ScienceClaw artifacts**. Eight offline scoring and isolation tests pass.
+
+| Method | Published AUROC | Observed mean patient AUROC |
+|---|---:|---:|
+| CNN (divergent) | 0.574 | 0.5745 |
+| CNN (convergent) | 0.666 | 0.6369 |
+| Transformer (base) | 0.730 | 0.7201 |
+| fixed_mean_ensemble | — | 0.6837 |
+| single | — | 0.6960 |
+| multi | — | 0.6988 |
+
+The multi-agent minus single-agent difference is **+0.0027 AUROC**, with a **95% patient-bootstrap interval [-0.0091, +0.0148]**. This interval includes zero: this protocol does **not demonstrate a consistent multi-agent advantage**. The trained Transformer has the highest mean score; its paired difference from the agent policies is also uncertain. This is SOZ ranking, not a treatment-success rate.
+
+The numerical models were trained on the training folds. Gemini was **not fine-tuned** on epilepsy: agents receive the same frozen model outputs and compact response features. Reflection uses earlier proposals and measured data, with **no held-out accuracy or label feedback**. These results do not test whether fine-tuning or active selection would help.
+
+Each policy has 1,400 attempts. Single-agent output: 1,370 accepted, 29 malformed and one uncaptured failure; multi-agent output: 1,363 accepted and 37 malformed. Every failed or invalid attempt consumes its budget and carries the previous scores. The one halted episode resumed only its unspent attempts. Unknown token use remains unknown. The separate 47-attempt token-calibration trial is excluded from all performance scores.
+
+[Portable English report](../../examples/spes_reconstruction_report.html) · [Machine-readable summary](../../examples/spes_reconstruction_summary.json). Full local evidence is under `outputs/reproduction/norris2024/`; raw recordings, annotation tables and checkpoints remain outside Git.
+
 ## Pinned sources
 
 - Official model repository: `norrisjamie23/Localising_SOZ_from_SPES`, commit `90062e8c5fe5593713125eaf5f573faedb739f65` (MIT).
@@ -38,6 +59,7 @@ $track = '.\reproduction\norris2024'
 $out = '.\outputs\reproduction\norris2024'
 $up = '.\vendor\norris2024'
 
+& $py scripts/setup_upstreams.py --only scienceclaw
 & $py "$track\prepare_sources.py" --project '.'
 & $py "$track\audit_data.py" --root '.\data\ds004080' --output "$out\data_manifest.json"
 & $py "$track\download_data.py" --metadata-root '.\data\ds004080' --raw-root '.\data\raw\ds004080' --manifest "$out\data_manifest.json" --workers 4
@@ -62,7 +84,7 @@ After all stages finish, run `verify_results.py --project .` and `final_report.p
 
 ## Agents on the same task
 
-The user authorized the complete public-code reconstruction after reviewing the cohort mismatch. `agent_comparison.py` is gated on all 75 completed primary runs. An explicit `--allow-count-mismatch` records that the agent comparison uses the public-code cohort rather than an exact paper cohort. No Gemini comparison is claimed executed until result artifacts exist.
+The user authorized the complete public-code reconstruction after reviewing the cohort mismatch. `agent_comparison.py` is gated on all 75 completed primary runs. An explicit `--allow-count-mismatch` records that the agent comparison uses the public-code cohort rather than an exact paper cohort. The completed comparison and verified evidence are summarized above.
 
 Classifier execution runs in a project wrapper; native ScienceClaw supplies `LLMClient` requests and `ArtifactStore` provenance.
 
@@ -77,16 +99,16 @@ Classifier execution runs in a project wrapper; native ScienceClaw supplies `LLM
 Run the agent stage with `.venv-repro`, which also contains the project's pinned OpenAI client, python-dotenv and PyYAML dependencies. Keep the API key in the ignored `.env`. `pipeline.py --project .` waits for all primary training evidence, runs the channel ablation and then starts the agent comparison, refreshing the English report throughout.
 
 ```powershell
-& $py "$track\agent_comparison.py" --project '.' --upstream $up --output $out --workers 2 --allow-count-mismatch
+& $py "$track\agent_comparison.py" --project '.' --upstream $up --output $out --workers 8 --allow-count-mismatch
 ```
 
-## Additional paper figures and remaining blockers
+## Additional paper figures and remaining gaps
 
 `channel_sensitivity.py` reuses saved Transformer checkpoints at 1, 2, 4, 9, 18, 37 and 74 inference channels. Patient-level bootstrap intervals average repeated evaluations within a patient before resampling; the original sampling/bootstrapping code is not published.
 
 The paper's Engel outcome analysis requires independently verified outcome labels and the exact modified model specification. Neither has been verified in the public model/data release, including the public derivative's available field names. SOZ or resection annotations must not stand in for Engel outcomes. The original spatial example's patient identity is also not stated. These stages cannot be claimed fully reproduced without the missing information.
 
-The English HTML report keeps incomplete stages visibly pending and shows published and executed values in separate columns. Matching a rounded AUROC alone would not resolve cohort or protocol differences.
+The English HTML report shows published and executed values in separate columns and explicitly identifies unreproduced analyses. Matching a rounded AUROC alone would not resolve cohort or protocol differences.
 
 
 ### Token calibration and fresh formal run
@@ -97,3 +119,6 @@ The first API trial used the inherited combined ceiling of 3,824 tokens. Six of 
 ### Budget-preserving continuation
 
 A transport/API failure halts the batch. `resume_case.py --project . --case-id CASE --dry-run` checks recorded counters and frozen observations before any continuation. Recovery reuses original native artifacts and completed responses, counts the failed attempt, and runs only the unspent requests. Uncaptured output/token consumption is explicitly unknown; no provider response is invented. `formal-agent-source-lock.json` preserves the predictive source hashes from before formal inference.
+
+
+Channel ablation samples response inputs independently per electrode; it is not a global n-stimulation-site protocol. The original spatial example and outcome figure remain unreproduced. Linux users should obtain plain annex pointers (for example, clone the metadata with `git -c core.symlinks=false clone ...`) before using the current downloader, and resolve platform-specific CUDA dependencies.

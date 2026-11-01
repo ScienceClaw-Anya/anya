@@ -1,0 +1,412 @@
+{
+  "title": "Public-code SPES reconstruction and matched-task agents",
+  "exact_paper_reproduction": false,
+  "cohort": {
+    "patients": 35,
+    "electrodes": 2145,
+    "SOZ": 304
+  },
+  "paper_cohort": {
+    "patients": 35,
+    "electrodes": 2066,
+    "SOZ": 298
+  },
+  "upstream_commit": "90062e8c5fe5593713125eaf5f573faedb739f65",
+  "primary_models": {
+    "CNN (divergent)": {
+      "runs": 25,
+      "AUROC_mean": 0.574465202884711,
+      "AUROC_SD_across_folds": 0.05871823438976604,
+      "paper": {
+        "auroc": 0.574,
+        "sd": 0.065
+      },
+      "paper_threshold_per_patient": {
+        "Sensitivity": {
+          "mean": 0.5644978124570948,
+          "SD_across_folds": 0.15734232727743702,
+          "defined_folds": 24
+        },
+        "Specificity": {
+          "mean": 0.5473465925540596,
+          "SD_across_folds": 0.13818026117073234,
+          "defined_folds": 24
+        },
+        "Youden": {
+          "mean": 0.11184440501115439,
+          "SD_across_folds": 0.09223632797570498,
+          "defined_folds": 24
+        },
+        "AUPRC": {
+          "mean": 0.21618138042010174,
+          "SD_across_folds": 0.05350450155805123,
+          "defined_folds": 25
+        }
+      },
+      "released_code_threshold_per_patient": {
+        "Sensitivity": {
+          "mean": 0.49560458936796836,
+          "SD_across_folds": 0.19213291940704663,
+          "defined_folds": 25
+        },
+        "Specificity": {
+          "mean": 0.5867161126575337,
+          "SD_across_folds": 0.18725588429188175,
+          "defined_folds": 25
+        },
+        "Youden": {
+          "mean": 0.08232070202550203,
+          "SD_across_folds": 0.09577571260953958,
+          "defined_folds": 25
+        },
+        "AUPRC": {
+          "mean": 0.21618138042010174,
+          "SD_across_folds": 0.05350450155805123,
+          "defined_folds": 25
+        }
+      }
+    },
+    "CNN (convergent)": {
+      "runs": 25,
+      "AUROC_mean": 0.6368947997211329,
+      "AUROC_SD_across_folds": 0.06899087079366399,
+      "paper": {
+        "auroc": 0.666,
+        "sd": 0.067
+      },
+      "paper_threshold_per_patient": {
+        "Sensitivity": {
+          "mean": 0.5031921246724631,
+          "SD_across_folds": 0.15201234503858027,
+          "defined_folds": 22
+        },
+        "Specificity": {
+          "mean": 0.7001612332388313,
+          "SD_across_folds": 0.08806169883279813,
+          "defined_folds": 22
+        },
+        "Youden": {
+          "mean": 0.20335335791129455,
+          "SD_across_folds": 0.10902442240230574,
+          "defined_folds": 22
+        },
+        "AUPRC": {
+          "mean": 0.27106499846946774,
+          "SD_across_folds": 0.08286018474421361,
+          "defined_folds": 25
+        }
+      },
+      "released_code_threshold_per_patient": {
+        "Sensitivity": {
+          "mean": 0.564952704362921,
+          "SD_across_folds": 0.16337163670954377,
+          "defined_folds": 25
+        },
+        "Specificity": {
+          "mean": 0.6033153446735948,
+          "SD_across_folds": 0.13544707318987417,
+          "defined_folds": 25
+        },
+        "Youden": {
+          "mean": 0.168268049036516,
+          "SD_across_folds": 0.10673365526103441,
+          "defined_folds": 25
+        },
+        "AUPRC": {
+          "mean": 0.27106499846946774,
+          "SD_across_folds": 0.08286018474421361,
+          "defined_folds": 25
+        }
+      }
+    },
+    "Transformer (base)": {
+      "runs": 25,
+      "AUROC_mean": 0.7200563202626207,
+      "AUROC_SD_across_folds": 0.09038293810567963,
+      "paper": {
+        "auroc": 0.73,
+        "sd": 0.082
+      },
+      "paper_threshold_per_patient": {
+        "Sensitivity": {
+          "mean": 0.6097829760207027,
+          "SD_across_folds": 0.17505990261315096,
+          "defined_folds": 25
+        },
+        "Specificity": {
+          "mean": 0.701452472927014,
+          "SD_across_folds": 0.11129188341310732,
+          "defined_folds": 25
+        },
+        "Youden": {
+          "mean": 0.31123544894771676,
+          "SD_across_folds": 0.1342567985088229,
+          "defined_folds": 25
+        },
+        "AUPRC": {
+          "mean": 0.3722946722126829,
+          "SD_across_folds": 0.10578435107020957,
+          "defined_folds": 25
+        }
+      },
+      "released_code_threshold_per_patient": {
+        "Sensitivity": {
+          "mean": 0.5737399305857952,
+          "SD_across_folds": 0.29479128694305384,
+          "defined_folds": 25
+        },
+        "Specificity": {
+          "mean": 0.6254800662514926,
+          "SD_across_folds": 0.23647821982076725,
+          "defined_folds": 25
+        },
+        "Youden": {
+          "mean": 0.19921999683728778,
+          "SD_across_folds": 0.12676610128101826,
+          "defined_folds": 25
+        },
+        "AUPRC": {
+          "mean": 0.3722946722126829,
+          "SD_across_folds": 0.10578435107020957,
+          "defined_folds": 25
+        }
+      }
+    }
+  },
+  "paper_table1_reported_metrics": {
+    "CNN (divergent)": {
+      "AUROC": [
+        0.574,
+        0.065
+      ],
+      "Specificity": [
+        0.632,
+        0.118
+      ],
+      "Sensitivity": [
+        0.478,
+        0.169
+      ],
+      "Youden": [
+        0.109,
+        0.106
+      ]
+    },
+    "CNN (convergent)": {
+      "AUROC": [
+        0.666,
+        0.067
+      ],
+      "Specificity": [
+        0.692,
+        0.147
+      ],
+      "Sensitivity": [
+        0.531,
+        0.199
+      ],
+      "Youden": [
+        0.223,
+        0.095
+      ]
+    },
+    "Transformer (base)": {
+      "AUROC": [
+        0.73,
+        0.082
+      ],
+      "Specificity": [
+        0.731,
+        0.13
+      ],
+      "Sensitivity": [
+        0.589,
+        0.218
+      ],
+      "Youden": [
+        0.319,
+        0.134
+      ]
+    }
+  },
+  "channel_sensitivity": [
+    {
+      "channels": 1,
+      "mean_patient_AUROC": 0.6153175661124775,
+      "patient_cluster_bootstrap_95CI": [
+        0.5751065680454491,
+        0.6550406420123476
+      ]
+    },
+    {
+      "channels": 2,
+      "mean_patient_AUROC": 0.644545352248363,
+      "patient_cluster_bootstrap_95CI": [
+        0.600086568293641,
+        0.6892135065502633
+      ]
+    },
+    {
+      "channels": 4,
+      "mean_patient_AUROC": 0.6384731946410263,
+      "patient_cluster_bootstrap_95CI": [
+        0.5786596460874237,
+        0.6956003759161801
+      ]
+    },
+    {
+      "channels": 9,
+      "mean_patient_AUROC": 0.6878589646275686,
+      "patient_cluster_bootstrap_95CI": [
+        0.6226090793197139,
+        0.7480526685064821
+      ]
+    },
+    {
+      "channels": 18,
+      "mean_patient_AUROC": 0.7079669443916993,
+      "patient_cluster_bootstrap_95CI": [
+        0.6412361331850341,
+        0.7686401674962794
+      ]
+    },
+    {
+      "channels": 37,
+      "mean_patient_AUROC": 0.7166658272286347,
+      "patient_cluster_bootstrap_95CI": [
+        0.6449532847941056,
+        0.7806657649858141
+      ]
+    },
+    {
+      "channels": 74,
+      "mean_patient_AUROC": 0.7198161476752762,
+      "patient_cluster_bootstrap_95CI": [
+        0.6479845907116952,
+        0.7872219280213577
+      ]
+    }
+  ],
+  "agents": {
+    "distinct_patients": 35,
+    "held_out_cases": 175,
+    "mean_patient_AUROC": {
+      "CNN (divergent)": 0.574465202884711,
+      "CNN (convergent)": 0.6368947997211328,
+      "Transformer (base)": 0.7200563202626207,
+      "fixed_mean_ensemble": 0.6837470761915784,
+      "single": 0.6960316700670323,
+      "multi": 0.698766723811361
+    },
+    "paired_comparisons": {
+      "multi minus single": {
+        "mean_difference": 0.002735053744328635,
+        "patient_bootstrap_95CI": [
+          -0.009073392648756447,
+          0.014847404310859692
+        ]
+      },
+      "multi minus Transformer (base)": {
+        "mean_difference": -0.02128959645125973,
+        "patient_bootstrap_95CI": [
+          -0.05731515539788346,
+          0.01536534086622123
+        ]
+      },
+      "single minus Transformer (base)": {
+        "mean_difference": -0.02402465019558836,
+        "patient_bootstrap_95CI": [
+          -0.06507026377792868,
+          0.015505574563425616
+        ]
+      },
+      "multi minus fixed_mean_ensemble": {
+        "mean_difference": 0.015019647619782377,
+        "patient_bootstrap_95CI": [
+          -0.012040563267526096,
+          0.044284025432486426
+        ]
+      }
+    },
+    "usage": {
+      "single": {
+        "requests": 1400,
+        "api_tokens": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "accepted_agent_outputs": 1370,
+        "schema_failures": 29,
+        "transport_failures": 1,
+        "unknown_usage_attempts": 1,
+        "captured_tokens_lower_bound": {
+          "prompt_tokens": 17089547,
+          "completion_tokens": 897982,
+          "total_tokens": 19220125
+        },
+        "cumulative_case_seconds": 12950.17936105607,
+        "response_models": [
+          "gemini-3.6-flash"
+        ]
+      },
+      "multi": {
+        "requests": 1400,
+        "api_tokens": {
+          "prompt_tokens": 17100515,
+          "completion_tokens": 910263,
+          "total_tokens": 19381266
+        },
+        "accepted_agent_outputs": 1363,
+        "schema_failures": 37,
+        "transport_failures": 0,
+        "unknown_usage_attempts": 0,
+        "captured_tokens_lower_bound": {
+          "prompt_tokens": 17100515,
+          "completion_tokens": 910263,
+          "total_tokens": 19381266
+        },
+        "cumulative_case_seconds": 13060.168212169548,
+        "response_models": [
+          "gemini-3.6-flash"
+        ]
+      }
+    },
+    "uncertainty_unit": "35 patients; average their five repeated held-out evaluations first",
+    "budget_note": "Request counts and configured output caps are matched; measured token totals may differ."
+  },
+  "verification": {
+    "verified_primary_runs": 75,
+    "verified_agent_cases": 175,
+    "source_hashes_verified": true,
+    "patient_splits_verified": true,
+    "scores_recomputed": true,
+    "exact_paper_cohort": false,
+    "status": "complete public-code and agent verification"
+  },
+  "remaining_paper_gaps": [
+    "different cohort counts",
+    "unreleased original RNG and split manifests",
+    "unverified Engel outcomes and modified outcome-model details",
+    "original spatial example patient not specified"
+  ],
+  "separate_token_calibration": {
+    "purpose": "Token-ceiling calibration; stopped after truncation was observed, without selecting settings by localization accuracy.",
+    "attempted_requests": 47,
+    "captured_api_responses": 45,
+    "unresolved_inflight_attempts": 2,
+    "truncated_captured_responses": 6,
+    "requests_by_policy": {
+      "single": 28,
+      "multi": 19
+    },
+    "captured_tokens": {
+      "prompt_tokens": 545608,
+      "completion_tokens": 25879,
+      "total_tokens": 613466
+    },
+    "source_commit": "2dcff781012408c057d6bb20e168ed954f130060",
+    "excluded_from_performance_comparison": true,
+    "formal_protocol_revision": "8192-token-fresh-run"
+  }
+}

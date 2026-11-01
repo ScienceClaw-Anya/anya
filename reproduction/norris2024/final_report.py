@@ -107,9 +107,13 @@ def build(project):
     extras+='</table><table><tr><th>Paired comparison</th><th>Mean AUROC difference</th><th>95% patient bootstrap CI</th></tr>'
     for name,value in agent['paired_comparisons'].items():
         lo,hi=value['patient_bootstrap_95CI'];extras+=f'<tr><td>{html.escape(name)}</td><td>{value["mean_difference"]:+.4f}</td><td>[{lo:+.4f}, {hi:+.4f}]</td></tr>'
-    extras+='</table><p>The primary collaboration comparison is multi-agent versus single agent. Comparisons with numerical baselines are additional controls. Intervals resample patients after averaging repeated evaluations; they do not treat 175 evaluations as 175 independent patients.</p><table><tr><th>Policy</th><th>Requests</th><th>Input tokens</th><th>Output tokens</th><th>Provider model</th></tr>'
+    extras+='</table><p>The primary collaboration comparison is multi-agent versus single agent. Comparisons with numerical baselines are additional controls. The numerical CNN and Transformer models were trained on the training folds. Gemini was not fine-tuned on epilepsy: both policies reason over the same frozen model outputs and compact measured-response features, rather than learning directly from raw recordings. Intervals resample patients after averaging repeated evaluations; they do not treat 175 evaluations as 175 independent patients.</p><table><tr><th>Policy</th><th>Requests</th><th>Input tokens</th><th>Output tokens</th><th>Provider model</th></tr>'
     for policy,cost in agent['usage'].items():
-        extras+=f'<tr><td>{policy}</td><td>{cost["requests"]}</td><td>{cost["api_tokens"]["prompt_tokens"]}</td><td>{cost["api_tokens"]["completion_tokens"]}</td><td>{html.escape(", ".join(cost["response_models"]))}</td></tr>'
+        token_cells=[]
+        for key in ['prompt_tokens','completion_tokens']:
+            value=cost['api_tokens'][key]
+            token_cells.append(f'{value:,}' if value is not None else f'≥ {cost["captured_tokens_lower_bound"][key]:,}; {cost["unknown_usage_attempts"]} attempt(s) unknown')
+        extras+=f'<tr><td>{policy}</td><td>{cost["requests"]}</td><td>{token_cells[0]}</td><td>{token_cells[1]}</td><td>{html.escape(", ".join(cost["response_models"]))}</td></tr>'
     extras+='</table><p>'+html.escape(agent['budget_note'])+' Provider SDK response metadata is saved for every successful request. Malformed returned score vectors consume a request; the policy retains its previous scores (initially the shared Transformer). Such states are explicitly labelled, with no extra request or invented agent explanation.</p><p>'+'; '.join(f'{policy}: {value["accepted_agent_outputs"]} accepted outputs, {value["schema_failures"]} malformed outputs, {value["transport_failures"]} counted uncaptured failures' for policy,value in agent['usage'].items())+'.</p><p>A halted episode may continue only its unspent attempts. An uncaptured failure is retained as a labelled carry state, with unknown provider token consumption. Previously completed requests are never replayed; a partial token total is a lower bound. Case elapsed times can include the recovery pause.</p></article>'
     if 'separate_token_calibration' in summary:
         calibration=summary['separate_token_calibration']
@@ -117,7 +121,7 @@ def build(project):
     extras+='<article><h2>Channel sensitivity</h2><table><tr><th>Requested channels</th><th>Mean patient AUROC</th><th>95% patient bootstrap CI</th></tr>'
     for row in sensitivity['summary']:
         lo,hi=row['patient_cluster_bootstrap_95CI'];extras+=f'<tr><td>{row["channels"]}</td><td>{row["mean_patient_AUROC"]:.4f}</td><td>[{lo:.4f}, {hi:.4f}]</td></tr>'
-    extras+='</table><p>The saved Transformer is reused without retraining. Cases with fewer valid channels provide their available responses, following the released implementation. The original inference sampling and bootstrap code were not released.</p></article>'
+    extras+='</table><p>The saved Transformer is reused without retraining. Cases with fewer valid channels provide their available responses, following the released implementation. These random input subsets are sampled per electrode; they do not constitute one shared n-site stimulation protocol for an entire patient. The original inference sampling and bootstrap code were not released.</p></article>'
     example=min((r for r in records if r['seed']==1),key=lambda r:r['patient'])
     case_id=hashlib.sha256(f'{example["seed"]}:{example["fold"]}:{example["patient"]}'.encode()).hexdigest()[:16]
     extras+='<article><h2>Predetermined example: two rounds of specialist critique</h2><p>The lowest-ID eligible held-out patient in the first repeat was chosen by protocol, not by performance. Contact identifiers shown to agents are opaque. The generated explanations below are interpretations, not independently validated mechanisms or clinical conclusions. Every round sees the same measured data; there is no test-label feedback.</p><table><tr><th>Round</th><th>Role</th><th>Generated reason</th><th>Generated reflection</th></tr>'
@@ -127,7 +131,16 @@ def build(project):
         label=roles[step%4]+(' (policy carry; unaccepted output)' if not response['accepted_agent_output'] else '')
         extras+=f'<tr><td>{step//4+1}</td><td>{label}</td><td>{html.escape(response["reason"])}</td><td>{html.escape(response["reflection"])}</td></tr>'
     extras+='</table></article><article><h2>Independent verification</h2><p>All 75 primary numerical runs and all 175 held-out agent cases were replayed from saved artifacts. Checks cover source hashes, disjoint patient splits, label order, numerical and agent scoring, request budgets, role schedule, provider usage records and native ScienceClaw artifact hashes/lineage. Raw recordings and clinical annotation tables are kept outside Git.</p><p>These are public-code reconstruction results on a disclosed different cohort. They do not establish exact reproduction of every paper result or therapeutic benefit.</p></article>'
-    body=document(output).replace('</html>',extras+'</html>')
+    comparison=agent['paired_comparisons']['multi minus single']
+    low,high=comparison['patient_bootstrap_95CI']
+    if low>0:conclusion='The multi-agent policy scored higher than the single agent in this cohort and protocol.'
+    elif high<0:conclusion='The multi-agent policy scored lower than the single agent in this cohort and protocol.'
+    else:conclusion='This comparison does not demonstrate a consistent multi-agent advantage over the single agent.'
+    headline=f'<article><h2>Completed result</h2><p><strong>{conclusion}</strong> Multi-agent AUROC: {agent["mean_patient_AUROC"]["multi"]:.4f}; single-agent AUROC: {agent["mean_patient_AUROC"]["single"]:.4f}. The paired change is {comparison["mean_difference"]:+.4f}, with a 95% patient-bootstrap interval [{low:+.4f}, {high:+.4f}].</p><p>All 75 numerical training/evaluation runs and 175 matched agent cases are complete. The 175 evaluations represent 35 patients across five repeated splits.</p><p>AUROC measures whether clinician-labelled SOZ electrodes rank above non-SOZ electrodes; 0.5 is chance ranking. Clinical treatment benefit requires seizure or outcome measurements. This retrospective classification comparison uses a disclosed different cohort from the paper: 35 patients / 2,145 electrodes / 304 SOZ positives here, versus the published 35 / 2,066 / 298. The difference remains unresolved.</p></article>'
+    body=document(output).replace('</h1>','</h1>'+headline,1).replace('</html>',extras+'</html>')
+    body=body.replace('The spatial illustration uses a predetermined held-out patient; the original example patient\'s identity was not reported.','The example table follows a predetermined held-out patient. The original spatial Figure 6 patient was not specified; that exact figure was not reproduced.')
+    body=body.replace('public_code_runs_and_agent_comparison_complete','All scheduled comparisons complete')
+    body=body.replace('SPES-based SOZ localization: reproduction before agents','SPES reconstruction and matched agent comparison')
     (output/'final_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
     (project/'outputs/reports/paper_reproduction.html').write_text(body,encoding='utf-8')
     examples=project/'examples';examples.mkdir(exist_ok=True)

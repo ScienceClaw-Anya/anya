@@ -1,6 +1,6 @@
 {
   "title": "Norris et al. 2024 replication and matched-task agent comparison",
-  "status": "Numerical reconstruction complete; formal agent rerun after disclosed token-cap calibration.",
+  "status": "Completed: 75 numerical runs, channel sensitivity and 175 matched agent cases; independently verified. Exact paper reproduction remains false.",
   "paper": "https://proceedings.mlr.press/v252/norris24a.html",
   "upstream_repository": "https://github.com/norrisjamie23/Localising_SOZ_from_SPES",
   "upstream_commit": "90062e8c5fe5593713125eaf5f573faedb739f65",
@@ -71,5 +71,6 @@
     "Original threshold evaluation disagrees with Appendix C; preserve and report both instead of hiding the difference.",
     "Outcome-specific labels and modified-model details must be verified before claiming every paper figure reproduced."
   ],
-  "language": "English reports, README, protocol and code comments"
+  "language": "English reports, README, protocol and code comments",
+  "completion_note": "Only completion status added after evaluation; the task, policy, budgets, metrics and limitations above were not selected from observed accuracy."
 }

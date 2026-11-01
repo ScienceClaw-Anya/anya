@@ -5,7 +5,7 @@
     "audit_data.py": "4417d51b67fab0d41a7c7eb9df6d7eecb870598917ac8862a75d6d9c7b315c4e",
     "channel_sensitivity.py": "edc34753ec151c932dbb19b7ec0a65ffec811eb0f06ba23ad8eeac370fe4a1ec",
     "download_data.py": "b9141b276611f3057f1f9dbccdd74e2013b68f1b2649e2ce7d845e3e1a751b75",
-    "final_report.py": "b12f1c48059f39e77994ea52ad126de8d7b619dbd61c397deafa25dac6dcad8f",
+    "final_report.py": "4d14c0a9737645bc860c5eee54e59964011a8d5c8e9b8403099b4b6fea1ed884",
     "pipeline.py": "d1cf1ae6cce41edabd600349dfb00e3eeefeceae2c8033399847cade7c2a7fe3",
     "prepare_sources.py": "c1a19422b62deb9c99a17d4a68b5d687e67ded65d49e94d31943493c85609ad3",
     "preprocess.py": "cdd65d0ea17864cb36a8fd091402a1d025973ceb117feabd7fcdc78fe0d383b5",
@@ -22,5 +22,6 @@
   "report_addition": "Final report and patient-cluster resampling checks added before agent calls; numerical models, policy and scoring remain frozen.",
   "pre_agent_reliability_amendment": "Malformed returned outputs consume their request and carry prior score state; all states are labelled. Board representation is bounded identically for both policies. Frozen before any formal agent call.",
   "formal_agent_amendment": "Fresh agent run after truncation-only calibration: exact combined cap8192, low reasoning,8workers, shared60RPM cap; all pilot records archived, no accuracy-based setting selection.",
-  "continuation_amendment": "One uncaptured failed attempt halted the run. A separate recovery tool uses only unspent attempts, reuses existing artifacts and marks the spent attempt as an uncaptured carry state. Predictive source files remain byte-identical to formal-agent-source-lock.json."
+  "continuation_amendment": "One uncaptured failed attempt halted the run. A separate recovery tool uses only unspent attempts, reuses existing artifacts and marks the spent attempt as an uncaptured carry state. Predictive source files remain byte-identical to formal-agent-source-lock.json.",
+  "reporting_only_revision": "Clarifies completed-result narrative, uncaptured token lower bounds and per-electrode channel ablation; predictive files remain frozen against formal-agent-source-lock.json."
 }

@@ -10,9 +10,18 @@ The project integrates public VEP data, Epileptor simulations and native Science
 
 The new track reconstructs Norris et al. (MLHC 2024) on public SPES recordings before comparing agents on the same SOZ electrode-classification task. All 48 recordings have been downloaded and checksum-verified. Public preprocessing yields 35 patients / 2,145 electrodes / 304 SOZ positives; the paper reports 35 / 2,066 / 298. The complete public-code rerun was authorized with this discrepancy disclosed. It must not be described as an exact reproduction of the paper cohort.
 
-The primary schedule contains 75 early-stopped GPU training runs (three models, five patient folds, five repeats), followed by channel sensitivity and an equal-call-budget ScienceClaw/Gemini single-versus-multi-agent comparison. Training and comparison results are work in progress until their evidence files exist. The original VEP results below are a separate task.
+The complete schedule finished: **75 early-stopped GPU training/evaluation runs**, channel sensitivity, **175 held-out agent cases** and **2,800 formal Gemini request attempts**. Independent replay checked all predictions, patient splits, budgets, source hashes and 2,975 native ScienceClaw artifacts.
 
-See [the reconstruction README](reproduction/norris2024/README.md) and [frozen protocol](reproduction/norris2024/protocol.json). The English progress report is generated at `outputs/reports/paper_reproduction.html`. Computation uses the local RTX 4090 and CPU; these scripts create no Nebius jobs.
+| Method | Observed mean patient AUROC |
+|---|---:|
+| Trained CNN Transformer | 0.7201 |
+| Fixed three-model mean ensemble | 0.6837 |
+| Single generalist | 0.6960 |
+| Four specialists, two rounds | 0.6988 |
+
+Multi-agent minus single-agent: **+0.0027**, 95% patient-bootstrap interval **[-0.0091, +0.0148]**. This comparison does **not demonstrate a consistent multi-agent advantage**. Numerical models were trained; Gemini was not fine-tuned. Both policies receive the same measured features and frozen predictions, eight requests each, and no hidden-label feedback. AUROC measures SOZ ranking, not treatment benefit. The paper's Transformer AUROC is 0.730; cohort and implementation differences prevent exact replication claims.
+
+See the [English report](examples/spes_reconstruction_report.html), [machine-readable summary](examples/spes_reconstruction_summary.json), [reconstruction README](reproduction/norris2024/README.md) and [protocol](reproduction/norris2024/protocol.json) for all three model results, threshold rules, channel sensitivity, uncertainty and invalid-request accounting. Full local evidence is under `outputs/reproduction/norris2024/`. Numerical computation used the local RTX 4090 and CPU; Gemini used Google's API. No new Nebius job was created. The original VEP results below are a separate task.
 
 ## Diagnostic selection benchmark
 
@@ -161,13 +170,13 @@ register an agent or publish a post. Publication requires an authorized destinat
 and an existing or separately authorized agent API identity. Do not commit gateway
 sessions, tokens, passwords or private endpoint configuration.
 
-## Scientific limits
+## Scientific limits of the original VEP track
 
 1. Uses the author's EpileptorStim2Populations and custom stochastic Heun integrator. Its coupling declaration `[0]` conflicts with three channels read by the compiled derivative; our subclass explicitly declares `[0,3,6]`. This is a documented model variant, not confirmed exact reproduction of the released paper run.
 2. Released initial-state metadata is truncated and its random seed is unavailable. Our explicit initial state comes from the author script. Time conversion uses released `sfreq=400` scaling.
 3. Accumulation threshold crossings are model diagnostics, not validated seizure labels. Signals are model units, not calibrated clinical voltage.
-4. This is forward simulation; it has not trained a new network or fitted a patient-specific inference model.
-5. One virtual patient cannot establish localization accuracy, pathway causality, clinical benefit or multi-agent superiority. Held-out patients, matched-budget baselines, coverage controls and model-mismatch evaluations remain future work.
+4. The original VEP track performs forward simulation without training a network or fitting a patient-specific inference model. The separate SPES reconstruction above trains three supervised models.
+5. One virtual patient cannot establish localization accuracy, pathway causality, clinical benefit or multi-agent superiority. Additional held-out VEP patients, coverage controls and model-mismatch evaluations remain future work. The separate SPES comparison uses 35 held-out patients across repeated splits.
 
 ## Literature and cloud
 
