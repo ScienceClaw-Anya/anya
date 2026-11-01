@@ -6,6 +6,31 @@ The project integrates public VEP data, Epileptor simulations, trained EEG model
 
 **Research prototype: the diagnostic benchmark scores a generator-defined susceptibility reference, using a fixed SEEG-only response-ranking heuristic. Clinical localization accuracy and treatment benefit have not been established.**
 
+## Current research: complementary models and real-feedback acquisition
+
+The [v4 research track](experiments/spes_agent_v4/README.md) preserves all earlier
+negative results and keeps the stopped v3 study stopped. Its cheap numerical
+screen did not justify more static-agent calls. Fifteen new patient-separated
+fits test trial averaging, mean trial embeddings and hierarchical attention on
+newly released multi-trial SPES arrays (35 patients / 2,117 contacts / 296 SOZ).
+HAT scored **0.7495** versus the retrained same-data baseline **0.7138**;
+the paired gain's 95% interval includes zero. This is an exploratory numerical
+result, not demonstrated multi-agent superiority or clinical benefit.
+
+The new acquisition task lets agents reveal eight real stimulation-column
+responses and reconsider the next query after measured feedback. Single-agent,
+four-role independent-first collaboration, a no-exchange ablation, random and
+numerical strategies share the measurement budget. The final numerical scorer
+is identical across arms. The five-patient pilot completed 120 attempts: multi **0.6331**, single
+**0.6673**, no-exchange **0.5985**, compared on the same five patients. It is
+not expanded. A [sparse-observation training follow-up](experiments/spes_agent_v5/README.md)
+tests the mismatch between trial masking and whole missing stimulation columns
+without further LLM requests. Feedback cadence also needs to be matched in any
+later controller comparison. See the
+[English research report](docs/spes-agent-v4-report.md) for current completion
+counts and limitations. Training/inference run on the local RTX 4090; Gemini 4
+Argon runs through Google's API. No new Nebius resources are created.
+
 ## Independent deliberation and trained fusion
 
 The [v3 conservative-selection track](experiments/spes_agent_v3/README.md) unifies the Transformer default and OOF reliability evidence across all policies, prohibits handwritten probabilities, and fits a patient-isolated conservative selector from **60 newly trained inner models**. It compares two numerical policies and four Gemini policies under common decision/query ceilings, with actual model costs reported separately. See the [English v3 report](docs/spes-agent-v3-report.md) for completion status and effective decision opportunities. The earlier v1/v2 results below remain frozen.

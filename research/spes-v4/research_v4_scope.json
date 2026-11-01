@@ -1,0 +1,27 @@
+{
+  "mode": "Focused, non-exhaustive search",
+  "question": "Can complementary trained SPES experts and feedback-driven acquisition create a useful multi-agent task, relative to matched single-agent and numerical controls?",
+  "cutoff": "2026-11-01",
+  "sources": ["Official PMLR proceedings", "medRxiv preprint", "Author GitHub repositories", "PubMed Central/publisher records"],
+  "queries": [
+    "single pulse electrical stimulation seizure onset zone active learning optimal experimental design dataset CCEP",
+    "multi agent debate improves medical diagnosis evidence tools independent agents randomized benchmark",
+    "single pulse electrical stimulation seizure onset zone graph neural network open dataset code",
+    "\"SPES\" \"active learning\" epilepsy",
+    "\"seizure onset zone\" \"graph neural\" \"stimulation\"",
+    "\"active learning\" \"cortico-cortical\" stimulation",
+    "\"multi-agent\" \"active feature acquisition\"",
+    "Network excitability of stimulation-induced spectral responses helps localize the seizure onset zone",
+    "\"EEGAgent\" multi agent EEG",
+    "\"single-pulse electrical stimulation\" \"optimal\" \"sites\"",
+    "\"active feature acquisition\" \"multi-agent\" diagnosis reinforcement"
+  ],
+  "selection": "Prefer source code and open SPES observations with clinical SOZ labels. Check full text in the user's Chrome. Preprints and code are eligible with explicit version labels. No claim of exhaustive or systematic review.",
+  "graph": "User previously declined; omit.",
+  "constraints": ["English repository artifacts", "Patient-isolated training", "Do not resume stopped v3", "Report all failed trials", "No agent calls when the executable action space is identical"],
+  "access": [
+    {"doi": "10.64898/2026.07.27.26358819", "status": "Preprint only", "verified": "Chrome full HTML: Materials and methods, Results, Discussion, Code availability", "url": "https://www.medrxiv.org/content/10.64898/2026.07.27.26358819v1.full"},
+    {"id": "PMLR:252:norris24a", "status": "Publisher/proceedings VOR full text verified — PDF", "verified": "Local official-proceedings PDF, pages 10-11 Table 1 and Results", "url": "https://proceedings.mlr.press/v252/norris24a.html"},
+    {"doi": "10.1016/j.clinph.2024.07.010", "status": "Blocked", "reason": "human_verification", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11401764/", "note": "Do not use search snippets as verified full-text evidence."}
+  ]
+}

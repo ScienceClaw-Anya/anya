@@ -1,0 +1,114 @@
+[
+  {
+    "claim_id": "hat26-design",
+    "claim_scope": "scientific",
+    "field": "design",
+    "reported_value": "Patient-held-out repeated five-fold cross-validation, five repeats, 35 patients.",
+    "original_unit_or_wording": "35 patients; repeated five-fold cross-validation",
+    "status": "reported",
+    "context": "Single-centre retrospective SPES study, clinical SOZ proxy labels.",
+    "artifact_role": "preprint",
+    "source_location": "Materials and methods: Study design; Model Training",
+    "checked_locations": [
+      "Materials and methods",
+      "Statistics and Reproducibility"
+    ],
+    "evidence_type": "body_text",
+    "access_status": "Preprint only",
+    "blocker_reason": null,
+    "canonical_id": "10.64898/2026.07.27.26358819",
+    "source_url": "https://www.medrxiv.org/content/10.64898/2026.07.27.26358819v1.full",
+    "derivation": null,
+    "source_claim_ids": []
+  },
+  {
+    "claim_id": "hat26-model",
+    "claim_scope": "scientific",
+    "field": "model mechanism",
+    "reported_value": "Interleaved cross-trial and cross-channel attention without initial trial averaging.",
+    "original_unit_or_wording": "cross-trial and cross-channel dependencies",
+    "status": "reported",
+    "context": "Hierarchical Attention Transformer (HAT); physiological responses rather than LLM debate.",
+    "artifact_role": "preprint",
+    "source_location": "Materials and methods: Hierarchical Attention Transformer (HAT); Figure 2",
+    "checked_locations": [
+      "Models",
+      "Figure 2 caption"
+    ],
+    "evidence_type": "body_text",
+    "access_status": "Preprint only",
+    "blocker_reason": null,
+    "canonical_id": "10.64898/2026.07.27.26358819",
+    "source_url": "https://www.medrxiv.org/content/10.64898/2026.07.27.26358819v1.full",
+    "derivation": null,
+    "source_claim_ids": []
+  },
+  {
+    "claim_id": "hat26-result",
+    "claim_scope": "scientific",
+    "field": "SOZ localisation",
+    "reported_value": "HAT AUROC 0.762 versus trial-averaged baseline 0.721; mean paired difference 0.041; one-sided 95% lower confidence bound 0.009; Holm-adjusted p=0.0197.",
+    "original_unit_or_wording": "Mean patient AUROC; 35 patients",
+    "status": "reported",
+    "context": "Paper's repeated-CV experiment, not the project's new one-repeat cohort/results and not multi-agent evidence.",
+    "artifact_role": "preprint",
+    "source_location": "Results, Table 1 and paragraph immediately after Table 1",
+    "checked_locations": [
+      "Results",
+      "Table 1 caption",
+      "Statistics and Reproducibility"
+    ],
+    "evidence_type": "body_text",
+    "access_status": "Preprint only",
+    "blocker_reason": null,
+    "canonical_id": "10.64898/2026.07.27.26358819",
+    "source_url": "https://www.medrxiv.org/content/10.64898/2026.07.27.26358819v1.full",
+    "derivation": null,
+    "source_claim_ids": []
+  },
+  {
+    "claim_id": "hat26-outcome",
+    "claim_scope": "scientific",
+    "field": "postsurgical outcome",
+    "reported_value": "HAT-defined resection overlap: outcome AUROC 0.634, one-sided p=0.102; no demonstrated association with seizure freedom.",
+    "original_unit_or_wording": "12 seizure-free and 23 non-seizure-free patients",
+    "status": "reported",
+    "context": "Exploratory outcome analysis. SOZ ranking improvement does not establish treatment efficacy.",
+    "artifact_role": "preprint",
+    "source_location": "Results: Associations with Surgical Outcome; Discussion: Clinical utility",
+    "checked_locations": [
+      "Association of Model Predictions with Surgical Outcome",
+      "Associations with Surgical Outcome",
+      "Clinical utility"
+    ],
+    "evidence_type": "body_text",
+    "access_status": "Preprint only",
+    "blocker_reason": null,
+    "canonical_id": "10.64898/2026.07.27.26358819",
+    "source_url": "https://www.medrxiv.org/content/10.64898/2026.07.27.26358819v1.full",
+    "derivation": null,
+    "source_claim_ids": []
+  },
+  {
+    "claim_id": "hays-access",
+    "claim_scope": "access",
+    "field": "full-text retrieval",
+    "reported_value": "blocked",
+    "original_unit_or_wording": null,
+    "status": "blocked",
+    "context": "Optional spectral-response paper. No CAPTCHA solved or access control bypassed.",
+    "artifact_role": "access_observation",
+    "source_location": "PubMed Central article page",
+    "checked_locations": [
+      "PMC article landing page in Chrome",
+      "DOI publisher access attempt"
+    ],
+    "evidence_type": "access_observation",
+    "access_status": "Blocked",
+    "blocker_reason": "human_verification",
+    "canonical_id": "10.1016/j.clinph.2024.07.010",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11401764/",
+    "derivation": null,
+    "source_claim_ids": []
+  }
+]

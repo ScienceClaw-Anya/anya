@@ -49,3 +49,9 @@ jobs:
       - run: python -m unittest experiments.spes_agent_v3.test_v3 -v
         env:
           PYTHONUTF8: '1'
+      - run: python -m unittest experiments.spes_agent_v4.test_v4 -v
+        env:
+          PYTHONUTF8: '1'
+      - run: python -m unittest experiments.spes_agent_v5.test_v5 -v
+        env:
+          PYTHONUTF8: '1'

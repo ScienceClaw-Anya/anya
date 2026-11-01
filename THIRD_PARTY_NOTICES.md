@@ -34,3 +34,13 @@
 
 Research outputs include simulations and retrospective public-recording analyses. No clinical efficacy or independently
 validated seizure-localization performance is claimed.
+
+- **Norris 2026 multi-trial SPES models**, MIT code,
+  https://github.com/norrisjamie23/SOZ_localisation_SPES_HAT, pinned commit
+  11f65182a2114440f1425656f91d0ebec51ee726. Kept in an ignored independent
+  checkout. Cite the preprint *Localising the epileptogenic zone from single-pulse
+  electrical stimulation responses using cross-trial attention*,
+  https://doi.org/10.64898/2026.07.27.26358819. Derived arrays originate from
+  OpenNeuro ds004080 v1.2.2 according to the author README. Do not conflate this
+  processing cohort with the earlier project's ds004080 v1.2.4 reconstruction.
+  No raw data or model checkpoints are redistributed in this repository.
