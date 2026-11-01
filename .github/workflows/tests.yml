@@ -31,3 +31,18 @@ jobs:
       - run: python -m unittest discover -s reproduction/norris2024 -p 'test_reproduction.py' -v
         env:
           PYTHONUTF8: '1'
+
+  spes-agent-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: pip
+          cache-dependency-path: requirements-spes-agent-v2.txt
+      - run: python -m pip install -r requirements-spes-agent-v2.txt
+      - run: python scripts/setup_upstreams.py --only scienceclaw
+      - run: python -m unittest experiments.spes_agent_v2.test_experiment -v
+        env:
+          PYTHONUTF8: '1'

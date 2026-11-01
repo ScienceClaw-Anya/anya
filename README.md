@@ -6,6 +6,12 @@ The project integrates public VEP data, Epileptor simulations and native Science
 
 **Research prototype: the diagnostic benchmark scores a generator-defined susceptibility reference, using a fixed SEEG-only response-ranking heuristic. Clinical localization accuracy and treatment benefit have not been established.**
 
+## Independent deliberation and trained fusion
+
+The [SPES v2 experiment](experiments/spes_agent_v2/README.md) separates communication from numerical fusion. It adds independent-first and no-exchange controls, a validation-only logistic fusion model, and native ScienceClaw tools for measured responses and trained predictions. Single-agent and multi-agent policies receive the same eight-request budget. The executable control uses **Gemini 4 Argon with medium reasoning**; a separately logged Argon/Nemotron adapter is available when a dedicated model API key is configured.
+
+The fixed numerical fusion experiment completed on all 35 patients over five repeats: prediction-only fusion AUROC **0.6944**, response-feature fusion **0.6595**, versus the reconstructed Transformer **0.7201**. Fifty fits took less than one CPU second locally, with patient-disjoint fitting and independent prediction replay. These particular fusion models did not improve the baseline. Communication results, exact completion status and limitations are in the [English follow-up report](docs/spes-agent-v2-report.md) and [aggregate evidence](examples/spes_agent_v2_summary.json). The new agent experiment uses the first repeat only; its scores must be compared with the matching first-repeat numerical baseline.
+
 ## Paper reconstruction and same-task agents
 
 The new track reconstructs Norris et al. (MLHC 2024) on public SPES recordings before comparing agents on the same SOZ electrode-classification task. All 48 recordings have been downloaded and checksum-verified. Public preprocessing yields 35 patients / 2,145 electrodes / 304 SOZ positives; the paper reports 35 / 2,066 / 298. The complete public-code rerun was authorized with this discrepancy disclosed. It must not be described as an exact reproduction of the paper cohort.
