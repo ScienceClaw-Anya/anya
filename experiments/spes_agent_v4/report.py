@@ -1,4 +1,5 @@
 """English progress/results report; preserves failure history and task boundaries."""
+from analysis.action_mapping_correction import ACTION_NOTICE
 import argparse
 from pathlib import Path
 import numpy as np
@@ -7,7 +8,7 @@ from .screen import bootstrap_delta
 
 def build(project):
     project=Path(project);root=project/'outputs/spes_agent_v4';screen=read_json(root/'screen/screen_results.json')
-    lines=['# SPES research v4: evidence before additional agent calls','',
+    lines=[ACTION_NOTICE,'','# SPES research v4: evidence before additional agent calls','',
       'This is an adaptive exploratory study. The previously stopped v3 study remains stopped; its unused API budget has not been resumed.', '',
       '## Why the method changes','',
       'Previous agents mostly recombined the same fixed observations, and v3\'s safety gate made every executable option identical. More debate could not improve those rankings. The new programme first tests cheap learned ranking controls, then adds complementary physiological representations, then tests whether agents can acquire useful new measurements.','',

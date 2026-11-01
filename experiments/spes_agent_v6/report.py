@@ -1,4 +1,5 @@
 """English report for the frozen common-prefix proposal/review study."""
+from analysis.action_mapping_correction import ACTION_NOTICE
 import argparse
 from pathlib import Path
 import numpy as np
@@ -8,7 +9,7 @@ from .experiment import write_json,NUMERIC,LLM
 def build(project):
     project=Path(project);root=project/'outputs/spes_agent_v6';protocol=read_json(root/'protocol.json')
     rows=[read_json(p) for p in root.glob('trajectories/*/*/metrics.json')];decision=read_json(root/'pilot_decision.json') if (root/'pilot_decision.json').exists() else None
-    lines=['# Feedback-matched SPES collaboration','',
+    lines=[ACTION_NOTICE,'','# Feedback-matched SPES collaboration','',
       'This exploratory experiment gives every policy the same four initial measurements, then four adaptive measurements. Each adaptive query receives a proposal and review call before execution. Actual measured feedback arrives at the same points for every LLM arm. The original v4 HAT remains the final scorer; sparse v5 models are not adopted.','',
       'The single agent proposes and self-reviews; the team alternates hypothesis/uncertainty proposers and audit/coverage reviewers. A team ablation hides peer rationales while retaining query choices and physiological feedback. Every LLM arm has eight attempts and eight total measurements. Numerical policies use no LLM calls. All share the same numerical tools. No agent-generated probabilities are executed.','',
       'Five fixed pilot patients exclude the five v4 LLM pilot patients. This is still a previously inspected cohort; it is not independent external validation. The new numerical random_0 control reproduces the old exact scores, verifying the same responses and scorer.','',

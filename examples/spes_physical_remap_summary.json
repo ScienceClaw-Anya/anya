@@ -1,0 +1,16 @@
+{
+  "status": "verified",
+  "case": {
+    "case_id": "fe3a755470400274",
+    "subject": "ccepAgeUMCU36",
+    "outer": 0,
+    "pilot": true
+  },
+  "maximum_absolute_HAT_score_difference": 1.1920928955078125e-07,
+  "tolerance": 1e-05,
+  "comparison": "Original compact arrays with unresolved cells zeroed versus physically aligned arrays containing exactly the same retained cells.",
+  "clinical_labels_used": false,
+  "agent_exposure_to_full_predictions": false,
+  "API_calls": 0,
+  "source_sha256": "2c2d88df09a1f636020f7a0ebd769bac5639f2c4af512f027ab1b11be963bf37"
+}

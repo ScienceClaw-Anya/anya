@@ -1,4 +1,5 @@
 """English learned-acquisition report; no post-hoc primary replacement."""
+from analysis.action_mapping_correction import ACTION_NOTICE
 import argparse
 from pathlib import Path
 from experiments.spes_agent_v3.common import read_json
@@ -9,7 +10,7 @@ def build(project,output):
     project,output=Path(project),Path(output);r=read_json(output/'numeric_results.json');a=read_json(output/'audit.json')
     if a['status']!='verified':raise ValueError('Audit required before reporting')
     primary=r['policies']['phase1_bag_mean'];passed=r['further_LLM_eligible'];diagnostic=read_json(output/'development_diagnostic.json')
-    lines=['# Learned diagnostic measurement value: fixed numerical feasibility test','',
+    lines=[ACTION_NOTICE,'','# Learned diagnostic measurement value: fixed numerical feasibility test','',
       f"The prespecified primary policy scored **{primary['mean_patient_AUROC']:.6f} mean patient SOZ AUROC**, with gain **{primary['gain_over_random_0']:+.6f}** over the same-prefix random control. The spending gate {'passed' if passed else 'did not pass'}. This is a numerical-tool experiment; it establishes no multi-agent or treatment benefit.",'',
       '## All fixed policies','', '| Policy | Mean patient AUROC | Gain over random_0 | Paired 95% interval | Different final query sets |','|---|---:|---:|---:|---:|']
     for name,v in r['policies'].items():lines.append(f"| {name} | {v['mean_patient_AUROC']:.6f} | {v['gain_over_random_0']:+.6f} | {v['paired_95CI']} | {v['different_query_sets']} / 35 |")

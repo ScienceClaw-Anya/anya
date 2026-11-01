@@ -1,0 +1,16 @@
+{
+  "scope": "Action-grain audit of the first twenty trials actually used by current models; no labels, outcomes, model fitting or API calls.",
+  "patients": 35,
+  "mapped_patients": 35,
+  "patients_with_verified_mixed_columns": 35,
+  "valid_cells": 114274,
+  "unambiguous_cells": 114021,
+  "ambiguous_cells": 253,
+  "duplicate_recording_pair_assignments": 0,
+  "conclusion": "Processed column indices are not globally aligned physical stimulation pairs. Historical v4-v10 column-selection budgets are array-ablation operations, not physical-stimulation budgets.",
+  "full_response_classification": "The original full-response contact-classification task does not require global action-column alignment and is not invalidated by this finding.",
+  "source_sha256": {
+    "experiments/spes_physical/mapping.py": "ae4f608c805f5d6b6d46dd94292b2c348bdbd90b00fbf47cad6ec2733234ab46",
+    "experiments/spes_physical/audit.py": "bebbc9d47553086c1782ed5dfb89ad000726fb81e1f390cf29256f1ed63026f5"
+  }
+}

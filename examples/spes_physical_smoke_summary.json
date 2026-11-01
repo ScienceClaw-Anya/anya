@@ -1,0 +1,49 @@
+{
+  "status": "two_physical_queries_verified",
+  "case": {
+    "case_id": "fe3a755470400274",
+    "subject": "ccepAgeUMCU36",
+    "outer": 0,
+    "pilot": true
+  },
+  "observations": [
+    {
+      "measurement": 1,
+      "anatomical_pair": "p000",
+      "contacts": [
+        "C01",
+        "C02"
+      ],
+      "revealed_recording_contacts": 53,
+      "median_trial_rms": 0.00011436418723317942,
+      "mean_absolute_hat_score_change": 0.27772295997853863
+    },
+    {
+      "measurement": 2,
+      "anatomical_pair": "p001",
+      "contacts": [
+        "C02",
+        "C03"
+      ],
+      "revealed_recording_contacts": 53,
+      "median_trial_rms": 0.00011072655252246212,
+      "mean_absolute_hat_score_change": 0.02613207697868347
+    }
+  ],
+  "actual_anatomical_pairs": 2,
+  "distinct_anatomical_contact_pairs": 2,
+  "different_source_columns_per_query": [
+    1,
+    2
+  ],
+  "localization_score_before_eight_queries_blocked": true,
+  "new_API_calls": 0,
+  "no_treatment_claim": true,
+  "public_roots": [
+    "anatomy",
+    "geometry",
+    "limitations",
+    "model_uncertainty",
+    "observed"
+  ]
+}

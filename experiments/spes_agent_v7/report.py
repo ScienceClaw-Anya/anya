@@ -1,4 +1,5 @@
 """English result report for the fully schema-valid collaboration pilot."""
+from analysis.action_mapping_correction import ACTION_NOTICE
 import argparse
 from pathlib import Path
 from experiments.spes_agent_v3.common import read_json
@@ -6,7 +7,7 @@ from .experiment import write_json
 
 def build(project):
     project=Path(project);root=project/'outputs/spes_agent_v7';decision=read_json(root/'pilot_decision.json');audit=read_json(root/'audit.json');behavior=read_json(root/'behavior.json')
-    lines=['# Schema-valid collaboration reproduces geometric coverage','',
+    lines=[ACTION_NOTICE,'','# Schema-valid collaboration reproduces geometric coverage','',
       'The repaired interface accepted **120/120 formal model decisions**. Single-agent, multi-agent and rationale-hidden policies all scored **0.790440 mean patient SOZ AUROC**, equal to the geometric-coverage policy on the same five patients. The fixed pilot rule does **not** permit expansion. No multi-agent superiority is established.','',
       '## Matched results','', '| Policy | Mean patient AUROC |','|---|---:|']
     for name,value in decision['mean_AUROC'].items():lines.append(f'| {name} | {value:.6f} |')

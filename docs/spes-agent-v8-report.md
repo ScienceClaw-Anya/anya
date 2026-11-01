@@ -1,3 +1,5 @@
+> **Action-mapping correction (2026-11-01):** Processed array columns are not shared physical stimulation sites across recording contacts. Metadata matching confirms that one column can mix several anatomical pairs. Historical v4-v10 subset-selection counts represent array-column ablation, **not eight physical stimulations or validated target selection**. That physical interpretation is withdrawn; recorded results remain preserved. Full-response SOZ classification does not require this alignment and is unaffected. See the [action-grain audit](https://github.com/ScienceClaw-Anya/anya/blob/main/docs/spes-physical-action-audit.md).
+
 # Learned diagnostic measurement value: fixed numerical feasibility test
 
 The prespecified primary policy scored **0.722233 mean patient SOZ AUROC**, with gain **-0.013427** over the same-prefix random control. The spending gate did not pass. This is a numerical-tool experiment; it establishes no multi-agent or treatment benefit.

@@ -1,0 +1,7 @@
+{
+  "status": "stopped_before_outer_evaluation_invalid_action_assumption",
+  "fit_models": 10,
+  "outer_evaluations": 0,
+  "new_API_calls": 0,
+  "physical_interpretation": "column-ablation prefix training; not adopted for physical queries"
+}

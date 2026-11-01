@@ -1,8 +1,13 @@
+> **Action-mapping correction (2026-11-01):** Processed array columns are not shared physical stimulation sites across recording contacts. Metadata matching confirms that one column can mix several anatomical pairs. Historical v4-v10 subset-selection counts represent array-column ablation, **not eight physical stimulations or validated target selection**. That physical interpretation is withdrawn; recorded results remain preserved. Full-response SOZ classification does not require this alignment and is unaffected. See the [action-grain audit](https://github.com/ScienceClaw-Anya/anya/blob/main/docs/spes-physical-action-audit.md).
+
 # Hypothetical-response specialists
 
-This running numerical experiment tests a substantive tool change after v8's
-fixed primary failed its spending gate. No new LLM pilot is launched until a
-useful numerical tool is supported. No multi-agent benefit is established yet.
+This numerical experiment stopped after 106/315 trajectories when the
+physical action-grain assumption failed. The other 209 are canceled or unfinished.
+All partial records remain; no partial-cohort winner is reported. The stop lock
+stays in place. No new LLM request was made and these tools are not adopted for
+physical selection. The methods below document the retained column-ablation
+prototype, rather than instructions to resume it.
 
 Two distinct predictors construct hypothetical responses from measured waveforms:
 geometry-profile averaging, and averaging with clipped radial amplitude

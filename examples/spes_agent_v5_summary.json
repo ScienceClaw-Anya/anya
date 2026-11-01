@@ -301,5 +301,10 @@
       "Independent pairwise AUROC for all methods/sequences"
     ],
     "not_claimed": "Bitwise training reproduction or external clinical validation"
+  },
+  "action_grain_correction": {
+    "physical_stimulation_interpretation": "withdrawn",
+    "valid_interpretation": "recorded array-column ablation; full-response classification unaffected",
+    "audit": "docs/spes-physical-action-audit.md"
   }
 }

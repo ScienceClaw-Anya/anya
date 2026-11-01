@@ -1,4 +1,5 @@
 """Document every fixed sparse-training result and its audit in English."""
+from analysis.action_mapping_correction import ACTION_NOTICE
 import argparse
 from pathlib import Path
 import numpy as np
@@ -28,7 +29,7 @@ def build(project):
       'checks':['Disjoint train/early-stop/test patients','Checkpoint/protocol hashes','First maximum validation epoch','Exact label alignment','Independent pairwise AUROC for all methods/sequences'],
       'not_claimed':'Bitwise training reproduction or external clinical validation'}
     write_json(root/'audit.json',audit)
-    lines=['# Sparse-observation training: negative result','',
+    lines=[ACTION_NOTICE,'','# Sparse-observation training: negative result','',
       'Ten new local fits tested whether matching training inputs to an eight-measurement acquisition task improves the numerical scorer. The fixed experiment did **not** improve performance and these weights are **not adopted**. No Gemini requests were made.','',
       '## Controlled comparison','',
       'The same 35 patients and five outer splits were used. Each model fitted 21 patients and used seven different patients for early stopping. Every outer test patient remained excluded from fitting, normalization and early stopping. Training sampled 1-8 whole stimulation columns per patient per batch. Early stopping used two fixed eight-column validation subsets. Architecture/optimizer presets, the 25-epoch ceiling and patience 5 were fixed.','',

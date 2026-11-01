@@ -1,3 +1,5 @@
+> **Action-mapping correction (2026-11-01):** Processed array columns are not shared physical stimulation sites across recording contacts. Metadata matching confirms that one column can mix several anatomical pairs. Historical v4-v10 subset-selection counts represent array-column ablation, **not eight physical stimulations or validated target selection**. That physical interpretation is withdrawn; recorded results remain preserved. Full-response SOZ classification does not require this alignment and is unaffected. See the [action-grain audit](https://github.com/ScienceClaw-Anya/anya/blob/main/docs/spes-physical-action-audit.md).
+
 # Anya / NeuroTarget Swarm
 
 ScienceClaw + Gemini agents study diagnostic stimulation in a Virtual Epileptic Patient (VEP) sandbox and SOZ contact ranking from real SPES recordings.
@@ -34,11 +36,18 @@ random **0.7357**; its spending gate failed. The phase-zero secondary scored
 primary. All rows passed independent feature/target/budget/outcome auditing.
 See the [English v8 report](docs/spes-agent-v8-report.md).
 
-The running [v9 prototype](experiments/spes_agent_v9/README.md) adds two
-observed-only hypothetical-response predictors before learning query value.
-Estimated candidate responses are explicitly predictions, never observed
-feedback. It reuses source-held-out models, tests numerical utility first and
-does not yet claim improved performance or collaboration benefit.
+The [v9 prototype](experiments/spes_agent_v9/README.md) stopped after 106/315
+numerical trajectories when the physical action assumption failed; 209 remaining
+or unfinished trajectories were canceled. The v10 contact models were fitted but
+outer evaluation was blocked. All records are retained as column-ablation work.
+
+The replacement [physical-pair environment](experiments/spes_physical/README.md)
+maps real recorded anatomical pairs across different compact response columns.
+All 35 patients show mixed physical pairs within old columns. Geometry verifies
+114,021 cells; 253 ambiguous cells are excluded. The two-position smoke and an
+actual HAT remap-invariance check passed. See the
+[English action-grain correction](docs/spes-physical-action-audit.md).
+No new agent-performance claim is made before a new physically valid benchmark.
 
 ## Current research: complementary models and real-feedback acquisition
 

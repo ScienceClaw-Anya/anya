@@ -1,0 +1,8 @@
+{
+  "status": "stopped_invalid_physical_action_mapping",
+  "completed_trajectories": 106,
+  "remaining_canceled_or_unfinished": 209,
+  "new_API_calls": 0,
+  "physical_interpretation": "withdrawn; column-ablation only",
+  "multi_agent_superiority_established": false
+}

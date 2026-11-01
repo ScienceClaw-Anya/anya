@@ -234,5 +234,10 @@
   "formal_calls": 120,
   "formal_accepted": 120,
   "multi_agent_superiority_established": false,
-  "clinical_benefit_established": false
+  "clinical_benefit_established": false,
+  "action_grain_correction": {
+    "physical_stimulation_interpretation": "withdrawn",
+    "valid_interpretation": "recorded array-column ablation; full-response classification unaffected",
+    "audit": "docs/spes-physical-action-audit.md"
+  }
 }
