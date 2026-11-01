@@ -1,0 +1,49 @@
+{
+  "version": 3,
+  "status": "inner_training",
+  "completed_inner_fits": 27,
+  "expected_inner_fits": 60,
+  "training_fit_seconds_sum": 1560.4677993007936,
+  "selector_config": {
+    "ridge_alpha": 100.0,
+    "minimum_gain": 0.005,
+    "family_alpha": 0.05,
+    "bootstrap_draws": 10000,
+    "bootstrap_seed": 4701,
+    "features": [
+      "transformer_std",
+      "convergent_disagreement",
+      "divergent_disagreement",
+      "convergent_top10_overlap"
+    ],
+    "eligibility": "Bonferroni one-sided patient-bootstrap lower bound exceeds minimum_gain on inner OOF predictions",
+    "activation": "Eligible candidate with highest ridge-predicted patient AUROC gain, only if predicted gain exceeds minimum_gain"
+  },
+  "candidate_weights": {
+    "transformer": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "convergent_10": [
+      0.0,
+      0.1,
+      0.9
+    ],
+    "divergent_10": [
+      0.1,
+      0.0,
+      0.9
+    ],
+    "both_20": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  "source_evidence": {
+    "training_protocol_sha256": "9e0d08b1bbe87273b8d2bd3a67aa6452579027914a915a9af45e5f2356b16077"
+  },
+  "scope": "Exploratory first-repeat study on 35 previously inspected public-code patients; not external clinical validation",
+  "reporting_source_sha256": "7bd516399d60fb093a962aea3d9e12bfbe69da30eb0e4301632ff4a4f7fdad75"
+}
